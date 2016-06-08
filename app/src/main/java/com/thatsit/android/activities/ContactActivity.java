@@ -71,6 +71,7 @@ import com.thatsit.android.adapter.CustomExpandAdapter;
 import com.thatsit.android.adapter.NavigationAdapter;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.beans.GCMClientManager;
+import com.thatsit.android.beans.GcmTokenIQ;
 import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.thatsit.android.fragement.FragmentBasicSetting;
 import com.thatsit.android.fragement.FragmentChatHistoryScreen;
@@ -85,6 +86,13 @@ import com.thatsit.android.interfaces.SubscriptionHistoryInterface;
 import com.thatsit.android.interfaces.ValidateUserLoginInterface;
 import com.thatsit.android.interfaces.ValidateUserStatusIdInterface;
 import com.thatsit.android.xmpputils.Constants;
+import com.thatsit.android.xmpputils.XmppManager;
+
+import org.jivesoftware.smack.PacketListener;
+import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.filter.PacketFilter;
+import org.jivesoftware.smack.packet.IQ;
+import org.jivesoftware.smack.packet.Packet;
 
 /**
  * This is the main container on which fragments are implemented.
@@ -130,7 +138,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	private List<NavigationAdapter> listParent;
 	private HashMap<String, List<String>> listDataChild;
 	private View lastColored;
-	private String PROJECT_NUMBER="354278772391";
+	private String PROJECT_NUMBER="354278772391";//"773007732943";
 	private String registrationID;
 	//private NetworkChangeReceiver networkChangeReceiver;
 
@@ -138,6 +146,18 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_contacts);
+
+		//
+		// [2016/06/07 10:16 KSH] Show version & build number.
+		//
+		try {
+			TextView w_txtVersion = (TextView) findViewById(R.id.txt_version);
+			String w_strVersionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+			int w_nVersionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+			w_txtVersion.setText(String.format("Version : %s, Build number : %d", w_strVersionName, w_nVersionCode));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		try {
 			initialise_SharedPreference();
@@ -213,6 +233,10 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 				registrationID = registrationId;
 				new UserStatusIdAsync(ContactActivity.this, mValidateUserStatusIdInterface).execute();
 
+				//
+				// [2016/06/04 05:35 KSH]Register GCM token to the openfire server.
+				//
+				registerGcmTokenToOpenfire(registrationId);
 			}
 
 			@Override
@@ -220,6 +244,26 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 				super.onFailure(ex);
 			}
 		});
+	}
+
+	/**
+	 * Register the GCM token to the openfire xmpp server so that our plugin can use it.
+	 */
+	private void registerGcmTokenToOpenfire(String p_strGcmToken) {
+		try {
+			XmppManager w_xmppManager = XmppManager.getInstance();
+			XMPPConnection w_xmppConnection = w_xmppManager.getXMPPConnection();
+
+			GcmTokenIQ w_iq = new GcmTokenIQ();
+			w_iq.setTo(Constants.HOST);
+			w_iq.setType(IQ.Type.SET);
+			w_iq.setPacketID("apns68057d6a");
+			w_iq.setGcmToken(p_strGcmToken);
+			w_xmppConnection.sendPacket(w_iq);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
 	}
 
 	public void sendUserLoginStatus(String statusID) {
@@ -612,6 +656,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Account Disabled"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Account Paused"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("checkExpiryStatus"));
+		this.registerReceiver(mMessageReceiver,new IntentFilter("Offline Xmpp Signal"));
 		try {
 			this.registerReceiver(one2OneChatReceiver,new IntentFilter(MainService.CHAT));
 		} catch (Exception e) {
@@ -996,6 +1041,14 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 				}
 				else if(intent.getAction().equals("checkExpiryStatus")){
 					callExpiryWebService();
+				} else if (intent.getAction().equals("Offline Xmpp Signal")) {
+					//
+					// [2016/06/06 04:02 KSH] Offline -> online signal received via GCM.
+					//
+					//if(!(MainService.mService.connection.isConnected()|| MainService.mService.connection.isAuthenticated())){
+						MainService.mService.connectAsync();
+						Utility.showMessage("Resume connection...");
+					//}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

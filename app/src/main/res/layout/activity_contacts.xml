@@ -17,7 +17,7 @@
         android:id="@+id/tabs_lnrlayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/txt_version"
         android:background="@drawable/tabbar_img_bottom"
         android:orientation="horizontal"
         android:padding="5dp"
@@ -115,5 +115,13 @@
                 android:layout_below="@+id/btn_account"/>
         </RelativeLayout>
     </LinearLayout>
+
+    <TextView android:id="@+id/txt_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:text="Version : 17, Build number : 2"/>
 
 </RelativeLayout>
