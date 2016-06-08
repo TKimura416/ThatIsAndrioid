@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_muc_chat.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_muc_chat.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_account_tab_basic_settings.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_account_tab_basic_settings.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/custom_list_view_child.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/custom_list_view_child.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/create_group_dialog.xml",
@@ -16,28 +16,32 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/login_promt.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_invite_group.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_invite_group.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/suggest_contact_activity.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/suggest_contact_activity.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/emoticons_grid.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/emoticons_grid.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/connection_error_alert_dialog.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/connection_error_alert_dialog.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/dialog_signin.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/dialog_signin.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_fileexplorer.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_fileexplorer.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_subscription.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_subscription.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_payment_confirmation_screen.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_payment_confirmation_screen.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/groupinfo_item.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/groupinfo_item.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_invitations_received.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_invitations_received.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/custom_list_view.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/custom_list_view.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_account_tab_chat_settings.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_account_tab_chat_settings.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_subscription.xml",
@@ -46,10 +50,6 @@
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/drawer_list_item.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/drawer_list_item.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_welcom.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_welcom.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/emoticons_grid.xml",
@@ -64,12 +64,20 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_chat_history_screen.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_planet.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_planet.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_group_chat_modified.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_group_chat_modified.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_suggest_contact.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_suggest_contact.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_payment_setting.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_fragment_payment_setting.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invite_screen.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_invite_screen.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_change_login_password_screen.xml",
@@ -80,224 +88,16 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/contact_search_dialog_layout.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_invitations_received.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_fragment_invitations_received.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/custom_list_view.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/custom_list_view.xml"
     },
     {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invitations_received.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_invitations_received.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/splash_activity.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/splash_activity.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_payment_setting.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_payment_setting.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/file_explorer_row.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/file_explorer_row.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/gridview_layout.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/gridview_layout.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_suggest_contact.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_suggest_contact.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_group_info.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_group_info.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/notification_manager.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/notification_manager.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/create_group_dialog.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/create_group_dialog.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/splash_activity.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/splash_activity.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/login_promt_authentication.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/login_promt_authentication.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_contacts.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_contacts.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invitations_received.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_invitations_received.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_blurred.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_blurred.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/dialog_signin.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/dialog_signin.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_contacts.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_contacts.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_account_tab_chat_settings.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_account_tab_chat_settings.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_register.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_register.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_muc_chat.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_muc_chat.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_change_login_password_screen.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_change_login_password_screen.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/row_chat_roster.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/row_chat_roster.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/subscription.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/subscription.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/contact_search_dialog_layout.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/contact_search_dialog_layout.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_account_tab_basic_settings.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_account_tab_basic_settings.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/notification_manager.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/notification_manager.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_chat_history.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_fragment_chat_history.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragements_contacts.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragements_contacts.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/custom_list_view_child.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/custom_list_view_child.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invitations_sent.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_invitations_sent.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_invite_group.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_invite_group.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_fileexplorer.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_fileexplorer.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_invitations_sent.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_fragment_invitations_sent.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_chat_discuss.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_fragment_chat_discuss.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/connection_error_alert_dialog.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/connection_error_alert_dialog.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_invite_group.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_invite_group.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_fileexplorer.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_fileexplorer.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_payment_confirmation_screen.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_payment_confirmation_screen.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_planet.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_planet.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragements_contacts.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_fragements_contacts.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/renew_id_dialog.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/renew_id_dialog.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_invitations_received.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_invitations_received.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invite_screen.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_invite_screen.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_account_tab_chat_settings.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_account_tab_chat_settings.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_payment_confirmation_screen.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_payment_confirmation_screen.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/login_promt.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/login_promt.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_planet.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_planet.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_group_chat_modified.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_group_chat_modified.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/listitem.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/listitem.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invite_screen.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_invite_screen.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/subscription.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/subscription.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/custom_list_view_child.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/custom_list_view_child.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_group_chat_modified.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_group_chat_modified.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invitations_sent.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_invitations_sent.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_invitations_received.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_invitations_received.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/renew_id_dialog.xml",
@@ -312,56 +112,44 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/fragment_contacts.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/terms_conditions_activity.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/terms_conditions_activity.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_chat_history.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_chat_history.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragements_chat_groups.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/adapter_fragements_chat_groups.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_payment_setting.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_payment_setting.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/login_promt_authentication.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/login_promt_authentication.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_chat_screen.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_chat_screen.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_invitations_sent.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_invitations_sent.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/gridview_layout.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/gridview_layout.xml"
     },
     {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_invitations_sent.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_invitations_sent.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/file_explorer_row.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/file_explorer_row.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/connection_error_alert_dialog.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/connection_error_alert_dialog.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/row_chat_roster.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/row_chat_roster.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/notification_manager.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/notification_manager.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/spinner_items.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/spinner_items.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/suggest_contact_activity.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/suggest_contact_activity.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_account_payment_settings.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_account_payment_settings.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/splash_activity.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/splash_activity.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_blurred.xml",
@@ -376,28 +164,32 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_group_info.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/dialog_signin.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/dialog_signin.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_register.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_register.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/groupinfo_item.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/groupinfo_item.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_muc_chat.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/activity_muc_chat.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragment_chat_discuss.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragment_chat_discuss.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_register.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/activity_register.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/subscription.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/subscription.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/terms_conditions_activity.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/terms_conditions_activity.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/drawer_list_item.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/drawer_list_item.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_chat_history_screen.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/fragment_chat_history_screen.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/fragment_chat_screen.xml",
@@ -408,8 +200,8 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/listitem.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/spinner_items.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw600dp/spinner_items.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/adapter_fragements_contacts.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw600dp/adapter_fragements_contacts.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw600dp-v13/activity_contacts.xml",

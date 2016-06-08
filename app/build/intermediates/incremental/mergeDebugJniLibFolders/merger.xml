@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/arslanihsan/Downloads/That&apos;s It  19 May 2016/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/arslanihsan/Downloads/That&apos;s It  19 May 2016/app/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/arslanihsan/TBOX/ThatsIt/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/arslanihsan/TBOX/ThatsIt/app/src/debug/jniLibs"/></dataSet></merger>

@@ -1,63 +1,67 @@
 [
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_dark.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/file_star.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/file_star.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_tab_indicator_material.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_mono_light.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_mono_light.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/deny_terms_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/deny_terms_selector.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_dark.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_dark.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_light.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/accept_btn_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/accept_btn_selector.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_settings_light.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_settings_light.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/notification_star.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/notification_star.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/cancel_btn_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/cancel_btn_selector.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/deny_btn_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/deny_btn_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_edit_text_material.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/signout_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/signout_btn_selector.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/delete_groupbtn_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/delete_groupbtn_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/delete_contact_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/delete_contact_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/signin_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/signin_btn_selector.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_borderless_material.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/register_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/register_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/row_highlighter_child.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/row_highlighter_child.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_settings_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_settings_dark.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/row_highlighter.xml",
@@ -68,36 +72,12 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/app_icon.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_textfield_search_material.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/invite_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/invite_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/download_arrow_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/download_arrow_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/row_highlighter.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/row_highlighter.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_borderless_material.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/round_rect_shape.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/round_rect_shape.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/download_animation.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/download_animation.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/logo_bg_white.png",
@@ -108,20 +88,28 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/submit_btn_selector.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_pause_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_pause_dark.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/signout_btn_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/signout_btn_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/row_highlighter_child.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/row_highlighter_child.xml"
     },
     {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_light.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/send_button.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/send_button.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/star.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/star.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
@@ -132,24 +120,24 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_textfield_search_material.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/contact_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/contact_selector.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/download_arrow_dark.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/download_arrow_dark.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/circle_shape.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/circle_shape.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/credential_accept_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/credential_accept_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/invite_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/invite_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_light.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/done_btn_basic_selector.xml",
@@ -172,354 +160,6 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_connecting_mono_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_connecting_mono_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/group_btn_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/group_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/deny_terms_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/deny_terms_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/credential_decline_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/credential_decline_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/send_button.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/send_button.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_full_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_ratingbar_full_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_play_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_play_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_check_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_mono_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_mono_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_radio_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_check_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/file_notification_icon.jpg",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/file_notification_icon.jpg"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/custom_groups_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/custom_groups_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_internal_bg.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/logo.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/logo.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_full_material.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_ratingbar_full_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/group_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/group_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/credential_decline_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/credential_decline_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_connecting_mono_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_connecting_mono_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/done_btn_basic_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/done_btn_basic_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_cast_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_cast_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/app_icon_notification.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/app_icon_notification.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_pause_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_pause_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_spinner_textfield_background_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/download_arrow_light.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/download_arrow_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/submit_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/submit_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_light.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/deny_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/deny_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/logo_splash.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/logo_splash.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_item_background_holo_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_play_light.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_play_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_spinner_textfield_background_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/group_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/group_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/blue_bar.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/blue_bar.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_play_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_play_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_cast_light.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_cast_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/download_arrow_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/download_arrow_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/group_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/group_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/star.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/star.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/buy_id_btn_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/buy_id_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/download_animation.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/download_animation.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/blue_bar.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/blue_bar.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_internal_bg.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/message_bar.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/message_bar.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_mono_light.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_mono_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/deny_terms_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/deny_terms_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/accept_btn_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/accept_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_settings_light.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_settings_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/notification_star.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/notification_star.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/cancel_btn_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/cancel_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_settings_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_settings_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_mono_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_mono_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/notification_star.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/notification_star.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/delete_groupbtn_selector.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/delete_groupbtn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_text_cursor_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_borderless_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/circle_shape.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/circle_shape.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/sendinvite_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/sendinvite_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_item_background_holo_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_settings_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_settings_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_switch_thumb_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/credential_accept_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/credential_accept_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/refresh_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/refresh_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/notification_thumb.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/notification_thumb.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_pause_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_pause_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/row_highlighter_child.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/row_highlighter_child.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/buy_id_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/buy_id_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/send_button.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/send_button.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_play_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_play_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/circle_shape.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/circle_shape.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_text_cursor_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/cancel_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/cancel_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/app_icon.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/app_icon.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/logo_bg_white.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/logo_bg_white.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/done_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/done_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_dark.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_edit_text_material.xml"
     },
@@ -532,10 +172,6 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/delete_contact_btn_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/delete_groupbtn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/delete_groupbtn_selector.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/sendinvite_btn_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/sendinvite_btn_selector.xml"
     },
@@ -544,32 +180,24 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/register_btn_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_connecting_mono_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_connecting_mono_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/app_icon_notification.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/app_icon_notification.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/group_btn_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/group_btn_selector.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/message_field.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/message_field.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/accept_btn_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/accept_btn_selector.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/credential_decline_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/credential_decline_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_dark.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_dark.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/signin_btn_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/signin_btn_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/file_star.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/file_star.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
@@ -580,80 +208,68 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/accept_btn_tabs_selector.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_text_light.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/logo_splash.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/logo_splash.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_settings_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_settings_dark.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/logo.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/logo.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_dark.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_dark.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/custom_groups_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/custom_groups_selector.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/logo.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/logo.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/done_btn_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/done_btn_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/accept_btn_tabs_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/accept_btn_tabs_selector.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_full_material.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_ratingbar_full_material.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_top_material.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/round_blank_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/round_blank_img.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_connecting_mono_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_media_route_connecting_mono_dark.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_top_material.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/accept_terms_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/accept_terms_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_default_mtrl_shape.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/app_icon_notification.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/app_icon_notification.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/file_notification_icon.jpg",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/file_notification_icon.jpg"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/message_bar.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/message_bar.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/custom_groups_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/custom_groups_selector.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_light.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_icon_light.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/round_rect_shape.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/round_rect_shape.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/download_arrow_light.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/download_arrow_light.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/custom_contact_selector.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/custom_contact_selector.xml"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_cast_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_cast_dark.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_light.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_plus_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_connecting_mono_light.xml",
@@ -664,32 +280,44 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_light.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/contact_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/contact_selector.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_play_light.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_play_light.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/refresh_selector.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/refresh_selector.xml"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/group_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/group_selector.xml"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_play_dark.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_play_dark.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/notification_thumb.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/notification_thumb.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/mr_ic_pause_dark.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_pause_dark.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/cast_ic_notification_connecting.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable/cast_ic_notification_connecting.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/mr_ic_cast_light.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable/mr_ic_cast_light.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
@@ -704,16 +332,20 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/custom_contact_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/message_field.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/message_field.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/buy_id_btn_selector.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/buy_id_btn_selector.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/appicon.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable/appicon.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/download_animation.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/download_animation.xml"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable/cast_ic_notification_connecting.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable/cast_ic_notification_connecting.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/blue_bar.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/blue_bar.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/round_blank_img.png",
@@ -726,5 +358,9 @@
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_light.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable/message_bar.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable/message_bar.xml"
     }
 ]

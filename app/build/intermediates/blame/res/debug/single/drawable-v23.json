@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-v23/abc_control_background_material.xml"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-v23/abc_control_background_material.xml"
     }

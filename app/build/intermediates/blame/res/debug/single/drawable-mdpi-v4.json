@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/message_icon_sm.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/radio_btn.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/radio_btn.png"
     },
@@ -12,44 +8,44 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/sent_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/places_ic_clear.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/places_ic_clear.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/received_btn_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/received_btn_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contact_bottom_bar.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/contact_bottom_bar.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_rating_star_off_mtrl_alpha.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_sm.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/message_icon_sm.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/delete_contact_btn_hover.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/delete_contact_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/number_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/number_img.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_clear_mtrl_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_clear_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contacts_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/contacts_btn_hover.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_discard.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/ic_action_discard.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_on_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_light.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/simple_textfiled.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/simple_textfiled.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/cast_ic_notification_on.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable-mdpi/cast_ic_notification_on.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_in_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/sign_in_btn.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_search_api_mtrl_alpha.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_normal.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_normal.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png",
@@ -60,28 +56,40 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/invite_btn_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/invite_btn_sm.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/red_bar.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/red_bar.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_setting_light.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_setting_light.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/copy_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/copy_btn.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/register_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/register_btn_hover.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_copy.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/ic_action_copy.png"
     },
     {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_pressed.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_pressed.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_on_1_light.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_1_light.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_normal.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_pressed.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_pressed.9.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/signout_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/signout_btn_hover.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/add_user_icon.png",
@@ -112,100 +120,92 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/cut.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_setting_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_setting_light.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_out_btn.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/sign_out_btn.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/busy.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/busy.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_focused.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_on_0_light.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_0_light.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/buy_that_btn_hover.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/buy_that_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_switch_to_on_mtrl_00001.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_disabled.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_disabled.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/submit_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/submit_btn.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_pressed.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_pressed.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_play.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_play.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_icon_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/user_icon_sm.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_focused_holo.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_focused_holo.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contact_icon_hover.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/contact_icon_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/comment_icon_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/comment_icon_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/refresh_icon.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/refresh_icon.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_tall_off_client.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_tall_off_client.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_simle_img.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_simle_img.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/mid_line.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/mid_line.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_normal.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_normal.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_check_to_on_mtrl_000.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/refresh_icon_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/refresh_icon_hover.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_disabled_mono_dark.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_disabled_mono_dark.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_switch_to_on_mtrl_00012.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/done_btn.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/line.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/line.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/message_icon_hover.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/places_ic_clear.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/places_ic_clear.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_pressed.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_pressed.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_standard_off_client.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_standard_off_client.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/send_icon.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/send_icon.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/tabbar_img_bottom.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/tabbar_img_bottom.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_disabled.9.png",
@@ -216,52 +216,28 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable-mdpi/cast_ic_notification_0.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_pressed.9.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_small_off_client.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_small_off_client.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/reg_spinner_simple_txtfiled.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/reg_spinner_simple_txtfiled.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/enter_password_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/enter_password_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_img.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/user_img.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/mid_line.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/mid_line.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/remove_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/remove_btn.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_img.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_img.png"
     },
     {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/remove_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/remove_btn.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/more_icon.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/more_icon.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/buy_that_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/buy_that_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/deny_btn_sm_in.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/deny_btn_sm_in.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_disabled.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/payment_settings.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/payment_settings.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/decline_btn.png",
@@ -272,52 +248,52 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_setting_dark.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_popup_background_mtrl_mult.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_play.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_play.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/list_textfiled.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/list_textfiled.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/accept_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/right_arrow.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/right_arrow.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/bg_textfiled_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/bg_textfiled_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_in_btn_confirm.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/sign_in_btn_confirm.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/comment_icon_sm.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/comment_icon_sm.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_focused.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_settings_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/chat_settings_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_in_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/sign_in_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/enter_textfiled_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/enter_textfiled_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_basic_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/done_btn_basic_hover.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_go_search_api_mtrl_alpha.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_go_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/basic_settings.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/basic_settings.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_light.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_light.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_disabled.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_focused.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_focused.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_medium_off_client.png",
@@ -336,88 +312,100 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_focused.9.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/places_ic_search.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/places_ic_search.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/refresh_icon.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/refresh_icon.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_default_mtrl_alpha.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_pressed.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_pressed.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/group_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/group_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/powered_by_google_dark.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/powered_by_google_dark.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_img_sender.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_img_sender.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_in_btn_hover.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/sign_in_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_disabled.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_2_mono_dark.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_on_2_mono_dark.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_full_open_on_phone.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_full_open_on_phone.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_hover_in.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/accept_btn_hover_in.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_tick_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/chat_tick_btn.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/message_icon_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/submit_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/submit_btn.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_out_btn_hover.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/sign_out_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/online_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/online_img.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/deny_btn_sm_in.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/deny_btn_sm_in.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/delete_contact_btn_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/delete_contact_btn_sm.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/right_arrow.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/right_arrow.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_voice_search_api_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_voice_search_api_mtrl_alpha.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_off_mono_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_off_mono_dark.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/number_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/number_img.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/img.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/received_btn_sm.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/received_btn_sm.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/left_arrow.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/left_arrow.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_disabled.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_disabled.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_clear_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_clear_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_2_mono_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_on_2_mono_dark.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/comment_icon_hover.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/comment_icon_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/unradio_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/unradio_btn.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/logo_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/logo_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_focused.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/logo_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/logo_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_pressed.9.png",
@@ -436,48 +424,32 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/tick.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/user_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_play_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_play_light.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_accept.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/ic_action_accept.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_icon_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/user_icon_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_accept.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/ic_action_accept.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/submit_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/submit_btn_hover.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_normal.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_normal.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/accept_btn.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/delete_contact_btn_sm.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/delete_contact_btn_sm.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_on_1_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_1_light.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/left_arrow.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/left_arrow.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/tick.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/tick.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_focused.9.png",
@@ -488,8 +460,8 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/contacts_btn_sm.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/submit_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/submit_btn_hover.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/register_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/register_btn.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_sm_in.png",
@@ -508,20 +480,36 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_pressed.9.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_basic.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/done_btn_basic.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/deny_btn_hover_in.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/deny_btn_hover_in.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_normal.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/confirm_password_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/confirm_password_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_number_box.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/message_icon_number_box.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/exprins_date_box.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/exprins_date_box.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/reg_spinner_simple_txtfiled.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/reg_spinner_simple_txtfiled.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_pressed.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_pause_light.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_pause_light.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/powered_by_google_light.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/powered_by_google_light.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_disabled.9.png",
@@ -536,20 +524,24 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_img_user.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contacts_btn_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/contacts_btn_sm.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_pause_dark.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_pause_dark.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_focused_holo.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_focused_holo.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/no_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/no_img.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_out_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/sign_out_btn_hover.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_selector_disabled_holo_light.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_check_to_on_mtrl_015.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_settings.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_settings.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_icon_sm.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/user_icon_sm.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_1_mono_dark.png",
@@ -560,40 +552,20 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_normal.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/basic_settings_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/basic_settings_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contacts_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/contacts_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_light_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/cast_ic_notification_1.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable-mdpi/cast_ic_notification_1.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/invite_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/invite_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_disabled.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contact_bottom_bar.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/contact_bottom_bar.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_settings_hover.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_settings_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/exprins_date_box.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/exprins_date_box.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_light_disabled.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_off_light.png",
@@ -612,32 +584,48 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/groups_btn_sm.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/buy_that_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/buy_that_btn.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_cut.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/ic_action_cut.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_basic.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/done_btn_basic.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/enter_textfiled_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/enter_textfiled_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_divider_mtrl_alpha.9.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_icon_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/user_icon_hover.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_disabled.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_focused.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_focused.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/basic_settings.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/basic_settings.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_selector_disabled_holo_dark.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_voice_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_dark.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_dark.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/invite_btn_sm.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/invite_btn_sm.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/invite_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/invite_btn_hover.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/groups_btn_hover.png",
@@ -648,40 +636,48 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_on_0_mono_dark.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_go_search_api_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_go_search_api_mtrl_alpha.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_longpressed_holo.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_play_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_play_dark.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/accept_btn.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/comment_icon_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/comment_icon_sm.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/send_icon.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/send_icon.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/profile_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/profile_img.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_tick_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_tick_btn.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_pause.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_pause.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_selectall_mtrl_alpha.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/add_name_img.png",
@@ -692,44 +688,32 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_2_light.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/password_textfiled.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/password_textfiled.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/online_img.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/online_img.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_focused.9.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_full_open_on_phone.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_full_open_on_phone.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_settings.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/chat_settings.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_disabled_light.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_disabled_light.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_disabled.9.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/enter_password_img.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/enter_password_img.png"
     },
     {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_off_mono_dark.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_off_mono_dark.png"
+    },
+    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_disabled.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_pause_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_pause_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/tick_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/tick_btn.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_mono_dark.png",
@@ -740,12 +724,12 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable-mdpi/cast_ic_notification_1.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_normal.9.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_normal.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/delete_group_btn_hover.png",
@@ -760,848 +744,32 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/basic_settings_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_normal.9.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_disabled.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_tall_off_client.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_tall_off_client.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/delete_contact_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/delete_contact_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_play_light.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_play_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_focused.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_light_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_share_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/bottom_bg_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/bottom_bg_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/received_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/received_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/profile_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/profile_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/copy_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/copy_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/decline_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/decline_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_pressed.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_off_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_off_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_rating_star_on_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_img_sender.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/chat_img_sender.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/unradio_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/unradio_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/done_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_focused.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/reg_simple_txtfiled.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/reg_simple_txtfiled.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_sm.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/message_icon_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_clear_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_clear_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contacts_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/contacts_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_search_api_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/signout_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/signout_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/simple_textfiled.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/simple_textfiled.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/no_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/no_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_in_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/sign_in_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_search_activated_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/red_bar.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/red_bar.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_pause.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_pause.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/remove_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/remove_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_normal.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_normal.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/red_bar.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/red_bar.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/copy_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/copy_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/register_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/register_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_check_to_on_mtrl_000.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/signout_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/signout_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/background_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/background_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_pause_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_pause_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_light_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_normal.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_on_0_light.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_0_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_disabled.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_in_btn_confirm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/sign_in_btn_confirm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_number_box.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/message_icon_number_box.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/submit_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/submit_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/groups_btn_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/groups_btn_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/reg_simple_txtfiled.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/reg_simple_txtfiled.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_focused_holo.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_focused_holo.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_tall_off_client.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_tall_off_client.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/mid_line.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/mid_line.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_mono_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_on_mono_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_disabled_mono_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_disabled_mono_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_disabled_mono_dark.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_disabled_mono_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/simple_textfiled.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/simple_textfiled.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contact_icon_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/contact_icon_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_img_user.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/chat_img_user.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/powered_by_google_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/powered_by_google_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/line.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/line.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/places_ic_clear.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/places_ic_clear.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_pressed.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/register_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/register_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_normal.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/accept_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_pressed_holo_dark.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/add_user_icon.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/add_user_icon.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_disabled.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_simle_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/chat_simle_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/payment_settings.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/payment_settings.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_on_0_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_0_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/decline_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/decline_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_1_mono_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_on_1_mono_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_play.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_play.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/accept_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/bg_textfiled_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/bg_textfiled_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/comment_icon_sm.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/comment_icon_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_normal.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_search_default_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/cast_ic_notification_2.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable-mdpi/cast_ic_notification_2.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_light.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_dark_disabled.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_dark_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_ab_back_mtrl_am_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_ab_back_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/bg_textfiled_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/bg_textfiled_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_focused.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_moreoverflow_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/search_bar.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/search_bar.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/refresh_icon.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/refresh_icon.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/places_ic_search.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/places_ic_search.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_default_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_default_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/group_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/group_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_img_sender.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_img_sender.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_2_mono_dark.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_on_2_mono_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/register_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/register_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_hover_in.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/accept_btn_hover_in.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/message_icon_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/message_icon_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/delete_group_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/delete_group_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/deny_btn_sm_in.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/deny_btn_sm_in.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_light_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_light_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/right_arrow.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/right_arrow.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/bottom_bg_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/bottom_bg_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ab_share_pack_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/splash.jpg",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/splash.jpg"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_disabled_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_disabled_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/number_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/number_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/received_btn_sm.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/received_btn_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/decline_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/decline_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_disabled.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_disabled.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/places_ic_search.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/places_ic_search.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/payment_settings.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/payment_settings.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_activated_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_hover_in.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/accept_btn_hover_in.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_accept.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/ic_action_accept.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/radio_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/radio_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/submit_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/submit_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/accept_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_pressed.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_pressed.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_discard.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/ic_action_discard.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/chat_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_normal.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_light_normal.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/register_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/register_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_activated_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contact_icon_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/contact_icon_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_basic.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/done_btn_basic.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/deny_btn_hover_in.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/deny_btn_hover_in.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/confirm_password_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/confirm_password_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/reg_spinner_simple_txtfiled.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/reg_spinner_simple_txtfiled.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_pause_light.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_pause_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/powered_by_google_light.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/powered_by_google_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ab_share_pack_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/done_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_pause_dark.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_pause_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/no_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/no_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_on_2_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_on_2_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_settings.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_settings.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_icon_sm.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/user_icon_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/delete_group_btn_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/delete_group_btn_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_dark_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_dark_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/contact_bottom_bar.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/contact_bottom_bar.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/exprins_date_box.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/exprins_date_box.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_cut.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/ic_action_cut.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/group_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/group_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/enter_textfiled_img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/enter_textfiled_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/received_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/received_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/user_icon_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/user_icon_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_focused.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_longpressed_holo.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_longpressed_holo.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_dark.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_voice_search_api_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_voice_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sent_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/sent_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/invite_btn_sm.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/invite_btn_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/invite_btn_hover.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/invite_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/logo_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/logo_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_longpressed_holo.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_longpressed_holo.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_default_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_textfield_default_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_pressed_holo_dark.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_moreoverflow_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_in_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/sign_in_btn_hover.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/send_icon.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/send_icon.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/chat_tick_btn.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/chat_tick_btn.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/img.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/more_icon.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/more_icon.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_setting_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_setting_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_rating_star_off_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_rating_star_off_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_full_open_on_phone.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_full_open_on_phone.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_disabled_light.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_disabled_light.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/line.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/line.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_off_mono_dark.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_off_mono_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/powered_by_google_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-mdpi/powered_by_google_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal.9.png",
-        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_text_dark_normal.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/cast_ic_notification_0.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable-mdpi/cast_ic_notification_0.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_media_route_on_0_mono_dark.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_media_route_on_0_mono_dark.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/groups_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/groups_btn_hover.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/buy_that_btn.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/buy_that_btn.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/confirm_password_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/confirm_password_img.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sign_out_btn.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/sign_out_btn.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/password_textfiled.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/password_textfiled.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_ab_back_mtrl_am_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_ab_back_mtrl_am_alpha.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_play_light.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_play_light.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_small_off_client.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_small_off_client.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sent_btn_sm.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/sent_btn_sm.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/deny_btn_hover_in.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/deny_btn_hover_in.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_text_light_focused.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_text_light_focused.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/busy.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/busy.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/bottom_bg_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/bottom_bg_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_basic_hover.png",
@@ -1612,48 +780,36 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_medium_off_client.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_medium_off_client.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/received_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/received_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_plusone_standard_off_client.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/res/drawable-mdpi/ic_plusone_standard_off_client.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_radio_to_on_mtrl_000.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/signout_btn_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/signout_btn_hover.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/profile_img.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/profile_img.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/signout_btn.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/signout_btn.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_focused.9.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_dark_focused.9.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_rating_star_on_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal.9.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_normal.9.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/payment_settings_hover.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/payment_settings_hover.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/decline_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/decline_btn_hover.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_cast_light.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_cast_light.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_plus_signin_btn_icon_light_pressed.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_plus_signin_btn_icon_light_pressed.9.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/cast_ic_notification_2.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/res/drawable-mdpi/cast_ic_notification_2.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_rating_star_on_mtrl_alpha.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/sent_btn_sm.png",
@@ -1664,10 +820,6 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/tabbar_img_bottom.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-mdpi/abc_btn_radio_to_on_mtrl_015.png"
-    },
-    {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_play_dark.png",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/drawable-mdpi/ic_play_dark.png"
     },
@@ -1676,23 +828,23 @@
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/tick_btn.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/accept_btn_sm_in.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/accept_btn_sm_in.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/unradio_btn.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/unradio_btn.png"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_action_copy.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/ic_action_copy.png"
-    },
-    {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/add_name_img.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/add_name_img.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/done_btn_hover.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/done_btn_hover.png"
     },
     {
         "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/splash.jpg",
         "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/splash.jpg"
     },
     {
-        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/cut.png",
-        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-mdpi/cut.png"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_light_focused.9.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-mdpi/common_google_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/reg_simple_txtfiled.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-mdpi/reg_simple_txtfiled.png"
     }
 ]
