@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:id="@+id/welcome"
+                android:layout_height="fill_parent"
+                android:background="@drawable/background_img"
+                tools:context=".WelcomeActivity" >
+
+    <ScrollView
+        android:id="@+id/scrool"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            tools:context=".WelcomeActivity" >
+
+            <RelativeLayout
+                android:id="@+id/rltv_topBar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#474C52" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10dp"
+                    android:text="@string/Sign_In"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/title_text_720_portrait"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_middle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rltv_topBar"
+                android:layout_centerInParent="true"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#000000"
+                    android:text="@string/welcome"
+                    android:textSize="30sp" />
+
+                <ImageView
+                    android:id="@+id/Image_welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/logo_img" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="40dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#000000"
+                    android:text="@string/welcome_text"
+                    android:textSize="@dimen/normal_text_720_portrait" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-10dp"
+                    android:textColor="#000000"
+                    android:text="@string/welcome_text2"
+                    android:textSize="@dimen/normal_text_720_portrait" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_buttom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lnr_middle"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="40dp">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:layout_marginRight="15dp">
+                    <Button
+                        android:id="@+id/btn_signIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/signin_btn_selector" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:layout_marginLeft="15dp">
+
+                    <Button
+                        android:id="@+id/btn_buyID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/buy_id_btn_selector" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/txt_havePincode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#0000ff"
+                    android:textStyle="italic|bold"
+                    android:textSize="20dp"
+                    android:visibility="gone"
+                    android:text="Do You Have A Promotional Code?" />
+            </LinearLayout>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/lnr_buttom"/>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

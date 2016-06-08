@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <LinearLayout
+        android:id="@+id/lnr_upper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/rltv_image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="35" >
+
+            <ImageView
+                android:id="@+id/profile_picture"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true" />
+
+            <ImageView
+                android:id="@+id/friend_images"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/no_img"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/profile_picture"
+              android:minWidth="65dp"
+                android:minHeight="70dp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:layout_marginLeft="-10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/txt_UserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Adap_Contact_Uname"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_star"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/file_star"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_UserDescrption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:singleLine="true"
+                android:text="Hi I Am Using That's It" />
+
+            <TextView
+                android:id="@+id/txt_profileDescrption4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="123gnj7jgd8"
+                android:textStyle="bold"
+                android:textColor="#BA2221" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/D:/StudioWorkSpace/That's%20It%20SVN/app/src/main/res/layout/adapter_fragements_contacts.xml -->

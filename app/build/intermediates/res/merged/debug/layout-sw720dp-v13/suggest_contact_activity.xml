@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+   
+    android:layout_gravity="center"
+    android:background="@drawable/background_img"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/fragInvRec_header_rellayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#474C52" >
+
+        <TextView
+            android:id="@+id/fragInvRec_tv_invitationsReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="Select Contact"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/title_text_720_portrait"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+  
+
+        <ListView
+            android:id="@+id/lst_contacts"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp"
+            android:divider="@color/Gray"
+           
+             
+            android:dividerHeight="1dp" >
+        </ListView>
+   
+
+</LinearLayout>

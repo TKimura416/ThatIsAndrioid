@@ -1,0 +1,2886 @@
+[
+    {
+        "outputFile": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\values-sw720dp-land-v13\\values-sw720dp-land-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 6,
+                    "endColumn": 19,
+                    "endOffset": 217
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 166,
+                        "startColumn": 4,
+                        "startOffset": 15890,
+                        "endLine": 170,
+                        "endColumn": 19,
+                        "endOffset": 16056
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 222,
+                    "endLine": 11,
+                    "endColumn": 19,
+                    "endOffset": 365
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 161,
+                        "startColumn": 4,
+                        "startOffset": 15737,
+                        "endLine": 165,
+                        "endColumn": 19,
+                        "endOffset": 15884
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 370,
+                    "endLine": 16,
+                    "endColumn": 19,
+                    "endOffset": 513
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 419,
+                        "startColumn": 4,
+                        "startOffset": 24313,
+                        "endLine": 423,
+                        "endColumn": 19,
+                        "endOffset": 24460
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 518,
+                    "endLine": 257,
+                    "endColumn": 19,
+                    "endOffset": 8208
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 178,
+                        "startColumn": 4,
+                        "startOffset": 16377,
+                        "endLine": 418,
+                        "endColumn": 19,
+                        "endOffset": 24307
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 258,
+                    "startColumn": 4,
+                    "startOffset": 8213,
+                    "endColumn": 37,
+                    "endOffset": 8246
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 382,
+                        "endColumn": 37,
+                        "endOffset": 415
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 259,
+                    "startColumn": 4,
+                    "startOffset": 8251,
+                    "endColumn": 59,
+                    "endOffset": 8306
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 264,
+                        "endColumn": 59,
+                        "endOffset": 319
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 260,
+                    "startColumn": 4,
+                    "startOffset": 8311,
+                    "endColumn": 55,
+                    "endOffset": 8362
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 325,
+                        "endColumn": 55,
+                        "endOffset": 376
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 261,
+                    "startColumn": 4,
+                    "startOffset": 8367,
+                    "endColumn": 54,
+                    "endOffset": 8417
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 208,
+                        "endColumn": 54,
+                        "endOffset": 258
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 262,
+                    "startColumn": 4,
+                    "startOffset": 8422,
+                    "endColumn": 50,
+                    "endOffset": 8468
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 149,
+                        "startColumn": 4,
+                        "startOffset": 15028,
+                        "endColumn": 50,
+                        "endOffset": 15074
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 263,
+                    "startColumn": 4,
+                    "startOffset": 8473,
+                    "endColumn": 93,
+                    "endOffset": 8562
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 151,
+                        "startColumn": 4,
+                        "startOffset": 15127,
+                        "endColumn": 93,
+                        "endOffset": 15216
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 264,
+                    "startColumn": 4,
+                    "startOffset": 8567,
+                    "endColumn": 81,
+                    "endOffset": 8644
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 152,
+                        "startColumn": 4,
+                        "startOffset": 15222,
+                        "endColumn": 81,
+                        "endOffset": 15299
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 265,
+                    "startColumn": 4,
+                    "startOffset": 8649,
+                    "endColumn": 76,
+                    "endOffset": 8721
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1656,
+                        "endColumn": 76,
+                        "endOffset": 1728
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 266,
+                    "startColumn": 4,
+                    "startOffset": 8726,
+                    "endColumn": 54,
+                    "endOffset": 8776
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 76,
+                        "startColumn": 4,
+                        "startOffset": 5071,
+                        "endColumn": 54,
+                        "endOffset": 5121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 267,
+                    "startColumn": 4,
+                    "startOffset": 8781,
+                    "endColumn": 59,
+                    "endOffset": 8836
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 121,
+                        "startColumn": 4,
+                        "startOffset": 7380,
+                        "endColumn": 59,
+                        "endOffset": 7435
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 268,
+                    "startColumn": 4,
+                    "startOffset": 8841,
+                    "endColumn": 66,
+                    "endOffset": 8903
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 95,
+                        "startColumn": 4,
+                        "startOffset": 5993,
+                        "endColumn": 66,
+                        "endOffset": 6055
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 269,
+                    "startColumn": 4,
+                    "startOffset": 8908,
+                    "endColumn": 39,
+                    "endOffset": 8943
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 159,
+                        "startColumn": 4,
+                        "startOffset": 15694,
+                        "endColumn": 39,
+                        "endOffset": 15729
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 270,
+                    "startColumn": 4,
+                    "startOffset": 8948,
+                    "endColumn": 84,
+                    "endOffset": 9028
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 45,
+                        "startColumn": 4,
+                        "startOffset": 3160,
+                        "endColumn": 84,
+                        "endOffset": 3240
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 271,
+                    "startColumn": 4,
+                    "startOffset": 9033,
+                    "endColumn": 91,
+                    "endOffset": 9120
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 3246,
+                        "endColumn": 91,
+                        "endOffset": 3333
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 272,
+                    "startColumn": 4,
+                    "startOffset": 9125,
+                    "endColumn": 93,
+                    "endOffset": 9214
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 145,
+                        "startColumn": 4,
+                        "startOffset": 14796,
+                        "endColumn": 93,
+                        "endOffset": 14885
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 273,
+                    "startColumn": 4,
+                    "startOffset": 9219,
+                    "endColumn": 53,
+                    "endOffset": 9268
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 2697,
+                        "endColumn": 53,
+                        "endOffset": 2746
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 274,
+                    "startColumn": 4,
+                    "startOffset": 9273,
+                    "endColumn": 47,
+                    "endOffset": 9316
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 148,
+                        "startColumn": 4,
+                        "startOffset": 14979,
+                        "endColumn": 47,
+                        "endOffset": 15022
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 275,
+                    "startColumn": 4,
+                    "startOffset": 9321,
+                    "endColumn": 59,
+                    "endOffset": 9376
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 88,
+                        "startColumn": 4,
+                        "startOffset": 5651,
+                        "endColumn": 59,
+                        "endOffset": 5706
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 276,
+                    "startColumn": 4,
+                    "startOffset": 9381,
+                    "endColumn": 65,
+                    "endOffset": 9442
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 87,
+                        "startColumn": 4,
+                        "startOffset": 5584,
+                        "endColumn": 65,
+                        "endOffset": 5645
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 277,
+                    "startColumn": 4,
+                    "startOffset": 9447,
+                    "endColumn": 80,
+                    "endOffset": 9523
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1492,
+                        "endColumn": 80,
+                        "endOffset": 1568
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 278,
+                    "startColumn": 4,
+                    "startOffset": 9528,
+                    "endColumn": 39,
+                    "endOffset": 9563
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 157,
+                        "startColumn": 4,
+                        "startOffset": 15600,
+                        "endColumn": 39,
+                        "endOffset": 15635
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 279,
+                    "startColumn": 4,
+                    "startOffset": 9568,
+                    "endColumn": 45,
+                    "endOffset": 9609
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 147,
+                        "startColumn": 4,
+                        "startOffset": 14932,
+                        "endColumn": 45,
+                        "endOffset": 14973
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 280,
+                    "startColumn": 4,
+                    "startOffset": 9614,
+                    "endColumn": 69,
+                    "endOffset": 9679
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 113,
+                        "startColumn": 4,
+                        "startOffset": 6947,
+                        "endColumn": 69,
+                        "endOffset": 7012
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 281,
+                    "startColumn": 4,
+                    "startOffset": 9684,
+                    "endColumn": 67,
+                    "endOffset": 9747
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 2186,
+                        "endColumn": 67,
+                        "endOffset": 2249
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 282,
+                    "startColumn": 4,
+                    "startOffset": 9752,
+                    "endColumn": 60,
+                    "endOffset": 9808
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 2383,
+                        "endColumn": 60,
+                        "endOffset": 2439
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 283,
+                    "startColumn": 4,
+                    "startOffset": 9813,
+                    "endColumn": 44,
+                    "endOffset": 9853
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 3339,
+                        "endColumn": 44,
+                        "endOffset": 3379
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 284,
+                    "startColumn": 4,
+                    "startOffset": 9858,
+                    "endColumn": 45,
+                    "endOffset": 9899
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 156,
+                        "startColumn": 4,
+                        "startOffset": 15553,
+                        "endColumn": 45,
+                        "endOffset": 15594
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 285,
+                    "startColumn": 4,
+                    "startOffset": 9904,
+                    "endColumn": 61,
+                    "endOffset": 9961
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 120,
+                        "startColumn": 4,
+                        "startOffset": 7317,
+                        "endColumn": 61,
+                        "endOffset": 7374
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 286,
+                    "startColumn": 4,
+                    "startOffset": 9966,
+                    "endColumn": 37,
+                    "endOffset": 9999
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 86,
+                        "startColumn": 4,
+                        "startOffset": 5545,
+                        "endColumn": 37,
+                        "endOffset": 5578
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 287,
+                    "startColumn": 4,
+                    "startOffset": 10004,
+                    "endColumn": 80,
+                    "endOffset": 10080
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1890,
+                        "endColumn": 80,
+                        "endOffset": 1966
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 288,
+                    "startColumn": 4,
+                    "startOffset": 10085,
+                    "endColumn": 59,
+                    "endOffset": 10140
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 2012,
+                        "endColumn": 59,
+                        "endOffset": 2067
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 289,
+                    "startColumn": 4,
+                    "startOffset": 10145,
+                    "endColumn": 49,
+                    "endOffset": 10190
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 70,
+                        "startColumn": 4,
+                        "startOffset": 4760,
+                        "endColumn": 49,
+                        "endOffset": 4805
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 290,
+                    "startColumn": 4,
+                    "startOffset": 10195,
+                    "endColumn": 68,
+                    "endOffset": 10259
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1734,
+                        "endColumn": 68,
+                        "endOffset": 1798
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 291,
+                    "startColumn": 4,
+                    "startOffset": 10264,
+                    "endColumn": 55,
+                    "endOffset": 10315
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 114,
+                        "startColumn": 4,
+                        "startOffset": 7018,
+                        "endColumn": 55,
+                        "endOffset": 7069
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 292,
+                    "startColumn": 4,
+                    "startOffset": 10320,
+                    "endColumn": 59,
+                    "endOffset": 10375
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 2073,
+                        "endColumn": 59,
+                        "endOffset": 2128
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 293,
+                    "startColumn": 4,
+                    "startOffset": 10380,
+                    "endColumn": 48,
+                    "endOffset": 10424
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 2134,
+                        "endColumn": 48,
+                        "endOffset": 2178
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 294,
+                    "startColumn": 4,
+                    "startOffset": 10429,
+                    "endColumn": 77,
+                    "endOffset": 10502
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 4,
+                        "startOffset": 2528,
+                        "endColumn": 77,
+                        "endOffset": 2601
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 295,
+                    "startColumn": 4,
+                    "startOffset": 10507,
+                    "endColumn": 55,
+                    "endOffset": 10558
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 2255,
+                        "endColumn": 55,
+                        "endOffset": 2306
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 296,
+                    "startColumn": 4,
+                    "startOffset": 10563,
+                    "endColumn": 33,
+                    "endOffset": 10592
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 69,
+                        "startColumn": 4,
+                        "startOffset": 4725,
+                        "endColumn": 33,
+                        "endOffset": 4754
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 297,
+                    "startColumn": 4,
+                    "startOffset": 10597,
+                    "endColumn": 81,
+                    "endOffset": 10674
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 2445,
+                        "endColumn": 81,
+                        "endOffset": 2522
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 298,
+                    "startColumn": 4,
+                    "startOffset": 10679,
+                    "endColumn": 51,
+                    "endOffset": 10726
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 158,
+                        "startColumn": 4,
+                        "startOffset": 15641,
+                        "endColumn": 51,
+                        "endOffset": 15688
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 299,
+                    "startColumn": 4,
+                    "startOffset": 10731,
+                    "endColumn": 82,
+                    "endOffset": 10809
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1408,
+                        "endColumn": 82,
+                        "endOffset": 1486
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 300,
+                    "startColumn": 4,
+                    "startOffset": 10814,
+                    "endColumn": 69,
+                    "endOffset": 10879
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 66,
+                        "startColumn": 4,
+                        "startOffset": 4615,
+                        "endColumn": 69,
+                        "endOffset": 4680
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 301,
+                    "startColumn": 4,
+                    "startOffset": 10884,
+                    "endColumn": 53,
+                    "endOffset": 10933
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 112,
+                        "startColumn": 4,
+                        "startOffset": 6892,
+                        "endColumn": 53,
+                        "endOffset": 6941
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 302,
+                    "startColumn": 4,
+                    "startOffset": 10938,
+                    "endColumn": 39,
+                    "endOffset": 10973
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 146,
+                        "startColumn": 4,
+                        "startOffset": 14891,
+                        "endColumn": 39,
+                        "endOffset": 14926
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 303,
+                    "startColumn": 4,
+                    "startOffset": 10978,
+                    "endColumn": 53,
+                    "endOffset": 11027
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 111,
+                        "startColumn": 4,
+                        "startOffset": 6837,
+                        "endColumn": 53,
+                        "endOffset": 6886
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 304,
+                    "startColumn": 4,
+                    "startOffset": 11032,
+                    "endColumn": 69,
+                    "endOffset": 11097
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 2312,
+                        "endColumn": 69,
+                        "endOffset": 2377
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 305,
+                    "startColumn": 4,
+                    "startOffset": 11102,
+                    "endColumn": 259,
+                    "endOffset": 11357
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 4,
+                        "startOffset": 3385,
+                        "endColumn": 259,
+                        "endOffset": 3640
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 306,
+                    "startColumn": 4,
+                    "startOffset": 11362,
+                    "endColumn": 61,
+                    "endOffset": 11419
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 49,
+                        "startColumn": 4,
+                        "startOffset": 3646,
+                        "endColumn": 61,
+                        "endOffset": 3703
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 307,
+                    "startColumn": 4,
+                    "startOffset": 11424,
+                    "endColumn": 84,
+                    "endOffset": 11504
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1804,
+                        "endColumn": 84,
+                        "endOffset": 1884
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 308,
+                    "startColumn": 4,
+                    "startOffset": 11509,
+                    "endColumn": 90,
+                    "endOffset": 11595
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 4,
+                        "startOffset": 3776,
+                        "endColumn": 90,
+                        "endOffset": 3862
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 309,
+                    "startColumn": 4,
+                    "startOffset": 11600,
+                    "endColumn": 45,
+                    "endOffset": 11641
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 150,
+                        "startColumn": 4,
+                        "startOffset": 15080,
+                        "endColumn": 45,
+                        "endOffset": 15121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 310,
+                    "startColumn": 4,
+                    "startOffset": 11646,
+                    "endColumn": 57,
+                    "endOffset": 11699
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 64,
+                        "startColumn": 4,
+                        "startOffset": 4485,
+                        "endColumn": 57,
+                        "endOffset": 4538
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 311,
+                    "startColumn": 4,
+                    "startOffset": 11704,
+                    "endColumn": 69,
+                    "endOffset": 11769
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 65,
+                        "startColumn": 4,
+                        "startOffset": 4544,
+                        "endColumn": 69,
+                        "endOffset": 4609
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 312,
+                    "startColumn": 4,
+                    "startOffset": 11774,
+                    "endColumn": 49,
+                    "endOffset": 11819
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 63,
+                        "startColumn": 4,
+                        "startOffset": 4434,
+                        "endColumn": 49,
+                        "endOffset": 4479
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 313,
+                    "startColumn": 4,
+                    "startOffset": 11824,
+                    "endColumn": 50,
+                    "endOffset": 11870
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 62,
+                        "startColumn": 4,
+                        "startOffset": 4382,
+                        "endColumn": 50,
+                        "endOffset": 4428
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 314,
+                    "startColumn": 4,
+                    "startOffset": 11875,
+                    "endColumn": 61,
+                    "endOffset": 11932
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 117,
+                        "startColumn": 4,
+                        "startOffset": 7175,
+                        "endColumn": 61,
+                        "endOffset": 7232
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 315,
+                    "startColumn": 4,
+                    "startOffset": 11937,
+                    "endColumn": 43,
+                    "endOffset": 11976
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 37,
+                        "startColumn": 4,
+                        "startOffset": 2652,
+                        "endColumn": 43,
+                        "endOffset": 2691
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 316,
+                    "startColumn": 4,
+                    "startOffset": 11981,
+                    "endColumn": 65,
+                    "endOffset": 12042
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 153,
+                        "startColumn": 4,
+                        "startOffset": 15305,
+                        "endColumn": 65,
+                        "endOffset": 15366
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 317,
+                    "startColumn": 4,
+                    "startOffset": 12047,
+                    "endColumn": 118,
+                    "endOffset": 12161
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 154,
+                        "startColumn": 4,
+                        "startOffset": 15372,
+                        "endColumn": 118,
+                        "endOffset": 15486
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 318,
+                    "startColumn": 4,
+                    "startOffset": 12166,
+                    "endColumn": 59,
+                    "endOffset": 12221
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 155,
+                        "startColumn": 4,
+                        "startOffset": 15492,
+                        "endColumn": 59,
+                        "endOffset": 15547
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 319,
+                    "startColumn": 4,
+                    "startOffset": 12226,
+                    "endColumn": 54,
+                    "endOffset": 12276
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 94,
+                        "startColumn": 4,
+                        "startOffset": 5937,
+                        "endColumn": 54,
+                        "endOffset": 5987
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 320,
+                    "startColumn": 4,
+                    "startOffset": 12281,
+                    "endColumn": 65,
+                    "endOffset": 12342
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 3709,
+                        "endColumn": 65,
+                        "endOffset": 3770
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 321,
+                    "startColumn": 4,
+                    "startOffset": 12347,
+                    "endColumn": 34,
+                    "endOffset": 12377
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 176,
+                        "startColumn": 4,
+                        "startOffset": 16339,
+                        "endColumn": 34,
+                        "endOffset": 16369
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 322,
+                    "startColumn": 4,
+                    "startOffset": 12382,
+                    "endColumn": 43,
+                    "endOffset": 12421
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 82,
+                        "startColumn": 4,
+                        "startOffset": 5319,
+                        "endColumn": 43,
+                        "endOffset": 5358
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 323,
+                    "startColumn": 4,
+                    "startOffset": 12426,
+                    "endColumn": 41,
+                    "endOffset": 12463
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 71,
+                        "startColumn": 4,
+                        "startOffset": 4811,
+                        "endColumn": 41,
+                        "endOffset": 4848
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 324,
+                    "startColumn": 4,
+                    "startOffset": 12468,
+                    "endColumn": 52,
+                    "endOffset": 12516
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 108,
+                        "endColumn": 52,
+                        "endOffset": 156
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 325,
+                    "startColumn": 4,
+                    "startOffset": 12521,
+                    "endColumn": 55,
+                    "endOffset": 12572
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 174,
+                        "startColumn": 4,
+                        "startOffset": 16194,
+                        "endColumn": 55,
+                        "endOffset": 16245
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 326,
+                    "startColumn": 4,
+                    "startOffset": 12577,
+                    "endColumn": 41,
+                    "endOffset": 12614
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 72,
+                        "startColumn": 4,
+                        "startOffset": 4854,
+                        "endColumn": 41,
+                        "endOffset": 4891
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 327,
+                    "startColumn": 4,
+                    "startOffset": 12619,
+                    "endColumn": 47,
+                    "endOffset": 12662
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 59,
+                        "endColumn": 47,
+                        "endOffset": 102
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 328,
+                    "startColumn": 4,
+                    "startOffset": 12667,
+                    "endColumn": 86,
+                    "endOffset": 12749
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 175,
+                        "startColumn": 4,
+                        "startOffset": 16251,
+                        "endColumn": 86,
+                        "endOffset": 16333
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 329,
+                    "startColumn": 4,
+                    "startOffset": 12754,
+                    "endColumn": 83,
+                    "endOffset": 12833
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 435,
+                        "startColumn": 4,
+                        "startOffset": 24729,
+                        "endColumn": 83,
+                        "endOffset": 24808
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 330,
+                    "startColumn": 4,
+                    "startOffset": 12838,
+                    "endColumn": 37,
+                    "endOffset": 12871
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 428,
+                        "startColumn": 4,
+                        "startOffset": 24627,
+                        "endColumn": 37,
+                        "endOffset": 24660
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 331,
+                    "startColumn": 4,
+                    "startOffset": 12876,
+                    "endColumn": 63,
+                    "endOffset": 12935
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 425,
+                        "startColumn": 4,
+                        "startOffset": 24468,
+                        "endColumn": 63,
+                        "endOffset": 24527
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 332,
+                    "startColumn": 4,
+                    "startOffset": 12940,
+                    "endColumn": 80,
+                    "endOffset": 13016
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1574,
+                        "endColumn": 80,
+                        "endOffset": 1650
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 333,
+                    "startColumn": 4,
+                    "startOffset": 13021,
+                    "endColumn": 44,
+                    "endOffset": 13061
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 115,
+                        "startColumn": 4,
+                        "startOffset": 7075,
+                        "endColumn": 44,
+                        "endOffset": 7115
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 334,
+                    "startColumn": 4,
+                    "startOffset": 13066,
+                    "endColumn": 52,
+                    "endOffset": 13114
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 116,
+                        "startColumn": 4,
+                        "startOffset": 7121,
+                        "endColumn": 52,
+                        "endOffset": 7169
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 335,
+                    "startColumn": 4,
+                    "startOffset": 13119,
+                    "endColumn": 53,
+                    "endOffset": 13168
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 426,
+                        "startColumn": 4,
+                        "startOffset": 24533,
+                        "endColumn": 53,
+                        "endOffset": 24582
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 336,
+                    "startColumn": 4,
+                    "startOffset": 13173,
+                    "endColumn": 47,
+                    "endOffset": 13216
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 447,
+                        "startColumn": 4,
+                        "startOffset": 25317,
+                        "endColumn": 47,
+                        "endOffset": 25360
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 337,
+                    "startColumn": 4,
+                    "startOffset": 13221,
+                    "endColumn": 78,
+                    "endOffset": 13295
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 436,
+                        "startColumn": 4,
+                        "startOffset": 24814,
+                        "endColumn": 78,
+                        "endOffset": 24888
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 338,
+                    "startColumn": 4,
+                    "startOffset": 13300,
+                    "endColumn": 62,
+                    "endOffset": 13358
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 446,
+                        "startColumn": 4,
+                        "startOffset": 25253,
+                        "endColumn": 62,
+                        "endOffset": 25311
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 339,
+                    "startColumn": 4,
+                    "startOffset": 13363,
+                    "endColumn": 56,
+                    "endOffset": 13415
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 445,
+                        "startColumn": 4,
+                        "startOffset": 25195,
+                        "endColumn": 56,
+                        "endOffset": 25247
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 340,
+                    "startColumn": 4,
+                    "startOffset": 13420,
+                    "endColumn": 69,
+                    "endOffset": 13485
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 444,
+                        "startColumn": 4,
+                        "startOffset": 25124,
+                        "endColumn": 69,
+                        "endOffset": 25189
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 341,
+                    "startColumn": 4,
+                    "startOffset": 13490,
+                    "endColumn": 58,
+                    "endOffset": 13544
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 443,
+                        "startColumn": 4,
+                        "startOffset": 25064,
+                        "endColumn": 58,
+                        "endOffset": 25118
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 342,
+                    "startColumn": 4,
+                    "startOffset": 13549,
+                    "endColumn": 50,
+                    "endOffset": 13595
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 442,
+                        "startColumn": 4,
+                        "startOffset": 25012,
+                        "endColumn": 50,
+                        "endOffset": 25058
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 343,
+                    "startColumn": 4,
+                    "startOffset": 13600,
+                    "endColumn": 126,
+                    "endOffset": 13722
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 103,
+                        "startColumn": 4,
+                        "startOffset": 6453,
+                        "endColumn": 126,
+                        "endOffset": 6575
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 344,
+                    "startColumn": 4,
+                    "startOffset": 13727,
+                    "endColumn": 54,
+                    "endOffset": 13777
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 106,
+                        "startColumn": 4,
+                        "startOffset": 6621,
+                        "endColumn": 54,
+                        "endOffset": 6671
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 345,
+                    "startColumn": 4,
+                    "startOffset": 13782,
+                    "endColumn": 65,
+                    "endOffset": 13843
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 83,
+                        "startColumn": 4,
+                        "startOffset": 5364,
+                        "endColumn": 65,
+                        "endOffset": 5425
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 346,
+                    "startColumn": 4,
+                    "startOffset": 13848,
+                    "endColumn": 41,
+                    "endOffset": 13885
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 3117,
+                        "endColumn": 41,
+                        "endOffset": 3154
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 347,
+                    "startColumn": 4,
+                    "startOffset": 13890,
+                    "endColumn": 64,
+                    "endOffset": 13950
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 173,
+                        "startColumn": 4,
+                        "startOffset": 16128,
+                        "endColumn": 64,
+                        "endOffset": 16188
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 348,
+                    "startColumn": 4,
+                    "startOffset": 13955,
+                    "endColumn": 62,
+                    "endOffset": 14013
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 172,
+                        "startColumn": 4,
+                        "startOffset": 16064,
+                        "endColumn": 62,
+                        "endOffset": 16122
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 349,
+                    "startColumn": 4,
+                    "startOffset": 14018,
+                    "endColumn": 114,
+                    "endOffset": 14128
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 502,
+                        "endColumn": 114,
+                        "endOffset": 612
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 350,
+                    "startColumn": 4,
+                    "startOffset": 14133,
+                    "endColumn": 110,
+                    "endOffset": 14239
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 618,
+                        "endColumn": 110,
+                        "endOffset": 724
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 351,
+                    "startColumn": 4,
+                    "startOffset": 14244,
+                    "endColumn": 112,
+                    "endOffset": 14352
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 388,
+                        "endColumn": 112,
+                        "endOffset": 496
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 352,
+                    "startColumn": 4,
+                    "startOffset": 14357,
+                    "endColumn": 114,
+                    "endOffset": 14467
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1292,
+                        "endColumn": 114,
+                        "endOffset": 1402
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 353,
+                    "startColumn": 4,
+                    "startOffset": 14472,
+                    "endColumn": 116,
+                    "endOffset": 14584
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 954,
+                        "endColumn": 116,
+                        "endOffset": 1066
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 354,
+                    "startColumn": 4,
+                    "startOffset": 14589,
+                    "endColumn": 108,
+                    "endOffset": 14693
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 278,
+                        "endColumn": 108,
+                        "endOffset": 382
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 355,
+                    "startColumn": 4,
+                    "startOffset": 14698,
+                    "endColumn": 114,
+                    "endOffset": 14808
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1176,
+                        "endColumn": 114,
+                        "endOffset": 1286
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 356,
+                    "startColumn": 4,
+                    "startOffset": 14813,
+                    "endColumn": 116,
+                    "endOffset": 14925
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 836,
+                        "endColumn": 116,
+                        "endOffset": 948
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 357,
+                    "startColumn": 4,
+                    "startOffset": 14930,
+                    "endColumn": 102,
+                    "endOffset": 15028
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1072,
+                        "endColumn": 102,
+                        "endOffset": 1170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 358,
+                    "startColumn": 4,
+                    "startOffset": 15033,
+                    "endColumn": 104,
+                    "endOffset": 15133
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 730,
+                        "endColumn": 104,
+                        "endOffset": 830
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 359,
+                    "startColumn": 4,
+                    "startOffset": 15138,
+                    "endColumn": 46,
+                    "endOffset": 15180
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 127,
+                        "startColumn": 4,
+                        "startOffset": 7663,
+                        "endColumn": 46,
+                        "endOffset": 7705
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 360,
+                    "startColumn": 4,
+                    "startOffset": 15185,
+                    "endColumn": 75,
+                    "endOffset": 15256
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 449,
+                        "startColumn": 4,
+                        "startOffset": 25428,
+                        "endColumn": 75,
+                        "endOffset": 25499
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 361,
+                    "startColumn": 4,
+                    "startOffset": 15261,
+                    "endColumn": 60,
+                    "endOffset": 15317
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 84,
+                        "startColumn": 4,
+                        "startOffset": 5431,
+                        "endColumn": 60,
+                        "endOffset": 5487
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 362,
+                    "startColumn": 4,
+                    "startOffset": 15322,
+                    "endColumn": 50,
+                    "endOffset": 15368
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 85,
+                        "startColumn": 4,
+                        "startOffset": 5493,
+                        "endColumn": 50,
+                        "endOffset": 5539
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 363,
+                    "startColumn": 4,
+                    "startOffset": 15373,
+                    "endColumn": 41,
+                    "endOffset": 15410
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 96,
+                        "startColumn": 4,
+                        "startOffset": 6061,
+                        "endColumn": 41,
+                        "endOffset": 6098
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 364,
+                    "startColumn": 4,
+                    "startOffset": 15415,
+                    "endColumn": 60,
+                    "endOffset": 15471
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 216,
+                        "endColumn": 60,
+                        "endOffset": 272
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 365,
+                    "startColumn": 4,
+                    "startOffset": 15476,
+                    "endColumn": 52,
+                    "endOffset": 15524
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 52,
+                        "endOffset": 210
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 366,
+                    "startColumn": 4,
+                    "startOffset": 15529,
+                    "endColumn": 104,
+                    "endOffset": 15629
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 102,
+                        "startColumn": 4,
+                        "startOffset": 6347,
+                        "endColumn": 104,
+                        "endOffset": 6447
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 367,
+                    "startColumn": 4,
+                    "startOffset": 15634,
+                    "endLine": 382,
+                    "endColumn": 9,
+                    "endOffset": 22652
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 129,
+                        "startColumn": 4,
+                        "startOffset": 7757,
+                        "endLine": 144,
+                        "endColumn": 9,
+                        "endOffset": 14790
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 383,
+                    "startColumn": 4,
+                    "startOffset": 22657,
+                    "endColumn": 45,
+                    "endOffset": 22698
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 126,
+                        "startColumn": 4,
+                        "startOffset": 7616,
+                        "endColumn": 45,
+                        "endOffset": 7657
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 384,
+                    "startColumn": 4,
+                    "startOffset": 22703,
+                    "endColumn": 68,
+                    "endOffset": 22767
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 124,
+                        "startColumn": 4,
+                        "startOffset": 7484,
+                        "endColumn": 68,
+                        "endOffset": 7548
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 385,
+                    "startColumn": 4,
+                    "startOffset": 22772,
+                    "endColumn": 60,
+                    "endOffset": 22828
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 125,
+                        "startColumn": 4,
+                        "startOffset": 7554,
+                        "endColumn": 60,
+                        "endOffset": 7610
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 386,
+                    "startColumn": 4,
+                    "startOffset": 22833,
+                    "endColumn": 37,
+                    "endOffset": 22866
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 97,
+                        "startColumn": 4,
+                        "startOffset": 6104,
+                        "endColumn": 37,
+                        "endOffset": 6137
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 387,
+                    "startColumn": 4,
+                    "startOffset": 22871,
+                    "endColumn": 44,
+                    "endOffset": 22911
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 128,
+                        "startColumn": 4,
+                        "startOffset": 7711,
+                        "endColumn": 44,
+                        "endOffset": 7751
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 388,
+                    "startColumn": 4,
+                    "startOffset": 22916,
+                    "endColumn": 59,
+                    "endOffset": 22971
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 2752,
+                        "endColumn": 59,
+                        "endOffset": 2807
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 389,
+                    "startColumn": 4,
+                    "startOffset": 22976,
+                    "endColumn": 73,
+                    "endOffset": 23045
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 4,
+                        "startOffset": 3042,
+                        "endColumn": 73,
+                        "endOffset": 3111
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 390,
+                    "startColumn": 4,
+                    "startOffset": 23050,
+                    "endColumn": 45,
+                    "endOffset": 23091
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 110,
+                        "startColumn": 4,
+                        "startOffset": 6790,
+                        "endColumn": 45,
+                        "endOffset": 6831
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 391,
+                    "startColumn": 4,
+                    "startOffset": 23096,
+                    "endColumn": 66,
+                    "endOffset": 23158
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 4,
+                        "startOffset": 4274,
+                        "endColumn": 66,
+                        "endOffset": 4336
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 392,
+                    "startColumn": 4,
+                    "startOffset": 23163,
+                    "endColumn": 63,
+                    "endOffset": 23222
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 4209,
+                        "endColumn": 63,
+                        "endOffset": 4268
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 393,
+                    "startColumn": 4,
+                    "startOffset": 23227,
+                    "endColumn": 69,
+                    "endOffset": 23292
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 4,
+                        "startOffset": 4138,
+                        "endColumn": 69,
+                        "endOffset": 4203
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 394,
+                    "startColumn": 4,
+                    "startOffset": 23297,
+                    "endColumn": 43,
+                    "endOffset": 23336
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 4,
+                        "startOffset": 2607,
+                        "endColumn": 43,
+                        "endOffset": 2646
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 395,
+                    "startColumn": 4,
+                    "startOffset": 23341,
+                    "endColumn": 37,
+                    "endOffset": 23374
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 427,
+                        "startColumn": 4,
+                        "startOffset": 24588,
+                        "endColumn": 37,
+                        "endOffset": 24621
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 396,
+                    "startColumn": 4,
+                    "startOffset": 23379,
+                    "endColumn": 42,
+                    "endOffset": 23417
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 118,
+                        "startColumn": 4,
+                        "startOffset": 7238,
+                        "endColumn": 42,
+                        "endOffset": 7276
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 397,
+                    "startColumn": 4,
+                    "startOffset": 23422,
+                    "endColumn": 60,
+                    "endOffset": 23478
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 80,
+                        "startColumn": 4,
+                        "startOffset": 5177,
+                        "endColumn": 60,
+                        "endOffset": 5233
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 398,
+                    "startColumn": 4,
+                    "startOffset": 23483,
+                    "endColumn": 74,
+                    "endOffset": 23553
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 4,
+                        "startOffset": 6677,
+                        "endColumn": 74,
+                        "endOffset": 6747
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 399,
+                    "startColumn": 4,
+                    "startOffset": 23558,
+                    "endColumn": 60,
+                    "endOffset": 23614
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 448,
+                        "startColumn": 4,
+                        "startOffset": 25366,
+                        "endColumn": 60,
+                        "endOffset": 25422
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 400,
+                    "startColumn": 4,
+                    "startOffset": 23619,
+                    "endColumn": 78,
+                    "endOffset": 23693
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 81,
+                        "startColumn": 4,
+                        "startOffset": 5239,
+                        "endColumn": 78,
+                        "endOffset": 5313
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 401,
+                    "startColumn": 4,
+                    "startOffset": 23698,
+                    "endColumn": 41,
+                    "endOffset": 23735
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 75,
+                        "startColumn": 4,
+                        "startOffset": 5028,
+                        "endColumn": 41,
+                        "endOffset": 5065
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 402,
+                    "startColumn": 4,
+                    "startOffset": 23740,
+                    "endColumn": 52,
+                    "endOffset": 23788
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 74,
+                        "startColumn": 4,
+                        "startOffset": 4974,
+                        "endColumn": 52,
+                        "endOffset": 5022
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 403,
+                    "startColumn": 4,
+                    "startOffset": 23793,
+                    "endColumn": 44,
+                    "endOffset": 23833
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 89,
+                        "startColumn": 4,
+                        "startOffset": 5712,
+                        "endColumn": 44,
+                        "endOffset": 5752
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 404,
+                    "startColumn": 4,
+                    "startOffset": 23838,
+                    "endColumn": 53,
+                    "endOffset": 23887
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 439,
+                        "startColumn": 4,
+                        "startOffset": 24927,
+                        "endColumn": 53,
+                        "endOffset": 24976
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 405,
+                    "startColumn": 4,
+                    "startOffset": 23892,
+                    "endColumn": 46,
+                    "endOffset": 23934
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 90,
+                        "startColumn": 4,
+                        "startOffset": 5758,
+                        "endColumn": 46,
+                        "endOffset": 5800
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 406,
+                    "startColumn": 4,
+                    "startOffset": 23939,
+                    "endColumn": 83,
+                    "endOffset": 24018
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 3868,
+                        "endColumn": 83,
+                        "endOffset": 3947
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 407,
+                    "startColumn": 4,
+                    "startOffset": 24023,
+                    "endColumn": 50,
+                    "endOffset": 24069
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 4034,
+                        "endColumn": 50,
+                        "endOffset": 4080
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 408,
+                    "startColumn": 4,
+                    "startOffset": 24074,
+                    "endColumn": 42,
+                    "endOffset": 24112
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 100,
+                        "startColumn": 4,
+                        "startOffset": 6231,
+                        "endColumn": 42,
+                        "endOffset": 6269
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 409,
+                    "startColumn": 4,
+                    "startOffset": 24117,
+                    "endColumn": 44,
+                    "endOffset": 24157
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 99,
+                        "startColumn": 4,
+                        "startOffset": 6185,
+                        "endColumn": 44,
+                        "endOffset": 6225
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 410,
+                    "startColumn": 4,
+                    "startOffset": 24162,
+                    "endColumn": 40,
+                    "endOffset": 24198
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 98,
+                        "startColumn": 4,
+                        "startOffset": 6143,
+                        "endColumn": 40,
+                        "endOffset": 6179
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 411,
+                    "startColumn": 4,
+                    "startOffset": 24203,
+                    "endColumn": 79,
+                    "endOffset": 24278
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 4,
+                        "startOffset": 3953,
+                        "endColumn": 79,
+                        "endOffset": 4028
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 412,
+                    "startColumn": 4,
+                    "startOffset": 24283,
+                    "endColumn": 70,
+                    "endOffset": 24349
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 101,
+                        "startColumn": 4,
+                        "startOffset": 6275,
+                        "endColumn": 70,
+                        "endOffset": 6341
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 413,
+                    "startColumn": 4,
+                    "startOffset": 24354,
+                    "endColumn": 75,
+                    "endOffset": 24425
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 73,
+                        "startColumn": 4,
+                        "startOffset": 4897,
+                        "endColumn": 75,
+                        "endOffset": 4968
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 414,
+                    "startColumn": 4,
+                    "startOffset": 24430,
+                    "endColumn": 43,
+                    "endOffset": 24469
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 91,
+                        "startColumn": 4,
+                        "startOffset": 5806,
+                        "endColumn": 43,
+                        "endOffset": 5845
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 415,
+                    "startColumn": 4,
+                    "startOffset": 24474,
+                    "endColumn": 42,
+                    "endOffset": 24512
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 93,
+                        "startColumn": 4,
+                        "startOffset": 5893,
+                        "endColumn": 42,
+                        "endOffset": 5931
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 416,
+                    "startColumn": 4,
+                    "startOffset": 24517,
+                    "endColumn": 40,
+                    "endOffset": 24553
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 92,
+                        "startColumn": 4,
+                        "startOffset": 5851,
+                        "endColumn": 40,
+                        "endOffset": 5887
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 417,
+                    "startColumn": 4,
+                    "startOffset": 24558,
+                    "endColumn": 57,
+                    "endOffset": 24611
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 4,
+                        "startOffset": 2813,
+                        "endColumn": 57,
+                        "endOffset": 2866
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 418,
+                    "startColumn": 4,
+                    "startOffset": 24616,
+                    "endColumn": 83,
+                    "endOffset": 24695
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 41,
+                        "startColumn": 4,
+                        "startOffset": 2872,
+                        "endColumn": 83,
+                        "endOffset": 2951
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 419,
+                    "startColumn": 4,
+                    "startOffset": 24700,
+                    "endColumn": 83,
+                    "endOffset": 24779
+                },
+                "from": {
+                    "file": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\values-sw720dp-land\\strings.xml",
+                    "position": {
+                        "startLine": 42,
+                        "startColumn": 4,
+                        "startOffset": 2957,
+                        "endColumn": 83,
+                        "endOffset": 3036
+                    }
+                }
+            }
+        ]
+    }
+]

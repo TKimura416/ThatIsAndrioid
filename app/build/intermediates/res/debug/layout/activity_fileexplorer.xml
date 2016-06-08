@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_img"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/header_rellayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#474C52" >
+
+        <TextView
+            android:id="@+id/txt_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="File Selector"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_storagePath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#b22222" >
+
+        <TextView
+            android:id="@+id/path"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+         
+            android:padding="7dp"
+        
+            android:layout_centerVertical="true"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+            android:divider="@color/Gray"
+            android:dividerHeight="1dp"  />
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="No Data" />
+
+</LinearLayout><!-- From: file:/D:/StudioWorkSpace/That's%20It%20SVN/app/src/main/res/layout/activity_fileexplorer.xml -->

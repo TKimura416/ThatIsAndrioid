@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp" >
+
+    <LinearLayout
+        android:id="@+id/lnr_upper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/rltv_image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30" >
+
+            <ImageView
+                android:id="@+id/profile_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/no_img"
+             android:minHeight="70dp"
+                android:minWidth="70dp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="60"
+            android:orientation="vertical"
+            android:paddingLeft="5dp" >
+
+            <TextView
+                android:id="@+id/txt_UserName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:text="@string/Adap_Contact_Uname"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_UserDescrption"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:text="Hi,I am using That's It"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/txt_profileDescrption4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="123gnj7jgd8"
+                android:textColor="#BA2221" />
+        </LinearLayout>
+         <RelativeLayout
+        android:id="@+id/rel_cotyId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_weight="10"
+       android:layout_marginLeft="5dp"
+       >
+
+        <ImageButton
+            android:id="@+id/img_copyIdBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/copy_btn" />
+
+    </RelativeLayout> 
+    </LinearLayout>
+
+   <!--  <RelativeLayout
+        android:id="@+id/rel_cotyId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnr_upper"
+        android:layout_margin="15dp"
+         >
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/img_copyId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/copy_btn" />
+    </RelativeLayout>
+ -->
+</RelativeLayout>

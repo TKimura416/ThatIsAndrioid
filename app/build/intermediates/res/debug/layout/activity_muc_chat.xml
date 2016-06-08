@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:divider="@drawable/background_img"
+      android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/fragChat_header_rellayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#474C52" >
+
+          <TextView
+            android:id="@+id/txtvwGroupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="@string/Group_Profile"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold" />
+    
+   </RelativeLayout>
+
+    
+    
+    <ListView
+        android:id="@+id/listMUCMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_below="@+id/fragChat_header_rellayout"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:choiceMode="multipleChoice"
+        android:divider="@drawable/background_img"
+        android:dividerHeight="15dp" >
+    </ListView>
+
+  <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_textfiled_img"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <ImageView
+            android:id="@+id/fragChat_img_smiley"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="10"
+            android:src="@drawable/chat_simle_img" />
+
+        <EditText
+            android:id="@+id/edtChat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="80"
+            android:background="@drawable/enter_textfiled_img"
+            android:ems="10"
+            android:hint="@string/Enter_Message"
+            android:maxLines="4"
+            android:paddingLeft="5dp" />
+
+        <ImageView
+            android:id="@+id/sendBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="10"
+            android:src="@drawable/send_icon" />
+    </LinearLayout>
+</RelativeLayout><!-- From: file:/D:/StudioWorkSpace/That's%20It%20SVN/app/src/main/res/layout/activity_muc_chat.xml -->

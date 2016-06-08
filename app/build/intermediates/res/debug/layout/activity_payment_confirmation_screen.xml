@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/paymentConfirm_mainRell"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_img" >
+
+    <RelativeLayout
+        android:id="@+id/paymentConfirm_header_rellayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#474C52" >
+
+        <TextView
+            android:id="@+id/paymentConfirm_txtview_payment_confirmation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/Payment_Confirmation"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/paymentConfirm_header_rellayout"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/paymentConfirm_rellayout_congo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp" >
+
+            <TextView
+                android:id="@+id/paymentConfirm_tv_cong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/Congratulations"
+                android:textSize="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/paymentConfirm_rellayout_idGenerated"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" >
+
+            <TextView
+                android:id="@+id/paymentConfirm_txtview_idGenerated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/Id_Succesful"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/paymentConfirm_rellayout_findEssentials"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/paymentConfirm_txtview_findEssentials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/Essential_Below"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/paymentConfirm_rellayout_idExpDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/exprins_date_box"
+            android:padding="25dp" >
+
+            <RelativeLayout
+                android:id="@+id/paymentConfirm_rellayout_thatsId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/paymentConfirm_txtview_thatsId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THAT'S IT ID     : "
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/paymentConfirm_txtview_idNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/paymentConfirm_txtview_thatsId"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/paymentConfirm_rellayout_ExpDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/paymentConfirm_rellayout_thatsId" >
+
+                <TextView
+                    android:id="@+id/paymentConfirm_txtview_ExpDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXPIRY DATE   : "
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/paymentConfirm_txtview_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/paymentConfirm_txtview_ExpDate"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/paymentConfirm_submitBtn_rellayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp" >
+
+        <Button
+            android:id="@+id/paymentConfirm_btn_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/signin_btn_selector" />
+    </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/D:/StudioWorkSpace/That's%20It%20SVN/app/src/main/res/layout/activity_payment_confirmation_screen.xml -->

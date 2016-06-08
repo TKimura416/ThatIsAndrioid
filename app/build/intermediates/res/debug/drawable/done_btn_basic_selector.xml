@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/done_btn_basic" android:state_pressed="false"/>
+    <item android:drawable="@drawable/done_btn_basic_hover" android:state_pressed="true"/>
+
+</selector><!-- From: file:/D:/StudioWorkSpace/That's%20It%20SVN/app/src/main/res/drawable/done_btn_basic_selector.xml -->

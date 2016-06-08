@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\menu\\payment_screen.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\menu\\payment_screen.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\menu\\group_profile.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\menu\\group_profile.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\menu\\welcom.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\menu\\welcom.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\menu\\chat_thread_screen.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\menu\\chat_thread_screen.xml"
+    }
+]

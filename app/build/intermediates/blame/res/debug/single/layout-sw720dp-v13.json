@@ -1,0 +1,210 @@
+[
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\subscription.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\subscription.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_payment_confirmation_screen.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_payment_confirmation_screen.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\login_promt.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\login_promt.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\terms_conditions_activity.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\terms_conditions_activity.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_suggest_contact.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_suggest_contact.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\splash_activity.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\splash_activity.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\gridview_layout.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\gridview_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\custom_list_view.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\custom_list_view.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_muc_chat.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_muc_chat.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\spinner_items.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\spinner_items.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_chat_screen.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_chat_screen.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\custom_list_view_child.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\custom_list_view_child.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_change_login_password_screen.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_change_login_password_screen.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_invitations_received.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_invitations_received.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_group_chat_modified.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_group_chat_modified.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_chat_history_screen.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_chat_history_screen.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_contacts.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_contacts.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_subscription.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_subscription.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\contact_search_dialog_layout.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\contact_search_dialog_layout.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\suggest_contact_activity.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\suggest_contact_activity.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\notification_manager.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\notification_manager.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\emoticons_grid.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\emoticons_grid.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\renew_id_dialog.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\renew_id_dialog.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_group_info.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_group_info.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\login_promt_authentication.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\login_promt_authentication.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_invite_group.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_invite_group.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_fragment_payment_setting.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_fragment_payment_setting.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_planet.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_planet.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_invite_screen.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_invite_screen.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\dialog_signin.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\dialog_signin.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_fragements_chat_groups.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_fragements_chat_groups.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_fragements_contacts.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_fragements_contacts.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\groupinfo_item.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\groupinfo_item.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_fragment_invitations_sent.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_fragment_invitations_sent.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_invitations_sent.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_invitations_sent.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\row_chat_roster.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\row_chat_roster.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_welcom.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_welcom.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_fragment_chat_history.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_fragment_chat_history.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_fragment_invitations_received.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_fragment_invitations_received.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\create_group_dialog.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\create_group_dialog.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_register.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_register.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_contacts.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_contacts.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\connection_error_alert_dialog.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\connection_error_alert_dialog.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_account_tab_chat_settings.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_account_tab_chat_settings.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\listitem.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\listitem.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\adapter_fragment_chat_discuss.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\adapter_fragment_chat_discuss.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_account_tab_basic_settings.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_account_tab_basic_settings.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_blurred.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_blurred.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\file_explorer_row.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\file_explorer_row.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\fragment_account_payment_settings.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\fragment_account_payment_settings.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\activity_fileexplorer.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\activity_fileexplorer.xml"
+    },
+    {
+        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-v13\\drawer_list_item.xml",
+        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp\\drawer_list_item.xml"
+    }
+]

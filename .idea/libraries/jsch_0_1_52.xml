@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jsch-0.1.52">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/jsch-0.1.52.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

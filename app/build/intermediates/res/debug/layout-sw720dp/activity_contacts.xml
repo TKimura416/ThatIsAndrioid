@@ -1,0 +1,165 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_img"
+    tools:context=".MainActivity" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+         >
+
+     <TextView
+            android:id="@+id/textView_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:textSize="@dimen/normal_text_720_portrait"
+            android:text="Contacts" /> 
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/tabs_lnrlayout" >
+
+        <RelativeLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/navDrawerView"
+            android:layout_width="400dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="start"
+            android:background="#EAEAEA"
+            android:orientation="vertical" >
+
+
+            <ExpandableListView
+                android:id="@+id/nav_left_drawer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:choiceMode="singleChoice"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1dp"
+                android:groupIndicator="@null">
+            </ExpandableListView>
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+ 
+    <LinearLayout
+        android:id="@+id/tabs_lnrlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/tabbar_img_bottom"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:id="@+id/linlytTabOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/btn_contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/contact_icon_hover" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacts"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                android:layout_below="@+id/btn_contacts"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linlytTabTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/btn_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/comment_icon_sm" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chats"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                android:layout_below="@+id/btn_chat"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linlytTabThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/btn_invitaions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/message_icon_sm" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invitations"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                android:layout_below="@+id/btn_invitaions"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linlytTabFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/btn_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/user_icon_sm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                android:layout_below="@+id/btn_account"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/D:/StudioWorkSpace/That's%20It%20SVN/app/src/main/res/layout-sw720dp/activity_contacts.xml -->

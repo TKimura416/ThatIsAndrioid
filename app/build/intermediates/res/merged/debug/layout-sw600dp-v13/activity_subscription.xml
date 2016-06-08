@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical" >
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="10dip" 
+		android:background="#000000">
+		<TextView
+			android:id="@+id/SubscriptionTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dip"
+			android:autoLink="none"
+			android:text="@string/SubscriptTitle"
+			android:textColor="@color/white"
+			android:textSize="18sp"
+			android:textStyle="bold" />
+		<TextView
+			android:id="@+id/SubscriptionText"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_marginBottom="18dp"
+			android:layout_weight="1"
+			android:autoLink="none"
+			android:focusable="true"
+			android:text="@string/SubscriptText"
+			android:textColor="@color/white"
+			android:textSize="14sp" />
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal" >
+			<Button
+				android:id="@+id/SubscriptionAccept"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:text="@string/AcceptButton" />
+			<Button
+				android:id="@+id/SubscriptionRefuse"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:text="@string/RefuseButton" />
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>
