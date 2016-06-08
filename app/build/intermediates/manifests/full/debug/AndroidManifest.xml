@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thatsit.android"
     android:versionCode="1"
-    android:versionName="17.0" >
+    android:versionName="15.0" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -16,14 +16,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!-- <uses-permission android:name="android.permission.GET_TASKS" /> -->
-    <!-- <uses-permission android:name="android.permission.WAKE_LOCK"/> -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
@@ -34,8 +31,7 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true" />
- <!-- Optional permission for App measurement to run. -->
+        android:required="true" /> <!-- Optional permission for App measurement to run. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
@@ -62,56 +58,44 @@
         <activity
             android:name="com.thatsit.android.activities.ContactActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize" >
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize" />
         <activity
             android:name="com.thatsit.android.invites.Subscription"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.thatsit.android.activities.PaymentConfirmationActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.thatsit.android.activities.ChangeLoginPassword"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.thatsit.android.activities.BlurredActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.thatsit.android.activities.SuggestContactActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Dialog" >
-        </activity>
+            android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name="com.thatsit.android.activities.RegisterActivity"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.thatsit.android.activities.GridViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Holo.Light.Dialog" >
-        </activity>
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <activity
             android:name="com.thatsit.android.activities.SelectAudioActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.myquick.filebrowser.AndroidExplorer"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.thatsit.android.activities.InviteContactsToRoster"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Dialog" >
-        </activity>
+            android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name="com.thatsit.android.activities.MUCActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.thatsit.android.activities.GroupInfoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
@@ -119,8 +103,7 @@
             android:name="com.myquick.socket.ConfirmationPopUp"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
 
         <service android:name="com.thatsit.android.MainService" />
 
@@ -129,13 +112,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.myquickapp.receivers.ConnectionReciever" >
-            <intent-filter android:priority="1000" >
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.thatsit.android.invites.StartServiceReceiver" >
-        </receiver>
+        <receiver android:name="com.thatsit.android.invites.StartServiceReceiver" />
 
         <service android:name="com.thatsit.android.beans.PushNotificationService" >
             <intent-filter>

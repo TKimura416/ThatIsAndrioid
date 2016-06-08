@@ -65,7 +65,6 @@ public class SplashActivity extends Activity {
 			AlertDialog.Builder builder = new Builder(SplashActivity.this);
 			builder.setTitle("That's It");
 			builder.setMessage(getResources().getString(R.string.Network_Availability));
-
 			builder.setPositiveButton("Retry", new OnClickListener() {
 
 				@Override
@@ -80,12 +79,10 @@ public class SplashActivity extends Activity {
 		}
 		else{
 			if(Utility.getUserName().length()>0 && MainService.mService==null){
-				//Log.d("Splash1", "Splash1");
 				Utility.startDialog(SplashActivity.this);
 				Utility.UserLoginStatus(SplashActivity.this, Utility.getEmail(), "","","", mValidateUserLoginInterface);
 			}
 			else if(Utility.getUserName().length()>0 && MainService.mService != null){
-				//Log.d("Splash3", "Splash3");
 				Utility.reloginCalled = true;
 				startActivity(new Intent(SplashActivity.this, ContactActivity.class));
 				finish();

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-v17\\mr_media_route_list_item.xml",
-        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\layout-v17\\mr_media_route_list_item.xml"
+        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-v17/mr_media_route_list_item.xml",
+        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/layout-v17/mr_media_route_list_item.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-v17/mr_media_route_list_item.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/res/layout-v17/mr_media_route_list_item.xml"
     }
 ]

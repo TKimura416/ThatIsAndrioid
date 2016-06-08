@@ -1,6 +1,10 @@
 [
     {
-        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_launcher.png",
-        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\drawable-ldpi\\ic_launcher.png"
+        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ic_launcher.png",
+        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/drawable-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ic_launcher.png",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/drawable-ldpi/ic_launcher.png"
     }
 ]

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\raw\\gtm_analytics",
-        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-analytics\\8.4.0\\res\\raw\\gtm_analytics"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/raw/gtm_analytics",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/res/raw/gtm_analytics"
+    },
+    {
+        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/raw/gtm_analytics",
+        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/res/raw/gtm_analytics"
     }
 ]

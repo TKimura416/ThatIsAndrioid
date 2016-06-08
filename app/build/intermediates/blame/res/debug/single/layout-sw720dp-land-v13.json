@@ -1,14 +1,26 @@
 [
     {
-        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-land-v13\\activity_welcom.xml",
-        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp-land\\activity_welcom.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw720dp-land-v13/activity_welcom.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw720dp-land/activity_welcom.xml"
     },
     {
-        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-land-v13\\activity_register.xml",
-        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp-land\\activity_register.xml"
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw720dp-land-v13/activity_register.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw720dp-land/activity_register.xml"
     },
     {
-        "merged": "D:\\StudioWorkSpace\\That's It SVN\\app\\build\\intermediates\\res\\merged\\debug\\layout-sw720dp-land-v13\\terms_conditions_activity.xml",
-        "source": "D:\\StudioWorkSpace\\That's It SVN\\app\\src\\main\\res\\layout-sw720dp-land\\terms_conditions_activity.xml"
+        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw720dp-land-v13/activity_register.xml",
+        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw720dp-land/activity_register.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw720dp-land-v13/terms_conditions_activity.xml",
+        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw720dp-land/terms_conditions_activity.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/build/intermediates/res/merged/debug/layout-sw720dp-land-v13/activity_welcom.xml",
+        "source": "/Users/arslanihsan/Downloads/That's It  19 May 2016/app/src/main/res/layout-sw720dp-land/activity_welcom.xml"
+    },
+    {
+        "merged": "/Users/arslanihsan/TBOX/ThatsIt/app/build/intermediates/res/merged/debug/layout-sw720dp-land-v13/terms_conditions_activity.xml",
+        "source": "/Users/arslanihsan/TBOX/ThatsIt/app/src/main/res/layout-sw720dp-land/terms_conditions_activity.xml"
     }
 ]

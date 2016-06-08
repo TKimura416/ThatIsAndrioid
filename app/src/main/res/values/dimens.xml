@@ -3,12 +3,12 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-      <dimen name="keyboard_height">230dip</dimen>  
+    <dimen name="keyboard_height">230dip</dimen>
 
-<!--   
--->
+    <!--
+    -->
     <dimen name="title_text">20dp</dimen>
     <dimen name="welcome">18dp</dimen>
-    
-      <bool name="isTablet">false</bool>
+
+    <bool name="isTablet">false</bool>
 </resources>

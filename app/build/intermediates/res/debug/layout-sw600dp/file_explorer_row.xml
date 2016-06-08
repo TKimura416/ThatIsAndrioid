@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rowtext"
-    android:layout_width="fill_parent"
-    android:padding="10dp"
-    android:layout_height="wrap_content"
-    android:textSize="20sp" />
-<!-- From: file:/D:/StudioWorkSpace/That's%20It%20SVN/app/src/main/res/layout-sw600dp/file_explorer_row.xml -->
