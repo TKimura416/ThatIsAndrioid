@@ -113,12 +113,12 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
     private ImageButton fragActBasicSet_btn_copy;
     private DbOpenHelper dbOpenHelper;
     private Uri fileUri, resultFileUri;
-    private ImageLoader loader = ImageLoader.getInstance();
+    private final ImageLoader loader = ImageLoader.getInstance();
     private DisplayImageOptions options;
     private boolean doneClicked = false;
     private ContactActivity hostActivity;
-    private int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
-    private int GALLERY_IMAGE_REQUEST_CODE = 200;
+    private final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
+    private final int GALLERY_IMAGE_REQUEST_CODE = 200;
     final int PIC_CROP = 2; //keep track of cropping intent
     public static final int MEDIA_TYPE_IMAGE = 1;
     private static final String IMAGE_DIRECTORY_NAME = "Thats It Profile Images";
@@ -1362,7 +1362,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
      * Send Login status to server
      */
 
-    ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+    final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
         @Override
         public void validateUserLogin(Context context, ValidateUserLoginStatus mValidateUserLoginStatus) {
 

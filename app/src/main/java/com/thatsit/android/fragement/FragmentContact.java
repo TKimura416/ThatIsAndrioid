@@ -89,7 +89,7 @@ import com.seasia.myquick.model.FetchUserSettingTemplates;
 
 public class FragmentContact extends Fragment implements OnClickListener {
 
-	private boolean LastFragment = false;
+	private final boolean LastFragment = false;
 	final String TAG = "FragmentContact";
 	public ListView mlistView_Contacts;
 	private View mView;
@@ -107,7 +107,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private XMPPConnection mConnection;
 	private XmppManager mXmppManager;
 	private ThatItApplication myApplication;
-	private MyRosterListner myRosterListner = new MyRosterListner();
+	private final MyRosterListner myRosterListner = new MyRosterListner();
 	public static UsersAdapter usersAdapter;
 	public static ImageView imgVwAddNewGroup;
 	private Button btnToggleContacts, btnToggleGroups;
@@ -123,13 +123,13 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private ArrayList<Integer> rosterHistoryToBeDeleted;
 	private VCard card;
 	private ImageView refresh_icon;
-	private ArrayList<String> jids = new ArrayList<>();
-	private ArrayList<String> listcardname = new ArrayList<>();
-	private ArrayList<String> listcardlastname = new ArrayList<>();
-	private ArrayList<String> listcardprofilepic = new ArrayList<>();
+	private final ArrayList<String> jids = new ArrayList<>();
+	private final ArrayList<String> listcardname = new ArrayList<>();
+	private final ArrayList<String> listcardlastname = new ArrayList<>();
+	private final ArrayList<String> listcardprofilepic = new ArrayList<>();
 	private String personFirstName, personLastName;
 	private SharedPreferences mSharedPreferences,mSharedPreferences_reg;
-	private ParseUtil parseUtil = new ParseUtil();
+	private final ParseUtil parseUtil = new ParseUtil();
 	private ResetRoster resetRoster = null;
 	private boolean dialogOpen = false;
 	public boolean areGroupsReady, groupsEmpty = false;
@@ -145,7 +145,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				Constants.MAINSERVICE_PACKAGE, Constants.MAINSERVICE_PACKAGE
 				+ Constants.MAINSERVICE_NAME));
 	}
-	private RostListener rostListener = new RostListener();
+	private final RostListener rostListener = new RostListener();
 	private ProgressDialog progressDialog;
 	private SharedPreferences mSettings;
 
@@ -1458,7 +1458,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	/**
 	 * Check Chat password - Correct - Procced else display toast message
 	 */
-	CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
+	final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
 
 		@Override
 		public void checkChatPassword(CheckMessage_ChatPasswrd chat_password) {
@@ -1608,7 +1608,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	 *  Check if roster entry exists on Admin
 	 */
 
-	ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+	final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
 		@Override
 		public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

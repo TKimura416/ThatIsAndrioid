@@ -15,7 +15,6 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,15 +33,15 @@ import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.R;
 
 public class FileReceiveraAsync_  {
-	private ThatItApplication myApplication;
-	private Context parentContext;
+	private final ThatItApplication myApplication;
+	private final Context parentContext;
 	private NotificationManager mNotifyManager ;
-	private NotificationCompat.Builder	mBuilder;
+	private final NotificationCompat.Builder	mBuilder;
 	public static int notificaion_id = 11;
 	private String FILE_PATH=""; // initialized in onCreated
-	private String incomingFileName;
-	private Handler handler = new Handler();
-	private EncryptionManager encryptionManager;
+	private final String incomingFileName;
+	private final Handler handler = new Handler();
+	private final EncryptionManager encryptionManager;
 	private Session session = null;
 	private Channel channel = null;
 	private ChannelSftp channelSftp = null;

@@ -7,7 +7,7 @@ import org.jivesoftware.smack.packet.IQ;
  * Customized IQ class to send GCM token to the openfire server.
  */
 public class GcmTokenIQ extends IQ {
-    private String m_strXmlns = "urn:xmpp:apns";
+    private final String m_strXmlns = "urn:xmpp:apns";
     private String m_strGcmToken = "";
 
     /**

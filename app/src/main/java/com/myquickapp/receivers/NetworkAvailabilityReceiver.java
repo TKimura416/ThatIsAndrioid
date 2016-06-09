@@ -7,8 +7,6 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import com.thatsit.android.xmpputils.Constants;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -33,7 +31,7 @@ public class NetworkAvailabilityReceiver {
 				if(ni.isConnected()){
 					haveConnectedWifi = true;
 				}
-			} catch (Exception e) {
+			} catch (Exception ignored) {
 			}
 		}
 		return haveConnectedWifi || haveConnectedMobile;

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DbOpenHelper extends SQLiteOpenHelper {
-	String TAG = "DbOpenHelper";
+	final String TAG = "DbOpenHelper";
 
 	public static final  String DATABASE_NAME = "thats_it_database.db";
 	private static final int DATABASE_VERSION = 1;
@@ -15,27 +15,27 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 	static final String TABLE_ROSTER ="rosterList" ;
 
 	// Columns name
-	public static String COLUMN_ID = "id";
-	public static String SIGNED_IN_ID = "sId";
-	public static String COLUMN_JID = "jid";
-	public static String COLUMN_NAME = "name";
-	public static String COLUMN_MESSAGE = "message";
-	public static String COLUMN_TIMESTAMP = "date";
-	public static String COLUMN_MESSAGE_SUBJECT = "subject";
-	public static String COLUMN_FILE_DOWNLOAD_STATUS = "filedownloaded";
-	public static String COLUMN_OWNER_OR_PARTICIPANT = "owner_or_participant";
-	public static String COLUMN_MESSAGE_STATUS = "messageStatus";
-	public static String USER_TYPE_OWNER = "owner";
-	public static String USER_IMAGE = "userimage";
-	public static String COLUMN_ROOM= "roomName";
-	public static String USER_TYPE_PARTICIPANT = "participant";
-	public static String FIRSTNAME = "firstname";
-	public static String LASTNAME = "lastname";
-	public static String JABBER_ID = "rosterId";
-	public static String PROFILE_PIC_URL = "rosterimage_url";
-	public static String PROFILE_PIC_BLOB = "rosterimage";
+	public static final String COLUMN_ID = "id";
+	public static final String SIGNED_IN_ID = "sId";
+	public static final String COLUMN_JID = "jid";
+	public static final String COLUMN_NAME = "name";
+	public static final String COLUMN_MESSAGE = "message";
+	public static final String COLUMN_TIMESTAMP = "date";
+	public static final String COLUMN_MESSAGE_SUBJECT = "subject";
+	public static final String COLUMN_FILE_DOWNLOAD_STATUS = "filedownloaded";
+	public static final String COLUMN_OWNER_OR_PARTICIPANT = "owner_or_participant";
+	public static final String COLUMN_MESSAGE_STATUS = "messageStatus";
+	public static final String USER_TYPE_OWNER = "owner";
+	public static final String USER_IMAGE = "userimage";
+	public static final String COLUMN_ROOM= "roomName";
+	public static final String USER_TYPE_PARTICIPANT = "participant";
+	public static final String FIRSTNAME = "firstname";
+	public static final String LASTNAME = "lastname";
+	public static final String JABBER_ID = "rosterId";
+	public static final String PROFILE_PIC_URL = "rosterimage_url";
+	public static final String PROFILE_PIC_BLOB = "rosterimage";
 	
-	public static String CREATE_TABLE_ROSTER_ENTRY= 
+	public static final String CREATE_TABLE_ROSTER_ENTRY=
 			"CREATE TABLE IF NOT EXISTS " + TABLE_ROSTER + " ( " +
 			/*COLUMN_ID + " INTEGER PRIMARY KEY, " +*/
 			JABBER_ID+ " TEXT NOT NULL PRIMARY KEY, " +
@@ -47,7 +47,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
 	public static String IS_DATA_COMPLETE= "is_data_complete";
 	
-	private Context context;
+	private final Context context;
 
 	public DbOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

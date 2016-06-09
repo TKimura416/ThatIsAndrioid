@@ -4,21 +4,17 @@ import java.io.File;
 
 import org.jivesoftware.smack.XMPPConnection;
 
-import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.MediaStore;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager.LayoutParams;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -113,7 +109,7 @@ public class SelectAudioActivity extends ListActivity {
 			if(!mBinded){
 				mBinded = bindService(SERVICE_INTENT, serviceConnection, Context.BIND_AUTO_CREATE);
 			}
-		}catch(Exception e){
+		}catch(Exception ignored){
 		}
 	} 
 
@@ -148,7 +144,7 @@ public class SelectAudioActivity extends ListActivity {
 	/**
 	 * Bind service with the activity.
 	 */
-	private ServiceConnection serviceConnection = new ServiceConnection() {
+	private final ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			mService = ((MainService.MyBinder) binder).getService();

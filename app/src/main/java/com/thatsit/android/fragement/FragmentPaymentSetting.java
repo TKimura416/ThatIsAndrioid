@@ -1,6 +1,5 @@
 package com.thatsit.android.fragement;
 
-import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -220,7 +219,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  UPDATE SUBSCRIPTION INTERFACE
 	 */
-	UpdateSubscriptionInterface mUpdateSubscriptionInterface = new UpdateSubscriptionInterface() {
+	final UpdateSubscriptionInterface mUpdateSubscriptionInterface = new UpdateSubscriptionInterface() {
 
 		@Override
 		public void updateSubscription(UpdateSubsciptionTemplate updateSubsciption) {
@@ -250,7 +249,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  GET NO OF DAYS LEFT TO EXPIRE
 	 */
-	DaysLeftInterface mDaysLeftInterface = new DaysLeftInterface() {
+	final DaysLeftInterface mDaysLeftInterface = new DaysLeftInterface() {
 
 		@Override
 		public void daysLeft(CheckSubscriptionKeyValidity daysLeft) {
@@ -276,7 +275,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	 *  GET SUBSCRIPTION HISTORY (EXPIRY DATE)
 	 */
 
-	SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(
@@ -314,7 +313,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  GET SUBCRIPTION FEE
 	 */
-	SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
+	final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
 
 		@Override
 		public void subscriptionFee(

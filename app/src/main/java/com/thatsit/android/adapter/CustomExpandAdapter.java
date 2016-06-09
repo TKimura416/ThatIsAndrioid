@@ -14,10 +14,10 @@ import android.widget.TextView;
 
 public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
-    private List<NavigationAdapter> parentRecord;
-    private HashMap<String, List<String>> childRecord;
+    private final List<NavigationAdapter> parentRecord;
+    private final HashMap<String, List<String>> childRecord;
     private LayoutInflater inflater = null;
-    private Activity mContext;
+    private final Activity mContext;
 
     public CustomExpandAdapter(Activity context, List<NavigationAdapter> parentList, HashMap<String, List<String>> childList) {
         this.parentRecord = parentList;
@@ -55,7 +55,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
             holder.childTitle.setText(childConfig);
 
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return convertView;
     }
@@ -88,7 +88,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
             	 holder.expand_icon.setVisibility(View.GONE);
             }
             
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return convertView;
     }

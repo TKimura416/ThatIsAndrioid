@@ -72,13 +72,13 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     private String personFirstName;
     private String personLastname;
     private Handler handler;
-    private ArrayList<String> jids = new ArrayList<>();
-    private ArrayList<String> listcardname = new ArrayList<>();
-    private ArrayList<String> listcardlastname = new ArrayList<>();
-    private ArrayList<String> listcardprofilepic = new ArrayList<>();
-    private ArrayList<String> messageList = new ArrayList<>();
-    private ArrayList<String> timeList = new ArrayList<>();
-    private ArrayList<String> userTypeList = new ArrayList<>();
+    private final ArrayList<String> jids = new ArrayList<>();
+    private final ArrayList<String> listcardname = new ArrayList<>();
+    private final ArrayList<String> listcardlastname = new ArrayList<>();
+    private final ArrayList<String> listcardprofilepic = new ArrayList<>();
+    private final ArrayList<String> messageList = new ArrayList<>();
+    private final ArrayList<String> timeList = new ArrayList<>();
+    private final ArrayList<String> userTypeList = new ArrayList<>();
     private ContactActivity hostActivity;
     private ArrayList<String> filteredArrayList = new ArrayList<>();
     private ArrayList<String> filteredFirstName = new ArrayList<>();
@@ -344,7 +344,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
      */
     class ChatUsersAdapter extends BaseAdapter implements Filterable{
 
-        private LayoutInflater inflater;
+        private final LayoutInflater inflater;
         private ArrayList<String> jids = new ArrayList<>();
         private ArrayList<String> listcardname = new ArrayList<>();
         private ArrayList<String> listcardprofilepic = new ArrayList<>();
@@ -560,7 +560,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
      *  Check if roster entry exists on Admin
      */
 
-    ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+    final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
         @Override
         public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

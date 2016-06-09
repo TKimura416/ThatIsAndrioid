@@ -24,7 +24,6 @@ import org.apache.http.util.EntityUtils;
 import android.content.Context;
 import android.util.Log;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 import com.seasia.myquick.model.CheckMessage_ChatPasswrd;
 import com.seasia.myquick.model.CheckSubscriptionKeyValidity;
@@ -46,7 +45,7 @@ import java.security.KeyStore;
 
 public class WebServiceClient {
 
-	public Context mContext;
+	public final Context mContext;
 	//private final String BASE_URL = "http://dotnetstg2.seasiaconsulting.com/Thatsit/Services/ThatsItService.svc/";
 	private final String BASE_URL = "https://thatsitsrv.com/services/ThatsItService.svc/";
 	private final String INSERT_USER_DATA = "InsertUserData";

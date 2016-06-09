@@ -31,7 +31,7 @@ public class EncryptionManager {
 	private static final int iterationCount = 10;
 
 	// 8-byte Salt
-	private static byte[] salt = {(byte)0xB2, (byte)0x12, (byte)0xD5, (byte)0xB2,
+	private static final byte[] salt = {(byte)0xB2, (byte)0x12, (byte)0xD5, (byte)0xB2,
 		(byte)0x44, (byte)0x21, (byte)0xC3, (byte)0xC3};
 	private final String passPhrase = "My Secret Password";
 

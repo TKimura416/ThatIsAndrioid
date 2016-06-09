@@ -25,13 +25,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -95,7 +93,7 @@ public class Utility {
 	public static boolean FragmentContactDataFetchedOnce = false;
 	public static boolean FragmentHistoryDataFetchedOnce = false;
 	public static Bitmap catchedBitmap = null;
-	static Handler handler = new Handler();
+	static final Handler handler = new Handler();
 	public static InviteContactsToRoster inviteContactsToRoster=null;
 	public static String email_id;
 	static Dialog dialog,dialog_expiry,dialogConnectionErrorAlert,dialogConnectionErrorSplash = null;
@@ -111,12 +109,12 @@ public class Utility {
 	public static boolean loginCalledOnce = false;
 	public static boolean smileyScreenOpened = false;
 	public static boolean serviceBinded = false;
-	public static EncryptionManager encryptionManager = new EncryptionManager();
+	public static final EncryptionManager encryptionManager = new EncryptionManager();
 	public static boolean groupNotificationClicked = false;
 	public static boolean fragPaymentSettingsOpen = false;
 	public static boolean hasPincode = false;
 	public static boolean fragChatIsOpen = false;
-	public static VCard card =new VCard();
+	public static final VCard card =new VCard();
 	public static String action;
 	public static boolean fragChatHistoryOpened = false;
 	public static boolean disAllowSubscription = false;
@@ -1012,7 +1010,7 @@ public class Utility {
 	 * Send Login status to server
 	 */
 
-	static ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	static final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 
@@ -1036,7 +1034,7 @@ public class Utility {
 	 *  Validate User Pause State
 	 */
 
-	public static ValidateUserPauseStateInterface mValidateUserPauseStateInterface = new ValidateUserPauseStateInterface() {
+	public static final ValidateUserPauseStateInterface mValidateUserPauseStateInterface = new ValidateUserPauseStateInterface() {
 		@Override
 		public void validateUserPauseState(Context context,AuthenticateUserServiceTemplate mAuthenticateUserServiceTemplate) {
 

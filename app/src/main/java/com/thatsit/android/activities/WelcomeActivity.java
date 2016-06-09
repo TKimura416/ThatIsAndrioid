@@ -64,7 +64,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	private SharedPreferences settings;
 	private String jid, password;
 	public static boolean dismissProgressBar = false;
-	private static ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
+	private static final ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
 	private MainService mService;
@@ -322,7 +322,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 * Create connection and bind service.
 	 */
-	private ServiceConnection serviceConnection = new ServiceConnection() {
+	private final ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			Log.d(TAG, "   ServiceConnected   ********************");
@@ -573,7 +573,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 *  Validate User Login Status
 	 */
-	ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 
@@ -635,7 +635,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	 * Send Login status to server
 	 */
 
-	ValidateUserLoginInterface validateUserLoginInterface = new ValidateUserLoginInterface() {
+	final ValidateUserLoginInterface validateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 			if(mValidateUserLoginStatus != null){

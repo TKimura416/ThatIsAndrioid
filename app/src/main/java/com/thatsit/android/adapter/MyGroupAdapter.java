@@ -8,7 +8,6 @@ import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smackx.packet.VCard;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -29,20 +28,18 @@ import com.thatsit.android.beans.TemplateGroupMessageHolder;
 import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.thatsit.android.xmpputils.Constants;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.seasia.myquick.model.AppSinglton;
 
 
 public class MyGroupAdapter extends BaseAdapter{
 
-	ArrayList<TemplateGroupMessageHolder> messagesMUC;
-	HashMap<Integer,View> viewContainer = new HashMap<>();
-	Context context;
-	XMPPConnection connection;
-	Handler vCardHandler = new Handler();
-	EncryptionManager encryptionManager=new EncryptionManager();
-	ListView listView;
+	final ArrayList<TemplateGroupMessageHolder> messagesMUC;
+	final HashMap<Integer,View> viewContainer = new HashMap<>();
+	final Context context;
+	final XMPPConnection connection;
+	final Handler vCardHandler = new Handler();
+	final EncryptionManager encryptionManager=new EncryptionManager();
+	final ListView listView;
 
 	public MyGroupAdapter(Context context,final XMPPConnection connection,ArrayList<TemplateGroupMessageHolder> messagesMUC,ListView listView) {
 		this.context=context;

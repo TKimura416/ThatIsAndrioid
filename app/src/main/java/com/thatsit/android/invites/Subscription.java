@@ -34,12 +34,12 @@ public class Subscription extends Activity {
 	private static final String TAG = Subscription.class.getSimpleName();
 	private String mContact;
 	MainService mService;
-	private ServiceConnection mServConn = new MainServiceConnection();
+	private final ServiceConnection mServConn = new MainServiceConnection();
 //	private final ConnectionBroadcastReceiver mReceiver = new ConnectionBroadcastReceiver();
-	private MyOnClickListener mClickListener = new MyOnClickListener();
-	Handler handler;
-	XmppManager xmppManager;
-	XMPPConnection connection;
+	private final MyOnClickListener mClickListener = new MyOnClickListener();
+	final Handler handler;
+	final XmppManager xmppManager;
+	final XMPPConnection connection;
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName("com.thatsit.android", "com.thatsit.android.MainService"));

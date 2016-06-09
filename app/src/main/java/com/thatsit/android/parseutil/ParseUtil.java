@@ -357,8 +357,8 @@ public class ParseUtil {
 	class ParseCommonCallback implements SaveCallback,DeleteCallback{
 
 		String jid ="";
-		Context context;
-		ParseCallbackListener parseCallbackListener;
+		final Context context;
+		final ParseCallbackListener parseCallbackListener;
 		int requestId=-1;
 
 		/**

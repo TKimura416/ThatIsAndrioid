@@ -25,7 +25,6 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -55,7 +54,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.myquick.socket.ServerThread;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
-import com.myquickapp.receivers.NetworkChangeReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -92,11 +90,8 @@ import com.thatsit.android.interfaces.ValidateUserStatusIdInterface;
 import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
 
-import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.packet.IQ;
-import org.jivesoftware.smack.packet.Packet;
 
 /**
  * This is the main container on which fragments are implemented.
@@ -127,7 +122,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	private String ExpiryDate;
 	private Handler handler;
 	public static TextView textView_toolbar_title;
-	public static ImageLoader loader= ImageLoader.getInstance();
+	public static final ImageLoader loader= ImageLoader.getInstance();
 	public static DisplayImageOptions options;
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
@@ -142,7 +137,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	private List<NavigationAdapter> listParent;
 	private HashMap<String, List<String>> listDataChild;
 	private View lastColored;
-	private String PROJECT_NUMBER="354278772391";//"773007732943";
+	private final String PROJECT_NUMBER="354278772391";//"773007732943";
 	private String registrationID;
 	//private NetworkChangeReceiver networkChangeReceiver;
 
@@ -806,7 +801,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	/**
 	 *  Setting up service connection and binding with activity.
 	 */
-	private ServiceConnection serviceConnection = new ServiceConnection() {
+	private final ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			try {
@@ -990,7 +985,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 				mFragmentTransaction.replace(R.id.fragmentContainer, mFragmentInvitationReceive);
 				mFragmentTransaction.commit();
 			}
-		}catch(Exception e){
+		}catch(Exception ignored){
 		}
 	}
 
@@ -998,7 +993,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 * Broadcast receiver to display star on incoming message.
 	 */
 
-	private BroadcastReceiver one2OneChatReceiver = new BroadcastReceiver() {
+	private final BroadcastReceiver one2OneChatReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			try {
@@ -1014,7 +1009,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 
 
 	// handler for received Intents for the "my-event" event
-	private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+	private final BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			try {
@@ -1196,7 +1191,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 *  Check Chat Password Interface - Get result from async to confirm correct password.
 	 */
 
-	CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
+	final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
 
 		@Override
 		public void checkChatPassword(CheckMessage_ChatPasswrd chat_password) {
@@ -1223,7 +1218,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 *  Get expiration date for the jID.
 	 */
 
-	SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(
@@ -1293,7 +1288,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 * Send Login status to server
 	 */
 
-	ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 			Log.e("",""+mValidateUserLoginStatus);
@@ -1301,7 +1296,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	};
 
 
-	ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
+	final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
 		@Override
 		public void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID) {
 

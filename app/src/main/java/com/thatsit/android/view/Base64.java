@@ -537,10 +537,10 @@ public class Base64
             throw e;
         }   // end catch
         finally {
-            try{ oos.close();   } catch( Exception e ){}
-            try{ gzos.close();  } catch( Exception e ){}
-            try{ b64os.close(); } catch( Exception e ){}
-            try{ baos.close();  } catch( Exception e ){}
+            try{ oos.close();   } catch( Exception ignored){}
+            try{ gzos.close();  } catch( Exception ignored){}
+            try{ b64os.close(); } catch( Exception ignored){}
+            try{ baos.close();  } catch( Exception ignored){}
         }   // end finally
         
         // Return value according to relevant encoding.
@@ -778,9 +778,9 @@ public class Base64
                 throw e;
             }   // end catch
             finally {
-                try{ gzos.close();  } catch( Exception e ){}
-                try{ b64os.close(); } catch( Exception e ){}
-                try{ baos.close();  } catch( Exception e ){}
+                try{ gzos.close();  } catch( Exception ignored){}
+                try{ b64os.close(); } catch( Exception ignored){}
+                try{ baos.close();  } catch( Exception ignored){}
             }   // end finally
 
             return baos.toByteArray();
@@ -1139,9 +1139,9 @@ public class Base64
                     // Just return originally-decoded bytes
                 }   // end catch
                 finally {
-                    try{ baos.close(); } catch( Exception e ){}
-                    try{ gzis.close(); } catch( Exception e ){}
-                    try{ bais.close(); } catch( Exception e ){}
+                    try{ baos.close(); } catch( Exception ignored){}
+                    try{ gzis.close(); } catch( Exception ignored){}
+                    try{ bais.close(); } catch( Exception ignored){}
                 }   // end finally
 
             }   // end if: gzipped
@@ -1231,8 +1231,8 @@ public class Base64
             throw e;    // Catch and throw in order to execute finally{}
         }   // end catch
         finally {
-            try{ bais.close(); } catch( Exception e ){}
-            try{ ois.close();  } catch( Exception e ){}
+            try{ bais.close(); } catch( Exception ignored){}
+            try{ ois.close();  } catch( Exception ignored){}
         }   // end finally
         
         return obj;
@@ -1271,7 +1271,7 @@ public class Base64
             throw e; // Catch and throw to execute finally{} block
         }   // end catch: java.io.IOException
         finally {
-            try{ bos.close(); } catch( Exception e ){}
+            try{ bos.close(); } catch( Exception ignored){}
         }   // end finally
         
     }   // end encodeToFile
@@ -1303,7 +1303,7 @@ public class Base64
             throw e; // Catch and throw to execute finally{} block
         }   // end catch: java.io.IOException
         finally {
-                try{ bos.close(); } catch( Exception e ){}
+                try{ bos.close(); } catch( Exception ignored){}
         }   // end finally
         
     }   // end decodeToFile
@@ -1364,7 +1364,7 @@ public class Base64
             throw e; // Catch and release to execute finally{}
         }   // end catch: java.io.IOException
         finally {
-            try{ bis.close(); } catch( Exception e) {}
+            try{ bis.close(); } catch( Exception ignored) {}
         }   // end finally
         
         return decodedData;
@@ -1417,7 +1417,7 @@ public class Base64
             throw e; // Catch and release to execute finally{}
         }   // end catch: java.io.IOException
         finally {
-            try{ bis.close(); } catch( Exception e) {}
+            try{ bis.close(); } catch( Exception ignored) {}
         }   // end finally
         
         return encodedData;
@@ -1446,7 +1446,7 @@ public class Base64
         }   // end catch
         finally {
             try { out.close(); }
-            catch( Exception ex ){}
+            catch( Exception ignored){}
         }   // end finally    
     }   // end encodeFileToFile
 
@@ -1474,7 +1474,7 @@ public class Base64
         }   // end catch
         finally {
             try { out.close(); }
-            catch( Exception ex ){}
+            catch( Exception ignored){}
         }   // end finally    
     }   // end decodeFileToFile
     
@@ -1493,15 +1493,15 @@ public class Base64
      */
     public static class InputStream extends java.io.FilterInputStream {
         
-        private boolean encode;         // Encoding or decoding
+        private final boolean encode;         // Encoding or decoding
         private int     position;       // Current position in the buffer
-        private byte[]  buffer;         // Small buffer holding converted data
-        private int     bufferLength;   // Length of buffer (3 or 4)
+        private final byte[]  buffer;         // Small buffer holding converted data
+        private final int     bufferLength;   // Length of buffer (3 or 4)
         private int     numSigBytes;    // Number of meaningful bytes in the buffer
         private int     lineLength;
-        private boolean breakLines;     // Break lines at less than 80 characters
-        private int     options;        // Record options used to create the stream.
-        private byte[]  decodabet;      // Local copies to avoid extra method calls
+        private final boolean breakLines;     // Break lines at less than 80 characters
+        private final int     options;        // Record options used to create the stream.
+        private final byte[]  decodabet;      // Local copies to avoid extra method calls
         
         
         /**
@@ -1706,16 +1706,16 @@ public class Base64
      */
     public static class OutputStream extends java.io.FilterOutputStream {
         
-        private boolean encode;
+        private final boolean encode;
         private int     position;
         private byte[]  buffer;
-        private int     bufferLength;
+        private final int     bufferLength;
         private int     lineLength;
-        private boolean breakLines;
-        private byte[]  b4;         // Scratch used in a few places
+        private final boolean breakLines;
+        private final byte[]  b4;         // Scratch used in a few places
         private boolean suspendEncoding;
-        private int     options;    // Record for later
-        private byte[]  decodabet;  // Local copies to avoid extra method calls
+        private final int     options;    // Record for later
+        private final byte[]  decodabet;  // Local copies to avoid extra method calls
         
         /**
          * Constructs a {@link Base64.OutputStream} in ENCODE mode.

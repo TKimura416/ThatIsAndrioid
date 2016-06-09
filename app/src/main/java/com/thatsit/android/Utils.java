@@ -47,7 +47,7 @@ public class Utils{
 				os.write(bytes, 0, count);
 			}
 		}
-		catch(Exception ex){}
+		catch(Exception ignored){}
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class Utils{
 				}
 			}
 
-		} catch (SocketException ex) {
+		} catch (SocketException ignored) {
 		}
 		return "no wifi connection.";
 	}

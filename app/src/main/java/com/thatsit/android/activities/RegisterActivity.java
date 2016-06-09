@@ -10,12 +10,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -83,7 +81,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	private SharedPreferences settings;
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
-	private Utility mUtility = new Utility();
+	private final Utility mUtility = new Utility();
 	private String Chat_password;
 	private SharedPreferences mSharedPreferences;
 	private RelativeLayout rltv_top;
@@ -505,7 +503,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	 * Get register details  for the Thats It ID.
 	 */
 
-	RegisterInterface mRegisterInterface = new RegisterInterface() {
+	final RegisterInterface mRegisterInterface = new RegisterInterface() {
 
 		@Override
 		public void registerInterfaceMethod(
@@ -545,7 +543,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	 * Check if pincode exists on the server.
 	 */
 
-	ValidatePincodeInterface mValidatePincodeInterface = new ValidatePincodeInterface() {
+	final ValidatePincodeInterface mValidatePincodeInterface = new ValidatePincodeInterface() {
 
 		@Override
 		public void validatePincode(ValidatePincode mValidatePincode) {
@@ -574,7 +572,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Get Subscription fee.
 	 */
-	SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
+	final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
 
 		@Override
 		public void subscriptionFee(
@@ -612,7 +610,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Get 16-digit user ID.
 	 */
-	UserIdInterface mUserIdInterface = new UserIdInterface() {
+	final UserIdInterface mUserIdInterface = new UserIdInterface() {
 
 		@Override
 		public void getUserId(GenerateKeyIdResponse mGenerateKeyIdResponse) {

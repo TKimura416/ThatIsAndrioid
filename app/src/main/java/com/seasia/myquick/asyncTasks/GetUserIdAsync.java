@@ -8,8 +8,8 @@ import com.seasia.myquick.model.GenerateKeyIdResponse;
 
 public class GetUserIdAsync extends AsyncTask<Void, Void, GenerateKeyIdResponse>{
 
-	private Context context;
-	private UserIdInterface mUserIdInterface;
+	private final Context context;
+	private final UserIdInterface mUserIdInterface;
 	
 	public GetUserIdAsync(Context context,UserIdInterface mUserIdInterface) {
 	this.context = context;

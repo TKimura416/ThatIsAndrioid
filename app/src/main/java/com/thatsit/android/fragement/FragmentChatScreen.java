@@ -25,7 +25,6 @@ import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -46,7 +45,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -116,11 +114,11 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private Uri selectedImageUriFromGallery,selectedVideoUriFromGallery;
 	private String picturePath,videoPath;
 	private String LastID;
-	private StringBuilder copyValue = new StringBuilder();
-	private static ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
+	private final StringBuilder copyValue = new StringBuilder();
+	private static final ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
 	private final One2OneChatReceiver one2OneChatReceiver = new One2OneChatReceiver();
 	private static final Intent SERVICE_INTENT = new Intent();
-	private Handler mHandler = new Handler();
+	private final Handler mHandler = new Handler();
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
 	private ThatItApplication myApplication;
@@ -130,9 +128,9 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private ContactActivity hostActivity;
 	public static DiscussArrayAdapter adapter;
 	private RelativeLayout rel_overflowImage,fragChat_clipboard;
-	private ArrayList<Integer> ListItem_position_new = new ArrayList<>();
-	private ArrayList<String> ListItem_position_all = new ArrayList<>();
-	private ArrayList<Integer> ListItem_position_deletes = new ArrayList<>();
+	private final ArrayList<Integer> ListItem_position_new = new ArrayList<>();
+	private final ArrayList<String> ListItem_position_all = new ArrayList<>();
+	private final ArrayList<Integer> ListItem_position_deletes = new ArrayList<>();
 	private ImageView /*img_copy,img_cut,*/img_accept;
 	private TextView img_delete;
 	public RelativeLayout activityRootView;
@@ -1196,7 +1194,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 					}
 				}
 			}.start();
-		} catch (ActivityNotFoundException e) {
+		} catch (ActivityNotFoundException ignored) {
 		}
 	}
 
@@ -1423,7 +1421,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 				}
 			}
 		}
-		catch (Exception e) {
+		catch (Exception ignored) {
 		}
 	}
 
@@ -1476,7 +1474,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 					Intent.ACTION_PICK,
 					android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI), PHOTO_SELECT_CODE);
 
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 
 	}
@@ -1677,7 +1675,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 *  Check if roster entry exists on Admin
 	 */
 
-	ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+	final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
 		@Override
 		public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

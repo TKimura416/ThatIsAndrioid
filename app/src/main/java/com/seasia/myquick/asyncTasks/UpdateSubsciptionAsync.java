@@ -3,18 +3,18 @@ package com.seasia.myquick.asyncTasks;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import com.thatsit.android.Utility;
+
 import com.thatsit.android.interfaces.UpdateSubscriptionInterface;
 import com.seasia.myquick.controller.WebServiceClient;
 import com.seasia.myquick.model.UpdateSubsciptionTemplate;
 
 public class UpdateSubsciptionAsync extends AsyncTask<Void, Void, UpdateSubsciptionTemplate> {
-	private Context context;
+	private final Context context;
 	private ProgressDialog pdDialog;
-	private UpdateSubscriptionInterface mUpdateSubscriptionInterface;
-	private String UserID;
-	private String renewalFee;
-	private String SubscribeDate;
+	private final UpdateSubscriptionInterface mUpdateSubscriptionInterface;
+	private final String UserID;
+	private final String renewalFee;
+	private final String SubscribeDate;
 	
 	public UpdateSubsciptionAsync(Context context,String UserID,String renewalFee,
 			String formattedDate,UpdateSubscriptionInterface mUpdateSubscriptionInterface) {

@@ -8,8 +8,8 @@ import com.thatsit.android.interfaces.ValidateUserStatusIdInterface;
 
 public class UserStatusIdAsync extends AsyncTask<Void,Void,ValidateUserStatusID> {
 
-    private Context context;
-    private ValidateUserStatusIdInterface mValidateUserStatusIdInterface;
+    private final Context context;
+    private final ValidateUserStatusIdInterface mValidateUserStatusIdInterface;
 
     public UserStatusIdAsync(Context context,ValidateUserStatusIdInterface mValidateUserStatusIdInterface){
         this.context = context;

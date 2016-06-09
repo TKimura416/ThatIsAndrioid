@@ -6,30 +6,26 @@ import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Window;
-import android.view.WindowManager.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.adapter.CustomGroupMemberAdapter;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.parseutil.ParseCallbackListener;
 import com.thatsit.android.parseutil.ParseUtil;
-import com.myquick.filebrowser.AndroidExplorer;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 
 public class GroupInfoActivity extends Activity {
 
-	public static boolean isPromtAllowed=true;
+	public static final boolean isPromtAllowed=true;
 	private ListView lvMembers;
 	private TextView mtvGroupName;
 	private CustomGroupMemberAdapter groupMemberAdapter;
-	private ParseUtil parseUtil = new ParseUtil();
+	private final ParseUtil parseUtil = new ParseUtil();
 
 	@Override
 	protected void onDestroy() {

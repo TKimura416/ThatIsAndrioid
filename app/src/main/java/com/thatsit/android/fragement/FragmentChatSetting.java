@@ -1,6 +1,5 @@
 package com.thatsit.android.fragement;
 
-import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Mode;
 import org.jivesoftware.smack.packet.Presence.Type;
@@ -11,7 +10,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -576,7 +574,7 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	/**
 	 *  Change chat password interface.
 	 */
-	ChangeChatPasswordInterface mChangeChatPasswordInterface = new ChangeChatPasswordInterface() {
+	final ChangeChatPasswordInterface mChangeChatPasswordInterface = new ChangeChatPasswordInterface() {
 
 		@Override
 		public void changeChatPassword(

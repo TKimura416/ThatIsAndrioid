@@ -5,35 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
-import com.thatsit.android.activities.MUCActivity;
-import com.thatsit.android.activities.SelectAudioActivity;
 import com.thatsit.android.fragement.FragmentChatScreen;
 
 public class AndroidExplorer extends ListActivity {
 
 
-	public static boolean isPromtAllowed=true;
+	public static final boolean isPromtAllowed=true;
 	private List<String> item = null;
 	private List<String> path = null;
-	private String root="/";
+	private final String root="/";
 	private TextView myPath;
 
 	/** Called when the activity is first created. */
@@ -83,12 +75,9 @@ public class AndroidExplorer extends ListActivity {
 			item.add("../");
 			path.add(f.getParent());
 		}
-		for(int i=0; i < files.length; i++)
-		{
-			File file = files[i];
-
+		for (File file : files) {
 			path.add(file.getPath());
-			if(file.isDirectory())
+			if (file.isDirectory())
 				item.add(file.getName() + "/");
 
 			else

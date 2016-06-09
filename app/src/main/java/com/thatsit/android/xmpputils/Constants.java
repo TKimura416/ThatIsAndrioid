@@ -21,11 +21,11 @@ public class Constants {
 	/**
 	 *  SFTP Credentials in encrypted form
 	 */
-	public static String SFTP_SERVER_ADDRESS = "Y0OM4k0aZjZGaZYaz4k80A==";
-	public static String SFTP_USERNAME = "fkHaYSDlm/E=";
-	public static String SFTP_PASSWORD = "trb8aC+fezV4AY5mZD7OIQ==";
-	public static String SFTP_PORT_NO = "/lnwRUJfEXM=";
-	public static String SFTP_PATH = "CxleQBCblf6KPqf4DGyExZQPBdimFFLS";
+	public static final String SFTP_SERVER_ADDRESS = "Y0OM4k0aZjZGaZYaz4k80A==";
+	public static final String SFTP_USERNAME = "fkHaYSDlm/E=";
+	public static final String SFTP_PASSWORD = "trb8aC+fezV4AY5mZD7OIQ==";
+	public static final String SFTP_PORT_NO = "/lnwRUJfEXM=";
+	public static final String SFTP_PATH = "CxleQBCblf6KPqf4DGyExZQPBdimFFLS";
 	
 	/**
 	 *  Google Play In-App Subscription Details

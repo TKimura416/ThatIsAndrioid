@@ -1,37 +1,26 @@
 package com.thatsit.android.fragement;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 
-import org.jivesoftware.smack.Roster;
-import org.jivesoftware.smack.RosterEntry;
-import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.packet.VCard;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
-import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -47,7 +36,6 @@ import android.widget.Toast;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.application.ThatItApplication;
@@ -55,11 +43,8 @@ import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.db.One2OneChatDb;
 import com.thatsit.android.parseutil.ParseCallbackListener;
 import com.thatsit.android.parseutil.ParseUtil;
-import com.thatsit.android.xmpputils.XmppManager;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.seasia.myquick.model.AppSinglton;
@@ -74,11 +59,11 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 	private FragmentInvitationReceive mFragmentInvitationReceive;
 	private LinearLayout mLinLytInviationsSentContainer;
 	private MainService  mService;
-	VCard card = new VCard();
-	ParseUtil parseUtil = new ParseUtil();
+	final VCard card = new VCard();
+	final ParseUtil parseUtil = new ParseUtil();
 	private ContactActivity hostActivity;
 	private Handler handler;
-	private ArrayList<String> jids = new ArrayList<>();
+	private final ArrayList<String> jids = new ArrayList<>();
 	private LinearLayout fragInvSent_tabs_lnrlayout;
 
 

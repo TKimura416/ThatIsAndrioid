@@ -163,7 +163,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 	 * background service to maintain connection.
 	 */
 
-	private ServiceConnection serviceConnection = new ServiceConnection() {
+	private final ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			try {
@@ -231,7 +231,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 	 *  Get expiration date for the jID.
 	 */
 
-	SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(

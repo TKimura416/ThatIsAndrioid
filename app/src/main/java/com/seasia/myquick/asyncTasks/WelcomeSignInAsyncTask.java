@@ -10,9 +10,10 @@ import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 public class WelcomeSignInAsyncTask extends AsyncTask<Context, Void, AuthenticateUserServiceTemplate> {
 	
 	private ProgressDialog pdDialog;
-	private Context mContext;
-	private String EmailId,ThatsItpassword;
-	private WelcomeSignInInterface mWelcomeGetDataInterface;
+	private final Context mContext;
+	private final String EmailId;
+	private final String ThatsItpassword;
+	private final WelcomeSignInInterface mWelcomeGetDataInterface;
 	
 	public WelcomeSignInAsyncTask(Context mContext,String EmailId,String ThatsItpassword,
 			WelcomeSignInInterface mWelcomeGetDataInterface) {

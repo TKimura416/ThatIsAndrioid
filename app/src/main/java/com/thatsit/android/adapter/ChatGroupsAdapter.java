@@ -31,7 +31,7 @@ import com.seasia.myquick.model.AppSinglton;
 
 public class ChatGroupsAdapter extends BaseAdapter{
 
-	private Activity parentReference;
+	private final Activity parentReference;
 	private ArrayList<RosterGroup> rosterGroups;
 
 
@@ -139,7 +139,7 @@ public class ChatGroupsAdapter extends BaseAdapter{
 											notifyDataSetChanged();
 										}
 									});									
-								} catch (Exception e) {
+								} catch (Exception ignored) {
 								}
 
 							}

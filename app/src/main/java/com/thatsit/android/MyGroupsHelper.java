@@ -1,6 +1,5 @@
 package com.thatsit.android;
 
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -41,7 +40,7 @@ public class MyGroupsHelper {
 
 	public static Activity mContext;
 	private static String  groupName="";
-	private static ParseUtil parseUtil = new ParseUtil();
+	private static final ParseUtil parseUtil = new ParseUtil();
 	private static Handler handler = new Handler();
 	public static Dialog createGroupDialog;
 	private static ArrayList<RosterGroup> list = null;

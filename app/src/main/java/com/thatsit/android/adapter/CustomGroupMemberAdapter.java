@@ -3,15 +3,12 @@ package com.thatsit.android.adapter;
 import java.util.ArrayList;
 
 import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smackx.muc.MultiUserChat;
 import org.jivesoftware.smackx.packet.VCard;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,19 +20,16 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.thatsit.android.R;
 import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.application.ThatItApplication;
-import com.thatsit.android.view.CircularImageView;
 import com.thatsit.android.xmpputils.XmppManager;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class CustomGroupMemberAdapter  extends ArrayAdapter<String>{
 
-	private Context context;
+	private final Context context;
 	private ArrayList<String> memberJids= new ArrayList<>();
-	XMPPConnection connection;
-	Handler vCardHandler;
-	LayoutInflater inflater;
+	final XMPPConnection connection;
+	final Handler vCardHandler;
+	final LayoutInflater inflater;
 	private Bitmap bitmapImage ;
 
 	public CustomGroupMemberAdapter(ArrayList<String>  ids) {

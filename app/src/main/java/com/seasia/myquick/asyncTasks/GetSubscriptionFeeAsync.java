@@ -10,9 +10,9 @@ import com.seasia.myquick.model.SubcriptionFeeTemplate;
 
 public class GetSubscriptionFeeAsync extends AsyncTask<Void, Void, SubcriptionFeeTemplate>{
 
-	private Context context;
+	private final Context context;
 	private ProgressDialog pdDialog;
-	private SubscriptionFeeInterface mSubscriptionFeeInterface;
+	private final SubscriptionFeeInterface mSubscriptionFeeInterface;
 	
 	public GetSubscriptionFeeAsync(Context context,
 			SubscriptionFeeInterface mSubscriptionFeeInterface) {

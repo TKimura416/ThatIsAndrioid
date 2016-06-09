@@ -11,8 +11,6 @@ import org.jivesoftware.smack.RosterGroup;
 import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 
-import android.app.Application;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.multidex.MultiDexApplication;
@@ -23,7 +21,7 @@ import com.parse.Parse;
 import com.thatsit.android.db.One2OneChatDb;
 
 public class ThatItApplication extends MultiDexApplication {
-	String TAG = getClass().getSimpleName();
+	final String TAG = getClass().getSimpleName();
 
 	/** Preference key for account username. */
 	public static final String ACCOUNT_USERNAME_KEY = "account_username";
@@ -42,7 +40,7 @@ public class ThatItApplication extends MultiDexApplication {
 	private MultiUserChat currentMUCRefernece=null;
 	private MultiUserChat currentGroupChatCoversation=null;
 	public static SecretKey myDesKey;
-	private String keyValue="SecretKeySpec@d1";
+	private final String keyValue="SecretKeySpec@d1";
 	private Set<String> incomingPings = new HashSet<>();
 	private Set<String> incomingGroupPings = new HashSet<>();
 	

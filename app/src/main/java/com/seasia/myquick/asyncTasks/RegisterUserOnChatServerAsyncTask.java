@@ -29,9 +29,10 @@ import com.thatsit.android.application.ThatItApplication;
 
 public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Void>{
 
-	private XMPPConnection mConnection;
-	private String chatUserName,chatPassword;
-	private Activity activity;
+	private final XMPPConnection mConnection;
+	private final String chatUserName;
+	private final String chatPassword;
+	private final Activity activity;
 	private boolean userAlreadyExists = false;
 	private SharedPreferences settings;
 

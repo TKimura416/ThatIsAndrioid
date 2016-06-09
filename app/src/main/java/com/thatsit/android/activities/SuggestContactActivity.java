@@ -20,18 +20,15 @@ import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager.LayoutParams;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
@@ -43,7 +40,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.RoundedVignetteBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.RefreshApplicationListener;
@@ -53,8 +49,6 @@ import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 @SuppressLint("UseSparseArrays")
 public class SuggestContactActivity  extends Activity implements RefreshApplicationListener{
@@ -64,15 +58,15 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	private XMPPConnection mConnection;
 	private ThatItApplication myApplication;
 	private ArrayList<RosterEntry> rosterEntries;
-	private MyRosterListnerSuggest myRosterListner = new MyRosterListnerSuggest();
+	private final MyRosterListnerSuggest myRosterListner = new MyRosterListnerSuggest();
 	private UsersAdapter usersAdapter;
 	private Handler handler;
 	private ListView mlistView_Contacts;
 	private boolean mBinded;
-	private HashMap<Integer,View> viewContainer = new HashMap<>();
-	private Handler hand = new Handler();
+	private final HashMap<Integer,View> viewContainer = new HashMap<>();
+	private final Handler hand = new Handler();
 	private static final Intent SERVICE_INTENT = new Intent();
-	private Hashtable<String, VCard> rosterVCardsHash = new Hashtable<>();
+	private final Hashtable<String, VCard> rosterVCardsHash = new Hashtable<>();
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
@@ -186,8 +180,8 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	 * The Adapter class to provide access to the data items.
 	 */
 	class UsersAdapter extends BaseAdapter {
-		ArrayList<RosterEntry> arrayList;
-		Handler vCardHandler=new Handler();
+		final ArrayList<RosterEntry> arrayList;
+		final Handler vCardHandler=new Handler();
 
 		UsersAdapter(ArrayList<RosterEntry> arrayList) {
 			this.arrayList = arrayList;
@@ -319,7 +313,7 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	/**
 	 * Bind service with activity.
 	 */
-	private ServiceConnection serviceConnection = new ServiceConnection() {
+	private final ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			Log.d(TAG, "ServiceConnected   ********************");

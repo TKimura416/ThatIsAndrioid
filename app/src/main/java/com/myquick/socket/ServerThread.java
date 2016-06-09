@@ -31,7 +31,7 @@ import com.thatsit.android.fragement.FragmentChatScreen;
 public class ServerThread implements Runnable {
 
 	private ServerSocket serverSocket2;
-	private Activity act;
+	private final Activity act;
 	private String message  = "";
 	private String sender = "";
 	private String url = "";
@@ -224,7 +224,7 @@ public class ServerThread implements Runnable {
 				}
 	        }
 
-	    } catch (SocketException ex) {
+	    } catch (SocketException ignored) {
 	     }
 	    return "no wifi connection.";
 	}

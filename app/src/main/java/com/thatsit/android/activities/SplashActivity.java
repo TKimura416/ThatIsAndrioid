@@ -3,7 +3,6 @@ package com.thatsit.android.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -11,16 +10,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.Window;
-import android.view.WindowManager.LayoutParams;
 
 import com.seasia.myquick.model.ValidateUserLoginStatus;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
-import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.thatsit.android.interfaces.ValidateUserLoginInterface;
 
@@ -134,7 +129,7 @@ public class SplashActivity extends Activity {
 	/**
 	 *  Validate User Login Status
 	 */
-	ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 

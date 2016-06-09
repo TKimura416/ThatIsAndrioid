@@ -3,7 +3,6 @@ package com.myquickapp.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
 
 import com.thatsit.android.MainService;
 import com.thatsit.android.application.ThatItApplication;

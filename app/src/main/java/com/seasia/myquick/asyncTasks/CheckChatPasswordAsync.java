@@ -11,10 +11,10 @@ import com.seasia.myquick.model.CheckMessage_ChatPasswrd;
 
 public class CheckChatPasswordAsync extends AsyncTask<Void, Void, CheckMessage_ChatPasswrd> {
 
-	private Context context;
-	private String Chatpassword;
-	private CheckChatPasswordInterface mCheckChatPasswordInterface;
-	private SharedPreferences mSharedPreferences;
+	private final Context context;
+	private final String Chatpassword;
+	private final CheckChatPasswordInterface mCheckChatPasswordInterface;
+	private final SharedPreferences mSharedPreferences;
 	private ProgressDialog pdDialog;
 
 	public CheckChatPasswordAsync(Context context,String Chatpassword,

@@ -1,9 +1,5 @@
 package com.thatsit.android.db;
 
-import java.util.ArrayList;
-
-import org.jivesoftware.smack.RosterEntry;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

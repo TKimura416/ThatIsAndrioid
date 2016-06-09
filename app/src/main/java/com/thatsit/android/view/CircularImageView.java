@@ -19,8 +19,8 @@ public class CircularImageView extends ImageView {
 	private int borderWidth;
 	private int canvasSize;
 	private Bitmap image;
-	private Paint paint;
-	private Paint paintBorder;
+	private final Paint paint;
+	private final Paint paintBorder;
 
 	public CircularImageView(final Context context) {
 		this(context, null);

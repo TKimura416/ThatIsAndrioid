@@ -31,14 +31,14 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 public class UsersAdapter extends BaseAdapter {
 
 	private String filter = "";
-	private ArrayList<String> jids;
+	private final ArrayList<String> jids;
 	private HashMap<Integer, View> viewContainer = new HashMap<>();
-	private Activity activity;
-	private XMPPConnection mConnection;
+	private final Activity activity;
+	private final XMPPConnection mConnection;
 	private ArrayList<String> listcardname = new ArrayList<>();
 	private ArrayList<String> listcardlastname = new ArrayList<>();
 	private ArrayList<String> listcardprofilepic = new ArrayList<>();
-	private LayoutInflater inflater;
+	private final LayoutInflater inflater;
 
 	public UsersAdapter(ArrayList<String> jids,Activity activity,
 						XMPPConnection mConnection,ArrayList<String> listcardname,
@@ -121,7 +121,7 @@ public class UsersAdapter extends BaseAdapter {
 				}else{
 					s = jids.get(position);
 				}
-			} catch (NullPointerException e) {
+			} catch (NullPointerException ignored) {
 			}
 			viewHolder.tvMyQuickID.setText(s);
 

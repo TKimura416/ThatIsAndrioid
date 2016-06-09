@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.URI;
 import java.util.ArrayList;
 
 import org.json.JSONObject;
@@ -25,8 +24,8 @@ import com.thatsit.android.R;
 public class ClientThread extends Thread {
 
 	public static boolean connected;
-	ArrayList<String>  ip;
-	Activity act;
+	final ArrayList<String>  ip;
+	final Activity act;
 	public static boolean isRecording;
 	byte[] buffer = null;
 	private boolean isNameSent = false;
@@ -36,7 +35,7 @@ public class ClientThread extends Thread {
 
 	long sent_data = 0;
 	Socket socket2;
-	String filePath;
+	final String filePath;
 
 
 	public ClientThread(ArrayList<String> ips,Activity act, String filePath){

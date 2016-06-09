@@ -2,9 +2,7 @@
 package com.thatsit.android.xmpputils;
 
 import org.jivesoftware.smack.AndroidConnectionConfiguration;
-import org.jivesoftware.smack.ReconnectionManager;
 import org.jivesoftware.smack.Roster;
-import org.jivesoftware.smack.SmackConfiguration;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.provider.PrivacyProvider;
 import org.jivesoftware.smack.provider.ProviderManager;

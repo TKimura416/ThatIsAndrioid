@@ -9,10 +9,10 @@ import com.seasia.myquick.model.CheckSubscriptionKeyValidity;
 
 public class GetDataAsyncDaysLeft extends AsyncTask<Void, Void, CheckSubscriptionKeyValidity>{
 
-	private Context context;
+	private final Context context;
 	private ProgressDialog pdDialog;
-	private DaysLeftInterface mDaysLeftInterface;
-	private String UserID;
+	private final DaysLeftInterface mDaysLeftInterface;
+	private final String UserID;
 	
 	public GetDataAsyncDaysLeft(Context context,String UserID,
 			DaysLeftInterface mDaysLeftInterface) {

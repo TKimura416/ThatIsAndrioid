@@ -8,9 +8,9 @@ import com.seasia.myquick.model.ValidateThatsItID;
 import com.thatsit.android.interfaces.ValidateThatsItIdInterface;
 
 public class Validate_ThatsItId_Async extends AsyncTask<Void, Void, ValidateThatsItID> {
-    private Context context;
-    private ValidateThatsItIdInterface mValidateThatsItIdInterface;
-    private String rosterEntry;
+    private final Context context;
+    private final ValidateThatsItIdInterface mValidateThatsItIdInterface;
+    private final String rosterEntry;
     private ProgressDialog pdDialog;
 
     public Validate_ThatsItId_Async(Context context,String rosterEntry,

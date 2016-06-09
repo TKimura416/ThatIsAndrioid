@@ -30,8 +30,8 @@ public class GCMClientManager {
     // Member variables
     private GoogleCloudMessaging gcm;
     private String regid;
-    private String projectNumber;
-    private ContactActivity activity;
+    private final String projectNumber;
+    private final ContactActivity activity;
     public GCMClientManager(ContactActivity activity, String projectNumber) {
         this.activity = activity;
         this.projectNumber = projectNumber;
@@ -186,7 +186,7 @@ public class GCMClientManager {
     }
 
 
-    ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
+    final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
         @Override
         public void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID) {
 

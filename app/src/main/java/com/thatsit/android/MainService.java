@@ -57,11 +57,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
@@ -74,18 +71,15 @@ import android.support.v4.app.NotificationCompat;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 
 import com.myquickapp.receivers.NetworkChangeReceiver;
 import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.activities.InviteContactsToRoster.MyRosterListnerInvite;
 import com.thatsit.android.activities.SplashActivity;
 import com.thatsit.android.activities.SuggestContactActivity.MyRosterListnerSuggest;
-import com.thatsit.android.activities.TermsAndConditionsActivity;
 import com.thatsit.android.activities.WelcomeActivity;
 import com.thatsit.android.adapter.PresenceAdapter;
 import com.thatsit.android.application.ThatItApplication;
-import com.thatsit.android.beans.PushNotificationService;
 import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.db.One2OneChatDb;
 import com.thatsit.android.fragement.FileDownloadStatusCallback;
@@ -133,9 +127,9 @@ public class MainService extends Service {
     public static ArrayList<String> roomList = new ArrayList<>();
     private ArrayList<Integer> rosterHistoryToBeDeleted;
     private String unsubsrcibedUser;
-    public ArrayList<String> group_name = new ArrayList<>();
-    public Hashtable<String, MultiUserChat> group_mucs = new Hashtable<>();
-    public Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
+    public final ArrayList<String> group_name = new ArrayList<>();
+    public final Hashtable<String, MultiUserChat> group_mucs = new Hashtable<>();
+    public final Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
     private ChatManager chatmanager = null;
     private PacketListener mMessagePacketListener = null;
     PacketCollector mpPacketCollector;
@@ -150,9 +144,9 @@ public class MainService extends Service {
 
     // Notification
     private static NotificationManager mNotificationManager;
-    public static int NOTIFICATION_FRIEND_REQUEST = 1;
-    public static int NOTIFICATION_MESSAGE_RECEIVED = 2;
-    private int FOREGROUND_NOTIFICATION_ID = 0;
+    public static final int NOTIFICATION_FRIEND_REQUEST = 1;
+    public static final int NOTIFICATION_MESSAGE_RECEIVED = 2;
+    private final int FOREGROUND_NOTIFICATION_ID = 0;
 
     // XMPP
     public XMPPConnection connection;
@@ -175,14 +169,14 @@ public class MainService extends Service {
     private NetworkChangeReceiver networkChangeReceiver;
 
     // Listeners
-    public IncomingChatManagerListener mIncomingChatManagerListener = new IncomingChatManagerListener();
-    public MyMessageListner mMessageListner = new MyMessageListner();
+    public final IncomingChatManagerListener mIncomingChatManagerListener = new IncomingChatManagerListener();
+    public final MyMessageListner mMessageListner = new MyMessageListner();
     public final SubscribePacketListener mSubscribePacketListener = new SubscribePacketListener();
     public final UnSubscribePacketListener mUnSubscribePacketListener = new UnSubscribePacketListener();
     public final PingListener mPingListener = new PingListener();
     private FileTransferManager fileTransferManager;
-    ParseUtil parseUtil = new ParseUtil();
-    MyParseListener myParseListener = new MyParseListener();
+    final ParseUtil parseUtil = new ParseUtil();
+    final MyParseListener myParseListener = new MyParseListener();
 
     // Booleans
     private static boolean boolean_serviceCreatedOnce = false;
