@@ -133,9 +133,9 @@ public class MainService extends Service {
     public static ArrayList<String> roomList = new ArrayList<>();
     private ArrayList<Integer> rosterHistoryToBeDeleted;
     private String unsubsrcibedUser;
-    public ArrayList<String> group_name = new ArrayList<String>();
-    public Hashtable<String, MultiUserChat> group_mucs = new Hashtable<String, MultiUserChat>();
-    public Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<String, MUCPacketListener>();
+    public ArrayList<String> group_name = new ArrayList<>();
+    public Hashtable<String, MultiUserChat> group_mucs = new Hashtable<>();
+    public Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
     private ChatManager chatmanager = null;
     private PacketListener mMessagePacketListener = null;
     PacketCollector mpPacketCollector;
@@ -330,7 +330,7 @@ public class MainService extends Service {
                     try {
                         List<RosterGroup> rGroups;
                         Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
-                        rGroups = new ArrayList<RosterGroup>(rGroups_Collection);
+                        rGroups = new ArrayList<>(rGroups_Collection);
                         for (int i = 0; i < rGroups.size(); i++) {
                             String r_name = rGroups.get(i).getName();
                             r_name = r_name.replace("%2b", " ");
@@ -389,7 +389,7 @@ public class MainService extends Service {
                     try {
                         List<RosterGroup> rGroups;
                         Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
-                        rGroups = new ArrayList<RosterGroup>(rGroups_Collection);
+                        rGroups = new ArrayList<>(rGroups_Collection);
                         for (int i = 0; i < rGroups.size(); i++) {
                             String r_name = rGroups.get(i).getName();
                             r_name = r_name.replace("%2b", " ");
@@ -517,7 +517,7 @@ public class MainService extends Service {
             }
             submitForm.setAnswer("muc#roomconfig_publicroom", true);
             submitForm.setAnswer("muc#roomconfig_persistentroom", true);
-            List<String> owners = new ArrayList<String>();
+            List<String> owners = new ArrayList<>();
             owners.add(connectionInstance.getUser());
             submitForm.setAnswer("muc#roomconfig_roomowners", owners);
 
@@ -535,7 +535,7 @@ public class MainService extends Service {
         private String messageFromId;
         private String jabberID;
         private String message;
-        private ArrayList<String> groupName = new ArrayList<String>();
+        private ArrayList<String> groupName = new ArrayList<>();
 
         public MUCPacketListener(ArrayList<String> group_name) {
             this.groupName = group_name;
@@ -1344,9 +1344,9 @@ public class MainService extends Service {
 
                 Roster roster = MainService.mService.connection.getRoster();
                 Collection<RosterEntry> entries = roster.getEntries();
-                List<RosterEntry> userList = new ArrayList<RosterEntry>(entries);
+                List<RosterEntry> userList = new ArrayList<>(entries);
 
-                ArrayList<String> existIds = new ArrayList<String>();
+                ArrayList<String> existIds = new ArrayList<>();
                 for (int i = 0; i < userList.size(); i++) {
                     String userId = userList.get(i).getUser();
                     existIds.add(userId);
@@ -1428,7 +1428,7 @@ public class MainService extends Service {
             switch (requestId) {
                 case OPERATION_ON_START:
                     try {
-                        Hashtable<String, Boolean> hashMap = new Hashtable<String, Boolean>();
+                        Hashtable<String, Boolean> hashMap = new Hashtable<>();
                         for (int i = 0; i < receipients.size(); i++) {
                             String id = receipients.get(i).getString(getResources().getString(R.string.column_receipient));
                             id = (id + "@" + connection.getServiceName()).toUpperCase();
@@ -1666,7 +1666,7 @@ public class MainService extends Service {
      * @return list of roster objects
      */
     public ArrayList<RosterEntry> getRosters(MyRosterListner myRosterListner) {
-        ArrayList<RosterEntry> rosterEntries = new ArrayList<RosterEntry>();
+        ArrayList<RosterEntry> rosterEntries = new ArrayList<>();
         try {
             Roster roster = connection.getRoster();
             roster.addRosterListener(myRosterListner);
@@ -1683,7 +1683,7 @@ public class MainService extends Service {
 
     public ArrayList<RosterEntry> getRostersSuggest(
             MyRosterListnerSuggest myRosterListner) {
-        ArrayList<RosterEntry> rosterEntries = new ArrayList<RosterEntry>();
+        ArrayList<RosterEntry> rosterEntries = new ArrayList<>();
         try {
             Roster roster = connection.getRoster();
             roster.addRosterListener(myRosterListner);
@@ -1700,7 +1700,7 @@ public class MainService extends Service {
 
     public ArrayList<RosterEntry> getRostersInvite(
             MyRosterListnerInvite myRosterListner) {
-        ArrayList<RosterEntry> rosterEntries = new ArrayList<RosterEntry>();
+        ArrayList<RosterEntry> rosterEntries = new ArrayList<>();
         try {
             Roster roster = connection.getRoster();
             roster.addRosterListener(myRosterListner);

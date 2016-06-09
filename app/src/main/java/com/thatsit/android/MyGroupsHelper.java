@@ -81,9 +81,9 @@ public class MyGroupsHelper {
 									} else {
 
 										Collection<RosterGroup> rGroups = MainService.mService.connection.getRoster().getGroups();
-										list = new ArrayList<RosterGroup>(rGroups);
+										list = new ArrayList<>(rGroups);
 
-										ArrayList<String> groupList = new ArrayList<String>();
+										ArrayList<String> groupList = new ArrayList<>();
 										for (int i = 0; i < list.size(); i++) {
 											groupList.add(list.get(i).getName().split("__")[1].replaceAll("%2b", " "));
 										}

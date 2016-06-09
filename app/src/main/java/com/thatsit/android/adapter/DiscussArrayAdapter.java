@@ -42,9 +42,9 @@ public class DiscussArrayAdapter extends BaseAdapter {
     private Activity activity;
     private XMPPConnection connection;
     private XmppManager xmppManager;
-    private HashMap<Integer, View> viewContainer = new HashMap<Integer, View>();
+    private HashMap<Integer, View> viewContainer = new HashMap<>();
     private String getMessageStatus;
-    private List<OneBubble> messages = new ArrayList<OneBubble>();
+    private List<OneBubble> messages = new ArrayList<>();
     final int EMPTY = 0;
     private EncryptionManager encryptionManager;
     String revisedMessage;

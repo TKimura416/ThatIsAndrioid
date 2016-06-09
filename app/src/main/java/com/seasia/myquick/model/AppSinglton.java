@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class AppSinglton {
 
 	public static String userId,thatsItPincode;
-    public static ArrayList<String> MessageFromId = new ArrayList<String>();
+    public static ArrayList<String> MessageFromId = new ArrayList<>();
     public static String IpAddress;
 	public static String currentGroupName=null;   
 }

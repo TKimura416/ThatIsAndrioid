@@ -69,10 +69,10 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	private Handler handler;
 	private ListView mlistView_Contacts;
 	private boolean mBinded;
-	private HashMap<Integer,View> viewContainer = new HashMap<Integer, View>();
+	private HashMap<Integer,View> viewContainer = new HashMap<>();
 	private Handler hand = new Handler();
 	private static final Intent SERVICE_INTENT = new Intent();
-	private Hashtable<String, VCard> rosterVCardsHash = new Hashtable<String, VCard>();
+	private Hashtable<String, VCard> rosterVCardsHash = new Hashtable<>();
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
@@ -96,7 +96,7 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 		myApplication = ThatItApplication.getApplication();
 		mXmppManager = XmppManager.getInstance();
 		mConnection = mXmppManager.getXMPPConnection();
-		rosterEntries = new ArrayList<RosterEntry>();
+		rosterEntries = new ArrayList<>();
 
 		initialise_Variable();
 	}

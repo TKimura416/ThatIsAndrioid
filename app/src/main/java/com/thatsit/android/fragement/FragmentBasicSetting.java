@@ -364,9 +364,9 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
      */
     private void initialise_Spinner_Age() {
         try {
-            ArrayList<String> yearsTitle = new ArrayList<String>();
+            ArrayList<String> yearsTitle = new ArrayList<>();
             yearsTitle.add("Select Your Birth Year");
-            ArrayList<String> years = new ArrayList<String>();
+            ArrayList<String> years = new ArrayList<>();
             int thisYear = Calendar.getInstance().get(Calendar.YEAR);
             /*for (int i = 1900; i <= thisYear; i++) {
 				years.add(Integer.toString(i));
@@ -375,7 +375,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
                 years.add(Integer.toString(i));
             }
             yearsTitle.addAll(years);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_items, yearsTitle);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_items, yearsTitle);
             mYearOfBirthSpinner.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
@@ -387,7 +387,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
         try {
             List<String> country;
             country = Arrays.asList(getResources().getStringArray(R.array.country_arrays));
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_items, country);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_items, country);
             mCountryListSpinner.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
@@ -509,15 +509,19 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
                     int selectedOption = mRgroup.getCheckedRadioButtonId();
                     radioGenderButton = (RadioButton) mView.findViewById(selectedOption);
                     mGender = radioGenderButton.getText().toString();
-                    if (mGender.equals("Female")) {
-                        mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-                        mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-                    } else if (mGender.equals("Male")) {
-                        mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-                        mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-                    } else {
-                        mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-                        mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                    switch (mGender) {
+                        case "Female":
+                            mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+                            mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            break;
+                        case "Male":
+                            mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+                            break;
+                        default:
+                            mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            break;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -532,17 +536,21 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 
                     radioGenderButton = (RadioButton) mView.findViewById(selectedOption);
                     mGender = radioGenderButton.getText().toString();
-                    if (mGender.equals("Female")) {
-                        mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-                        mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                    switch (mGender) {
+                        case "Female":
+                            mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+                            mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 
-                    } else if (mGender.equals("Male")) {
-                        mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-                        mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+                            break;
+                        case "Male":
+                            mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
 
-                    } else {
-                        mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-                        mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            break;
+                        default:
+                            mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+                            break;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

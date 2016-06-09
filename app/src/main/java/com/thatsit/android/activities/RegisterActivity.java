@@ -251,15 +251,19 @@ public class RegisterActivity extends Activity implements OnClickListener,
 					int selectedOption = mRgroup.getCheckedRadioButtonId();
 					radioGenderButton = (RadioButton) findViewById(selectedOption);
 					gender = radioGenderButton.getText().toString();
-					if (gender.equals("Female")) {
-						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-					} else if (gender.equals("Male")) {
-						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-					} else {
-						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+					switch (gender) {
+						case "Female":
+							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							break;
+						case "Male":
+							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+							break;
+						default:
+							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							break;
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -274,15 +278,19 @@ public class RegisterActivity extends Activity implements OnClickListener,
 					int selectedOption = mRgroup.getCheckedRadioButtonId();
 					radioGenderButton = (RadioButton) findViewById(selectedOption);
 					gender = radioGenderButton.getText().toString();
-					if (gender.equals("Female")) {
-						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-					} else if (gender.equals("Male")) {
-						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-					} else {
-						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+					switch (gender) {
+						case "Female":
+							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							break;
+						case "Male":
+							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+							break;
+						default:
+							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							break;
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -471,9 +479,9 @@ public class RegisterActivity extends Activity implements OnClickListener,
 
 	private void initialise_Spinner_Age() {
 		try {
-			ArrayList<String> yearsTitle = new ArrayList<String>();
+			ArrayList<String> yearsTitle = new ArrayList<>();
 			yearsTitle.add("Select Your Birth Year");
-			ArrayList<String> years = new ArrayList<String>();
+			ArrayList<String> years = new ArrayList<>();
 			int thisYear = Calendar.getInstance().get(Calendar.YEAR);
 
 			/*for (int i = 1900; i <= thisYear; i++) {
@@ -484,7 +492,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 				years.add(Integer.toString(i));
 			}
 			yearsTitle.addAll(years);
-			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+			ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
 					R.layout.spinner_items, yearsTitle);
 			mYearOfBirthSpinner.setAdapter(adapter);
 		} catch (Exception e) {
@@ -505,23 +513,25 @@ public class RegisterActivity extends Activity implements OnClickListener,
 
 			try {
 				RetVal = mInsertUserResponseTemplate.getInsertUserDataResult().getmInsertUserDataParams()[0].getRetVal().toString();
-				if (RetVal.equals("1")) {
-					AppSinglton.userId = mInsertUserResponseTemplate.getInsertUserDataResult().getmInsertUserDataParams()[0].getUserId();
-					mSharedPreferences.edit().putString("USERID",AppSinglton.userId).commit();
+				switch (RetVal) {
+					case "1":
+						AppSinglton.userId = mInsertUserResponseTemplate.getInsertUserDataResult().getmInsertUserDataParams()[0].getUserId();
+						mSharedPreferences.edit().putString("USERID", AppSinglton.userId).commit();
 
-					if(Utility.hasPincode == true){
-						new RegisterUserOnChatServerAsyncTask(RegisterActivity.this,mConnection,chatUserName,login_password).execute();
-					}
-				}
-				else if(RetVal.equals("0")){
-					Utility.stopDialog();
-					Utility.unlockScreenRotation(RegisterActivity.this);
-					Toast.makeText(getApplicationContext(),"Email ID Already Exists.", Toast.LENGTH_SHORT).show();
-				}
-				else if(RetVal.equals("2")){
-					Utility.stopDialog();
-					Utility.unlockScreenRotation(RegisterActivity.this);
-					Toast.makeText(getApplicationContext(),"Promotion Code Already Exists.", Toast.LENGTH_SHORT).show();
+						if (Utility.hasPincode == true) {
+							new RegisterUserOnChatServerAsyncTask(RegisterActivity.this, mConnection, chatUserName, login_password).execute();
+						}
+						break;
+					case "0":
+						Utility.stopDialog();
+						Utility.unlockScreenRotation(RegisterActivity.this);
+						Toast.makeText(getApplicationContext(), "Email ID Already Exists.", Toast.LENGTH_SHORT).show();
+						break;
+					case "2":
+						Utility.stopDialog();
+						Utility.unlockScreenRotation(RegisterActivity.this);
+						Toast.makeText(getApplicationContext(), "Promotion Code Already Exists.", Toast.LENGTH_SHORT).show();
+						break;
 				}
 			} catch (Exception e) {
 				Utility.stopDialog();

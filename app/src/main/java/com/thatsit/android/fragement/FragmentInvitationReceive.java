@@ -239,9 +239,9 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 
 							Roster roster = MainService.mService.connection.getRoster();
 							Collection<RosterEntry> entries = roster.getEntries();
-							List<RosterEntry> userList = new ArrayList<RosterEntry>(entries );
+							List<RosterEntry> userList = new ArrayList<>(entries);
 
-							ArrayList<String> existIds = new ArrayList<String>();
+							ArrayList<String> existIds = new ArrayList<>();
 							for (int i = 0; i < userList.size(); i++) {
 								String userId = userList.get(i).getUser(); 
 								Log.v(""+i, "userId->"+userId);

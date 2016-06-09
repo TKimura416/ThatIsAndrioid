@@ -45,13 +45,13 @@ public class ChatGroupsAdapter extends BaseAdapter{
 	 * Display groups in alphabetic order.
 	 */
 	private void parseGroups(){
-		TreeMap<String, RosterGroup> tMap = new TreeMap<String, RosterGroup>();
+		TreeMap<String, RosterGroup> tMap = new TreeMap<>();
 		
 		for(int i =0;i<rosterGroups.size();i++){
 			tMap.put(rosterGroups.get(i).getName().split("__")[1].replaceAll("%2b", " "), rosterGroups.get(i));
 		}
 	
-		rosterGroups = new ArrayList<RosterGroup>();
+		rosterGroups = new ArrayList<>();
 		
 		for (TreeMap.Entry<String,RosterGroup> entry: tMap.entrySet()) {
 			RosterGroup holder = entry.getValue();

@@ -305,8 +305,8 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ExpandableListView) findViewById(R.id.nav_left_drawer);
 
-		listParent = new ArrayList<NavigationAdapter>();
-		listDataChild = new HashMap<String, List<String>>();
+		listParent = new ArrayList<>();
+		listDataChild = new HashMap<>();
 
 		// Navigation Drawer of Flight starts
 		listParent.add(new NavigationAdapter(getString(R.string.Contacts), R.drawable.contact_icon_hover));

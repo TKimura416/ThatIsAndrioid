@@ -37,14 +37,14 @@ public class ThatItApplication extends MultiDexApplication {
 	static ThatItApplication app;
 	public SharedPreferences mSettings;
 	private final PreferenceListener mPreferenceListener = new PreferenceListener();
-	private Hashtable<String, Packet> incomingRequestHash = new Hashtable<String, Packet>();
+	private Hashtable<String, Packet> incomingRequestHash = new Hashtable<>();
 	private RosterGroup currentRosterGroupReference=null;
 	private MultiUserChat currentMUCRefernece=null;
 	private MultiUserChat currentGroupChatCoversation=null;
 	public static SecretKey myDesKey;
 	private String keyValue="SecretKeySpec@d1";
-	private Set<String> incomingPings = new HashSet<String>();
-	private Set<String> incomingGroupPings = new HashSet<String>();
+	private Set<String> incomingPings = new HashSet<>();
+	private Set<String> incomingGroupPings = new HashSet<>();
 	
 	
 	public Set<String> getIncomingGroupPings() {
@@ -55,9 +55,9 @@ public class ThatItApplication extends MultiDexApplication {
 		this.incomingGroupPings = incomingGroupPings;
 	}
 
-	private Set<String> incomingFilePings = new HashSet<String>();
-	private Hashtable<String, Boolean> sentInvites = new Hashtable<String, Boolean>();
-	private Hashtable<String, String> sentInvitesMessages = new Hashtable<String, String>();
+	private Set<String> incomingFilePings = new HashSet<>();
+	private Hashtable<String, Boolean> sentInvites = new Hashtable<>();
+	private Hashtable<String, String> sentInvitesMessages = new Hashtable<>();
 	
 	@Override
 	public void onCreate() {

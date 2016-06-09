@@ -40,7 +40,7 @@ public class Contact implements Parcelable {
    private String mSelectedRes;
    private String mMsgState;
    private List<String> mRes;
-   private final List<String> mGroups = new ArrayList<String>();
+   private final List<String> mGroups = new ArrayList<>();
    private String mName;
    private String mAvatarId;
 
@@ -57,7 +57,7 @@ public class Contact implements Parcelable {
 	   mName = in.readString();
 	   mMsgState = in.readString();
 	   mAvatarId = in.readString();
-	   mRes = new ArrayList<String>();
+	   mRes = new ArrayList<>();
 	   in.readStringList(mRes);
 	   in.readStringList(mGroups);
 
@@ -72,7 +72,7 @@ public class Contact implements Parcelable {
    mName = mJID;
    mStatus = Status.CONTACT_STATUS_DISCONNECT;
    mMsgState = null;
-   mRes = new ArrayList<String>();
+   mRes = new ArrayList<>();
    String res = StringUtils.parseResource(jid);
    mSelectedRes = res;
    if (!"".equals(res))
@@ -92,7 +92,7 @@ public class Contact implements Parcelable {
    mName = mJID;
    mStatus = Status.CONTACT_STATUS_DISCONNECT;
    mMsgState = null;
-   mRes = new ArrayList<String>();
+   mRes = new ArrayList<>();
    String res = StringUtils.parseResource(enduri);
    mSelectedRes = res;
    mRes.add(res);

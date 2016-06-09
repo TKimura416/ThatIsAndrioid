@@ -78,7 +78,7 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 	ParseUtil parseUtil = new ParseUtil();
 	private ContactActivity hostActivity;
 	private Handler handler;
-	private ArrayList<String> jids = new ArrayList<String>();
+	private ArrayList<String> jids = new ArrayList<>();
 	private LinearLayout fragInvSent_tabs_lnrlayout;
 
 

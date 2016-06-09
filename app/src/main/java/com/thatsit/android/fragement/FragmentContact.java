@@ -123,10 +123,10 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private ArrayList<Integer> rosterHistoryToBeDeleted;
 	private VCard card;
 	private ImageView refresh_icon;
-	private ArrayList<String> jids = new ArrayList<String>();
-	private ArrayList<String> listcardname = new ArrayList<String>();
-	private ArrayList<String> listcardlastname = new ArrayList<String>();
-	private ArrayList<String> listcardprofilepic = new ArrayList<String>();
+	private ArrayList<String> jids = new ArrayList<>();
+	private ArrayList<String> listcardname = new ArrayList<>();
+	private ArrayList<String> listcardlastname = new ArrayList<>();
+	private ArrayList<String> listcardprofilepic = new ArrayList<>();
 	private String personFirstName, personLastName;
 	private SharedPreferences mSharedPreferences,mSharedPreferences_reg;
 	private ParseUtil parseUtil = new ParseUtil();
@@ -864,13 +864,13 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		@SuppressLint("DefaultLocale")
 		@Override
 		public void done(List<ParseObject> receipients, ParseException e,int requestId) {
-			ArrayList<String> receipients_to_be_rejected = new ArrayList<String>();
+			ArrayList<String> receipients_to_be_rejected = new ArrayList<>();
 			rosterEntries = getUSerRosters();
 
 			if (e == null) {
 				if (rosterEntries == null)
-					rosterEntries = new ArrayList<RosterEntry>();
-				ArrayList<RosterEntry> rosterEntries1 = new ArrayList<RosterEntry>();
+					rosterEntries = new ArrayList<>();
+				ArrayList<RosterEntry> rosterEntries1 = new ArrayList<>();
 				for (int i = 0; i < receipients.size(); i++) {
 					Resources resources = myApplication.getResources();
 					ParseObject object = receipients.get(i);
@@ -1224,7 +1224,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				areGroupsReady = false;
 				groupsEmpty = false;
 				Collection<RosterGroup> rGroups = MainService.mService.connection.getRoster().getGroups();
-				list = new ArrayList<RosterGroup>(rGroups);
+				list = new ArrayList<>(rGroups);
 				if (list != null) {
 					if (list.size() == 0) {
 						groupsEmpty = true;

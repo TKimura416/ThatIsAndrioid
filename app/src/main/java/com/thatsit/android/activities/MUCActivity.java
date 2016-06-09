@@ -43,7 +43,7 @@ import com.seasia.myquick.model.AppSinglton;
 
 @SuppressLint("NewApi")
 public class MUCActivity extends Activity {
-	private static ArrayList<TemplateGroupMessageHolder> groupMessageHolders = new ArrayList<TemplateGroupMessageHolder>();
+	private static ArrayList<TemplateGroupMessageHolder> groupMessageHolders = new ArrayList<>();
 	public MultiUserChat muc;
 	private ListView listMUCMessages;
 	public static EditText edtChat;
@@ -168,7 +168,7 @@ public class MUCActivity extends Activity {
 	 *  Set adapter to display values in listview.
 	 */
 	private void setAdapter() {
-		groupMessageHolders = new ArrayList<TemplateGroupMessageHolder>();
+		groupMessageHolders = new ArrayList<>();
 		if(MainService.mService.connection.isConnected()){
 			showPreviousChat();
 		}else{

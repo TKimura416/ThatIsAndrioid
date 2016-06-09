@@ -92,10 +92,10 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 	private ListView mlistView_Contacts;
 	private static final Intent SERVICE_INTENT = new Intent();
 	private String invitationSentUser;
-	private ArrayList<String> jids= new ArrayList<String>();
-	private ArrayList<String> listcardname = new ArrayList<String>();
-	private ArrayList<String> listcardlastname = new ArrayList<String>();
-	private ArrayList<String> listcardprofilepic = new ArrayList<String>();
+	private ArrayList<String> jids= new ArrayList<>();
+	private ArrayList<String> listcardname = new ArrayList<>();
+	private ArrayList<String> listcardlastname = new ArrayList<>();
+	private ArrayList<String> listcardprofilepic = new ArrayList<>();
 	private	ParseUtil parseUtil = new ParseUtil();
 	private VCard card = new VCard();
 	private static String nicknameToJoin;
@@ -103,7 +103,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
 	}
-	private HashMap<Integer,View> viewContainer = new HashMap<Integer, View>();
+	private HashMap<Integer,View> viewContainer = new HashMap<>();
 	@SuppressLint("ValidFragment")
 	public InviteContactsToRoster(MainService mService) {
 		this.mService = mService;

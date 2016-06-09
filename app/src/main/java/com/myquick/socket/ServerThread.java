@@ -129,7 +129,7 @@ public class ServerThread implements Runnable {
 						else if(message.startsWith(Constants.ACCEPT)){
 							
 							if(Constants.File_URI !=  null){
-								ArrayList<String> ips = new ArrayList<String>();
+								ArrayList<String> ips = new ArrayList<>();
 								ips.add( client.getInetAddress().getHostAddress());
 								
 								String filePath = message.substring(message.indexOf("$")+1,message.lastIndexOf("#"));
@@ -139,7 +139,7 @@ public class ServerThread implements Runnable {
 								com.myquick.socket.Constants.isDownloading = true;
 							}
 							else{
-								ArrayList<String> ips = new ArrayList<String>();
+								ArrayList<String> ips = new ArrayList<>();
 								ips.add( client.getInetAddress().getHostAddress());
 								
 								ClientChatThread thread = new ClientChatThread(client.getInetAddress().getHostAddress(), act,Constants.ERROR);

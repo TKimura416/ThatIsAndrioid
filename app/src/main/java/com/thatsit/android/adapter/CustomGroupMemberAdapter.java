@@ -32,7 +32,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 public class CustomGroupMemberAdapter  extends ArrayAdapter<String>{
 
 	private Context context;
-	private ArrayList<String> memberJids=new ArrayList<String>();
+	private ArrayList<String> memberJids= new ArrayList<>();
 	XMPPConnection connection;
 	Handler vCardHandler;
 	LayoutInflater inflater;

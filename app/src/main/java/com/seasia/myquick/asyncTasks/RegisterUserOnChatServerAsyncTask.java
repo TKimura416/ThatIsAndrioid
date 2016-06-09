@@ -48,7 +48,7 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 		try {
 			mConnection.connect();
 			AccountManager accountManager = mConnection.getAccountManager();
-			Map<String, String> attributes = new HashMap<String, String>();
+			Map<String, String> attributes = new HashMap<>();
 			attributes.put("username", chatUserName);
 			attributes.put("password", chatPassword);
 			attributes.put("name", "");

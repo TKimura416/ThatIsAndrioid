@@ -130,9 +130,9 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private ContactActivity hostActivity;
 	public static DiscussArrayAdapter adapter;
 	private RelativeLayout rel_overflowImage,fragChat_clipboard;
-	private ArrayList<Integer> ListItem_position_new = new ArrayList<Integer>();
-	private ArrayList<String> ListItem_position_all = new ArrayList<String>();
-	private ArrayList<Integer> ListItem_position_deletes = new ArrayList<Integer>();
+	private ArrayList<Integer> ListItem_position_new = new ArrayList<>();
+	private ArrayList<String> ListItem_position_all = new ArrayList<>();
+	private ArrayList<Integer> ListItem_position_deletes = new ArrayList<>();
 	private ImageView /*img_copy,img_cut,*/img_accept;
 	private TextView img_delete;
 	public RelativeLayout activityRootView;

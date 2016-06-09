@@ -32,12 +32,12 @@ public class UsersAdapter extends BaseAdapter {
 
 	private String filter = "";
 	private ArrayList<String> jids;
-	private HashMap<Integer, View> viewContainer = new HashMap<Integer, View>();
+	private HashMap<Integer, View> viewContainer = new HashMap<>();
 	private Activity activity;
 	private XMPPConnection mConnection;
-	private ArrayList<String> listcardname = new ArrayList<String>();
-	private ArrayList<String> listcardlastname = new ArrayList<String>();
-	private ArrayList<String> listcardprofilepic = new ArrayList<String>();
+	private ArrayList<String> listcardname = new ArrayList<>();
+	private ArrayList<String> listcardlastname = new ArrayList<>();
+	private ArrayList<String> listcardprofilepic = new ArrayList<>();
 	private LayoutInflater inflater;
 
 	public UsersAdapter(ArrayList<String> jids,Activity activity,
@@ -45,7 +45,7 @@ public class UsersAdapter extends BaseAdapter {
 						ArrayList<String> listcardlastname,ArrayList<String> listcardprofilepic) {
 
 		inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		viewContainer = new HashMap<Integer, View>();
+		viewContainer = new HashMap<>();
 		this.activity = activity;
 		this.jids = jids;
 		this.mConnection = mConnection;
@@ -60,7 +60,7 @@ public class UsersAdapter extends BaseAdapter {
 
 		inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.filter = filter;
-		viewContainer = new HashMap<Integer, View>();
+		viewContainer = new HashMap<>();
 		this.activity = activity;
 		this.jids = jids;
 		this.mConnection = mConnection;

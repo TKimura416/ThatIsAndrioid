@@ -136,8 +136,8 @@ public class Utility {
 			ArrayList<Integer> rosterHistoryToBeDeleted,
 			String rosterWhoseHistoryDeleted, MainService mService) {
 		try {
-			getRosterHistoryList = new ArrayList<String>();
-			rosterHistoryToBeDeleted = new ArrayList<Integer>();
+			getRosterHistoryList = new ArrayList<>();
+			rosterHistoryToBeDeleted = new ArrayList<>();
 			ThatItApplication myApplication = ThatItApplication.getApplication();
 			myApplication.openDatabase();
 

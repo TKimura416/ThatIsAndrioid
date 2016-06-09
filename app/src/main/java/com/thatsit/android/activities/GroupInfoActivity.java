@@ -78,7 +78,7 @@ public class GroupInfoActivity extends Activity {
 							receipients.get(0).getString(ThatItApplication.getApplication()
 									.getString(	R.string.column_group_members))," ");
 
-					ArrayList<String> members = new ArrayList<String>();
+					ArrayList<String> members = new ArrayList<>();
 
 					int size = stringTokenizer.countTokens();
 

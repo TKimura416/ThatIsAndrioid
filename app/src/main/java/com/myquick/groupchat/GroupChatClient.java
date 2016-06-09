@@ -39,7 +39,7 @@ public class GroupChatClient {
 	          }
 	      }
 	      // Sets the new owner of the room
-	      List<String> owners = new ArrayList<String>();
+	      List<String> owners = new ArrayList<>();
 	      owners.add(connection.getUser());
 	      submitForm.setAnswer("muc#roomconfig_roomowners", owners);
 	      // Send the completed form (with default values) to the server to configure the room

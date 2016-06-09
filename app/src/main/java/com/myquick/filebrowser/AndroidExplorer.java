@@ -73,8 +73,8 @@ public class AndroidExplorer extends ListActivity {
 	
 	private void getDir(String dirPath){
 		myPath.setText("Location: " + dirPath);
-		item = new ArrayList<String>();
-		path = new ArrayList<String>();
+		item = new ArrayList<>();
+		path = new ArrayList<>();
 		File f = new File(dirPath);
 		File[] files = f.listFiles();
 		if(!dirPath.equals(root)){
@@ -95,7 +95,7 @@ public class AndroidExplorer extends ListActivity {
 				item.add(file.getName());
 		}
 
-		ArrayAdapter<String> fileList =	new ArrayAdapter<String>(this, R.layout.file_explorer_row, item);
+		ArrayAdapter<String> fileList = new ArrayAdapter<>(this, R.layout.file_explorer_row, item);
 		setListAdapter(fileList);
 	}
 

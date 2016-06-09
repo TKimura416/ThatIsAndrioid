@@ -37,7 +37,7 @@ import com.seasia.myquick.model.AppSinglton;
 public class MyGroupAdapter extends BaseAdapter{
 
 	ArrayList<TemplateGroupMessageHolder> messagesMUC;
-	HashMap<Integer,View> viewContainer = new HashMap<Integer, View>();
+	HashMap<Integer,View> viewContainer = new HashMap<>();
 	Context context;
 	XMPPConnection connection;
 	Handler vCardHandler = new Handler();

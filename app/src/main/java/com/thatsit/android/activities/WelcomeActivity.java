@@ -426,29 +426,33 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 
 					Utility.saveThatsItPincode(WelcomeActivity.this,AppSinglton.thatsItPincode);
 
-					if (AppSinglton.userId.equals("3")) {
-						Utility.stopDialog();
-						Utility.showMessage("Please Check Your Credentials");
-						Utility.unlockScreenRotation(WelcomeActivity.this);
+					switch (AppSinglton.userId) {
+						case "3":
+							Utility.stopDialog();
+							Utility.showMessage("Please Check Your Credentials");
+							Utility.unlockScreenRotation(WelcomeActivity.this);
 
-					} else if (AppSinglton.userId.equals("2")) {
-						Utility.stopDialog();
-						Utility.LoginStarted = false;
-						if(Utility.mTimer != null){
-							Utility.mTimer.cancel();
-						}
-						openAlert("Your account has been suspended by the Admin");
-						Utility.unlockScreenRotation(WelcomeActivity.this);
+							break;
+						case "2":
+							Utility.stopDialog();
+							Utility.LoginStarted = false;
+							if (Utility.mTimer != null) {
+								Utility.mTimer.cancel();
+							}
+							openAlert("Your account has been suspended by the Admin");
+							Utility.unlockScreenRotation(WelcomeActivity.this);
 
-					} else {
-						dismissProgressBar = true;
-						try {
-							Utility.LoginStarted = true;
-							Utility.startLoginTimer(WelcomeActivity.this,1);
-							connectXMPPService();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
+							break;
+						default:
+							dismissProgressBar = true;
+							try {
+								Utility.LoginStarted = true;
+								Utility.startLoginTimer(WelcomeActivity.this, 1);
+								connectXMPPService();
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							break;
 					}
 				} else {
 					Utility.unlockScreenRotation(WelcomeActivity.this);
