@@ -28,7 +28,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public String getChild(int groupPosition, int childPosition) {
-        return this.childRecord.get(((NavigationAdapter) getGroup(groupPosition)).getTitle()).get(childPosition);
+        return this.childRecord.get(getGroup(groupPosition).getTitle()).get(childPosition);
     }
 
     @Override
@@ -104,7 +104,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this.childRecord.get(((NavigationAdapter) getGroup(groupPosition)).getTitle()).size();
+        return this.childRecord.get(getGroup(groupPosition).getTitle()).size();
     }
 
     @Override

@@ -325,7 +325,7 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 
 														} else {
 															Utility.stopDialog();
-															Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_sendingRequest), 1).show();
+															Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_sendingRequest), Toast.LENGTH_SHORT).show();
 														}
 													}
 												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_ACCEPTED, ParseOperationDecider.FRIEND_REQUEST_ACCEPTED);
@@ -377,7 +377,7 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 
 																} else {
 																	Utility.stopDialog();
-																	Toast.makeText(getActivity(), "Error in cancelling request", 1).show();
+																	Toast.makeText(getActivity(), "Error in cancelling request", Toast.LENGTH_SHORT).show();
 																}
 															}
 														}, requestId);

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.thatsit.android"
-          android:versionCode="3"
-          android:versionName="17.1">
+    package="com.thatsit.android"
+    android:versionCode="3"
+    android:versionName="17.1">
 
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -49,45 +48,45 @@
         <activity
             android:name="com.thatsit.android.activities.ContactActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize"/>
         <activity
             android:name="com.thatsit.android.invites.Subscription"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
             android:name="com.thatsit.android.activities.PaymentConfirmationActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
 
         <activity
             android:name="com.thatsit.android.activities.ChangeLoginPassword"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
             android:name="com.thatsit.android.activities.BlurredActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
             android:name="com.thatsit.android.activities.SuggestContactActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Dialog"></activity>
+            android:theme="@android:style/Theme.Dialog"/>
         <activity
             android:name="com.thatsit.android.activities.RegisterActivity"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name="com.thatsit.android.activities.GridViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
+            android:theme="@android:style/Theme.Holo.Light.Dialog"/>
         <activity
             android:name="com.thatsit.android.activities.SelectAudioActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
             android:name="com.myquick.filebrowser.AndroidExplorer"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity
             android:name="com.thatsit.android.activities.InviteContactsToRoster"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Dialog"></activity>
+            android:theme="@android:style/Theme.Dialog"/>
         <activity
             android:name="com.thatsit.android.activities.MUCActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name="com.thatsit.android.activities.GroupInfoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
@@ -95,7 +94,7 @@
             android:name="com.myquick.socket.ConfirmationPopUp"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize"/>
 
         <service android:name="com.thatsit.android.MainService" />
 
@@ -104,7 +103,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.thatsit.android.invites.StartServiceReceiver"></receiver>
+        <receiver android:name="com.thatsit.android.invites.StartServiceReceiver"/>
 
         <service android:name="com.thatsit.android.beans.PushNotificationService">
             <intent-filter>

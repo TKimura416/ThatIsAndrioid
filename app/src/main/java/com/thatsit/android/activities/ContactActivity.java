@@ -9,6 +9,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
+
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -23,6 +26,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -348,11 +352,12 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 
 		mDrawerList.setOnGroupClickListener(new OnGroupClickListener() {
 
+			@TargetApi(Build.VERSION_CODES.KITKAT)
 			@Override
 			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
 				int index = parent.getFlatListPosition(ExpandableListView.getPackedPositionForGroup(groupPosition));
 				parent.setItemChecked(index, true);
-				String parentTitle = ((NavigationAdapter) customAdapter.getGroup(groupPosition)).getTitle();
+				String parentTitle = customAdapter.getGroup(groupPosition).getTitle();
 
 				if(lastColored != null){
 					lastColored.setBackgroundColor(Color.TRANSPARENT);
@@ -366,11 +371,11 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 					openFragmentChatDiscussions();
 				}
 
-				if (!(parentTitle == getString(R.string.Invitations) || (parentTitle == getString(R.string.Admin)))) {
+				if (!(Objects.equals(parentTitle, getString(R.string.Invitations)) || (Objects.equals(parentTitle, getString(R.string.Admin))))) {
 					mDrawerLayout.closeDrawer(navDrawerView);
 				}
 
-				if((parentTitle == getString(R.string.Invitations) || (parentTitle == getString(R.string.Admin)))) {
+				if((Objects.equals(parentTitle, getString(R.string.Invitations)) || (Objects.equals(parentTitle, getString(R.string.Admin))))) {
 
 					RelativeLayout rel_expand =(RelativeLayout) v.findViewById(R.id.rel1);
 					RelativeLayout rel_collapse =(RelativeLayout) v.findViewById(R.id.rel2);
@@ -997,7 +1002,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			try {
-				if (intent.getAction() == MainService.CHAT) {
+				if (Objects.equals(intent.getAction(), MainService.CHAT)) {
 					displayPingOnList(intent);
 					mService.setIncomingChatNotification();
 				}

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="10dp"
-        android:hint="Enter Username"
+        android:hint="@string/hint_username"
         android:inputType="textEmailAddress"
         android:textSize="@dimen/edit_text_hints_720_portrait"
         android:padding="10dp" >
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Password"
+        android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:layout_marginTop="10dp"
         android:textSize="@dimen/edit_text_hints_720_portrait"

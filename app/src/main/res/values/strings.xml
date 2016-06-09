@@ -460,4 +460,10 @@ That\'s It does not claim ownership of the materials you provide to That\'s It i
     <string name="no_storage_card">No storage card</string>
     <string name="not_enough_space">Not enough space</string>
 
+    <!--XML Resources-->
+    <string name="hint_username">Enter Username</string>
+    <string name="hint_password">Enter Password</string>
+    <string name="file_selector">File Selector</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+
 </resources>

@@ -4,6 +4,8 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.Roster;
 import org.jivesoftware.smack.RosterEntry;
@@ -614,7 +616,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					}
 					try {
 						String jId = rosterEntries.get(i).getUser().split("@")[0];
-						String firstname = "";
+						String firstname;
 						String lastname = "";
 						String profilePic = "";
 						if(!TextUtils.isEmpty(card.getFirstName())){
@@ -673,7 +675,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 						}
 						else{
 							String jId = rosterEntries.get(i).getUser().split("@")[0];
-							String firstname = "";
+							String firstname;
 							String lastname = "";
 							String profilePic = "";
 
@@ -801,7 +803,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		@Override
 		public void onReceive(Context arg0, final Intent arg1) {
 			try {
-				if (arg1.getAction() == MainService.CHAT) {
+				if (Objects.equals(arg1.getAction(), MainService.CHAT)) {
 					displayPingOnList(arg1);
 					if (FragmentContact.this.isVisible()) {
 						displayPingOnList(arg1);
@@ -887,7 +889,6 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				}
 
 				rosterEntries = rosterEntries1;
-				rosterEntries1 = null;
 			}
 			resetRoster = new ResetRoster(rosterEntries);
 			resetRoster.execute();

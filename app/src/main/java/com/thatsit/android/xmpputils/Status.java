@@ -68,7 +68,7 @@ public final class Status {
      * @return an int representing the status
      */
     public static int getStatusFromPresence(final Presence presence) {
-    int res = Status.CONTACT_STATUS_DISCONNECT;
+    int res;
     if (presence.getType().equals(Presence.Type.unavailable)) {
         res = Status.CONTACT_STATUS_DISCONNECT;
     } else {

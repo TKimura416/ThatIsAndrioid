@@ -193,7 +193,7 @@ public class MyGroupsHelper {
 
 								RosterGroup rGroup = mConnection.getRoster().getGroup(
 										chatGrpInstance.getRoom().split("@")[0]);
-								String groupName=null;
+								String groupName;
 								try {
 									groupName = rGroup.getName();
 									InviteContactsToRoster.addRemove(chat_option.LEAVE, AppSinglton.thatsItPincode,groupName);

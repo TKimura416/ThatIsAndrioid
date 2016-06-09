@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
@@ -358,7 +359,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 	private void showRequiredValues(int minusVal) {
-		int startPoint = 0;
+		int startPoint;
 		startPoint = cursor.getCount() - minusVal;
 		if (startPoint <0) {
 			startPoint = 0;
@@ -937,9 +938,10 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 * Broadcast receiver to receive incoming message.
 	 */
 	class One2OneChatReceiver extends BroadcastReceiver{
+		@TargetApi(Build.VERSION_CODES.KITKAT)
 		@Override
 		public void onReceive(Context arg0, final Intent arg1) {
-			if(arg1.getAction() == MainService.CHAT){
+			if(Objects.equals(arg1.getAction(), MainService.CHAT)){
 				updateChatList(arg0, arg1);
 				ThatItApplication.getApplication().getIncomingPings().remove(mRosterEntry.getUser());
 				ThatItApplication.getApplication().getIncomingFilePings().remove(mRosterEntry.getUser());
@@ -1207,7 +1209,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 				if (resultCode == Activity.RESULT_OK) {
 
-					File f = null;
+					File f;
 					try {
 						String path = data.getStringExtra("path");
 						f = new File(path);
@@ -1341,7 +1343,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 	private void sendSelectedVideoFileFromGallery() {
 
-		File f = null;
+		File f;
 		try {
 			f = new File(videoPath);
 
@@ -1395,7 +1397,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 	private void sendSelectedImageFileFromGallery() {
 
-		File f = null;
+		File f;
 		try {
 			f = new File(picturePath);
 			if (f.exists()) {

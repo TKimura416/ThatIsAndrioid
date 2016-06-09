@@ -172,7 +172,7 @@ public class FileReceiveraAsync_  {
 			SftpATTRS attrs = channelSftp.lstat(ftp_path);
 			long size = attrs.getSize();
 
-			int read = 0;
+			int read;
 			byte[] bytes = new byte[1024];
 
 			while ((read = bis.read(bytes)) != -1) {

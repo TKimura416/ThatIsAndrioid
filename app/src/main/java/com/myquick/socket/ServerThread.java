@@ -79,7 +79,6 @@ public class ServerThread implements Runnable {
          				    bytesRead = is.read(receiveData, 0, receiveData.length);
          				    if(bytesRead == -1)
          				    {
-         				    	check = true;
 								break;
          				    }
          				    

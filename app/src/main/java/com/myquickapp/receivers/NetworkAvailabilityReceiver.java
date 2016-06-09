@@ -54,7 +54,7 @@ public class NetworkAvailabilityReceiver {
 				@Override
 				public void run() {
 					try {
-						HttpURLConnection conn = null;
+						HttpURLConnection conn;
 						conn = (HttpURLConnection) url.openConnection();
 						conn.setReadTimeout(15000);//milliseconds
 						conn.setConnectTimeout(15000);//milliseconds

@@ -328,7 +328,7 @@ public class MainService extends Service {
                     history.setMaxStanzas(0);
                     mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
                     try {
-                        List<RosterGroup> rGroups = new ArrayList<RosterGroup>();
+                        List<RosterGroup> rGroups;
                         Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
                         rGroups = new ArrayList<RosterGroup>(rGroups_Collection);
                         for (int i = 0; i < rGroups.size(); i++) {
@@ -336,7 +336,7 @@ public class MainService extends Service {
                             r_name = r_name.replace("%2b", " ");
 
                             MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
-                            String nicknameToJoin = null;
+                            String nicknameToJoin;
                             if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
                                 nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
                             } else {
@@ -387,7 +387,7 @@ public class MainService extends Service {
                     history.setMaxStanzas(0);
                     mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
                     try {
-                        List<RosterGroup> rGroups = new ArrayList<RosterGroup>();
+                        List<RosterGroup> rGroups;
                         Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
                         rGroups = new ArrayList<RosterGroup>(rGroups_Collection);
                         for (int i = 0; i < rGroups.size(); i++) {
@@ -395,7 +395,7 @@ public class MainService extends Service {
                             r_name = r_name.replace("%2b", " ");
 
                             MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
-                            String nicknameToJoin = null;
+                            String nicknameToJoin;
                             if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
                                 nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
                             } else {
@@ -510,7 +510,7 @@ public class MainService extends Service {
             Form submitForm = form.createAnswerForm();
             for (Iterator<FormField> fields = submitForm.getFields();
                  fields.hasNext(); ) {
-                FormField field = (FormField) fields.next();
+                FormField field = fields.next();
                 if (!FormField.TYPE_HIDDEN.equals(field.getType()) && field.getVariable() != null) {
                     submitForm.setDefaultAnswer(field.getVariable());
                 }

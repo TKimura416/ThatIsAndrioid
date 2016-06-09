@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 
 import org.jivesoftware.smack.Roster;
 import org.jivesoftware.smack.RosterEntry;
@@ -311,14 +312,14 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 										Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
 									}
 
-									if (card != null && card.getFirstName() != null && card.getFirstName() != "")
+									if (card != null && card.getFirstName() != null && !Objects.equals(card.getFirstName(), ""))
 										invitationSentView.mtxtVwInvitationRecipient.setText(card.getFirstName());
 
 									else {
 										invitationSentView.mtxtVwInvitationRecipient.setText("My Name");
 									}
 
-									if (card != null && card.getLastName() != null && card.getLastName() != "") {
+									if (card != null && card.getLastName() != null && !Objects.equals(card.getLastName(), "")) {
 										invitationSentView.mtxtVwInvitationMessage.setText(card.getLastName());
 									} else {
 										invitationSentView.mtxtVwInvitationMessage.setText("Hi there! i would like to add you ");

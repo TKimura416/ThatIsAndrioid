@@ -47,7 +47,7 @@ public class ClientThread extends Thread {
 	public void run() {
 		try {
 			try {
-				OutputStream os = null;
+				OutputStream os;
 
 				if (true) {
 					try {

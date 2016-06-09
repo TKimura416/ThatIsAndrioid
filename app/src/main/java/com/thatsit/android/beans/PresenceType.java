@@ -42,7 +42,7 @@ public final class PresenceType {
      * @return an int representing the presence type
      */
     public static int getPresenceType(final Presence presence) {
-    int res = PresenceType.ERROR;
+    int res;
     switch (presence.getType()) {
         case available:
         res = PresenceType.AVAILABLE;

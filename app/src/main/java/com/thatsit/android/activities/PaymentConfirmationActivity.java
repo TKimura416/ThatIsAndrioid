@@ -118,7 +118,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 		case R.id.paymentConfirm_btn_signin:
 			try {
 				if(checkRegistration){
-					Toast.makeText(PaymentConfirmationActivity.this, "You Are Not Registered.Please Register To Continue", 0).show();
+					Toast.makeText(PaymentConfirmationActivity.this, "You Are Not Registered.Please Register To Continue", Toast.LENGTH_LONG).show();
 					return;
 				}
 				if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
@@ -208,7 +208,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 					mTxt_ExpiryDate.setText("" + DaysLeft);
 				}else{
 					checkRegistration=true;
-					Toast.makeText(PaymentConfirmationActivity.this, "Registration Unsuccessfull", 0).show();
+					Toast.makeText(PaymentConfirmationActivity.this, "Registration Unsuccessfull", Toast.LENGTH_LONG).show();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

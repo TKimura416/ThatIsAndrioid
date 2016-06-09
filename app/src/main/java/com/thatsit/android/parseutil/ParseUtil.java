@@ -74,7 +74,7 @@ public class ParseUtil {
 					StringTokenizer stringTokenizer = new StringTokenizer(groupName,"@");
 					String groupName= stringTokenizer.nextToken();
 					String creator1 = parseThatsitId(creator);
-					String members= "";
+					String members;
 
 
 
