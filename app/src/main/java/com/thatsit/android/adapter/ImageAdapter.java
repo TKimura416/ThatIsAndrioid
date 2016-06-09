@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class ImageAdapter extends BaseAdapter {
 	
-	TextView txtView;
+	private TextView txtView;
 	private final Context mContext;
 	public static final String[] mThumbIds = { "\ud83d\ude00", "\ud83d\ude01",
 			"\ud83d\ude02", "\ud83d\ude03", "\ud83d\ude04", "\ud83d\ude05",

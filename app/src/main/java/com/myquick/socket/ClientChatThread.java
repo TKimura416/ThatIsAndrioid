@@ -11,11 +11,11 @@ import android.util.Log;
 public class ClientChatThread implements Runnable {
 
 	public static boolean connected;
-	final String  ip;
-	final Activity act;
+	private final String  ip;
+	private final Activity act;
 	int buffersize = 0;
-	final String msg;
-	Socket socket2;
+	private final String msg;
+	private Socket socket2;
 
 	public ClientChatThread(String ips,Activity act,String msg){
 		this.ip = ips;

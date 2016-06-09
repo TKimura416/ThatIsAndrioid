@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DbOpenHelper extends SQLiteOpenHelper {
-	final String TAG = "DbOpenHelper";
+	private final String TAG = "DbOpenHelper";
 
 	public static final  String DATABASE_NAME = "thats_it_database.db";
 	private static final int DATABASE_VERSION = 1;
@@ -33,7 +33,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 	public static final String LASTNAME = "lastname";
 	public static final String JABBER_ID = "rosterId";
 	public static final String PROFILE_PIC_URL = "rosterimage_url";
-	public static final String PROFILE_PIC_BLOB = "rosterimage";
+	private static final String PROFILE_PIC_BLOB = "rosterimage";
 	
 	public static final String CREATE_TABLE_ROSTER_ENTRY=
 			"CREATE TABLE IF NOT EXISTS " + TABLE_ROSTER + " ( " +

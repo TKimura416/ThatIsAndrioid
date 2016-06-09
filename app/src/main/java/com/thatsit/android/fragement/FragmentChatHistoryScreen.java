@@ -560,7 +560,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
      *  Check if roster entry exists on Admin
      */
 
-    final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+    private final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
         @Override
         public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

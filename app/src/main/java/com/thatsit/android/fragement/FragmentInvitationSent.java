@@ -59,8 +59,8 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 	private FragmentInvitationReceive mFragmentInvitationReceive;
 	private LinearLayout mLinLytInviationsSentContainer;
 	private MainService  mService;
-	final VCard card = new VCard();
-	final ParseUtil parseUtil = new ParseUtil();
+	private final VCard card = new VCard();
+	private final ParseUtil parseUtil = new ParseUtil();
 	private ContactActivity hostActivity;
 	private Handler handler;
 	private final ArrayList<String> jids = new ArrayList<>();

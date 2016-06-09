@@ -21,7 +21,7 @@ import com.parse.Parse;
 import com.thatsit.android.db.One2OneChatDb;
 
 public class ThatItApplication extends MultiDexApplication {
-	final String TAG = getClass().getSimpleName();
+	private final String TAG = getClass().getSimpleName();
 
 	/** Preference key for account username. */
 	public static final String ACCOUNT_USERNAME_KEY = "account_username";
@@ -30,16 +30,16 @@ public class ThatItApplication extends MultiDexApplication {
 	public static final String ACCOUNT_CHAT_PASSWORD_KEY = "account_chat_password";
 
 	public static final String ACCOUNT_EMAIL_ID = "account_email";
-	boolean mIsConnected;
+	private boolean mIsConnected;
 	private boolean mIsAccountConfigured;
-	static ThatItApplication app;
-	public SharedPreferences mSettings;
+	private static ThatItApplication app;
+	private SharedPreferences mSettings;
 	private final PreferenceListener mPreferenceListener = new PreferenceListener();
 	private Hashtable<String, Packet> incomingRequestHash = new Hashtable<>();
 	private RosterGroup currentRosterGroupReference=null;
 	private MultiUserChat currentMUCRefernece=null;
 	private MultiUserChat currentGroupChatCoversation=null;
-	public static SecretKey myDesKey;
+	private static SecretKey myDesKey;
 	private final String keyValue="SecretKeySpec@d1";
 	private Set<String> incomingPings = new HashSet<>();
 	private Set<String> incomingGroupPings = new HashSet<>();

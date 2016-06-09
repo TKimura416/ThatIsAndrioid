@@ -3,7 +3,7 @@ package com.thatsit.android;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class OutputStreamProgress extends OutputStream {
+class OutputStreamProgress extends OutputStream {
 
     private final OutputStream outstream;
     private volatile long bytesWritten=0;

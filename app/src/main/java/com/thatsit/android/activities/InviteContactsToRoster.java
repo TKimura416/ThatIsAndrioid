@@ -70,7 +70,7 @@ import com.parse.ParseObject;
 import com.seasia.myquick.model.AppSinglton;
 
 public class InviteContactsToRoster  extends Activity implements RefreshApplicationListener{
-	final String TAG = "SuggestContact";
+	private final String TAG = "SuggestContact";
 	private MainService mService;
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
@@ -191,7 +191,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 	/**
 	 * Set roster information in listview.
 	 */
-	public void setListAdapter( ) {
+	private void setListAdapter() {
 		try {
 			usersAdapter = new UsersAdapter();
 			mlistView_Contacts.setAdapter(usersAdapter);
@@ -220,7 +220,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 	/**
 	 * The Adapter class to provide access to the data items.
 	 */
-	class UsersAdapter extends BaseAdapter {
+	private class UsersAdapter extends BaseAdapter {
 		Handler vCardHandler=new Handler();
 
 		@SuppressLint("NewApi")
@@ -579,7 +579,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 		ADD_PERSON,LEAVE
 	};
 
-	static MultiUserChat muc =null;
+	private static MultiUserChat muc =null;
 
 	/**
 	 * @param option - Add or remove jID to or from room.

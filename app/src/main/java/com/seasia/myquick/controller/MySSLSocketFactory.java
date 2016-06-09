@@ -18,9 +18,9 @@ import javax.net.ssl.X509TrustManager;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 
 @SuppressWarnings("deprecation")
-public class MySSLSocketFactory extends SSLSocketFactory {
+class MySSLSocketFactory extends SSLSocketFactory {
 
-	final SSLContext sslContext = SSLContext.getInstance("TLS");
+	private final SSLContext sslContext = SSLContext.getInstance("TLS");
 
 	public MySSLSocketFactory(KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
 		super(truststore);

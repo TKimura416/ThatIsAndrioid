@@ -22,9 +22,9 @@ import java.io.IOException;
 
 public class GCMClientManager {
     // Constants
-    public static final String TAG = "GCMClientManager";
+    private static final String TAG = "GCMClientManager";
     public static final String EXTRA_MESSAGE = "message";
-    public static final String PROPERTY_REG_ID = "registration_id";
+    private static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     // Member variables
@@ -186,7 +186,7 @@ public class GCMClientManager {
     }
 
 
-    final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
+    private final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
         @Override
         public void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID) {
 

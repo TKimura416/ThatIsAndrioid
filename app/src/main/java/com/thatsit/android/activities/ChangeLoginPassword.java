@@ -37,7 +37,7 @@ import java.net.URLEncoder;
  */
 public class ChangeLoginPassword extends Activity implements OnClickListener{
 
-	public static final boolean isPromtAllowed=true;
+	private static final boolean isPromtAllowed=true;
 	private EditText edt_enterOldPwd,edt_enterNewPwd,edt_confirmNewPwd;
 	private Button createPass_btn_submit;
 	private String OldPassword,NewPassword,ConfirmNewPassword;

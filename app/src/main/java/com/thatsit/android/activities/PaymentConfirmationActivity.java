@@ -231,7 +231,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 	 *  Get expiration date for the jID.
 	 */
 
-	final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	private final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(

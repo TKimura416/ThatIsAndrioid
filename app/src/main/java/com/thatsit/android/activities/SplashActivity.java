@@ -24,7 +24,7 @@ public class SplashActivity extends Activity {
 	private SharedPreferences mSharedPreferences;
 	private String text;
 	public static boolean userVisited = false;
-	public static boolean retryClicked = false;
+	private static boolean retryClicked = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +129,7 @@ public class SplashActivity extends Activity {
 	/**
 	 *  Validate User Login Status
 	 */
-	final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	private final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 

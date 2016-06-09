@@ -1,9 +1,9 @@
 package com.thatsit.android.adapter;
 
 public class NavigationAdapter {
-    String title;
+    private String title;
 
-    int icon;
+    private int icon;
 
     /**
      * @param title

@@ -85,7 +85,8 @@ public class Utility {
 	public static FragmentChatScreen fragmentChatScreen = null;
 	public static FragmentContact fragmentContact = null;
 	public static RefreshApplicationListener refreshApplicationListener = null;
-	public static boolean allowAuthenticationDialog,isShowing = false;
+	public static boolean allowAuthenticationDialog;
+	private static boolean isShowing = false;
 	private static DbOpenHelper dbOpenHelper;
 	private static SharedPreferences settings,prefSaveThatsItId;
 	public static boolean VcardLoadedOnce = false;
@@ -93,13 +94,17 @@ public class Utility {
 	public static boolean FragmentContactDataFetchedOnce = false;
 	public static boolean FragmentHistoryDataFetchedOnce = false;
 	public static Bitmap catchedBitmap = null;
-	static final Handler handler = new Handler();
+	private static final Handler handler = new Handler();
 	public static InviteContactsToRoster inviteContactsToRoster=null;
 	public static String email_id;
-	static Dialog dialog,dialog_expiry,dialogConnectionErrorAlert,dialogConnectionErrorSplash = null;
+	private static Dialog dialog;
+	static Dialog dialog_expiry;
+	static Dialog dialogConnectionErrorAlert;
+	static Dialog dialogConnectionErrorSplash = null;
 	public static ContactActivity contactActivity = null;
-	public static boolean isAuthenticationWindowOpened,enteredFragmentOnce = false;
-	static ProgressDialog progressDialog ;
+	private static boolean isAuthenticationWindowOpened;
+	public static boolean enteredFragmentOnce = false;
+	private static ProgressDialog progressDialog ;
 	public static boolean isAppStarted = false;
 	public static SplashActivity splashActivity;
 	public static WelcomeActivity welcomeActivity;
@@ -109,12 +114,12 @@ public class Utility {
 	public static boolean loginCalledOnce = false;
 	public static boolean smileyScreenOpened = false;
 	public static boolean serviceBinded = false;
-	public static final EncryptionManager encryptionManager = new EncryptionManager();
+	private static final EncryptionManager encryptionManager = new EncryptionManager();
 	public static boolean groupNotificationClicked = false;
 	public static boolean fragPaymentSettingsOpen = false;
 	public static boolean hasPincode = false;
 	public static boolean fragChatIsOpen = false;
-	public static final VCard card =new VCard();
+	private static final VCard card =new VCard();
 	public static String action;
 	public static boolean fragChatHistoryOpened = false;
 	public static boolean disAllowSubscription = false;
@@ -293,7 +298,7 @@ public class Utility {
 	 * Login Dialog
 	 * @param activity
 	 */
-	public static void showLoginPromtScreen(final Activity activity ) {
+	private static void showLoginPromtScreen(final Activity activity) {
 
 		try {
 			if(dialog!=null && dialog.isShowing()){
@@ -500,7 +505,7 @@ public class Utility {
 	 * Dialog prompt befor exiting the application.
 	 * @param activity
 	 */
-	static void openExitDialog(final Activity activity) {
+	private static void openExitDialog(final Activity activity) {
 		try {
 			final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
 			// set title
@@ -797,7 +802,7 @@ public class Utility {
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}
-	public static AlertDialog alertDialogSplash;
+	private static AlertDialog alertDialogSplash;
 	public static void openAlertSplash(final Context context,final String string, final String Message) {
 
 		handler.post(new Runnable() {
@@ -984,7 +989,7 @@ public class Utility {
 		checkTabletSize(activity);
 	}
 
-	public static void checkTabletSize(Activity activity) {
+	private static void checkTabletSize(Activity activity) {
 		boolean tabletSize = activity.getResources().getBoolean(R.bool.isTablet);
 		if (!tabletSize) {
 			// is smartphone
@@ -1010,7 +1015,7 @@ public class Utility {
 	 * Send Login status to server
 	 */
 
-	static final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	private static final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 
@@ -1034,7 +1039,7 @@ public class Utility {
 	 *  Validate User Pause State
 	 */
 
-	public static final ValidateUserPauseStateInterface mValidateUserPauseStateInterface = new ValidateUserPauseStateInterface() {
+	private static final ValidateUserPauseStateInterface mValidateUserPauseStateInterface = new ValidateUserPauseStateInterface() {
 		@Override
 		public void validateUserPauseState(Context context,AuthenticateUserServiceTemplate mAuthenticateUserServiceTemplate) {
 

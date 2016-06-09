@@ -82,7 +82,7 @@ public class FileReceiveraAsync_  {
 	/**
 	 *  Building progress in notification.
 	 */
-	protected void PreExecute(int notificaion_id){
+	private void PreExecute(int notificaion_id){
 		// configure the notification
 		mNotifyManager = (NotificationManager) parentContext.getSystemService(Context.NOTIFICATION_SERVICE);
 

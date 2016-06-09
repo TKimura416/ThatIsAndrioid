@@ -19,7 +19,7 @@ public class SuperFragment extends Fragment{
 		
 	}
 	
-	protected void checkServiceStart(){
+	void checkServiceStart(){
 
 		if(MainService.mService==null ){
 			getActivity().startService(new Intent(getActivity(),MainService.class));

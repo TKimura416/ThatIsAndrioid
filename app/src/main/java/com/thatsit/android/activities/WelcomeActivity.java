@@ -57,10 +57,11 @@ import com.thatsit.android.xmpputils.XmppManager;
 @SuppressLint("WorldWriteableFiles")
 public class WelcomeActivity extends FragmentActivity implements OnClickListener,OrientationListener {
 	private boolean isShown = false;
-	final String TAG = getClass().getSimpleName();
-	public static Button mBtn_SignIn, mBtn_BuyId;
+	private final String TAG = getClass().getSimpleName();
+	private static Button mBtn_SignIn;
+	private static Button mBtn_BuyId;
 	private String ThatsItId, ThatsItpassword, EmailId;
-	boolean mBinded;
+	private boolean mBinded;
 	private SharedPreferences settings;
 	private String jid, password;
 	public static boolean dismissProgressBar = false;
@@ -302,7 +303,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 		}
 	}
 
-	void skipLoginScreenIfAlreadyConnected() {
+	private void skipLoginScreenIfAlreadyConnected() {
 		try {
 			myApplication = ThatItApplication.getApplication();
 			if (myApplication instanceof ThatItApplication) {
@@ -359,7 +360,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 * Store user credentials in shared preference.
 	 */
-	void saveCredential() {
+	private void saveCredential() {
 		try {
 			SharedPreferences.Editor edit = settings.edit();
 			edit.putString(ThatItApplication.ACCOUNT_USERNAME_KEY, jid);
@@ -471,7 +472,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 * Enter login credentials alert.
 	 */
-	public void showLoginPromtScreen() {
+	private void showLoginPromtScreen() {
 
 		if (signIndialog == null) {
 			Utility.isDialogOpened = true;
@@ -573,7 +574,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 *  Validate User Login Status
 	 */
-	final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	private final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 
@@ -635,7 +636,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	 * Send Login status to server
 	 */
 
-	final ValidateUserLoginInterface validateUserLoginInterface = new ValidateUserLoginInterface() {
+	private final ValidateUserLoginInterface validateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 			if(mValidateUserLoginStatus != null){

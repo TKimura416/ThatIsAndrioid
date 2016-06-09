@@ -52,20 +52,20 @@ public class CircularImageView extends ImageView {
 			addShadow();
 	}
 
-	public void setBorderWidth(int borderWidth) {
+	private void setBorderWidth(int borderWidth) {
 		this.borderWidth = borderWidth;
 		this.requestLayout();
 		this.invalidate();
 	}
 
-	public void setBorderColor(int borderColor) {
+	private void setBorderColor(int borderColor) {
 		if (paintBorder != null)
 			paintBorder.setColor(borderColor);
 		this.invalidate();
 	}
 
 	@SuppressLint("NewApi")
-	public void addShadow() {
+	private void addShadow() {
 		try {
 			setLayerType(LAYER_TYPE_SOFTWARE, paintBorder);
 			paintBorder.setShadowLayer(4.0f, 0.0f, 2.0f, Color.TRANSPARENT);

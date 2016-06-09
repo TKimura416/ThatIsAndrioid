@@ -44,7 +44,7 @@ import com.seasia.myquick.model.AppSinglton;
 @SuppressLint("NewApi")
 public class MUCActivity extends Activity {
 	private static ArrayList<TemplateGroupMessageHolder> groupMessageHolders = new ArrayList<>();
-	public MultiUserChat muc;
+	private MultiUserChat muc;
 	private ListView listMUCMessages;
 	public static EditText edtChat;
 	private ImageView sendBtn,fragChat_img_smiley;
@@ -60,7 +60,7 @@ public class MUCActivity extends Activity {
 	private final IncomingReceiver one2OneChatReceiver = new IncomingReceiver();
 	private String psedoname;
 	private String revisedMessage;
-	public static boolean isPromtAllowed=true;
+	private static boolean isPromtAllowed=true;
 
 	@Override
 	protected void onStop() {
@@ -149,7 +149,7 @@ public class MUCActivity extends Activity {
 	 *
 	 * @param message - incoming group message
 	 */
-	public void setListAdapter(TemplateGroupMessageHolder message){
+	private void setListAdapter(TemplateGroupMessageHolder message){
 		try {
 			groupMessageHolders.add(message);
 			MUCActivity.this.runOnUiThread(new Runnable() {
@@ -298,7 +298,7 @@ public class MUCActivity extends Activity {
 	/**
 	 * Scroll screen to the latest message received.
 	 */
-	protected void setReverseList() {
+	private void setReverseList() {
 		try {
 			listMUCMessages.post(new Runnable() {
 				@Override

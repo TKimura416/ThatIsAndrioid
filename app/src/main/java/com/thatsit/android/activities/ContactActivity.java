@@ -859,7 +859,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	/**
 	 * Set icons' UI on switching between fragments.
 	 */
-	public void setContactUI() {
+	private void setContactUI() {
 
 		iconStateChanger(true, false, false, false);
 		try {
@@ -1081,7 +1081,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 *
 	 * @param activity - Display alert on activity to enter chat password.
 	 */
-	public void openChatPasswordDialog(final ContactActivity activity ) {
+	private void openChatPasswordDialog(final ContactActivity activity) {
 
 		dialogChatPassword=null;
 
@@ -1191,7 +1191,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 *  Check Chat Password Interface - Get result from async to confirm correct password.
 	 */
 
-	final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
+	private final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
 
 		@Override
 		public void checkChatPassword(CheckMessage_ChatPasswrd chat_password) {
@@ -1218,7 +1218,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 *  Get expiration date for the jID.
 	 */
 
-	final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	private final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(
@@ -1253,7 +1253,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	/**
 	 * Check if current date has exceeded the expiration date.
 	 */
-	public void checkTimePassed(){
+	private void checkTimePassed(){
 
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("MMM-dd-yyyy");
@@ -1288,7 +1288,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 * Send Login status to server
 	 */
 
-	final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	private final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 			Log.e("",""+mValidateUserLoginStatus);
@@ -1296,7 +1296,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	};
 
 
-	final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
+	private final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
 		@Override
 		public void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID) {
 

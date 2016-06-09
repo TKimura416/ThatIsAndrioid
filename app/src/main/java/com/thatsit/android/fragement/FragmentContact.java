@@ -90,13 +90,13 @@ import com.seasia.myquick.model.FetchUserSettingTemplates;
 public class FragmentContact extends Fragment implements OnClickListener {
 
 	private final boolean LastFragment = false;
-	final String TAG = "FragmentContact";
-	public ListView mlistView_Contacts;
+	private final String TAG = "FragmentContact";
+	private ListView mlistView_Contacts;
 	private View mView;
 	private Handler handler = new Handler();
 	private FragmentManager mFragmentManager;
 	private FragmentTransaction mFragmentTransaction;
-	public EditText mEdt_Search;
+	private EditText mEdt_Search;
 	private ImageView profile_pic;
 	private TextView txt_pseudoName, txt_desciption,txt_friendlist;
 	private String profileImageString,entryWithoutHost;
@@ -112,7 +112,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	public static ImageView imgVwAddNewGroup;
 	private Button btnToggleContacts, btnToggleGroups;
 	private ListView lstvwChatGroups;
-	public ChatGroupsAdapter chatGroupsAdapter;
+	private ChatGroupsAdapter chatGroupsAdapter;
 	private ArrayList<RosterGroup> list = null;
 	public ProgressBar progressBar_groups;
 	private RosterEntry entry,entryToBeRemoved;
@@ -132,7 +132,8 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private final ParseUtil parseUtil = new ParseUtil();
 	private ResetRoster resetRoster = null;
 	private boolean dialogOpen = false;
-	public boolean areGroupsReady, groupsEmpty = false;
+	public boolean areGroupsReady;
+	private boolean groupsEmpty = false;
 	private Activity activity;
 	private Dialog dialogChatPassword = null;
 	private EncryptionManager encryptionManager;
@@ -274,7 +275,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		}
 	}
 
-	public void joinAndSetGroupAdapter() {
+	private void joinAndSetGroupAdapter() {
 		//setGroupAdapter();
 		MainService.mService.joinToGroups();
 	}
@@ -823,7 +824,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		addIncommingChatListner();
 	}
 
-	void addIncommingChatListner() {
+	private void addIncommingChatListner() {
 		try {
 			if (MainService.mService.connection.isConnected()) {
 				ChatManager chatmanager = MainService.mService.connection.getChatManager();
@@ -1000,7 +1001,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	}
 
 	private boolean JidsExist = false;
-	public void taskOnCreate() {
+	private void taskOnCreate() {
 
 		Cursor cursor = One2OneChatDb.getAllRoster();
 		cursor.moveToFirst();
@@ -1134,7 +1135,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		}
 	}
 
-	public void displayContactSection() {
+	private void displayContactSection() {
 		if(getResources().getBoolean(R.bool.isTablet)){
 			ContactActivity.textView_toolbar_title.setText("Contacts");
 		}
@@ -1319,7 +1320,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	/**
 	 * Enter chat password before going to chat screen or display room list
 	 */
-	public void openChatPasswordDialog(final Activity activity ) {
+	private void openChatPasswordDialog(final Activity activity) {
 
 		dialogChatPassword=null;
 
@@ -1458,7 +1459,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	/**
 	 * Check Chat password - Correct - Procced else display toast message
 	 */
-	final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
+	private final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
 
 		@Override
 		public void checkChatPassword(CheckMessage_ChatPasswrd chat_password) {
@@ -1608,7 +1609,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	 *  Check if roster entry exists on Admin
 	 */
 
-	final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+	private final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
 		@Override
 		public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

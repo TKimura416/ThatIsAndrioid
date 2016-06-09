@@ -1,6 +1,6 @@
 package com.thatsit.android;
 
-public interface GroupCreatingJoinListener {
+interface GroupCreatingJoinListener {
 
 	void onGroupCreateJoin();
 

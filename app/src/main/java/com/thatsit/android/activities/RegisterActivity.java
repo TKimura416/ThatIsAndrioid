@@ -65,7 +65,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 		OnTouchListener,OrientationListener {
 
 	private Button mBtn_Register;
-	public static TextView mTxt_ThatsItId;
+	private static TextView mTxt_ThatsItId;
 	private EditText mEdt_Password, mEdt_ConfrmPassword, mEdt_MeesagePasswd,
 			mEdt_ConfirmMeesagePasswd,edt_Register_email,edt_enterPincode;
 	private String country, age, gender;
@@ -338,7 +338,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Method to save user login credentials into local sharedprefences database.
 	 */
-	void saveCredential() {
+	private void saveCredential() {
 		try {
 			SharedPreferences.Editor edit = settings.edit();
 			edit.putString(ThatItApplication.ACCOUNT_USERNAME_KEY, chatUserName);
@@ -503,7 +503,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	 * Get register details  for the Thats It ID.
 	 */
 
-	final RegisterInterface mRegisterInterface = new RegisterInterface() {
+	private final RegisterInterface mRegisterInterface = new RegisterInterface() {
 
 		@Override
 		public void registerInterfaceMethod(
@@ -543,7 +543,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	 * Check if pincode exists on the server.
 	 */
 
-	final ValidatePincodeInterface mValidatePincodeInterface = new ValidatePincodeInterface() {
+	private final ValidatePincodeInterface mValidatePincodeInterface = new ValidatePincodeInterface() {
 
 		@Override
 		public void validatePincode(ValidatePincode mValidatePincode) {
@@ -572,7 +572,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Get Subscription fee.
 	 */
-	final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
+	private final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
 
 		@Override
 		public void subscriptionFee(
@@ -610,7 +610,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Get 16-digit user ID.
 	 */
-	final UserIdInterface mUserIdInterface = new UserIdInterface() {
+	private final UserIdInterface mUserIdInterface = new UserIdInterface() {
 
 		@Override
 		public void getUserId(GenerateKeyIdResponse mGenerateKeyIdResponse) {

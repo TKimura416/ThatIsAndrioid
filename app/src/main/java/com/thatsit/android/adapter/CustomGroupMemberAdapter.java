@@ -27,9 +27,9 @@ public class CustomGroupMemberAdapter  extends ArrayAdapter<String>{
 
 	private final Context context;
 	private ArrayList<String> memberJids= new ArrayList<>();
-	final XMPPConnection connection;
-	final Handler vCardHandler;
-	final LayoutInflater inflater;
+	private final XMPPConnection connection;
+	private final Handler vCardHandler;
+	private final LayoutInflater inflater;
 	private Bitmap bitmapImage ;
 
 	public CustomGroupMemberAdapter(ArrayList<String>  ids) {

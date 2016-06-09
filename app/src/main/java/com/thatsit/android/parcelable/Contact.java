@@ -182,7 +182,7 @@ public class Contact implements Parcelable {
     * Get the groups the contact is in.
     * @return the mGroups
     */
-   public List<String> getGroups() {
+   private List<String> getGroups() {
    return mGroups;
    }
 
@@ -214,7 +214,7 @@ public class Contact implements Parcelable {
     * Get the list of resource for the contact.
     * @return the mRes
     */
-   public List<String> getMRes() {
+   private List<String> getMRes() {
    return mRes;
    }
 

@@ -33,13 +33,13 @@ public class Subscription extends Activity {
 	private static final Intent SERVICE_INTENT = new Intent();
 	private static final String TAG = Subscription.class.getSimpleName();
 	private String mContact;
-	MainService mService;
+	private MainService mService;
 	private final ServiceConnection mServConn = new MainServiceConnection();
 //	private final ConnectionBroadcastReceiver mReceiver = new ConnectionBroadcastReceiver();
 	private final MyOnClickListener mClickListener = new MyOnClickListener();
-	final Handler handler;
-	final XmppManager xmppManager;
-	final XMPPConnection connection;
+	private final Handler handler;
+	private final XmppManager xmppManager;
+	private final XMPPConnection connection;
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName("com.thatsit.android", "com.thatsit.android.MainService"));

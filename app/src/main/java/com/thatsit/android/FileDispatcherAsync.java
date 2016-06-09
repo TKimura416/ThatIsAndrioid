@@ -38,9 +38,9 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 	private long timeMillis;
 	private UpdateFTPStatus statusCallback;
 	private Handler handle;
-	Session session = null;
-	Channel channel = null;
-	ChannelSftp channelSftp = null;
+	private Session session = null;
+	private Channel channel = null;
+	private ChannelSftp channelSftp = null;
 	private EncryptionManager encryptionManager;
 	private long max = 0;
 	private long count = 0;
@@ -63,7 +63,7 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 		PreExecution();
 	}
 
-	public FileDispatcherAsync(long fileSizeBytes,int id) {
+	private FileDispatcherAsync(long fileSizeBytes, int id) {
 		// File transfer initiated
 		this.id = id;
 		this.fileSizeBytes = fileSizeBytes;
@@ -103,7 +103,7 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 	/**
 	 *  Building progress notification.
 	 */
-	protected void PreExecution(){
+	private void PreExecution(){
 
 		//mBuilder.setContentTitle("File Transfer " +mFile.getName())
 		initialiseNotificationManager("Sending File","Establishing Connection");

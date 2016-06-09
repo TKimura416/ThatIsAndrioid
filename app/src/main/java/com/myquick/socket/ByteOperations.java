@@ -1,7 +1,7 @@
 package com.myquick.socket;
 
 
-public class ByteOperations {
+class ByteOperations {
 	
 	  /**
 	   * <p>
@@ -67,7 +67,7 @@ public class ByteOperations {
 	   * @return the position of the first byte which is not a space, or the last
 	   *         position of the array.
 	   */
-	  public static final int trimLeft( byte[] bytes, int pos )
+	  private static int trimLeft(byte[] bytes, int pos)
 	  {
 	      if ( bytes == null )
 	      {
@@ -101,7 +101,7 @@ public class ByteOperations {
 	   * @return the position of the first char which is not a space, or the last
 	   *         position of the array.
 	   */
-	  public static final int trimRight( byte[] bytes, int pos )
+	  private static int trimRight(byte[] bytes, int pos)
 	  {
 	      if ( bytes == null )
 	      {
@@ -122,7 +122,7 @@ public class ByteOperations {
 	   *            The bytes array to check, may be null
 	   * @return <code>true</code> if the bytes array is empty or null
 	   */
-	  public static final boolean isEmpty( byte[] bytes )
+	  private static boolean isEmpty(byte[] bytes)
 	  {
 	      return bytes == null || bytes.length == 0;
 	  }

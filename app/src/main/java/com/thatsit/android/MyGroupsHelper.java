@@ -38,11 +38,11 @@ import com.seasia.myquick.model.AppSinglton;
 
 public class MyGroupsHelper {
 
-	public static Activity mContext;
+	private static Activity mContext;
 	private static String  groupName="";
 	private static final ParseUtil parseUtil = new ParseUtil();
 	private static Handler handler = new Handler();
-	public static Dialog createGroupDialog;
+	private static Dialog createGroupDialog;
 	private static ArrayList<RosterGroup> list = null;
 
 
@@ -292,7 +292,7 @@ public class MyGroupsHelper {
 		builder.show();
 	}
 
-	static void leaveGroupFromParse(final String  mGroupName,final MultiUserChat chatGrpInstance){
+	private static void leaveGroupFromParse(final String mGroupName, final MultiUserChat chatGrpInstance){
 
 		parseUtil.leaveGroup( mGroupName , AppSinglton.thatsItPincode, new ParseCallbackListener() {
 
@@ -330,7 +330,7 @@ public class MyGroupsHelper {
 		alert.show();
 	}
 
-	public static void joinParse(final String groupName_complete,final XMPPConnection xmppConnectionInstance){
+	private static void joinParse(final String groupName_complete, final XMPPConnection xmppConnectionInstance){
 		parseUtil.joinGroup(groupName_complete, AppSinglton.thatsItPincode, new ParseCallbackListener() {
 			@Override
 			public void done(List<ParseObject> receipients, ParseException e,

@@ -38,7 +38,7 @@ public class PresenceAdapter implements Parcelable {
      * constructor from Parcel.
      * @param source parcelable presence.
      */
-    public PresenceAdapter(final Parcel source) {
+    private PresenceAdapter(final Parcel source) {
     mType = source.readInt();
     mStatus = source.readInt();
     mTo = source.readString();

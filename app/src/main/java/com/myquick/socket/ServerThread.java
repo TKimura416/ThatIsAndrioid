@@ -36,8 +36,8 @@ public class ServerThread implements Runnable {
 	private String sender = "";
 	private String url = "";
 	private FileOutputStream output_file = null;
-	long code_received = 0;
-	long code_total = 0;
+	private long code_received = 0;
+	private long code_total = 0;
 	private Builder mBuilder;
 	private NotificationManager mNotifyManager;
 	private ClientThread send_file;
@@ -202,7 +202,7 @@ public class ServerThread implements Runnable {
         }
 	}
 	
-	public String getLocalIpv4Address(){
+	private String getLocalIpv4Address(){
 	    try {
 	    	String ipv4;
 	        List<NetworkInterface>  nilist = Collections.list(NetworkInterface.getNetworkInterfaces());

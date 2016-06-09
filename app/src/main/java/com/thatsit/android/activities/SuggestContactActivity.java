@@ -52,7 +52,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 @SuppressLint("UseSparseArrays")
 public class SuggestContactActivity  extends Activity implements RefreshApplicationListener{
-	final String TAG = "SuggestContact";
+	private final String TAG = "SuggestContact";
 	private MainService mService;
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
@@ -299,7 +299,7 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	/**
 	 * Chat listener to encounter incoming message.
 	 */
-	void addIncommingChatListner(){
+	private void addIncommingChatListner(){
 		try {
 			if (mConnection.isConnected()) {
 				ChatManager chatmanager = mConnection.getChatManager();

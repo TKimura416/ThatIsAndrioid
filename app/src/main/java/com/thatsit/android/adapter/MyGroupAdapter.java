@@ -33,13 +33,13 @@ import com.seasia.myquick.model.AppSinglton;
 
 public class MyGroupAdapter extends BaseAdapter{
 
-	final ArrayList<TemplateGroupMessageHolder> messagesMUC;
-	final HashMap<Integer,View> viewContainer = new HashMap<>();
-	final Context context;
-	final XMPPConnection connection;
-	final Handler vCardHandler = new Handler();
-	final EncryptionManager encryptionManager=new EncryptionManager();
-	final ListView listView;
+	private final ArrayList<TemplateGroupMessageHolder> messagesMUC;
+	private final HashMap<Integer,View> viewContainer = new HashMap<>();
+	private final Context context;
+	private final XMPPConnection connection;
+	private final Handler vCardHandler = new Handler();
+	private final EncryptionManager encryptionManager=new EncryptionManager();
+	private final ListView listView;
 
 	public MyGroupAdapter(Context context,final XMPPConnection connection,ArrayList<TemplateGroupMessageHolder> messagesMUC,ListView listView) {
 		this.context=context;

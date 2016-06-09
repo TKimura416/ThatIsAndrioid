@@ -104,7 +104,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private static final String TAG = FragmentChatScreen.class.getSimpleName();
 	private ImageView mImageVw_ChatScreen,fragChat_img_smiley;
 	private RelativeLayout fragChat_btn_MsgSend_rel;
-	public  ListView mListView_Chat;
+	private ListView mListView_Chat;
 	private TextView fragChat_txt_UserName,fragChat_txt_profileDescription;
 	private View mView;
 	private FragmentManager mFragmentManager;
@@ -133,7 +133,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private final ArrayList<Integer> ListItem_position_deletes = new ArrayList<>();
 	private ImageView /*img_copy,img_cut,*/img_accept;
 	private TextView img_delete;
-	public RelativeLayout activityRootView;
+	private RelativeLayout activityRootView;
 	private ClipData clip;
 	private View View_Color;
 	private String chatRecipientPhoto;
@@ -145,7 +145,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private final int PHOTO_SELECT_CODE=14;
 	private final int VIDEO_SELECT_CODE=15;
 	public static ProgressDialog progressDialog;
-	public static String messageStatus;
+	private static String messageStatus;
 	private String personFirstName,personLastName;
 	private static String subject;
 	private static String subject_socket;
@@ -317,7 +317,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	public void setAdapter(){
+	private void setAdapter(){
 		try {
 			adapter  = new DiscussArrayAdapter(hostActivity,chatRecipientPhoto,mListView_Chat);
 			mListView_Chat.setAdapter(adapter);  //Set empty adapter
@@ -455,7 +455,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Send message to jID.
 	 */
-	protected void sendChatMessage() {
+	private void sendChatMessage() {
 		try {
 			final String to = mRosterEntry.getUser();
 			msg = mEdtTxtChat.getText().toString().trim();
@@ -535,7 +535,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Send message with file to jID.
 	 */
-	public void sendMessageWithFileSubject(String fileName){
+	private void sendMessageWithFileSubject(String fileName){
 
 		try {
 			String to = mRosterEntry.getUser();
@@ -594,7 +594,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Send message with file to jID.
 	 */
-	public  void sendMessageWithFileSubjectViaSocket(String fileName, long id){
+	private void sendMessageWithFileSubjectViaSocket(String fileName, long id){
 
 		try {
 			String to = mRosterEntry.getUser();
@@ -653,7 +653,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 * Note: jid is participant jid  It's not owner jid because we want to save owner chat and his
 	 * participant chat into participant id
 	 * */
-	void saveOwnerChat(String jid, String name, String msg,String subject, byte[] Images,String messageStatus){
+	private void saveOwnerChat(String jid, String name, String msg, String subject, byte[] Images, String messageStatus){
 		try {
 			one2OneChatDb = new One2OneChatDb(ThatItApplication.getApplication());
 			One2OneChatDb.addMessage(jid, name, msg,subject,byteArray, DbOpenHelper.USER_TYPE_OWNER,messageStatus);
@@ -860,7 +860,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	void addIncommingChatListner(){
+	private void addIncommingChatListner(){
 		try {
 			if (mConnection.isConnected()) {
 				ChatManager chatmanager = mConnection.getChatManager();
@@ -872,7 +872,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	}
 
 
-	public void sendMessage(String to, String msg, MyMessageListner mMessageListner) {
+	private void sendMessage(String to, String msg, MyMessageListner mMessageListner) {
 
 		if (!mConnection.isConnected())   return;
 		ChatManager chatmanager = mConnection.getChatManager();
@@ -886,7 +886,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	public void sendMessageWithFile(String to,String revisedMsgToBeSent, MyMessageListner mMessageListner,String fileName) {
+	private void sendMessageWithFile(String to, String revisedMsgToBeSent, MyMessageListner mMessageListner, String fileName) {
 
 		if (!mConnection.isConnected())   return;
 		ChatManager chatmanager = mConnection.getChatManager();
@@ -901,7 +901,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	public void sendMessageWithFileViaSocket(String to,String revisedMsgToBeSent, MyMessageListner mMessageListner,String fileName, long id) {
+	private void sendMessageWithFileViaSocket(String to, String revisedMsgToBeSent, MyMessageListner mMessageListner, String fileName, long id) {
 
 		if (!mConnection.isConnected())   return;
 		ChatManager chatmanager = mConnection.getChatManager();
@@ -956,7 +956,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Update chat list when new message received.
 	 */
-	public void updateChatList(Context arg0, final Intent arg1) {
+	private void updateChatList(Context arg0, final Intent arg1) {
 		mHandler.post(new Runnable() {
 			@Override
 			public void run() {
@@ -1164,7 +1164,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		mFragmentTransaction.commit();
 	}
 
-	public void displayContactSection() {
+	private void displayContactSection() {
 
 		ContactActivity.mBtn_Contact.setBackgroundResource(R.drawable.contact_icon_hover);
 		ContactActivity.mBtn_Chat.setBackgroundResource(R.drawable.comment_icon_sm);
@@ -1447,7 +1447,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	public void processFile(File f){
+	private void processFile(File f){
 		new FileDispatcherAsync(f, mTxtVwPercentageCompletion,
 				mprgBarFtpStatus,
 				mService.getFileTransferListener(),
@@ -1675,7 +1675,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 *  Check if roster entry exists on Admin
 	 */
 
-	final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+	private final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
 		@Override
 		public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

@@ -13,7 +13,7 @@ import com.seasia.myquick.model.GetSubscriptionHistoryParams;
 
 
 public class CustomAdapter_PaymentSetting extends BaseAdapter {
-	final GetSubscriptionHistoryParams[] mHistory;
+	private final GetSubscriptionHistoryParams[] mHistory;
 	private String MY_QUICK_ID ="";
 
 

@@ -134,7 +134,7 @@ public class Utils{
 		}
 	}
 
-	public class GetDataAsync extends AsyncTask<Void, Void, AuthenticateUserServiceTemplate> {
+	private class GetDataAsync extends AsyncTask<Void, Void, AuthenticateUserServiceTemplate> {
 
 		@Override
 		protected AuthenticateUserServiceTemplate doInBackground(Void... arg0) {
@@ -169,7 +169,7 @@ public class Utils{
 		}
 	}
 
-	public synchronized void connectXMPPService() {
+	private synchronized void connectXMPPService() {
 		Intent SERVICE_INTENT = new Intent();
 		Log.e("Service_Utils", "Service_Utils");
 		SERVICE_INTENT.setComponent(new ComponentName(

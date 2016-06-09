@@ -45,7 +45,7 @@ import java.security.KeyStore;
 
 public class WebServiceClient {
 
-	public final Context mContext;
+	private final Context mContext;
 	//private final String BASE_URL = "http://dotnetstg2.seasiaconsulting.com/Thatsit/Services/ThatsItService.svc/";
 	private final String BASE_URL = "https://thatsitsrv.com/services/ThatsItService.svc/";
 	private final String INSERT_USER_DATA = "InsertUserData";
@@ -65,8 +65,8 @@ public class WebServiceClient {
 	private final String VALIDATE_USER_LOGIN_STATUS = "ValidateUserLoginStatus";
 	private final String VALIDATE_USER_STATUS_ID = "GeneateRandomNumber";
 
-	public static final int TIMEOUT_CONNECTION = 50 * 1000;
-	public static final int TIMEOUT_SOCKET = 50 * 1000;
+	private static final int TIMEOUT_CONNECTION = 50 * 1000;
+	private static final int TIMEOUT_SOCKET = 50 * 1000;
 
 	public WebServiceClient(Context parentRef) {
 		mContext = parentRef;
@@ -124,7 +124,7 @@ public class WebServiceClient {
 		}
 	}
 
-	public static HttpClient getNewHttpClient() {
+	private static HttpClient getNewHttpClient() {
 		try {
 			KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
 			trustStore.load(null, null);

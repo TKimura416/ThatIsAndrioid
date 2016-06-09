@@ -6,13 +6,13 @@ import java.io.InputStream;
 import org.apache.commons.vfs.FileContent;
 import org.apache.commons.vfs.FileSystemException;
 
-public class ProgressInputStream extends InputStream {
+class ProgressInputStream extends InputStream {
 	private final long size;
 	private long progress, lastUpdate = 0;
 	private final InputStream inputStream;
 	private final String name;
 	private boolean closed = false;
-	static FTPProgressCallback ftpProgressCallback;
+	private static FTPProgressCallback ftpProgressCallback;
 
 	public ProgressInputStream(String name, InputStream inputStream, long size, FTPProgressCallback callbaclInstance) {
 		this.size = size;
@@ -52,7 +52,7 @@ public class ProgressInputStream extends InputStream {
 		return count;
 	}
 
-	static long maybeUpdateDisplay(String name, long progress, long lastUpdate, long size) {
+	private static long maybeUpdateDisplay(String name, long progress, long lastUpdate, long size) {
 		ftpProgressCallback.updateProgress(((long)((float)progress/size*100)));
 		return lastUpdate;
 	}

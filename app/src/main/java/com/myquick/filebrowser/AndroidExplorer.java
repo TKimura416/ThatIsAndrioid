@@ -22,7 +22,7 @@ import com.thatsit.android.fragement.FragmentChatScreen;
 public class AndroidExplorer extends ListActivity {
 
 
-	public static final boolean isPromtAllowed=true;
+	private static final boolean isPromtAllowed=true;
 	private List<String> item = null;
 	private List<String> path = null;
 	private final String root="/";

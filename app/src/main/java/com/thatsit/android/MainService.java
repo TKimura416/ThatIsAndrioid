@@ -112,7 +112,7 @@ import com.seasia.myquick.model.AppSinglton;
 @SuppressLint("NewApi")
 public class MainService extends Service {
 
-    final String TAG = getClass().getSimpleName();
+    private final String TAG = getClass().getSimpleName();
     static Context context;
     private String mPreviousStatus;
     private static String FilePath;
@@ -127,9 +127,9 @@ public class MainService extends Service {
     public static ArrayList<String> roomList = new ArrayList<>();
     private ArrayList<Integer> rosterHistoryToBeDeleted;
     private String unsubsrcibedUser;
-    public final ArrayList<String> group_name = new ArrayList<>();
-    public final Hashtable<String, MultiUserChat> group_mucs = new Hashtable<>();
-    public final Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
+    private final ArrayList<String> group_name = new ArrayList<>();
+    private final Hashtable<String, MultiUserChat> group_mucs = new Hashtable<>();
+    private final Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
     private ChatManager chatmanager = null;
     private PacketListener mMessagePacketListener = null;
     PacketCollector mpPacketCollector;
@@ -171,17 +171,17 @@ public class MainService extends Service {
     // Listeners
     public final IncomingChatManagerListener mIncomingChatManagerListener = new IncomingChatManagerListener();
     public final MyMessageListner mMessageListner = new MyMessageListner();
-    public final SubscribePacketListener mSubscribePacketListener = new SubscribePacketListener();
-    public final UnSubscribePacketListener mUnSubscribePacketListener = new UnSubscribePacketListener();
-    public final PingListener mPingListener = new PingListener();
+    private final SubscribePacketListener mSubscribePacketListener = new SubscribePacketListener();
+    private final UnSubscribePacketListener mUnSubscribePacketListener = new UnSubscribePacketListener();
+    private final PingListener mPingListener = new PingListener();
     private FileTransferManager fileTransferManager;
-    final ParseUtil parseUtil = new ParseUtil();
-    final MyParseListener myParseListener = new MyParseListener();
+    private final ParseUtil parseUtil = new ParseUtil();
+    private final MyParseListener myParseListener = new MyParseListener();
 
     // Booleans
     private static boolean boolean_serviceCreatedOnce = false;
-    public static boolean boolean_groupCreated = false;
-    static boolean boolean_istTimeLoad = true;
+    private static boolean boolean_groupCreated = false;
+    private static boolean boolean_istTimeLoad = true;
     private static String RadioVibrate;
 
     @Override
@@ -713,7 +713,7 @@ public class MainService extends Service {
     /**
      * Incoming group message notification
      */
-    public static void setIncomingGroupChatNotification(String msg) {
+    private static void setIncomingGroupChatNotification(String msg) {
 
         AudioPreference = ThatItApplication.getApplication().getSharedPreferences("AudioPreference", MODE_WORLD_READABLE);
         FilePath = AudioPreference.getString("AudioPreference", "");
@@ -785,7 +785,7 @@ public class MainService extends Service {
     /**
      * Setup XMPP connection
      */
-    public void createConnection() {
+    private void createConnection() {
         try {
             xmppConnectionManager = XmppManager.getInstance();
             connection = xmppConnectionManager.getXMPPConnection();
@@ -817,7 +817,7 @@ public class MainService extends Service {
     /**
      * Connect to Xmpp server (openfir)
      */
-    public synchronized void connect() throws Exception {
+    private synchronized void connect() throws Exception {
         if (connection == null) {
             createConnection();
         }
@@ -853,7 +853,7 @@ public class MainService extends Service {
      * Username - jID
      * Password  - get from edittext
      */
-    public void login() throws Exception {
+    private void login() throws Exception {
 
         try {
             mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
@@ -1117,7 +1117,7 @@ public class MainService extends Service {
     /**
      * Send presence available after login
      */
-    public void changeStatusAndPriority(int status, String msg) {
+    private void changeStatusAndPriority(int status, String msg) {
         try {
             Presence pres = new Presence(Presence.Type.available);
             String m;
@@ -1146,7 +1146,7 @@ public class MainService extends Service {
      * Send Presence packet to connection
      */
 
-    public void setPersence(Type type) {
+    private void setPersence(Type type) {
         try {
             Presence presence = new Presence(type);
             if (type != Presence.Type.available) {
@@ -1298,7 +1298,7 @@ public class MainService extends Service {
     /**
      * Reconnect to openfire on connection break
      */
-    public void reLogin() {
+    private void reLogin() {
 
         if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
             Utility.reloginCalled = true;
@@ -1617,7 +1617,7 @@ public class MainService extends Service {
      * @param id    the id of the notification.
      * @param notif the notification to show
      */
-    public void sendNotification(int id, Notification notif) {
+    private void sendNotification(int id, Notification notif) {
         NotificationManager mNotificationManager = (NotificationManager) myApplication
                 .getSystemService(NOTIFICATION_SERVICE);
         notif.defaults |= Notification.DEFAULT_VIBRATE;
@@ -1856,7 +1856,7 @@ public class MainService extends Service {
      * @param chat
      * @param message Incoming chat message stored in DB
      */
-    void saveParticipantChat(Chat chat, Message message) {
+    private void saveParticipantChat(Chat chat, Message message) {
         try {
             RosterEntry rosterEntry = getRosterEntryFromJID(StringUtils.parseBareAddress(message.getFrom()));
             String jid = rosterEntry.getUser();
@@ -1879,7 +1879,7 @@ public class MainService extends Service {
         }
     }
 
-    void sendChatBroadast(Chat chat, Message message) {
+    private void sendChatBroadast(Chat chat, Message message) {
         try {
             RosterEntry rosterEntry = getRosterEntryFromJID(StringUtils.parseBareAddress(message.getFrom()));
 
@@ -1895,7 +1895,7 @@ public class MainService extends Service {
         }
     }
 
-    public void setIncomingChatListner() {
+    private void setIncomingChatListner() {
         if (connection.isConnected()) {
             chatmanager = connection.getChatManager();
             //	chatmanager.removeChatListener(mIncomingChatManagerListener);
@@ -1955,7 +1955,7 @@ public class MainService extends Service {
         notificationManager.notify(0, mNotification);
     }
 
-    void clearCredential() {
+    private void clearCredential() {
         mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
         mSettings.edit().clear().commit();
     }

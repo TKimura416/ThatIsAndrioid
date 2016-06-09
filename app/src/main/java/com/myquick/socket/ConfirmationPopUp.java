@@ -11,10 +11,12 @@ import com.thatsit.android.R;
 
 public class ConfirmationPopUp extends Activity{
 	
-	TextView txtMessage,txtOk,txtCancel;
-	Intent intent;
+	private TextView txtMessage;
+	private TextView txtOk;
+	private TextView txtCancel;
+	private Intent intent;
 	
-	String ip;
+	private String ip;
 	
 	
 	@Override

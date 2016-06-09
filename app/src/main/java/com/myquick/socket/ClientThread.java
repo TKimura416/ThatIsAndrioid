@@ -21,11 +21,11 @@ import android.widget.Toast;
 
 import com.thatsit.android.R;
 
-public class ClientThread extends Thread {
+class ClientThread extends Thread {
 
-	public static boolean connected;
-	final ArrayList<String>  ip;
-	final Activity act;
+	private static boolean connected;
+	private final ArrayList<String>  ip;
+	private final Activity act;
 	public static boolean isRecording;
 	byte[] buffer = null;
 	private boolean isNameSent = false;
@@ -33,9 +33,9 @@ public class ClientThread extends Thread {
 	private Builder mBuilder;
 	private String file_name;
 
-	long sent_data = 0;
-	Socket socket2;
-	final String filePath;
+	private long sent_data = 0;
+	private Socket socket2;
+	private final String filePath;
 
 
 	public ClientThread(ArrayList<String> ips,Activity act, String filePath){

@@ -35,7 +35,7 @@ public class SelectAudioActivity extends ListActivity {
 	private ThatItApplication myApplication;
 	private boolean mBinded;
 	private static final Intent SERVICE_INTENT = new Intent();
-	public static boolean isPromtAllowed=true;
+	private static boolean isPromtAllowed=true;
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
 	}

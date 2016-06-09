@@ -13,19 +13,19 @@ public final class Status {
     public static final int CONTACT_STATUS_DISCONNECT = 100;
 
     /** Status of a unavailable (long away) contact. */
-    public static final int CONTACT_STATUS_UNAVAILABLE = 200;
+    private static final int CONTACT_STATUS_UNAVAILABLE = 200;
 
     /** Status of a away contact. */
-    public static final int CONTACT_STATUS_AWAY = 300;
+    private static final int CONTACT_STATUS_AWAY = 300;
 
     /** Status of a busy contact. */
-    public static final int CONTACT_STATUS_BUSY = 400;
+    private static final int CONTACT_STATUS_BUSY = 400;
 
     /** Status of a available contact. */
     public static final int CONTACT_STATUS_AVAILABLE = 500;
 
     /** Status of a available for chat contact. */
-    public static final int CONTACT_STATUS_AVAILABLE_FOR_CHAT = 600;
+    private static final int CONTACT_STATUS_AVAILABLE_FOR_CHAT = 600;
 
     /**
      * Default constructor masked.

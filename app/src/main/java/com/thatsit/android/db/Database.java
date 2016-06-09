@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 abstract class Database {
 	static SQLiteDatabase databaseW;
-	static SQLiteDatabase databaseR;
+	private static SQLiteDatabase databaseR;
 	static final String TABLE_NAME = DbOpenHelper.TABLE_NAME;
 	static final String TABLE_GROUP = DbOpenHelper.TABLE_GROUP;
 	static final String TABLE_ROSTER = DbOpenHelper.TABLE_ROSTER;

@@ -40,9 +40,9 @@ public class DiscussArrayAdapter extends BaseAdapter {
     private final HashMap<Integer, View> viewContainer = new HashMap<>();
     private String getMessageStatus;
     private final List<OneBubble> messages = new ArrayList<>();
-    final int EMPTY = 0;
+    private final int EMPTY = 0;
     private final EncryptionManager encryptionManager;
-    String revisedMessage;
+    private String revisedMessage;
     private String recipientPhoto = null;
     private final One2OneChatDb dbClientInstance;
     private final ListView listView;
@@ -222,14 +222,14 @@ public class DiscussArrayAdapter extends BaseAdapter {
 
 
     @SuppressLint("SimpleDateFormat")
-    public static String getDate(long milliSeconds, String dateFormat) {
+    private static String getDate(long milliSeconds, String dateFormat) {
         SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);
         return formatter.format(calendar.getTime());
     }
 
-    public void notifiAdapter() {
+    private void notifiAdapter() {
         this.notifyDataSetChanged();
     }
 

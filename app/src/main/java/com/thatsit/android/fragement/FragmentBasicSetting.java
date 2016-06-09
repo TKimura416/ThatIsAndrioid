@@ -119,8 +119,8 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
     private ContactActivity hostActivity;
     private final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
     private final int GALLERY_IMAGE_REQUEST_CODE = 200;
-    final int PIC_CROP = 2; //keep track of cropping intent
-    public static final int MEDIA_TYPE_IMAGE = 1;
+    private final int PIC_CROP = 2; //keep track of cropping intent
+    private static final int MEDIA_TYPE_IMAGE = 1;
     private static final String IMAGE_DIRECTORY_NAME = "Thats It Profile Images";
     private Bitmap bitmap;
     private LinearLayout fragInvite_tabs_lnrlayout;
@@ -1177,7 +1177,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 		fileUri = savedInstanceState.getParcelable("file_uri");
 	}*/
 
-    public Uri getOutputMediaFileUri(int type) {
+    private Uri getOutputMediaFileUri(int type) {
         return Uri.fromFile(getOutputMediaFile(type));
     }
 
@@ -1362,7 +1362,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
      * Send Login status to server
      */
 
-    final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+    private final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
         @Override
         public void validateUserLogin(Context context, ValidateUserLoginStatus mValidateUserLoginStatus) {
 
@@ -1374,7 +1374,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
         }
     };
 
-    public Uri getImageUri(Context inContext, Bitmap inImage) {
+    private Uri getImageUri(Context inContext, Bitmap inImage) {
         String root = Environment.getExternalStorageDirectory().toString();
         File myDir = new File(root + "/saved_images");
         myDir.mkdirs();
@@ -1415,7 +1415,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
             return null;
     }
 
-    public boolean isSDCARDMounted() {
+    private boolean isSDCARDMounted() {
         String status = Environment.getExternalStorageState();
         if (status.equals(Environment.MEDIA_MOUNTED))
             return true;

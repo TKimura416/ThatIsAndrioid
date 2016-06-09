@@ -21,7 +21,7 @@ import com.parse.ParseObject;
 
 public class GroupInfoActivity extends Activity {
 
-	public static final boolean isPromtAllowed=true;
+	private static final boolean isPromtAllowed=true;
 	private ListView lvMembers;
 	private TextView mtvGroupName;
 	private CustomGroupMemberAdapter groupMemberAdapter;

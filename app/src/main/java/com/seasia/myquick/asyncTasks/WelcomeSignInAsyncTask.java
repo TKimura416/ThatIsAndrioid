@@ -7,7 +7,7 @@ import com.thatsit.android.interfaces.WelcomeSignInInterface;
 import com.seasia.myquick.controller.WebServiceClient;
 import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 
-public class WelcomeSignInAsyncTask extends AsyncTask<Context, Void, AuthenticateUserServiceTemplate> {
+class WelcomeSignInAsyncTask extends AsyncTask<Context, Void, AuthenticateUserServiceTemplate> {
 	
 	private ProgressDialog pdDialog;
 	private final Context mContext;

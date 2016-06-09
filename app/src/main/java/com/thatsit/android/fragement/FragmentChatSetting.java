@@ -65,9 +65,10 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	private SharedPreferences mSharedPreferences;
 	private TextView text_PseudoName,tv_setNotificationTone;
 	private RadioGroup mRgroupStatus,mRgroupVibrate;
-	public static boolean IsvibrateOn = false;
-	public static boolean isAvailable=false;
-	public static RadioButton mRadio_VibrateOn,mRadio_VibrateOff;
+	private static boolean IsvibrateOn = false;
+	private static boolean isAvailable=false;
+	private static RadioButton mRadio_VibrateOn;
+	private static RadioButton mRadio_VibrateOff;
 	private SharedPreferences mSharedPreferencesVibrate,mSharedPreferencesVibRead,
 			mSharedPreferences_reg,mSharedPreferencesAvailable,mSharedPreferencesAvlRead;
 	private MainService mService;
@@ -574,7 +575,7 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	/**
 	 *  Change chat password interface.
 	 */
-	final ChangeChatPasswordInterface mChangeChatPasswordInterface = new ChangeChatPasswordInterface() {
+	private final ChangeChatPasswordInterface mChangeChatPasswordInterface = new ChangeChatPasswordInterface() {
 
 		@Override
 		public void changeChatPassword(

@@ -18,7 +18,7 @@ import com.thatsit.android.MainService;
 
 public class ScheduleReceiver extends BroadcastReceiver {
 
-    final String TAG = "ScheduleReceiver";
+    private final String TAG = "ScheduleReceiver";
     // restart service every 30 seconds
     private static final long REPEAT_TIME = 1000 * 30;
 

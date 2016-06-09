@@ -10,26 +10,26 @@ import org.jivesoftware.smack.packet.Presence;
 public final class PresenceType {
 
     /** The user is available to receive messages (default). */
-    public static final int AVAILABLE = 100;
+    private static final int AVAILABLE = 100;
 
     /** The user is unavailable to receive messages. */
-    public static final int UNAVAILABLE = 200;
+    private static final int UNAVAILABLE = 200;
 
     /** Request subscription to recipient's presence. */
 
-    public static final int SUBSCRIBE = 300;
+    private static final int SUBSCRIBE = 300;
 
     /** Grant subscription to sender's presence. */
-    public static final int SUBSCRIBED = 400;
+    private static final int SUBSCRIBED = 400;
 
     /** Request removal of subscription to sender's presence. */
-    public static final int UNSUBSCRIBE = 500;
+    private static final int UNSUBSCRIBE = 500;
 
     /** Grant removal of subscription to sender's presence. */
-    public static final int UNSUBSCRIBED = 600;
+    private static final int UNSUBSCRIBED = 600;
 
     /** The presence packet contains an error message. */
-    public static final int ERROR = 701;
+    private static final int ERROR = 701;
 
     /**
      * Private default constructor.

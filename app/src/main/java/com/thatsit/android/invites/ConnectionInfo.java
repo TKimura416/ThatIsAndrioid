@@ -6,7 +6,7 @@ import org.jivesoftware.smack.XMPPConnection;
 
 public class ConnectionInfo {
 
-    static ConnectionInfo connectionInfo;
+    private static ConnectionInfo connectionInfo;
     private String username;
     private String password;
     private boolean isConnectednLoggedIn;

@@ -69,7 +69,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	private SharedPreferences mSharedPreferences;
 	private int ACTION;
 	private String ExpiryDate;
-	String SubscribeDate;
+	private String SubscribeDate;
 	private ContactActivity hostActivity;
 	private LinearLayout fragInvite_tabs_lnrlayout;
 
@@ -219,7 +219,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  UPDATE SUBSCRIPTION INTERFACE
 	 */
-	final UpdateSubscriptionInterface mUpdateSubscriptionInterface = new UpdateSubscriptionInterface() {
+	private final UpdateSubscriptionInterface mUpdateSubscriptionInterface = new UpdateSubscriptionInterface() {
 
 		@Override
 		public void updateSubscription(UpdateSubsciptionTemplate updateSubsciption) {
@@ -249,7 +249,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  GET NO OF DAYS LEFT TO EXPIRE
 	 */
-	final DaysLeftInterface mDaysLeftInterface = new DaysLeftInterface() {
+	private final DaysLeftInterface mDaysLeftInterface = new DaysLeftInterface() {
 
 		@Override
 		public void daysLeft(CheckSubscriptionKeyValidity daysLeft) {
@@ -275,7 +275,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	 *  GET SUBSCRIPTION HISTORY (EXPIRY DATE)
 	 */
 
-	final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	private final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(
@@ -313,7 +313,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  GET SUBCRIPTION FEE
 	 */
-	final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
+	private final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
 
 		@Override
 		public void subscriptionFee(
@@ -336,7 +336,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 		}
 	};
 
-	public void checkTimePassed(){
+	private void checkTimePassed(){
 
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("MMM-dd-yyyy");

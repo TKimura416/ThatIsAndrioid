@@ -445,7 +445,7 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 		}).start();
 	}
 
-	final ParseUtil parseUtil = new ParseUtil();
+	private final ParseUtil parseUtil = new ParseUtil();
 
 	private class InvitationView {
 		TextView txtvwInvitationSender;

@@ -45,9 +45,9 @@ public class XmppManager {
 	public static final int DISCONNECTING = 4;
 	public static final int WAITING_TO_CONNECT = 5;
 	public static final int WAITING_FOR_NETWORK = 6;
-	static AndroidConnectionConfiguration connConfig = null;
-	public static XmppManager sXmppManager;
-	XMPPConnection mConnection;        
+	private static AndroidConnectionConfiguration connConfig = null;
+	private static XmppManager sXmppManager;
+	private XMPPConnection mConnection;
 
 	public synchronized static XmppManager getInstance() {
 		if (sXmppManager == null) {
@@ -70,7 +70,7 @@ public class XmppManager {
 	}
 
 	// XMPP Connection Config
-	void setConnectionConfig() {
+	private void setConnectionConfig() {
 		try {
 			connConfig = new AndroidConnectionConfiguration(Constants.HOST, Constants.PORT,Constants.SERVICE);
 			connConfig.setDebuggerEnabled(true);
@@ -89,7 +89,7 @@ public class XmppManager {
 
 	
 
-	public void configure(ProviderManager pm) {
+	private void configure(ProviderManager pm) {
 
 		// Private Data Storage
 		pm.addIQProvider("query", "jabber:iq:private", new PrivateDataManager.PrivateDataIQProvider());

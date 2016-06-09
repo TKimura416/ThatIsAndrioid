@@ -2,10 +2,10 @@ package com.thatsit.android.beans;
 
 public class TemplateGroupMessageHolder {
 	
-	String jid;
-	String message;
-	String timeStamp;
-	String roomName;
+	private String jid;
+	private String message;
+	private String timeStamp;
+	private String roomName;
 	
 	
 	

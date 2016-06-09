@@ -17,7 +17,7 @@ import com.thatsit.android.xmpputils.Constants;
  */
 
 
-public class GroupChatClient {
+class GroupChatClient {
 	public static void createNewChatGroup(XMPPConnection connection , String groupQualifiedName, String ownerJid) throws XMPPException{
 		
 		// Create a MultiUserChat using a XMPPConnection for a room
