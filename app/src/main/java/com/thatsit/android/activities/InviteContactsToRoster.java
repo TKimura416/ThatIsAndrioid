@@ -577,7 +577,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 
 	public enum chat_option{
 		ADD_PERSON,LEAVE
-	};
+	}
 
 	private static MultiUserChat muc =null;
 

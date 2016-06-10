@@ -60,6 +60,6 @@ public class RegistrationAsyncTask extends AsyncTask<Context, Void, InsertUserRe
 	protected void onPostExecute(InsertUserResponseTemplate result) {
 		mRegisterInterface.registerInterfaceMethod(result);
 		super.onPostExecute(result);
-	};
+	}
 
 }

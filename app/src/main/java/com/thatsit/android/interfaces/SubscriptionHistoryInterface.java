@@ -4,5 +4,5 @@ import com.seasia.myquick.model.GetSubscriptionHistoryTemplate;
 
 public interface SubscriptionHistoryInterface {
 
-	public void subscriptionHistory(GetSubscriptionHistoryTemplate mGetSubscriptionHistoryTemplate);
+	void subscriptionHistory(GetSubscriptionHistoryTemplate mGetSubscriptionHistoryTemplate);
 }

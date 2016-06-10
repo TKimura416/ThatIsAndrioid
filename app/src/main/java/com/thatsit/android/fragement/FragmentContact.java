@@ -239,7 +239,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				callWebServiceData();
 				setView();
 
-				if(Utility.groupNotificationClicked == true){
+				if(Utility.groupNotificationClicked){
 					Utility.groupNotificationClicked = false;
 					displayGroupSection();
 					//Utility.stopDialog();
@@ -252,7 +252,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	}
 
 	private void checkBooleanValue() {
-		if(FragmentContact.groupPressed == true){
+		if(FragmentContact.groupPressed){
 			displayContactSection();
 			FragmentContact.groupPressed = false;
 		}
@@ -322,7 +322,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	 */
 	private void callWebServiceData() {
 
-		if(Utility.FragmentContactDataFetchedOnce == true){
+		if(Utility.FragmentContactDataFetchedOnce){
 			getDataFromSharedPrefernce();
 		} else {
 			//Utility.startDialog(activity);
@@ -462,7 +462,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					else {
 						if(!dialogOpen){
 
-							if (itemLongClickPressed != true) {
+							if (!itemLongClickPressed) {
 
 								//mEdt_Search.setText("");
 								ACTION = 1;
@@ -1389,7 +1389,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 														displayGroupSection();
 													}
 												} else {
-													if (Utility.googleServicesUnavailable == true) {
+													if (Utility.googleServicesUnavailable) {
 														new Validate_ThatsItId_Async(getActivity(), entryWithoutHost, mValidateThatsItIdInterface).execute();
 													} else {
 														if (ACTION == 1) {
@@ -1474,7 +1474,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 
 						hostActivity.storeChatPasswordInSharedPreference(Chatpassword);
 
-						if(Utility.googleServicesUnavailable == true){
+						if(Utility.googleServicesUnavailable){
 							if (TextUtils.isEmpty(entryWithoutHost)) {
 								if (ACTION == 1) {
 									// OPEN CHAT SCREEN
@@ -1488,7 +1488,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 								}
 							} else {
 								// Check if roster entry exists on Admin
-								if (Utility.googleServicesUnavailable == true) {
+								if (Utility.googleServicesUnavailable) {
 									new Validate_ThatsItId_Async(getActivity(), entryWithoutHost, mValidateThatsItIdInterface).execute();
 								}
 							}

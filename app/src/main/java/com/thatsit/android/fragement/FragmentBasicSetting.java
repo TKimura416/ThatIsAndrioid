@@ -204,7 +204,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
     private void callWebServiceData() {
 
         try {
-            if (Utility.RegsiterDataFetchedOnce == true) {
+            if (Utility.RegsiterDataFetchedOnce) {
                 // Get Register Data from Shared Preference
                 getRegisterDataFromSharedPrefernce();
 
@@ -730,7 +730,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
                 Utility.RegsiterDataFetchedOnce = false;
                 pdDialog.dismiss();
             }
-            if (doneClicked == true) {
+            if (doneClicked) {
                 doneClicked = false;
                 Utility.showMessage("Profile Successfully Updated");
             }
@@ -890,7 +890,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
                 setRegisterDataToRespectiveFields();
 
                 // Set User Pic, Name and Status to Vcard
-                if (doneClicked == true) {
+                if (doneClicked) {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {

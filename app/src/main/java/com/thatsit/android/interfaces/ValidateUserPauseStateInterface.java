@@ -5,5 +5,5 @@ import android.content.Context;
 import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 
 public interface ValidateUserPauseStateInterface {
-    public void validateUserPauseState(Context context,AuthenticateUserServiceTemplate mAuthenticateUserServiceTemplate);
+    void validateUserPauseState(Context context, AuthenticateUserServiceTemplate mAuthenticateUserServiceTemplate);
 }

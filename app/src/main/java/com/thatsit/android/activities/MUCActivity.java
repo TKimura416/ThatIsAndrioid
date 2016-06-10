@@ -220,7 +220,7 @@ public class MUCActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				if(Utility.smileyScreenOpened == false){
+				if(!Utility.smileyScreenOpened){
 					Utility.smileyScreenOpened = true;
 					chek_Activity = true;
 					Intent intent = new Intent(MUCActivity.this,GridViewActivity.class);
@@ -283,7 +283,7 @@ public class MUCActivity extends Activity {
 
 		Log.e("isOpened", Utility.allowAuthenticationDialog+"");
 
-		if(Utility.allowAuthenticationDialog==true){
+		if(Utility.allowAuthenticationDialog){
 			Utility.showLock(MUCActivity.this);
 		}
 		try {

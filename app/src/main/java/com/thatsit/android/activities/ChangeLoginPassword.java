@@ -65,7 +65,7 @@ public class ChangeLoginPassword extends Activity implements OnClickListener{
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog==true){
+		if(Utility.allowAuthenticationDialog){
 			Utility.showLock(ChangeLoginPassword.this);
 		}
 		Utility.UserPauseStatus(ChangeLoginPassword.this);

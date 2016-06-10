@@ -801,7 +801,7 @@ public class MainService extends Service {
             @Override
             public void run() {
                 try {
-                    if (Utility.reloginCalled == true) {
+                    if (Utility.reloginCalled) {
                         Thread.sleep(4000);
                     }
                     connect();
@@ -946,7 +946,7 @@ public class MainService extends Service {
 
                     public void processPacket(Packet packet) {
 
-                        if (Utility.reloginCalled == false) {
+                        if (!Utility.reloginCalled) {
                             Message message = (Message) packet;
                             if (message.getBody() != null) {
                                 String fromName = StringUtils.parseBareAddress(message.getFrom());
@@ -1015,7 +1015,7 @@ public class MainService extends Service {
                             } else {
                                 performBackgroundTimerTask();
                             }
-                            if (Utility.googleServicesUnavailable == true) {
+                            if (Utility.googleServicesUnavailable) {
                                 checkExpiryStatus("checkExpiryStatus");
                             }
                         }
@@ -1085,7 +1085,7 @@ public class MainService extends Service {
         boolean i = true;
 
         try {
-            if (WelcomeActivity.userVisited == true) {
+            if (WelcomeActivity.userVisited) {
                 i = true;
             } else {
                 i = false;
@@ -1096,14 +1096,14 @@ public class MainService extends Service {
 
         if (Utility.contactActivity == null) {
 
-            if (SplashActivity.userVisited == true && i == true) {
+            if (SplashActivity.userVisited && i) {
 
                 Utility.stopDialog();
                 Intent intent = new Intent();
                 intent.setAction(SIGNIN);
                 ThatItApplication.getApplication().sendBroadcast(intent);
             } else {
-                if (SplashActivity.userVisited == true || WelcomeActivity.userVisited == true) {
+                if (SplashActivity.userVisited || WelcomeActivity.userVisited) {
                     Intent intent = new Intent(ThatItApplication.getApplication(), ContactActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
@@ -1251,7 +1251,7 @@ public class MainService extends Service {
      */
     private void performTaskOnConnectionClosed() {
 
-        if (Utility.connectionClosedCalled == false) {
+        if (!Utility.connectionClosedCalled) {
             try {
                 Utility.loginCalledOnce = false;
                 Utility.connectionClosedCalled = true;
@@ -1259,7 +1259,7 @@ public class MainService extends Service {
                 Utils.isLoginTaskRunning = false;
 
                 try {
-                    if (WelcomeActivity.dismissProgressBar == true) {
+                    if (WelcomeActivity.dismissProgressBar) {
                         Utility.stopDialog();
                     }
                 } catch (Exception e1) {
@@ -1268,7 +1268,7 @@ public class MainService extends Service {
                 sendConnectionErrorWhileSignInBroadcast();
                 sendConnectionErrorBroadcast();
 
-                if (Utility.disconnected == false) {
+                if (!Utility.disconnected) {
                     reLogin();
                 }
             } catch (Exception e) {
@@ -1285,7 +1285,7 @@ public class MainService extends Service {
         boolean_serviceCreatedOnce = false;
         Utils.isLoginTaskRunning = false;
         Utility.loginCalledOnce = false;
-        if (WelcomeActivity.dismissProgressBar == true) {
+        if (WelcomeActivity.dismissProgressBar) {
             try {
                 Utility.stopDialog();
             } catch (Exception e) {
@@ -1778,7 +1778,7 @@ public class MainService extends Service {
                 } else if (message.getBody().equalsIgnoreCase("Group Invitation")) {
                     if (!connection.isConnected()) return;
                     try {
-                        if (boolean_groupCreated == true) {
+                        if (boolean_groupCreated) {
                             from = message.getFrom();
                             showNotification("Group Added", " added you in a group.");
                             triggerFragmentRefresh("Refresh_Group_Adapter");
@@ -1798,7 +1798,7 @@ public class MainService extends Service {
                         @Override
                         public void run() {
                             try {
-                                if (Utility.fragChatHistoryOpened == true) {
+                                if (Utility.fragChatHistoryOpened) {
                                     Utility.fragmentChatHistoryScreen.prepareChatRosterData();
                                 }
                             } catch (Exception e) {

@@ -411,7 +411,7 @@ public class Utility {
 	 * 		- activity
 	 */
 	public static void taskPromtOnResume(Activity  activity){
-		if(Utility.allowAuthenticationDialog == true){
+		if(Utility.allowAuthenticationDialog){
 			Utility.showLoginPromtScreen(activity);
 		}
 	}
@@ -446,7 +446,7 @@ public class Utility {
 	public static void showLock(final Activity activity){
 
 		try {
-			if(Utility.allowAuthenticationDialog == true){
+			if(Utility.allowAuthenticationDialog){
 				Intent intent = new Intent(activity, BlurredActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				activity.startActivity(intent);
@@ -966,7 +966,7 @@ public class Utility {
 				@Override
 				public void run() {
 					Log.e("","TIMER STOPPED");
-					if(LoginStarted == true){
+					if(LoginStarted){
 						Utility.stopDialog();
 						mTimer.cancel();
 						mTimer = null;
@@ -1029,7 +1029,7 @@ public class Utility {
 	public static void UserPauseStatus(final Context context) {
 
 		if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())
-				&& Utility.googleServicesUnavailable == true) {
+				&& Utility.googleServicesUnavailable) {
 			new UserPauseStateAsync(context, Utility.getEmail(), Utility.getPassword(),
 					mValidateUserPauseStateInterface).execute();
 		}

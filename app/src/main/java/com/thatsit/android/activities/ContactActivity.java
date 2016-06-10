@@ -35,6 +35,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -97,7 +98,7 @@ import org.jivesoftware.smack.packet.IQ;
  * This is the main container on which fragments are implemented.
  * It is opened once user gets signed in and gets connected to openfire.
  */
-public class ContactActivity extends ActionBarActivity implements OnClickListener{
+public class ContactActivity extends AppCompatActivity implements OnClickListener{
 	final String TAG = getClass().getSimpleName();
 	public static ImageButton mBtn_Contact,mBtn_Chat,mBtn_Invite,mBtn_Account;
 	private FragmentManager mFragmentManager;
@@ -268,7 +269,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	public void sendUserLoginStatus(String statusID) {
 		if (Utility.getEmail() != null) {
 
-			if(Utility.googleServicesUnavailable == true){
+			if(Utility.googleServicesUnavailable){
 				registrationID = "";
 			}
 			Utility.UserLoginStatus(ContactActivity.this, Utility.getEmail(), "True", registrationID,statusID, mValidateUserLoginInterface);
@@ -464,7 +465,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 
 	private void openFragmentContacts() {
 
-		if(Utility.enteredFragmentOnce == false) {
+		if(!Utility.enteredFragmentOnce) {
 			setContactUI();
 		}
 	}
@@ -474,7 +475,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 		if(NetworkAvailabilityReceiver.isInternetAvailable(ContactActivity.this)){
 			FragmentContact.groupPressed = false;
 
-			if(dialogOpen == false){
+			if(!dialogOpen){
 				dialogOpen = true;
 				openChatPasswordDialog(ContactActivity.this);
 			}
@@ -679,7 +680,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	public void onBackPressed() {
 		try {
 
-			if(Utility.fragChatIsOpen == true) {
+			if(Utility.fragChatIsOpen) {
 
 				if(!NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
 					Utility.showMessage(getResources().getString(R.string.Network_Availability));
@@ -714,7 +715,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	public void onResume(){
 		super.onResume();
 		try {
-			if(Utility.allowAuthenticationDialog==true) {
+			if(Utility.allowAuthenticationDialog) {
 				Utility.showLock(ContactActivity.this);
 			}else {
 				callExpiryWebService();
@@ -1240,7 +1241,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 							MainService.mService.mTimer.cancel();
 							MainService.mService.mTimer = null;
 						}
-						if(Utility.googleServicesUnavailable == true) {
+						if(Utility.googleServicesUnavailable) {
 							Utility.openAlert(ContactActivity.this, "AccountDisabled", "Your account seems to get disabled. Kindly Sign in with different account.");
 						}
 					}

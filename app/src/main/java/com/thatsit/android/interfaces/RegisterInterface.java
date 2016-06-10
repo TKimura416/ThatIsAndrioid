@@ -4,5 +4,5 @@ import com.seasia.myquick.model.InsertUserResponseTemplate;
 
 public interface RegisterInterface {
 
-	public void registerInterfaceMethod(InsertUserResponseTemplate mInsertUserResponseTemplate);
+	void registerInterfaceMethod(InsertUserResponseTemplate mInsertUserResponseTemplate);
 }

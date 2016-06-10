@@ -124,7 +124,7 @@ public class Utils{
 	public static boolean isLoginTaskRunning = false;
 	public static void loginUser(){
 
-		if(Utility.getUserName().length()>0 && isLoginTaskRunning==false){
+		if(Utility.getUserName().length()>0 && !isLoginTaskRunning){
 			isLoginTaskRunning = true;
 
 			if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication()))
@@ -159,7 +159,7 @@ public class Utils{
 			}
 
 			try {
-				if(Utility.serviceBinded == false){
+				if(!Utility.serviceBinded){
 					connectXMPPService();
 				}
 			} catch (Exception e) {
@@ -223,6 +223,6 @@ public class Utils{
 
 	public static boolean isAppNotOpenedYet() {
 		return Utility.fragmentContact==null;
-	};
+	}
 
 }

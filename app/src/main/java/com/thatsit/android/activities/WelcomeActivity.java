@@ -125,7 +125,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 
 	private void checkIfDialogOpened(Bundle savedInstanceState) {
 
-		if(Utility.isDialogOpened == true){
+		if(Utility.isDialogOpened){
 			showLoginPromtScreen();
 			etUsername.setText(savedInstanceState.getString("EmailId"));
 			etPassword.setText(savedInstanceState.getString("Password"));

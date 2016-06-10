@@ -169,7 +169,7 @@ public class Subscription extends Activity {
 			}
 			finish();
 		}
-	};
+	}
 
 	/**
 	 * The ServiceConnection used to connect to the Beem service.

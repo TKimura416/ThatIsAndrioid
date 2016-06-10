@@ -378,7 +378,6 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 
 													}
 												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_DELETED);
-												;
 
 											} catch (Exception e1) {
 												e1.printStackTrace();

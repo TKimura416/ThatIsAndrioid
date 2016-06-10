@@ -4,5 +4,5 @@ import com.seasia.myquick.model.UpdateMessagePaswordTemplate;
 
 public interface ChangeChatPasswordInterface {
 
-	public void changeChatPassword(UpdateMessagePaswordTemplate mUpdateMessagePaswordTemplate);
+	void changeChatPassword(UpdateMessagePaswordTemplate mUpdateMessagePaswordTemplate);
 }

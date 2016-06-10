@@ -306,7 +306,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                             profilePicDrawable = null;
                         }
                     }
-                    if (Utility.googleServicesUnavailable == true) {
+                    if (Utility.googleServicesUnavailable) {
                         new Validate_ThatsItId_Async(getActivity(), entryWithoutHost, mValidateThatsItIdInterface).execute();
                     } else {
                         removeIncomingPings();

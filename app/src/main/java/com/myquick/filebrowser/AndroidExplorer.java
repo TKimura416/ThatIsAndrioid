@@ -47,7 +47,7 @@ public class AndroidExplorer extends ListActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog==true){
+		if(Utility.allowAuthenticationDialog){
 			Utility.showLock(AndroidExplorer.this);
 		}
 	}

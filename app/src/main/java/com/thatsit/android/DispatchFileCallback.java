@@ -5,7 +5,7 @@ package com.thatsit.android;
  */
 public interface DispatchFileCallback {
 
-	public void onError(String message);
-	public void onProgress(int progress,String message);
-	public void onComplete(String message);
+	void onError(String message);
+	void onProgress(int progress, String message);
+	void onComplete(String message);
 }

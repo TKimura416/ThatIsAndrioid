@@ -97,7 +97,7 @@ public class GroupInfoActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog==true){
+		if(Utility.allowAuthenticationDialog){
 			Utility.showLock(GroupInfoActivity.this);
 		}
 		Utility.UserPauseStatus(GroupInfoActivity.this);

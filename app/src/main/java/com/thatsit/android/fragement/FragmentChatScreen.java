@@ -202,7 +202,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			ThatItApplication.getApplication().getIncomingFilePings().remove(mRosterEntry.getUser());
 			Utility.stopDialog();
 
-			if(mRosterEntry !=null && mRosterEntry.getUser().contains("@") && Utility.googleServicesUnavailable == true){
+			if(mRosterEntry !=null && mRosterEntry.getUser().contains("@") && Utility.googleServicesUnavailable){
 				String entryWithoutHost = mRosterEntry.getUser().replace("@190.97.163.145","");
 				new Validate_ThatsItId_Async(getActivity(),entryWithoutHost,mValidateThatsItIdInterface).execute();
 			}
@@ -698,7 +698,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 									showSocketFileDownloadPrompt(json.getString("file_name"), json.getString("ip"), json.getString("file_path"));
 								} else {
 									Toast.makeText(getActivity(), "Please Wait while Current file is downloaded.", Toast.LENGTH_SHORT).show();
-									;
 								}
 							} else {
 								showFTPFileDownloadPrompt(subject);
@@ -790,7 +789,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			case R.id.fragChat_img_smiley:
 
 				onItemLongClickCalled = false;
-				if(Utility.smileyScreenOpened == false){
+				if(!Utility.smileyScreenOpened){
 					Utility.smileyScreenOpened = true;
 					MUCActivity.chek_Activity = false;
 					Intent intent = new Intent(getActivity(),GridViewActivity.class);
@@ -830,7 +829,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 					for (int i = 0; i < ListItem_position_new.size(); i++) {
 						isDeleted=chatDb.deleteMessage(ListItem_position_new.get(i));
 					}
-					if (isDeleted == true) {
+					if (isDeleted) {
 						LastID="0";
 						ListItem_position_new.clear();
 						setAdapter();
@@ -1141,7 +1140,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			for (int i = 0; i < ListItem_position_deletes.size(); i++) {
 				isDeleted=chatDb.deleteMessage(ListItem_position_deletes.get(i));
 			}
-			if (isDeleted == true) {
+			if (isDeleted) {
 				LastID="0";
 				ListItem_position_new.clear();
 				ListItem_position_all.clear();

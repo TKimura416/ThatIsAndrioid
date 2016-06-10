@@ -75,7 +75,7 @@ public class SelectAudioActivity extends ListActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog==true){
+		if(Utility.allowAuthenticationDialog){
 			Utility.showLock(SelectAudioActivity.this);
 		}
 		Utility.UserPauseStatus(SelectAudioActivity.this);

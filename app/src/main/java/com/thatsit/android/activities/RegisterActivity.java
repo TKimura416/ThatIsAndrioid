@@ -104,7 +104,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 			//getValueFromBundle();
 			initialise_Variables();
 			initialiseSharedPreferences();
-			if(Utility.hasPincode == true){
+			if(Utility.hasPincode){
 				rltv_top.setVisibility(View.GONE);
 				edt_enterPincode.setVisibility(View.VISIBLE);
 			}else{
@@ -402,7 +402,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 			} else if (Chat_password.trim().toCharArray().length < 6) {
 				Toast.makeText(RegisterActivity.this,"Minimum Chat Password Length Should be 6 Characters ",Toast.LENGTH_SHORT).show();
 
-			} else if (Utility.hasPincode == true
+			} else if (Utility.hasPincode
 					&& edt_enterPincode.getText().toString().trim().toCharArray().length == 0) {
 				Toast.makeText(RegisterActivity.this,"Enter Promotional Code",Toast.LENGTH_SHORT).show();
 			} else if(mEdt_MeesagePasswd.getText().toString().trim()
@@ -421,7 +421,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 					Chat_password = Chat_password.replace("%","2");
 				}
 
-				if(Utility.hasPincode == true){
+				if(Utility.hasPincode){
 					chatUserName = edt_enterPincode.getText().toString().trim().toUpperCase();
 					AppSinglton.thatsItPincode = chatUserName;
 
@@ -516,7 +516,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 						AppSinglton.userId = mInsertUserResponseTemplate.getInsertUserDataResult().getmInsertUserDataParams()[0].getUserId();
 						mSharedPreferences.edit().putString("USERID", AppSinglton.userId).commit();
 
-						if (Utility.hasPincode == true) {
+						if (Utility.hasPincode) {
 							new RegisterUserOnChatServerAsyncTask(RegisterActivity.this, mConnection, chatUserName, login_password).execute();
 						}
 						break;

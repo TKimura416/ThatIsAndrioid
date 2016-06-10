@@ -183,7 +183,7 @@ public class ParseUtil {
 			if(members.replace(" ", "").trim().length()==0){
 				parseObject.deleteInBackground();
 			}else{
-				parseObject.put(ThatItApplication.getApplication().getString(R.string.column_group_members), members);;
+				parseObject.put(ThatItApplication.getApplication().getString(R.string.column_group_members), members);
 			}
 
 			parseObject.saveInBackground();
@@ -423,7 +423,7 @@ public class ParseUtil {
 		public void done(ParseException e) {
 			onPostExecute();
 			parseCallbackListener.done(e,requestId);
-		};
+		}
 	}
 
 	//	private ProgressDialog progressDialog=null;
