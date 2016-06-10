@@ -75,7 +75,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@+id/adapterChatSender_img_online"
                     android:text="Ron"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -87,7 +87,7 @@
                     android:singleLine="true"
                     android:text=""
                     android:textColor="#ff0000"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
             </RelativeLayout>
 
             <RelativeLayout

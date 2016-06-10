@@ -56,7 +56,7 @@
             android:singleLine="true"
             android:text="Sign in with different account"
             android:textColor="#0000ff"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="italic" />
 
         <LinearLayout

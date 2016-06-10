@@ -306,7 +306,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	private void skipLoginScreenIfAlreadyConnected() {
 		try {
 			myApplication = ThatItApplication.getApplication();
-			if (myApplication instanceof ThatItApplication) {
+			if (myApplication != null) {
 				if (myApplication.isConnected() && mConnection.isConnected()) {
 					Intent intent = new Intent(WelcomeActivity.this,
 							ContactActivity.class);

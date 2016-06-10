@@ -73,7 +73,7 @@
                     android:layout_toRightOf="@+id/adapterChatSender_img_online"
                     android:text="My Name"
                     android:maxLength="15"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -84,7 +84,7 @@
                     android:layout_toRightOf="@+id/adapterChatSender_text_userName"
                     android:singleLine="true"
                     android:textColor="#ff0000"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
             </RelativeLayout>
 
             <RelativeLayout

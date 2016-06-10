@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Adap_Contact_Uname"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_UserName"
                 android:layout_marginTop="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:text="Chat Group Options"
                 android:textColor="@drawable/group_selector" />
              <ImageView

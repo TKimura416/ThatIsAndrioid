@@ -309,99 +309,96 @@ public class Utility {
 		}
 		dialog=null;
 
-		if(dialog==null ){
+		dialog = new Dialog(activity);
 
-			dialog = new Dialog(activity);
+		dialog.setContentView(R.layout.login_promt);
+		dialog.setTitle("Enter Login Password 1");
 
-			dialog.setContentView(R.layout.login_promt);
-			dialog.setTitle("Enter Login Password 1");
+		isAuthenticationWindowOpened = true;
+		Utility.isShowing = true;
 
-			isAuthenticationWindowOpened = true;
-			Utility.isShowing = true;
+		try{
+            Button btnAccept  = (Button)dialog.findViewById(R.id.btn_accept);
+            Button btnDecline  = (Button)dialog.findViewById(R.id.btn_decline);
+            EditText etUsername = (EditText)dialog.findViewById(R.id.etUsername);
+            TextView signInDifferentUser = (TextView)dialog.findViewById(R.id.signInDifferentUser);
 
-			try{
-				Button btnAccept  = (Button)dialog.findViewById(R.id.btn_accept);
-				Button btnDecline  = (Button)dialog.findViewById(R.id.btn_decline);
-				EditText etUsername = (EditText)dialog.findViewById(R.id.etUsername);
-				TextView signInDifferentUser = (TextView)dialog.findViewById(R.id.signInDifferentUser);
+            etUsername.setEnabled(false);
+            etUsername.setVisibility(View.GONE);
+            final EditText etPassword = (EditText)dialog.findViewById(R.id.etPassword);
 
-				etUsername.setEnabled(false);
-				etUsername.setVisibility(View.GONE);
-				final EditText etPassword = (EditText)dialog.findViewById(R.id.etPassword);
+            InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
 
-				InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
-				imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
+            etUsername.setText(Utility.email_id);
 
-				etUsername.setText(Utility.email_id);
+            signInDifferentUser.setOnClickListener(new OnClickListener() {
 
-				signInDifferentUser.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
 
 
-						openExitDialog(activity);
-					}
-				});
+                    openExitDialog(activity);
+                }
+            });
 
-				btnAccept.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						try {
-							try {
-								InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
-								imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-							if(etPassword.getText().toString().trim().toCharArray().length == 0){
-								Utility.showMessage("Enter login password");
-							}
-							else{
-								//startDialog(activity);
-								String login_password = encryptionManager.encryptPayload(etPassword.getText().toString());
-								login_password = URLEncoder.encode(login_password, "UTF-8");
-								if(login_password.contains("%")){
-									login_password = login_password.replace("%","2");
-								}
-								if(login_password.equals(Utility.getPassword())){
-									//stopDialog();
-									Utility.allowAuthenticationDialog = false;
-									isAuthenticationWindowOpened = false;
-									dialog.dismiss();
-									dialog=null;
-									activity.finish();
-								}else{
-									stopDialog();
-									Utility.showMessage("Incorrect Password");
-								}
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
+            btnAccept.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        try {
+                            InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        if(etPassword.getText().toString().trim().toCharArray().length == 0){
+                            Utility.showMessage("Enter login password");
+                        }
+                        else{
+                            //startDialog(activity);
+                            String login_password = encryptionManager.encryptPayload(etPassword.getText().toString());
+                            login_password = URLEncoder.encode(login_password, "UTF-8");
+                            if(login_password.contains("%")){
+                                login_password = login_password.replace("%","2");
+                            }
+                            if(login_password.equals(Utility.getPassword())){
+                                //stopDialog();
+                                Utility.allowAuthenticationDialog = false;
+                                isAuthenticationWindowOpened = false;
+                                dialog.dismiss();
+                                dialog=null;
+                                activity.finish();
+                            }else{
+                                stopDialog();
+                                Utility.showMessage("Incorrect Password");
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
-				btnDecline.setOnClickListener(new OnClickListener() {
+            btnDecline.setOnClickListener(new OnClickListener() {
 
-					@Override
-					public void onClick(View v) {
-						dialog.dismiss();
-						dialog=null;
-						Intent intent = new Intent(Intent.ACTION_MAIN);
-						intent.addCategory(Intent.CATEGORY_HOME);
-						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-						activity .startActivity(intent);
-						activity.finish();
-					}
-				});
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                    dialog=null;
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    activity .startActivity(intent);
+                    activity.finish();
+                }
+            });
 
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			dialog.setCancelable(false);
-			dialog.setCanceledOnTouchOutside(false);
-		}
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+		dialog.setCancelable(false);
+		dialog.setCanceledOnTouchOutside(false);
 		dialog.show();
 	}
 

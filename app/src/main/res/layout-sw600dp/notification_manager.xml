@@ -58,7 +58,7 @@
                 android:padding="10dip"
                 android:text="Accept"
                 android:textColor="@android:color/black"
-                android:textSize="20dip" />
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width=".5dip"
@@ -74,7 +74,7 @@
                 android:padding="10dip"
                 android:text="Reject"
                 android:textColor="@android:color/black"
-                android:textSize="20dip" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <TextView
