@@ -163,8 +163,9 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
 	}
 
-	public FragmentChatScreen(MainService mainService, RosterEntry entry, String profilePicDrawable,boolean lastFragment,
-							  String personFirstName,String personLastName){
+	@SuppressLint("ValidFragment")
+	public FragmentChatScreen(MainService mainService, RosterEntry entry, String profilePicDrawable, boolean lastFragment,
+							  String personFirstName, String personLastName){
 		try {
 			mService = mainService;
 			mRosterEntry = entry;

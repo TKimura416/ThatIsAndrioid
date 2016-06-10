@@ -997,9 +997,11 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			try {
-				if (Objects.equals(intent.getAction(), MainService.CHAT)) {
-					displayPingOnList(intent);
-					mService.setIncomingChatNotification();
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+					if (Objects.equals(intent.getAction(), MainService.CHAT)) {
+                        displayPingOnList(intent);
+                        mService.setIncomingChatNotification();
+                    }
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

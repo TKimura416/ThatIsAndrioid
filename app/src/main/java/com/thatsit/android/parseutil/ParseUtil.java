@@ -393,7 +393,7 @@ public class ParseUtil {
 				//progressDialog.setCancelable(true);
 				//progressDialog.show();
 			} catch (Exception e) {
-				Log.e("Parse Util- Error to be ignored", e.getMessage()+"");
+				Log.e("Parse Util- ","Error to be ignored"+ e.getMessage()+"");
 			}
 		}
 
@@ -404,7 +404,7 @@ public class ParseUtil {
 			try{
 				//progressDialog.dismiss();
 			}catch(Exception e){
-				Log.e("Parse Util- Error to be ignored", e.getMessage()+"");
+				Log.e("Parse Util- ","Error to be ignored"+ e.getMessage()+"");
 			}
 		}
 
