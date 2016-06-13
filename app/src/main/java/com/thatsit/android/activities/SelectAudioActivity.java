@@ -54,7 +54,7 @@ public class SelectAudioActivity extends ListActivity {
 		myApplication = ThatItApplication.getApplication();
 		mXmppManager = XmppManager.getInstance();
 		mConnection = mXmppManager.getXMPPConnection();
-		AudioPreference = getSharedPreferences("AudioPreference", MODE_WORLD_WRITEABLE);
+		AudioPreference = getSharedPreferences("AudioPreference", MODE_PRIVATE);
 		String[] from = {
 				MediaStore.MediaColumns.TITLE};
 		int[] to = {
