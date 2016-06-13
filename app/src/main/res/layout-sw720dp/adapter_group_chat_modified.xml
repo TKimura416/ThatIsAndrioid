@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:minHeight="50dp"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <RelativeLayout
             android:id="@+id/rel_left_arrow"

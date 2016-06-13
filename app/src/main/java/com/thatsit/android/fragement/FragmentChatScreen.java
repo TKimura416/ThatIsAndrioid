@@ -1662,9 +1662,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		if(!mConnection.isConnected())
 			try {
 				mConnection.connect();
-			} catch (XMPPException e) {
-				e.printStackTrace();
-			}catch (Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		setAdapter();

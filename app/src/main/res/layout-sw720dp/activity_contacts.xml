@@ -67,7 +67,8 @@
         android:orientation="horizontal"
         android:padding="5dp"
         android:visibility="gone"
-        android:weightSum="100" >
+        android:weightSum="100"
+        android:baselineAligned="false">
 
         <RelativeLayout
             android:id="@+id/linlytTabOne"

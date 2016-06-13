@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:weightSum="100" >
+        android:weightSum="100"
+        android:baselineAligned="false">
 
         <RelativeLayout
             android:id="@+id/rltv_image"

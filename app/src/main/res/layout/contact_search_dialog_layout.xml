@@ -30,7 +30,8 @@
         android:layout_toRightOf="@+id/rel_left_arrow"
         android:background="@drawable/round_rect_shape"
         android:orientation="horizontal"
-        android:weightSum="100" >
+        android:weightSum="100"
+        android:baselineAligned="false">
 
         <RelativeLayout
             android:id="@+id/rltv_circularImage"

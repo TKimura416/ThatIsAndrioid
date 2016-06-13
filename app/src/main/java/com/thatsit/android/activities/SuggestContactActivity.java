@@ -416,9 +416,7 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 				public void run() {
 					try {
 						mConnection.connect();
-					} catch (XMPPException e) {
-						e.printStackTrace();
-					}catch (Exception e) {
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}

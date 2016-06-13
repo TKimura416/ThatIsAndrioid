@@ -428,10 +428,7 @@ public class Utility {
 				v.buildDrawingCache();
 				catchedBitmap = Bitmap.createBitmap(v.getDrawingCache());
 			}*/
-		} catch (OutOfMemoryError e) {
-			e.printStackTrace();
-		}
-		catch (Exception e) {
+		} catch (OutOfMemoryError | Exception e) {
 			e.printStackTrace();
 		}
 	}

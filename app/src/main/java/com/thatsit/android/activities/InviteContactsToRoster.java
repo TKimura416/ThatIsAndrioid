@@ -611,10 +611,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 		if (!connection.isConnected()) {
 			try {
 				connection.connect();
-			} catch (XMPPException e) {
-				e.printStackTrace();
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -707,9 +704,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 				public void run() {
 					try {
 						mConnection.connect();
-					} catch (XMPPException e) {
-						e.printStackTrace();
-					}catch (Exception e) {
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}

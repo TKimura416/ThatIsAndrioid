@@ -1271,8 +1271,6 @@ public class FragmentContact extends Fragment implements OnClickListener {
 			public void run() {
 				try {
 					usersAdapter.notifyDataSetChanged();
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

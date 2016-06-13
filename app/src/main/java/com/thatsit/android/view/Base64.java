@@ -1224,12 +1224,10 @@ class Base64
         
             obj = ois.readObject();
         }   // end try
-        catch( java.io.IOException e ) {
+        catch( java.io.IOException | ClassNotFoundException e ) {
             throw e;    // Catch and throw in order to execute finally{}
         }   // end catch
-        catch( java.lang.ClassNotFoundException e ) {
-            throw e;    // Catch and throw in order to execute finally{}
-        }   // end catch
+        // end catch
         finally {
             try{ bais.close(); } catch( Exception ignored){}
             try{ ois.close();  } catch( Exception ignored){}

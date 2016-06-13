@@ -65,7 +65,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="40dp"
-                android:weightSum="10">
+                android:weightSum="10"
+                android:baselineAligned="false">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -182,7 +183,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="40dp"
-                android:weightSum="10">
+                android:weightSum="10"
+                android:baselineAligned="false">
 
                 <RelativeLayout
                     android:layout_width="0dp"

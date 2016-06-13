@@ -1261,8 +1261,6 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
             }
             bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
 
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1314,8 +1312,6 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
             } else {
                 bitmap = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(fileUri), null, o2);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
