@@ -79,7 +79,6 @@
                         android:id="@+id/Register_edttxt_enterPwd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/enter_password_img"
                         android:ems="10"
@@ -266,7 +265,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/register_btn_selector" />
 

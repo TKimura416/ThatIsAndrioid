@@ -35,7 +35,6 @@
                 android:id="@+id/lnr_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="60"
                 android:layout_toRightOf="@+id/profile_picture"
                 android:orientation="vertical"
                 android:layout_marginLeft="20dp"
