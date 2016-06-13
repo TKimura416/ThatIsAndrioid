@@ -69,7 +69,6 @@ import com.seasia.myquick.model.FetchUserSettingTemplates;
 import com.seasia.myquick.model.GetSubscriptionHistoryTemplate;
 import com.seasia.myquick.model.UpdateUserSettingTemplate;
 import com.seasia.myquick.model.ValidateUserLoginStatus;
-import com.thatsit.android.LogFile;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
@@ -1046,7 +1045,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 						dialog.dismiss();
 						if(!NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
 
-							performSignOutTask("InternetUnavailable");
+							performSignOutTask();
 
 						}else{
 							pdDialog = new ProgressDialog(getActivity());
@@ -1077,13 +1076,9 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 		}
 	}
 
-	private void performSignOutTask(String value) {
+	private void performSignOutTask() {
 
-		if(value.equalsIgnoreCase("InternetAvailable")){
-			LogFile.deleteLog(Utility.getEmail());
-		}
-
-		clearAppSingletonData();
+			clearAppSingletonData();
 		clearAllSharedPreferences();
 		clearDatabase();
 		Utility.isAppStarted = false;
@@ -1355,7 +1350,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 
 			if(mValidateUserLoginStatus != null) {
-				performSignOutTask("InternetAvailable");
+				performSignOutTask();
 			}else{
 				pdDialog.dismiss();
 			}

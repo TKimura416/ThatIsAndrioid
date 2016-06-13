@@ -22,7 +22,6 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -51,7 +50,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.myquick.socket.ServerThread;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
-import com.myquickapp.receivers.NetworkChangeReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -63,7 +61,6 @@ import com.seasia.myquick.model.CheckMessage_ChatPasswrd;
 import com.seasia.myquick.model.GetSubscriptionHistoryTemplate;
 import com.seasia.myquick.model.ValidateUserLoginStatus;
 import com.seasia.myquick.model.ValidateUserStatusID;
-import com.thatsit.android.LogFile;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
@@ -88,11 +85,9 @@ import com.thatsit.android.interfaces.ValidateUserStatusIdInterface;
 import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
 
-import org.jivesoftware.smack.PacketListener;
+import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.packet.IQ;
-import org.jivesoftware.smack.packet.Packet;
 
 /**
  * This is the main container on which fragments are implemented.
@@ -140,7 +135,6 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	private View lastColored;
 	private String PROJECT_NUMBER="354278772391";//"773007732943";
 	private String registrationID;
-	//private NetworkChangeReceiver networkChangeReceiver;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -273,7 +267,6 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 				registrationID = "";
 			}
 			Utility.UserLoginStatus(ContactActivity.this, Utility.getEmail(), "True", registrationID,statusID, mValidateUserLoginInterface);
-			LogFile.createLog(Utility.getEmail());
 		}
 	}
 
@@ -634,6 +627,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 		mSharedPreferences_Gcm = getSharedPreferences("GcmPreference", 0);
 		String message = mSharedPreferences_Gcm.getString("GcmPreference", "");
 
+		Utility.alertDialog = null;
 		if(!TextUtils.isEmpty(message) && message.equalsIgnoreCase("Account Disabled")){
 			Utility.openAlert(ContactActivity.this,"AccountDisabled","Your account seems to get disabled. Kindly Sign in with different account.");
 		}
@@ -646,17 +640,13 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	 *  Register Broadcast Receivers.
 	 */
 	private void registerReceiver() {
-	/*	networkChangeReceiver = new NetworkChangeReceiver();
-		IntentFilter filter = new IntentFilter();
-		filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-		registerReceiver(networkChangeReceiver, filter);*/
 
 		this.registerReceiver(mMessageReceiver,new IntentFilter("OpenFragmentPayment"));
-		//this.registerReceiver(mMessageReceiver, new IntentFilter("Connection Error"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Account Disabled"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Account Paused"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("checkExpiryStatus"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Offline Xmpp Signal"));
+
 		try {
 			this.registerReceiver(one2OneChatReceiver,new IntentFilter(MainService.CHAT));
 		} catch (Exception e) {
@@ -717,6 +707,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 			if(Utility.allowAuthenticationDialog==true) {
 				Utility.showLock(ContactActivity.this);
 			}else {
+				Utility.noNetwork = false;
 				callExpiryWebService();
 			}
 		} catch (Exception e) {

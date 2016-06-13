@@ -10,7 +10,6 @@ import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.RosterEntry;
-import org.jivesoftware.smack.RosterGroup;
 import org.jivesoftware.smack.RosterListener;
 import org.jivesoftware.smack.SmackConfiguration;
 import org.jivesoftware.smack.XMPPConnection;
@@ -19,12 +18,10 @@ import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Message.Type;
 import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smack.packet.Presence;
-import org.jivesoftware.smack.provider.ProviderManager;
 import org.jivesoftware.smackx.GroupChatInvitation;
 import org.jivesoftware.smackx.muc.DiscussionHistory;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 import org.jivesoftware.smackx.packet.VCard;
-import org.jivesoftware.smackx.provider.VCardProvider;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -33,10 +30,8 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -44,8 +39,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager.LayoutParams;
-import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -58,9 +51,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.MainService.MyMessageListner;
-import com.thatsit.android.MyGroupsHelper;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.beans.TemplateGroupMessageHolder;
@@ -73,13 +64,11 @@ import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.seasia.myquick.model.AppSinglton;
 
-public class InviteContactsToRoster  extends Activity implements RefreshApplicationListener{
+public class InviteContactsToRoster  extends Activity{
 	final String TAG = "SuggestContact";
 	private MainService mService;
 	private XmppManager mXmppManager;
@@ -706,23 +695,5 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 
 			}
 		}).start();
-	}
-	@Override
-	public void refreshApplication() {
-
-		if(!mConnection.isConnected() || !mConnection.isAuthenticated()){
-
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						mConnection.connect();
-					} catch (XMPPException e) {
-						e.printStackTrace();
-					}catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}).start();}
 	}
 }

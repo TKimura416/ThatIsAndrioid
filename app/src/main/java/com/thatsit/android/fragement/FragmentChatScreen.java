@@ -24,7 +24,6 @@ import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -45,7 +44,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +58,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,7 +71,6 @@ import com.thatsit.android.FileReceiveraAsync_;
 import com.thatsit.android.MainService;
 import com.thatsit.android.MainService.MyMessageListner;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.UpdateFTPStatus;
 import com.thatsit.android.Utility;
 import com.thatsit.android.Utils;
@@ -101,7 +97,7 @@ import com.seasia.myquick.model.AppSinglton;
 /**
  * in this fragment, one2one chat is performed with the roster entry.
  */
-public class FragmentChatScreen extends Fragment implements OnClickListener,RefreshApplicationListener {
+public class FragmentChatScreen extends Fragment implements OnClickListener {
 	private static final String TAG = FragmentChatScreen.class.getSimpleName();
 	private ImageView mImageVw_ChatScreen,fragChat_img_smiley;
 	private RelativeLayout fragChat_btn_MsgSend_rel;
@@ -140,8 +136,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private String chatRecipientPhoto;
 	public static byte[] byteArray;
 	private String msg;
-	private ProgressBar mprgBarFtpStatus;
-	private TextView mTxtVwPercentageCompletion;
 	private final int FILE_SELECT_CODE = 13;
 	private final int PHOTO_SELECT_CODE=14;
 	private final int VIDEO_SELECT_CODE=15;
@@ -275,7 +269,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			if(chatRecipientPhoto == null){
 				ContactActivity.options = new DisplayImageOptions.Builder()
 						.displayer(new RoundedBitmapDisplayer(200))
-								//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+						//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
 						.showImageOnFail(R.drawable.no_img)
 						.showImageForEmptyUri(R.drawable.no_img)
 						.cacheOnDisk(true)
@@ -287,7 +281,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 				ContactActivity.options = new DisplayImageOptions.Builder()
 						.displayer(new RoundedBitmapDisplayer(200))
-								//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+						//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
 						.showImageOnFail(R.drawable.no_img)
 						.showImageForEmptyUri(R.drawable.no_img)
 						.cacheOnDisk(true)
@@ -443,11 +437,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		rel_overflowImage=(RelativeLayout) mView.findViewById(R.id.fragChat_rltv_img2);
 		fragChat_btn_MsgSend_rel=(RelativeLayout)mView.findViewById(R.id.fragChat_btn_MsgSend_rel);
 		fragChat_clipboard=(RelativeLayout) mView.findViewById(R.id.fragChat_clipboard);
-		//img_copy=(ImageView) mView.findViewById(R.id.img_copy);
-		mprgBarFtpStatus=(ProgressBar)mView.findViewById(R.id.prgBarFtpProgress);
-		mTxtVwPercentageCompletion=(TextView)mView.findViewById(R.id.txtvwPercentageFeild);
 		img_delete=(TextView) mView.findViewById(R.id.img_delete);
-		//img_cut=(ImageView) mView.findViewById(R.id.img_cut);
 		img_accept=(ImageView) mView.findViewById(R.id.img_tick);
 		activityRootView =(RelativeLayout)mView.findViewById(R.id.RelativeLayout1);
 		btn_loadMore = (Button)mView.findViewById(R.id.btn_loadMore);
@@ -1269,9 +1259,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 */
 	private void processOtherFiles(File f) {
 
-		new FileDispatcherAsync(f, mTxtVwPercentageCompletion,
-				mprgBarFtpStatus,mService.getFileTransferListener(),
-				mRosterEntry.getUser().split("@")[0],getActivity(),new UpdateFTPStatus(){
+		new FileDispatcherAsync(f,mRosterEntry.getUser().split("@")[0],new UpdateFTPStatus(){
 
 			@Override
 			public void showProgress(int currentProgress) {
@@ -1374,10 +1362,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	}
 
 	private void processVideoFile(File f) {
-		new FileDispatcherAsync(f, mTxtVwPercentageCompletion,
-				mprgBarFtpStatus,
-				mService.getFileTransferListener(),
-				mRosterEntry.getUser().split("@")[0],getActivity(), new UpdateFTPStatus(){
+		new FileDispatcherAsync(f,mRosterEntry.getUser().split("@")[0],new UpdateFTPStatus(){
 
 			@Override
 			public void showProgress(int currentProgress) {
@@ -1448,10 +1433,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	}
 
 	public void processFile(File f){
-		new FileDispatcherAsync(f, mTxtVwPercentageCompletion,
-				mprgBarFtpStatus,
-				mService.getFileTransferListener(),
-				mRosterEntry.getUser().split("@")[0],getActivity(), new UpdateFTPStatus(){
+		new FileDispatcherAsync(f, mRosterEntry.getUser().split("@")[0], new UpdateFTPStatus(){
 
 			@Override
 			public void showProgress(int currentProgress) {
@@ -1547,12 +1529,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 								dialog.dismiss();
 								if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
 
-									mService.acceptCurrentincomingFileRequest(fileName,new FileDownloadStatusCallback() {
-
-										@Override
-										public void onDownloadComplete() {
-										}
-									});
+									mService.acceptCurrentincomingFileRequest(fileName);
 
 								} else {
 									Toast.makeText(getActivity(),getResources().getString(R.string.Network_Availability),Toast.LENGTH_SHORT).show();
@@ -1657,20 +1634,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	@Override
-	public void refreshApplication() {
-		if(!mConnection.isConnected())
-			try {
-				mConnection.connect();
-			} catch (XMPPException e) {
-				e.printStackTrace();
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-		setAdapter();
-		onStart();
-	}
-
 	/**
 	 *  Check if roster entry exists on Admin
 	 */
@@ -1745,17 +1708,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 										}).start();
 									}
 								});
-
-						/*alertDialogBuilder.setNegativeButton("Cancel",
-								new DialogInterface.OnClickListener() {
-									@Override
-									public void onClick(DialogInterface arg0, int arg1) {
-
-										alertDialog.dismiss();
-										alertDialog = null;
-										Utility.stopDialog();
-									}
-								});*/
 						alertDialog = alertDialogBuilder.create();
 						alertDialog.show();
 						alertDialog.setCancelable(false);
@@ -1768,7 +1720,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	}
 
 	/**
-	 *  DELETE ROSTER FROM OPENFIRE.............................................................................................
+	 *  Delete roster from openfire
 	 */
 	private void removeContactFromRoster(RosterEntry entryToBeRemoved) {
 		try {

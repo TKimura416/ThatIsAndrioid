@@ -1,11 +1,9 @@
 package com.thatsit.android.fragement;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.Roster;
 import org.jivesoftware.smack.RosterEntry;
 import org.jivesoftware.smack.XMPPException;
@@ -42,18 +40,14 @@ import android.widget.Toast;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.parseutil.ParseCallbackListener;
 import com.thatsit.android.parseutil.ParseOperationDecider;
 import com.thatsit.android.parseutil.ParseUtil;
-import com.thatsit.android.xmpputils.Constants;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.seasia.myquick.model.AppSinglton;

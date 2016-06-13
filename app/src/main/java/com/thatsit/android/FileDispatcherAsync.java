@@ -47,9 +47,8 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 	private long percent = 0;
 	private long fileSizeBytes;
 
-	public FileDispatcherAsync(File fileTosend,TextView feildToUpdate,
-							   ProgressBar progressBar, FileTransferManager Fmanager,
-							   String recipient,Context context,
+	public FileDispatcherAsync(File fileTosend,
+							   String recipient,
 							   UpdateFTPStatus statusCallbackReference) {
 
 		timeMillis = System.currentTimeMillis();
@@ -105,7 +104,6 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 	 */
 	protected void PreExecution(){
 
-		//mBuilder.setContentTitle("File Transfer " +mFile.getName())
 		initialiseNotificationManager("Sending File","Establishing Connection");
 		mBuilder.setProgress(100, 0, true).setOngoing(true);
 		mNotifyManager.notify(id, mBuilder.build());

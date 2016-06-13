@@ -41,7 +41,6 @@ import com.seasia.myquick.controller.WebServiceClient;
 import com.seasia.myquick.model.AppSinglton;
 import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 import com.seasia.myquick.model.ValidateUserLoginStatus;
-import com.thatsit.android.LogFile;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
@@ -578,16 +577,6 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 
 					String UserLoginStatus = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getUserLoginStatus();
 					if(UserLoginStatus != null){
-
-						/*if(UserLoginStatus.equalsIgnoreCase("True")&& LogFile.logExists(EmailId) == false){
-							Utility.stopDialog();
-							// Show already signed in prompt
-							Utility.openAlert(WelcomeActivity.this,"AlreadyLoggedIn", "User already logged in some other device.");
-								Utility.unlockScreenRotation(WelcomeActivity.this);
-						}else{
-							new GetDataAsync().execute();
-						}*/
-
 						if(UserLoginStatus.equalsIgnoreCase("True")){
 							// Check if status id is equal to one present in shared preference
 							// If both values are equal, perform login
@@ -635,7 +624,6 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 			if(mValidateUserLoginStatus != null){
-				LogFile.deleteLog(Utility.getEmail());
 				settings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
 				settings.edit().clear().commit();
 			}

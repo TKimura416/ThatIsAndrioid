@@ -453,12 +453,10 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 		switch (v.getId()) {
 			case R.id.fragActChatSet_btn_basicSet:
 				try {
-					//mFragmentBasicSetting.setRetainInstance(false);
 					mFragmentManager = getActivity().getSupportFragmentManager();
 					mFragmentTransaction = mFragmentManager.beginTransaction();
 					mFragmentTransaction.replace(R.id.fragmentContainer, mFragmentBasicSetting);
 					mFragmentTransaction.commit();
-					//ContactActivity.mStackChatAccount.pop();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -466,7 +464,6 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 
 			case R.id.fragActChatSet_btn_paymentSet:
 				try {
-					//	mFragmentPaymentSetting.setRetainInstance(true);
 					mFragmentManager = getActivity().getSupportFragmentManager();
 					mFragmentTransaction = mFragmentManager.beginTransaction();
 					mFragmentTransaction.replace(R.id.fragmentContainer, mFragmentPaymentSetting);
@@ -489,8 +486,12 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 				break;
 
 			case R.id.tv_setNotificationTone:
-				Intent intent = new Intent(getActivity(),SelectAudioActivity.class);
-				startActivity(intent);
+				try {
+					Intent intent = new Intent(getActivity(),SelectAudioActivity.class);
+					startActivity(intent);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				break;
 		}
 	}

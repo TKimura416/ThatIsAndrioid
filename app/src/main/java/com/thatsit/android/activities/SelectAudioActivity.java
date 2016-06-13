@@ -52,27 +52,30 @@ public class SelectAudioActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		Utility.setDeviceTypeAndSecureFlag(SelectAudioActivity.this);
-		Utility.allowAuthenticationDialog=false;
-		myApplication = ThatItApplication.getApplication();
-		mXmppManager = XmppManager.getInstance();
-		mConnection = mXmppManager.getXMPPConnection();
-		AudioPreference = getSharedPreferences("AudioPreference", MODE_WORLD_WRITEABLE);
-		String[] from = {
-				MediaStore.MediaColumns.TITLE};
-		int[] to = {
-				android.R.id.text1};
+		try {
+			Utility.setDeviceTypeAndSecureFlag(SelectAudioActivity.this);
+			Utility.allowAuthenticationDialog = false;
+			myApplication = ThatItApplication.getApplication();
+			mXmppManager = XmppManager.getInstance();
+			mConnection = mXmppManager.getXMPPConnection();
+			AudioPreference = getSharedPreferences("AudioPreference", MODE_WORLD_WRITEABLE);
+			String[] from = {
+					MediaStore.MediaColumns.TITLE};
+			int[] to = {
+					android.R.id.text1};
 
-		Cursor cursor = managedQuery(
-				MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, 
-				null, 
-				null, 
-				null, 
-				MediaStore.Audio.Media.TITLE);
+			Cursor cursor = managedQuery(
+					MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+					null,
+					null,
+					null,
+					MediaStore.Audio.Media.TITLE);
 
-		adapter = new SimpleCursorAdapter(this,android.R.layout.simple_list_item_1, cursor, from, to);
-		setListAdapter(adapter);
+			adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, from, to);
+			setListAdapter(adapter);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 

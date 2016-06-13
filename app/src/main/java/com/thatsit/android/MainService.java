@@ -57,11 +57,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
@@ -74,21 +71,17 @@ import android.support.v4.app.NotificationCompat;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 
 import com.myquickapp.receivers.NetworkChangeReceiver;
 import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.activities.InviteContactsToRoster.MyRosterListnerInvite;
 import com.thatsit.android.activities.SplashActivity;
 import com.thatsit.android.activities.SuggestContactActivity.MyRosterListnerSuggest;
-import com.thatsit.android.activities.TermsAndConditionsActivity;
 import com.thatsit.android.activities.WelcomeActivity;
 import com.thatsit.android.adapter.PresenceAdapter;
 import com.thatsit.android.application.ThatItApplication;
-import com.thatsit.android.beans.PushNotificationService;
 import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.db.One2OneChatDb;
-import com.thatsit.android.fragement.FileDownloadStatusCallback;
 import com.thatsit.android.fragement.FragmentChatScreen;
 import com.thatsit.android.fragement.FragmentContact.MyRosterListner;
 import com.thatsit.android.invites.PresenceType;
@@ -885,7 +878,7 @@ public class MainService extends Service {
                         return;
                     } else if (e.getMessage().toString().contains("No response")
                             && NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
-                        android.os.Process.killProcess(android.os.Process.myPid());
+                        //android.os.Process.killProcess(android.os.Process.myPid());
                     }
                     sendConnectionErrorWhileSignInBroadcast();
                     sendConnectionErrorBroadcast();
@@ -1011,9 +1004,9 @@ public class MainService extends Service {
                         if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
                             if (!connection.isConnected() || !connection.isAuthenticated()) {
                                 try {
-                                    createConnection();
-                                    connectAsync();
-                                    performBackgroundTimerTask();
+                                  //  createConnection();
+                                   // connectAsync();
+                                  //  performBackgroundTimerTask();
 
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -1988,11 +1981,10 @@ public class MainService extends Service {
 
     /**
      * @param fileName         file download from server
-     * @param callbackInstance downlaoded successfully
      */
-    public void acceptCurrentincomingFileRequest(String fileName, FileDownloadStatusCallback callbackInstance) {
+    public void acceptCurrentincomingFileRequest(String fileName) {
         try {
-            new FileReceiveraAsync_(fileName, null, null, mService).doInBackground(fileName, callbackInstance);
+            new FileReceiveraAsync_(fileName, mService).doInBackground(fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }

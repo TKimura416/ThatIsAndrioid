@@ -18,13 +18,13 @@ import com.seasia.myquick.model.AppSinglton;
 public class ParseUtil {
 
 	/**
-	 * 
+	 *
 	 * <p>
 	 * This method add senderId<i>(AppSinglton.thatsItPincode)</i> and receipient id ParseServer.
 	 * This should be called whenever add request is sent to a user.  
 	 * </p>
 	 * @param context
-	 * @param receipientId 
+	 * @param receipientId
 	 * @param saveCallback
 	 */
 	public  void addRequest(Context context , String receipientId ,ParseCallbackListener saveCallback ,final int requestId){
@@ -48,7 +48,7 @@ public class ParseUtil {
 
 	/**
 	 * Create entry of group on parse
-	 * 
+	 *
 	 * @param groupName
 	 */
 	public void joinGroup(final String groupName,final String creator,final ParseCallbackListener callback,final int requestId){
@@ -65,12 +65,11 @@ public class ParseUtil {
 			@Override
 			public void done(List<ParseObject> invites, ParseException e) {
 				try {
-					//progressDialog.dismiss();
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 				if (e == null) {
-					//	        		SPLIT JID till @
+					// SPLIT JID till @
 					StringTokenizer stringTokenizer = new StringTokenizer(groupName,"@");
 					String groupName= stringTokenizer.nextToken();
 					String creator1 = parseThatsitId(creator);
@@ -112,20 +111,16 @@ public class ParseUtil {
 	}
 
 
-
 	/**
-	 * 
+	 *
 	 * <p>
 	 * This method remove senderId<i>(AppSinglton.thatsItPincode)</i> and receipient id from ParseServer.
 	 * </p>
-	 * @param context
-	 * @param receipientId 
 	 * @param saveCallback
 	 */
 	public  void leaveGroup( String groupName,String memberName ,final ParseCallbackListener saveCallback ,final int requestId){
 
-		//		ParseObject parseObject = new ParseObject(ThatItApplication.getApplication().getResources().getString(R.string.column_group_name));
-		final String	memberName1 = parseThatsitId(memberName);
+		final String memberName1 = parseThatsitId(memberName);
 
 		final ParseCommonCallback deleteCallback = new ParseCommonCallback(memberName1, ThatItApplication.getApplication(), saveCallback,requestId);
 
@@ -135,11 +130,6 @@ public class ParseUtil {
 		query.whereEqualTo(ThatItApplication.getApplication().getResources().getString(R.string.column_group_name),groupName );
 		query.findInBackground(new FindCallback<ParseObject>() {
 			public void done(List<ParseObject> invites, ParseException e) {
-				try {
-					//progressDialog.dismiss();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
 				if (e == null) {
 					// iterate over all messages and delete them
 					for(int i =0;i<invites.size()-1;i++){
@@ -158,7 +148,7 @@ public class ParseUtil {
 
 				}else{
 					saveCallback.done(e, requestId);
-				} 
+				}
 			}
 		});
 	}
@@ -171,7 +161,7 @@ public class ParseUtil {
 				if(parseCommonCallback!=null){
 					parseObject.deleteInBackground(parseCommonCallback);
 				}else{
-					parseObject.deleteInBackground();	
+					parseObject.deleteInBackground();
 				}
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -185,20 +175,17 @@ public class ParseUtil {
 			}else{
 				parseObject.put(ThatItApplication.getApplication().getString(R.string.column_group_members), members);;
 			}
-
 			parseObject.saveInBackground();
 		}
-
-
 	}
 
 	/**
-	 * 
+	 *
 	 * <p>
 	 * This method remove senderId<i>(AppSinglton.thatsItPincode)</i> and receipient id from ParseServer.
 	 * </p>
 	 * @param context
-	 * @param receipientId 
+	 * @param receipientId
 	 * @param saveCallback
 	 */
 	public void removeRequest(Context context ,String senderId, String receipientId ,final ParseCallbackListener saveCallback ,final int requestId){
@@ -217,14 +204,8 @@ public class ParseUtil {
 
 		query.findInBackground(new FindCallback<ParseObject>() {
 			public void done(List<ParseObject> invites, ParseException e) {
-				try {
-					//progressDialog.dismiss();
-				} catch (Exception e1) {
-					//						e1.printStackTrace();
-				}
 				if (e == null) {
 					// iterate over all messages and delete them
-
 
 					for(int i =0;i<invites.size()-1;i++){
 						invites.get(i).deleteInBackground();
@@ -234,20 +215,17 @@ public class ParseUtil {
 					}else{
 						saveCallback.done(null, requestId);
 					}
-
-				} 
+				}
 			}
 		});
-
 	}
 
 	/**
-	 * 
+	 *
 	 * <p>
 	 * This method remove senderId<i>(AppSinglton.thatsItPincode)</i> and receipient id from ParseServer.
 	 * </p>
 	 * @param context
-	 * @param receipientId 
 	 * @param saveCallback
 	 */
 	public  void areExists(Context context , final ParseCallbackListener saveCallback ,final int requestId){
@@ -261,29 +239,13 @@ public class ParseUtil {
 	}
 
 	/**
-	 * 
+	 *
 	 * <p>
 	 * This method remove senderId<i>(AppSinglton.thatsItPincode)</i> and receipient id from ParseServer.
 	 * </p>
 	 * @param context
-	 * @param receipientId 
-	 * @param saveCallback
+	 * @param receipientId
 	 */
-	public  void isExists(Context context , String senderId ,String receipientId,final ParseCallbackListener saveCallback ,final int requestId){
-
-		senderId = parseThatsitId(senderId);
-		receipientId = parseThatsitId(receipientId);
-
-		ParseQuery<ParseObject> query = ParseQuery.getQuery(context.getResources().getString(R.string.table_roster));
-		query.whereEqualTo(context.getResources().getString(R.string.column_sender) , senderId);
-		query.whereEqualTo(context.getResources().getString(R.string.column_receipient) , receipientId);
-
-		query.findInBackground(new FindCallback<ParseObject>() {
-			public void done(List<ParseObject> phoneList, ParseException e) {
-				saveCallback.done(phoneList, e,requestId);
-			}
-		});
-	}
 
 	public void updateOperation(final Context context , String senderId ,String receipientId ,final ParseCallbackListener callback ,final int requestId , final ParseOperationDecider decider){
 		receipientId = parseThatsitId(receipientId);
@@ -298,41 +260,36 @@ public class ParseUtil {
 
 		query.findInBackground(new FindCallback<ParseObject>() {
 			public void done(List<ParseObject> invites, ParseException e) {
-				try {
-					//	progressDialog.dismiss();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
 				if (e == null) {
 					// iterate over all messages and delete them
 					int operation=-1;
 
 					switch (decider) {
 
-					case FRIEND_REQUEST_SENT:
-						operation=1;
-						break;
+						case FRIEND_REQUEST_SENT:
+							operation=1;
+							break;
 
-					case FRIEND_REQUEST_RECEIVED:
-						operation=2;
-						break;
+						case FRIEND_REQUEST_RECEIVED:
+							operation=2;
+							break;
 
 
-					case FRIEND_REQUEST_ACCEPTED:
-						operation=3;
-						break;
+						case FRIEND_REQUEST_ACCEPTED:
+							operation=3;
+							break;
 
-					case FRIEND_REQUEST_DECLINED:
-						operation=4;
-						break;
+						case FRIEND_REQUEST_DECLINED:
+							operation=4;
+							break;
 
-					case FRIEND_REQUEST_ACCEPTED_RESPONSE:
-						//		    				operation=5;
-						break;
+						case FRIEND_REQUEST_ACCEPTED_RESPONSE:
+							// operation=5;
+							break;
 
-					case FRIEND_REQUEST_DECLINED_RESPPONSE:
-						//		    				operation=6;
-						break;
+						case FRIEND_REQUEST_DECLINED_RESPPONSE:
+							// operation=6;
+							break;
 					}
 
 					for(int i =0;i<invites.size()-1;i++){
@@ -349,7 +306,7 @@ public class ParseUtil {
 						callback.done(null, requestId);
 					}
 
-				} 
+				}
 			}
 		});
 	}
@@ -363,7 +320,6 @@ public class ParseUtil {
 
 		/**
 		 * Save jid temporarily and starts dialog
-		 * 
 		 * @param jid
 		 */
 		public ParseCommonCallback(String jid,Context context,ParseCallbackListener callbackListener,int requestId) {
@@ -375,62 +331,27 @@ public class ParseUtil {
 
 		/**
 		 * Save jid temporarily and starts dialog
-		 * 
+		 *
 		 * @param jid
 		 */
 		public void setReceipientId(String jid){
 			this.jid=jid;
-			onPreExecute();
-		}
-
-		/**
-		 * It loads dialog
-		 */
-		public void onPreExecute(){
-			try {
-				//progressDialog = new ProgressDialog(context);
-				//				progressDialog.setMessage(context.getResources().getString(R.string.sendingRequest));
-				//progressDialog.setCancelable(true);
-				//progressDialog.show();
-			} catch (Exception e) {
-				Log.e("Parse Util- Error to be ignored", e.getMessage()+"");
-			}
-		}
-
-		/**
-		 * It dismisses dialog
-		 */
-		public void onPostExecute(){
-			try{
-				//progressDialog.dismiss();
-			}catch(Exception e){
-				Log.e("Parse Util- Error to be ignored", e.getMessage()+"");
-			}
 		}
 
 
-
-
 		/**
-		 * Used to dismiss dialog and if senderId and receipientIds 
+		 * Used to dismiss dialog and if senderId and receipientIds
 		 * </br>
 		 * are saved to parse then sends friend request.
-		 * 
-		 * @param e
-		 * 
 		 */
 		@Override
 		public void done(ParseException e) {
-			onPostExecute();
 			parseCallbackListener.done(e,requestId);
 		};
 	}
 
-	//	private ProgressDialog progressDialog=null;
-
 	/**
 	 * Create entry of group on parse
-	 * 
 	 * @param groupName
 	 */
 	public void getGroupMembers(final String groupName,final ParseCallbackListener callback,final int requestId){
@@ -439,23 +360,14 @@ public class ParseUtil {
 		String groupName1= stringTokenizer.nextToken();
 
 		ParseQuery<ParseObject> query = ParseQuery.getQuery(ThatItApplication.getApplication().getResources().getString(R.string.class_groups));
-		//	    query.whereEqualTo(ThatItApplication.getApplication().getResources().getString(R.string.column_group_members),memberName1);
 		query.whereEqualTo(ThatItApplication.getApplication().getResources().getString(R.string.column_group_name),groupName1 );
 		query.findInBackground(new FindCallback<ParseObject>() {
 
 			@Override
 			public void done(List<ParseObject> invites, ParseException e) {
 
-				try {
-					//	progressDialog.dismiss();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-
 				callback.done(invites,e,requestId);
 			}
 		});
 	}
-
-
 }

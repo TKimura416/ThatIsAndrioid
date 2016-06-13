@@ -20,18 +20,15 @@ import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager.LayoutParams;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
@@ -43,21 +40,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.RoundedVignetteBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
 import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 @SuppressLint("UseSparseArrays")
-public class SuggestContactActivity  extends Activity implements RefreshApplicationListener{
+public class SuggestContactActivity  extends Activity {
 	final String TAG = "SuggestContact";
 	private MainService mService;
 	private XmppManager mXmppManager;
@@ -411,25 +404,5 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 				Toast.makeText(SuggestContactActivity.this, "No Friend Available", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
 		}
-	}
-	@Override
-	public void refreshApplication() {
-
-		if(!mConnection.isConnected() || !mConnection.isAuthenticated()){
-
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						mConnection.connect();
-					} catch (XMPPException e) {
-						e.printStackTrace();
-					}catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}).start();}
-
-
 	}
 }

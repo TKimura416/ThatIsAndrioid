@@ -11,10 +11,12 @@ android {
     defaultConfig {
         applicationId "com.thatsit.android"
         minSdkVersion 9
-        targetSdkVersion 23
+        targetSdkVersion 20
         multiDexEnabled true
     }
-
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -24,7 +26,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:support-v4:23.0.1'
     compile 'com.google.code.gson:gson:2.2.2'
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.android.support:appcompat-v7:23.0.1'

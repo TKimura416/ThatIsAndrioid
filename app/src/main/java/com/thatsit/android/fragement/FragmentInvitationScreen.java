@@ -3,7 +3,6 @@ package com.thatsit.android.fragement;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.Roster;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Presence;
@@ -22,7 +21,6 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.InputFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +35,6 @@ import android.widget.Toast;
 
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.application.ThatItApplication;
