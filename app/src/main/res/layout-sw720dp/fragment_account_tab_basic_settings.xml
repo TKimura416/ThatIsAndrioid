@@ -251,7 +251,7 @@
                         android:background="@drawable/reg_simple_txtfiled"
                         android:clickable="false"
                         android:cursorVisible="false"
-                        android:editable="false"
+                        android:inputType="none"
                         android:ems="10"
                         android:focusable="false"
                         android:hint="Email ID"

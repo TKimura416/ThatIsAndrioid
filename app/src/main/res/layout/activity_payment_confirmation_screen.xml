@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/Congratulations"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
         </RelativeLayout>
 
         <RelativeLayout

@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -804,14 +805,16 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		@Override
 		public void onReceive(Context arg0, final Intent arg1) {
 			try {
-				if (Objects.equals(arg1.getAction(), MainService.CHAT)) {
-					displayPingOnList(arg1);
-					if (FragmentContact.this.isVisible()) {
-						displayPingOnList(arg1);
-						mService.setIncomingChatNotification();
-					} else {
-						mService.setIncomingChatNotification();
-					}
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+					if (Objects.equals(arg1.getAction(), MainService.CHAT)) {
+                        displayPingOnList(arg1);
+                        if (FragmentContact.this.isVisible()) {
+                            displayPingOnList(arg1);
+                            mService.setIncomingChatNotification();
+                        } else {
+                            mService.setIncomingChatNotification();
+                        }
+                    }
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
