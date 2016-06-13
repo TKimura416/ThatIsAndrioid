@@ -716,7 +716,7 @@ public class MainService extends Service {
      */
     private static void setIncomingGroupChatNotification(String msg) {
 
-        AudioPreference = ThatItApplication.getApplication().getSharedPreferences("AudioPreference", MODE_WORLD_READABLE);
+        AudioPreference = ThatItApplication.getApplication().getSharedPreferences("AudioPreference", MODE_PRIVATE);
         FilePath = AudioPreference.getString("AudioPreference", "");
 
         mNotificationManager = (NotificationManager) myApplication.getSystemService(Context.NOTIFICATION_SERVICE);

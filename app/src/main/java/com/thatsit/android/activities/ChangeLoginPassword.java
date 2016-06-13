@@ -57,7 +57,7 @@ public class ChangeLoginPassword extends Activity implements OnClickListener{
 		initialiseVariable();
 		initialiseListener();
 		encryptionManager = new EncryptionManager();
-		mSharedPreferences = getSharedPreferences("USERID", MODE_WORLD_READABLE);
+		mSharedPreferences = getSharedPreferences("USERID", MODE_PRIVATE);
 		AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 
 	}

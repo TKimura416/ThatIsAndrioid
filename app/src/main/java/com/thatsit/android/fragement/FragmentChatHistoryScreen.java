@@ -165,8 +165,8 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     }
 
     private void initialiseSharedPreference() {
-        mSharedPreferences_reg = getActivity().getSharedPreferences("register_data", getActivity().MODE_WORLD_READABLE);
-        mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_WORLD_READABLE);
+        mSharedPreferences_reg = getActivity().getSharedPreferences("register_data", getActivity().MODE_PRIVATE);
+        mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_PRIVATE);
         AppSinglton.userId = mSharedPreferences.getString("USERID", "");
     }
 

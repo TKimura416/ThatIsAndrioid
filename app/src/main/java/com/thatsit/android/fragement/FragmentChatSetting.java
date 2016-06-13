@@ -152,7 +152,7 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 
 		mSharedPreferences_reg = getActivity().getSharedPreferences("register_data", 0);
 
-		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_WORLD_READABLE);
+		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_PRIVATE);
 		AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 
 		String psedoname=mSharedPreferences_reg.getString("PseudoName","");

@@ -60,7 +60,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 			Utility.setDeviceTypeAndSecureFlag(PaymentConfirmationActivity.this);
 			mXmppManager = XmppManager.getInstance();
 			mConnection = mXmppManager.getXMPPConnection();
-			mSharedPreferences = getSharedPreferences("USERID", MODE_WORLD_READABLE);
+			mSharedPreferences = getSharedPreferences("USERID", MODE_PRIVATE);
 			AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 
 			initialise_Variables();

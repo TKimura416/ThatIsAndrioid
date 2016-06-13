@@ -106,7 +106,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 		initialise_Listener();
 		
 		Utility.fragPaymentSettingsOpen = true;
-		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_WORLD_READABLE);
+		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_PRIVATE);
 		AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 		try {
 
