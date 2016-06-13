@@ -80,8 +80,7 @@ public class One2OneChatDb extends Database {
 			values.put(DbOpenHelper.COLUMN_FILE_DOWNLOAD_STATUS, "1"); // 1 == file has been downloaded successfully
 			long result = databaseW.update(TABLE_NAME, values, "subject='" + fileName + "'" + andUserName(), null);
 			Log.e("UPDATE_STATUS" , result+"");
-			if(result>0) return true;
-			else return false;
+			return result > 0;
 		}
 	}
 
@@ -98,11 +97,7 @@ public class One2OneChatDb extends Database {
 			if(cursor!=null)
 				cursor.moveToFirst();
 			String downloadStatus=cursor.getString(cursor.getColumnIndex(DbOpenHelper.COLUMN_FILE_DOWNLOAD_STATUS));
-			if(downloadStatus.equalsIgnoreCase("0")){
-				return false;
-			}else{
-				return true;
-			}
+			return !downloadStatus.equalsIgnoreCase("0");
 		}catch(Exception e){
 			return false;
 		}

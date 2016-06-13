@@ -116,9 +116,7 @@ public class Utils{
 	}
 
 	public static boolean isUserExists() {
-		if(Utility.getUserName().length()>0 && Utility.getPassword().length()>0)
-			return true;
-		else return false;
+		return Utility.getUserName().length() > 0 && Utility.getPassword().length() > 0;
 	}
 
 	public static boolean isLoginTaskRunning = false;

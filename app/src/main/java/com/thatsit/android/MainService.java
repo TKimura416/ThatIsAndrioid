@@ -84,6 +84,7 @@ import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.db.One2OneChatDb;
 import com.thatsit.android.fragement.FileDownloadStatusCallback;
 import com.thatsit.android.fragement.FragmentChatScreen;
+import com.thatsit.android.fragement.FragmentContact;
 import com.thatsit.android.fragement.FragmentContact.MyRosterListner;
 import com.thatsit.android.invites.PresenceType;
 import com.thatsit.android.parcelable.Contact;
@@ -701,7 +702,7 @@ public class MainService extends Service {
         }
         try {
             // refresh fragment contacts
-            Utility.fragmentContact.usersAdapter.notifyDataSetChanged();
+            FragmentContact.usersAdapter.notifyDataSetChanged();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -1085,11 +1086,7 @@ public class MainService extends Service {
         boolean i = true;
 
         try {
-            if (WelcomeActivity.userVisited) {
-                i = true;
-            } else {
-                i = false;
-            }
+            i = WelcomeActivity.userVisited;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1589,7 +1586,7 @@ public class MainService extends Service {
                     ThatItApplication.getApplication().getIncomingRequestHash().remove(from);
 
                     NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    notificationManager.cancel(mService.NOTIFICATION_FRIEND_REQUEST);
+                    notificationManager.cancel(NOTIFICATION_FRIEND_REQUEST);
                 }
             }
             parseUtil.removeRequest(mService, AppSinglton.thatsItPincode, from, myParseListener, ParseCallbackListener.OPERATION_FRIEND_REQUEST_DELETED);

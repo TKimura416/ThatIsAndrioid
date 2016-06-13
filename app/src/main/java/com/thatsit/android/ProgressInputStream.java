@@ -18,7 +18,7 @@ class ProgressInputStream extends InputStream {
 		this.size = size;
 		this.inputStream = inputStream;
 		this.name = name;
-		this.ftpProgressCallback = callbaclInstance;
+		ftpProgressCallback = callbaclInstance;
 	}
 
 	public ProgressInputStream(String name, FileContent content)

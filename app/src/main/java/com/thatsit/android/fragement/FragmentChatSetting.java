@@ -409,11 +409,7 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	private boolean checkIfVibratorExists() {
 		String vs = Context.VIBRATOR_SERVICE;
 		Vibrator mVibrator = (Vibrator)getActivity().getSystemService(vs);
-		if(mVibrator.hasVibrator()){
-			return true;
-		}else{
-			return false;
-		}
+		return mVibrator.hasVibrator();
 	}
 
 	/**

@@ -196,7 +196,7 @@ public class GCMClientManager {
                 activity.sendUserLoginStatus(statusID);
 
                 //Save StatusId in shared preference
-                SharedPreferences mSharedPreferences = activity.getSharedPreferences("statusID", activity.MODE_PRIVATE);
+                SharedPreferences mSharedPreferences = activity.getSharedPreferences("statusID", Context.MODE_PRIVATE);
                 mSharedPreferences.edit().putString("statusID",statusID).commit();
             }
         }

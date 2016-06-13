@@ -23,7 +23,7 @@ public class CheckChatPasswordAsync extends AsyncTask<Void, Void, CheckMessage_C
 	this.context = context;
 	this.Chatpassword = Chatpassword;
 	this.mCheckChatPasswordInterface = mCheckChatPasswordInterface;
-	mSharedPreferences = context.getSharedPreferences("USERID", context.MODE_WORLD_READABLE);
+	mSharedPreferences = context.getSharedPreferences("USERID", Context.MODE_WORLD_READABLE);
 	AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 	}
 

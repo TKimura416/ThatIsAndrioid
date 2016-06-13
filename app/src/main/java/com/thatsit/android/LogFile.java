@@ -59,11 +59,7 @@ public class LogFile {
         File mfile = new File(path);
         if (mfile.exists()) {
             File file = new File(path, email);
-            if (file.exists()) {
-                return true;
-            } else {
-                return false;
-            }
+            return file.exists();
         }else {
             return false;
         }
