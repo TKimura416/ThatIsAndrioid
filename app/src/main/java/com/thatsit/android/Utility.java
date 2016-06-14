@@ -7,6 +7,7 @@ import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.AccountManager;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
@@ -25,11 +26,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -84,27 +87,20 @@ public class Utility {
 	public static FragmentChatHistoryScreen fragmentChatHistoryScreen = null;
 	public static FragmentChatScreen fragmentChatScreen = null;
 	public static FragmentContact fragmentContact = null;
-	public static RefreshApplicationListener refreshApplicationListener = null;
-	public static boolean allowAuthenticationDialog;
-	private static boolean isShowing = false;
+	public static boolean allowAuthenticationDialog,isShowing = false;
 	private static DbOpenHelper dbOpenHelper;
 	private static SharedPreferences settings,prefSaveThatsItId;
 	public static boolean VcardLoadedOnce = false;
 	public static boolean RegsiterDataFetchedOnce = false;
 	public static boolean FragmentContactDataFetchedOnce = false;
 	public static boolean FragmentHistoryDataFetchedOnce = false;
-	public static Bitmap catchedBitmap = null;
-	private static final Handler handler = new Handler();
+	static Handler handler = new Handler();
 	public static InviteContactsToRoster inviteContactsToRoster=null;
 	public static String email_id;
-	private static Dialog dialog;
-	static Dialog dialog_expiry;
-	static Dialog dialogConnectionErrorAlert;
-	static Dialog dialogConnectionErrorSplash = null;
+	static Dialog dialog = null;
 	public static ContactActivity contactActivity = null;
-	private static boolean isAuthenticationWindowOpened;
-	public static boolean enteredFragmentOnce = false;
-	private static ProgressDialog progressDialog ;
+	public static boolean isAuthenticationWindowOpened,enteredFragmentOnce = false;
+	static ProgressDialog progressDialog ;
 	public static boolean isAppStarted = false;
 	public static SplashActivity splashActivity;
 	public static WelcomeActivity welcomeActivity;
@@ -114,12 +110,12 @@ public class Utility {
 	public static boolean loginCalledOnce = false;
 	public static boolean smileyScreenOpened = false;
 	public static boolean serviceBinded = false;
-	private static final EncryptionManager encryptionManager = new EncryptionManager();
+	public static EncryptionManager encryptionManager = new EncryptionManager();
 	public static boolean groupNotificationClicked = false;
 	public static boolean fragPaymentSettingsOpen = false;
 	public static boolean hasPincode = false;
 	public static boolean fragChatIsOpen = false;
-	private static final VCard card =new VCard();
+	public static VCard card =new VCard();
 	public static String action;
 	public static boolean fragChatHistoryOpened = false;
 	public static boolean disAllowSubscription = false;
@@ -127,7 +123,7 @@ public class Utility {
 	public static int radioBtnValue;
 	public static boolean isBusy = false,isDialogOpened = false;
 	public static boolean mBinded = false;
-	public static boolean googleServicesUnavailable;
+	public static boolean googleServicesUnavailable,noNetwork;
 
 	/**
 	 * @param getRosterHistoryList
@@ -139,8 +135,8 @@ public class Utility {
 			ArrayList<Integer> rosterHistoryToBeDeleted,
 			String rosterWhoseHistoryDeleted, MainService mService) {
 		try {
-			getRosterHistoryList = new ArrayList<>();
-			rosterHistoryToBeDeleted = new ArrayList<>();
+			getRosterHistoryList = new ArrayList<String>();
+			rosterHistoryToBeDeleted = new ArrayList<Integer>();
 			ThatItApplication myApplication = ThatItApplication.getApplication();
 			myApplication.openDatabase();
 
@@ -298,7 +294,7 @@ public class Utility {
 	 * Login Dialog
 	 * @param activity
 	 */
-	private static void showLoginPromtScreen(final Activity activity) {
+	public static void showLoginPromtScreen(final Activity activity ) {
 
 		try {
 			if(dialog!=null && dialog.isShowing()){
@@ -309,96 +305,104 @@ public class Utility {
 		}
 		dialog=null;
 
-		dialog = new Dialog(activity);
+		if(dialog==null ){
 
-		dialog.setContentView(R.layout.login_promt);
-		dialog.setTitle("Enter Login Password 1");
+			dialog = new Dialog(activity);
 
-		isAuthenticationWindowOpened = true;
-		Utility.isShowing = true;
+			dialog.setContentView(R.layout.login_promt);
+			dialog.setTitle("Enter Login Password 1");
 
-		try{
-            Button btnAccept  = (Button)dialog.findViewById(R.id.btn_accept);
-            Button btnDecline  = (Button)dialog.findViewById(R.id.btn_decline);
-            EditText etUsername = (EditText)dialog.findViewById(R.id.etUsername);
-            TextView signInDifferentUser = (TextView)dialog.findViewById(R.id.signInDifferentUser);
+			isAuthenticationWindowOpened = true;
+			Utility.isShowing = true;
 
-            etUsername.setEnabled(false);
-            etUsername.setVisibility(View.GONE);
-            final EditText etPassword = (EditText)dialog.findViewById(R.id.etPassword);
+			try{
+				Button btnAccept  = (Button)dialog.findViewById(R.id.btn_accept);
+				Button btnDecline  = (Button)dialog.findViewById(R.id.btn_decline);
+				EditText etUsername = (EditText)dialog.findViewById(R.id.etUsername);
+				TextView signInDifferentUser = (TextView)dialog.findViewById(R.id.signInDifferentUser);
 
-            InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
+				etUsername.setEnabled(false);
+				etUsername.setVisibility(View.GONE);
+				final EditText etPassword = (EditText)dialog.findViewById(R.id.etPassword);
 
-            etUsername.setText(Utility.email_id);
+				InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
 
-            signInDifferentUser.setOnClickListener(new OnClickListener() {
+				etUsername.setText(Utility.email_id);
 
-                @Override
-                public void onClick(View v) {
+				signInDifferentUser.setOnClickListener(new OnClickListener() {
 
+					@Override
+					public void onClick(View v) {
 
-                    openExitDialog(activity);
-                }
-            });
+						openExitDialog(activity);
+					}
+				});
 
-            btnAccept.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
-                        try {
-                            InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
-                            imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        if(etPassword.getText().toString().trim().toCharArray().length == 0){
-                            Utility.showMessage("Enter login password");
-                        }
-                        else{
-                            //startDialog(activity);
-                            String login_password = encryptionManager.encryptPayload(etPassword.getText().toString());
-                            login_password = URLEncoder.encode(login_password, "UTF-8");
-                            if(login_password.contains("%")){
-                                login_password = login_password.replace("%","2");
-                            }
-                            if(login_password.equals(Utility.getPassword())){
-                                //stopDialog();
-                                Utility.allowAuthenticationDialog = false;
-                                isAuthenticationWindowOpened = false;
-                                dialog.dismiss();
-                                dialog=null;
-                                activity.finish();
-                            }else{
-                                stopDialog();
-                                Utility.showMessage("Incorrect Password");
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
+				btnAccept.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						try {
+							try {
+								InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+								imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication()))
+							{
+								if (etPassword.getText().toString().trim().toCharArray().length == 0) {
+									Utility.showMessage("Enter login password");
+								} else {
+									String login_password = encryptionManager.encryptPayload(etPassword.getText().toString());
+									login_password = URLEncoder.encode(login_password, "UTF-8");
+									if (login_password.contains("%")) {
+										login_password = login_password.replace("%", "2");
+									}
+									if (login_password.equals(Utility.getPassword())) {
+										Utility.allowAuthenticationDialog = false;
+										isAuthenticationWindowOpened = false;
+										dialog.dismiss();
+										dialog = null;
+										if(noNetwork == true) {
+											Intent intent = new Intent(activity, ContactActivity.class);
+											activity.startActivity(intent);
+										}
+										activity.finish();
+									} else {
+										stopDialog();
+										Utility.showMessage("Incorrect Password");
+									}
+								}
+							}else{
+								Utility.showMessage("No Network Available");
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 
-            btnDecline.setOnClickListener(new OnClickListener() {
+				btnDecline.setOnClickListener(new OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                    dialog=null;
-                    Intent intent = new Intent(Intent.ACTION_MAIN);
-                    intent.addCategory(Intent.CATEGORY_HOME);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    activity .startActivity(intent);
-                    activity.finish();
-                }
-            });
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+						dialog=null;
+						Intent intent = new Intent(Intent.ACTION_MAIN);
+						intent.addCategory(Intent.CATEGORY_HOME);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						activity .startActivity(intent);
+						activity.finish();
+					}
+				});
 
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-		dialog.setCancelable(false);
-		dialog.setCanceledOnTouchOutside(false);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			dialog.setCancelable(false);
+			dialog.setCanceledOnTouchOutside(false);
+		}
 		dialog.show();
 	}
 
@@ -408,7 +412,7 @@ public class Utility {
 	 * 		- activity
 	 */
 	public static void taskPromtOnResume(Activity  activity){
-		if(Utility.allowAuthenticationDialog){
+		if(Utility.allowAuthenticationDialog == true){
 			Utility.showLoginPromtScreen(activity);
 		}
 	}
@@ -428,7 +432,10 @@ public class Utility {
 				v.buildDrawingCache();
 				catchedBitmap = Bitmap.createBitmap(v.getDrawingCache());
 			}*/
-		} catch (OutOfMemoryError | Exception e) {
+		} catch (OutOfMemoryError e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -440,7 +447,7 @@ public class Utility {
 	public static void showLock(final Activity activity){
 
 		try {
-			if(Utility.allowAuthenticationDialog){
+			if(Utility.allowAuthenticationDialog == true){
 				Intent intent = new Intent(activity, BlurredActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				activity.startActivity(intent);
@@ -499,7 +506,7 @@ public class Utility {
 	 * Dialog prompt befor exiting the application.
 	 * @param activity
 	 */
-	private static void openExitDialog(final Activity activity) {
+	static void openExitDialog(final Activity activity) {
 		try {
 			final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
 			// set title
@@ -525,7 +532,7 @@ public class Utility {
 						dialog.dismiss();
 						if (!NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
 
-							performSignOutTask(activity, "InternetUnavailable");
+							performSignOutTask(activity);
 
 						} else {
 							progressDialog = new ProgressDialog(activity);
@@ -796,7 +803,7 @@ public class Utility {
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}
-	private static AlertDialog alertDialogSplash;
+	public static AlertDialog alertDialogSplash;
 	public static void openAlertSplash(final Context context,final String string, final String Message) {
 
 		handler.post(new Runnable() {
@@ -817,7 +824,7 @@ public class Utility {
 										alertDialogSplash.dismiss();
 										alertDialogSplash = null;
 
-										performSignOutTask(context,"");
+										performSignOutTask(context);
 									}
 								});
 
@@ -834,11 +841,6 @@ public class Utility {
 	}
 
 
-
-
-
-
-
 	public static AlertDialog alertDialog;
 	public static void openAlert(final Context context,final String string, final String Message) {
 
@@ -847,6 +849,7 @@ public class Utility {
 			@Override
 			public void run() {
 				try {
+
 					if (alertDialog == null) {
 						AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 						alertDialogBuilder.setTitle("That's It");
@@ -874,7 +877,7 @@ public class Utility {
 
 											if(!NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
 
-												performSignOutTask(context,"InternetUnavailable");
+												performSignOutTask(context);
 
 											}else{
 												progressDialog = new ProgressDialog(context);
@@ -883,17 +886,16 @@ public class Utility {
 												progressDialog.show();
 
 												if(string.equalsIgnoreCase("AccountDisabled")){
-												// Remove user from XMPP Server
+													// Remove user from XMPP Server
 													try {
 														if(MainService.mService.connection.isConnected() && MainService.mService.connection.isAuthenticated()){
 															AccountManager accountManager = MainService.mService.connection.getAccountManager();
 															accountManager.deleteAccount();
-															performSignOutTask(context,"InternetAvailable");
+															performSignOutTask(context);
 														}
 													} catch (XMPPException e) {
 														e.printStackTrace();
 													}
-													//performSignOutTask(context,"InternetAvailable");
 												}
 												else{
 													UserLoginStatus(context, Utility.getEmail(), "False","","", mValidateUserLoginInterface);
@@ -919,11 +921,8 @@ public class Utility {
 		});
 	}
 
-	private static void performSignOutTask(Context context,String value) {
+	private static void performSignOutTask(Context context) {
 
-		if(value.equalsIgnoreCase("InternetAvailable")){
-			LogFile.deleteLog(Utility.getEmail());
-		}
 		clearAppSingletonData();
 		clearAllSharedPreferences();
 		clearDatabase();
@@ -960,7 +959,7 @@ public class Utility {
 				@Override
 				public void run() {
 					Log.e("","TIMER STOPPED");
-					if(LoginStarted){
+					if(LoginStarted == true){
 						Utility.stopDialog();
 						mTimer.cancel();
 						mTimer = null;
@@ -983,7 +982,7 @@ public class Utility {
 		checkTabletSize(activity);
 	}
 
-	private static void checkTabletSize(Activity activity) {
+	public static void checkTabletSize(Activity activity) {
 		boolean tabletSize = activity.getResources().getBoolean(R.bool.isTablet);
 		if (!tabletSize) {
 			// is smartphone
@@ -1009,12 +1008,12 @@ public class Utility {
 	 * Send Login status to server
 	 */
 
-	private static final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	static ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 
 			if (mValidateUserLoginStatus != null) {
-				performSignOutTask(context,"InternetAvailable");
+				performSignOutTask(context);
 			}
 		}
 	};
@@ -1023,7 +1022,7 @@ public class Utility {
 	public static void UserPauseStatus(final Context context) {
 
 		if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())
-				&& Utility.googleServicesUnavailable) {
+				&& Utility.googleServicesUnavailable == true) {
 			new UserPauseStateAsync(context, Utility.getEmail(), Utility.getPassword(),
 					mValidateUserPauseStateInterface).execute();
 		}
@@ -1033,7 +1032,7 @@ public class Utility {
 	 *  Validate User Pause State
 	 */
 
-	private static final ValidateUserPauseStateInterface mValidateUserPauseStateInterface = new ValidateUserPauseStateInterface() {
+	public static ValidateUserPauseStateInterface mValidateUserPauseStateInterface = new ValidateUserPauseStateInterface() {
 		@Override
 		public void validateUserPauseState(Context context,AuthenticateUserServiceTemplate mAuthenticateUserServiceTemplate) {
 
@@ -1049,21 +1048,21 @@ public class Utility {
 
 	public static void lockScreenRotation(Activity activity,int SCREEN_ORIENTATION) {
 
-			if (activity.getResources().getBoolean(R.bool.isTablet)) {
-				if (SCREEN_ORIENTATION == 0) {
-					// PORTRAIT
-					activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-				} /*else if (SCREEN_ORIENTATION == 1) {
+		if (activity.getResources().getBoolean(R.bool.isTablet)) {
+			if (SCREEN_ORIENTATION == 0) {
+				// PORTRAIT
+				activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			} /*else if (SCREEN_ORIENTATION == 1) {
 					// REVERSE PORTRAIT
 					activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
 				}*/ else if (SCREEN_ORIENTATION == 2) {
-					// LANDSCAPE
-					activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-				}/* else if (SCREEN_ORIENTATION == 3) {
+				// LANDSCAPE
+				activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			}/* else if (SCREEN_ORIENTATION == 3) {
 					// REVERSE LANDSCAPE
 					activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
 				}*/
-			}
+		}
 	}
 
 	public static void unlockScreenRotation(Activity activity) {

@@ -42,7 +42,6 @@ import android.widget.Toast;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.xmpputils.Constants;
@@ -51,22 +50,22 @@ import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 @SuppressLint("UseSparseArrays")
-public class SuggestContactActivity  extends Activity implements RefreshApplicationListener{
-	private final String TAG = "SuggestContact";
+public class SuggestContactActivity  extends Activity {
+	final String TAG = "SuggestContact";
 	private MainService mService;
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
 	private ThatItApplication myApplication;
 	private ArrayList<RosterEntry> rosterEntries;
-	private final MyRosterListnerSuggest myRosterListner = new MyRosterListnerSuggest();
+	private MyRosterListnerSuggest myRosterListner = new MyRosterListnerSuggest();
 	private UsersAdapter usersAdapter;
 	private Handler handler;
 	private ListView mlistView_Contacts;
 	private boolean mBinded;
-	private final HashMap<Integer,View> viewContainer = new HashMap<>();
-	private final Handler hand = new Handler();
+	private HashMap<Integer,View> viewContainer = new HashMap<Integer, View>();
+	private Handler hand = new Handler();
 	private static final Intent SERVICE_INTENT = new Intent();
-	private final Hashtable<String, VCard> rosterVCardsHash = new Hashtable<>();
+	private Hashtable<String, VCard> rosterVCardsHash = new Hashtable<String, VCard>();
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
@@ -90,7 +89,7 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 		myApplication = ThatItApplication.getApplication();
 		mXmppManager = XmppManager.getInstance();
 		mConnection = mXmppManager.getXMPPConnection();
-		rosterEntries = new ArrayList<>();
+		rosterEntries = new ArrayList<RosterEntry>();
 
 		initialise_Variable();
 	}
@@ -180,8 +179,8 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	 * The Adapter class to provide access to the data items.
 	 */
 	class UsersAdapter extends BaseAdapter {
-		final ArrayList<RosterEntry> arrayList;
-		final Handler vCardHandler=new Handler();
+		ArrayList<RosterEntry> arrayList;
+		Handler vCardHandler=new Handler();
 
 		UsersAdapter(ArrayList<RosterEntry> arrayList) {
 			this.arrayList = arrayList;
@@ -299,7 +298,7 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	/**
 	 * Chat listener to encounter incoming message.
 	 */
-	private void addIncommingChatListner(){
+	void addIncommingChatListner(){
 		try {
 			if (mConnection.isConnected()) {
 				ChatManager chatmanager = mConnection.getChatManager();
@@ -313,7 +312,7 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 	/**
 	 * Bind service with activity.
 	 */
-	private final ServiceConnection serviceConnection = new ServiceConnection() {
+	private ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			Log.d(TAG, "ServiceConnected   ********************");
@@ -405,23 +404,5 @@ public class SuggestContactActivity  extends Activity implements RefreshApplicat
 				Toast.makeText(SuggestContactActivity.this, "No Friend Available", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
 		}
-	}
-	@Override
-	public void refreshApplication() {
-
-		if(!mConnection.isConnected() || !mConnection.isAuthenticated()){
-
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						mConnection.connect();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}).start();}
-
-
 	}
 }

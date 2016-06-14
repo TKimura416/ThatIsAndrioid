@@ -4,17 +4,21 @@ import java.io.File;
 
 import org.jivesoftware.smack.XMPPConnection;
 
+import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager.LayoutParams;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -35,7 +39,7 @@ public class SelectAudioActivity extends ListActivity {
 	private ThatItApplication myApplication;
 	private boolean mBinded;
 	private static final Intent SERVICE_INTENT = new Intent();
-	private static boolean isPromtAllowed=true;
+	public static boolean isPromtAllowed=true;
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
 	}
@@ -48,34 +52,37 @@ public class SelectAudioActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		Utility.setDeviceTypeAndSecureFlag(SelectAudioActivity.this);
-		Utility.allowAuthenticationDialog=false;
-		myApplication = ThatItApplication.getApplication();
-		mXmppManager = XmppManager.getInstance();
-		mConnection = mXmppManager.getXMPPConnection();
-		AudioPreference = getSharedPreferences("AudioPreference", MODE_PRIVATE);
-		String[] from = {
-				MediaStore.MediaColumns.TITLE};
-		int[] to = {
-				android.R.id.text1};
+		try {
+			Utility.setDeviceTypeAndSecureFlag(SelectAudioActivity.this);
+			Utility.allowAuthenticationDialog = false;
+			myApplication = ThatItApplication.getApplication();
+			mXmppManager = XmppManager.getInstance();
+			mConnection = mXmppManager.getXMPPConnection();
+			AudioPreference = getSharedPreferences("AudioPreference", MODE_WORLD_WRITEABLE);
+			String[] from = {
+					MediaStore.MediaColumns.TITLE};
+			int[] to = {
+					android.R.id.text1};
 
-		Cursor cursor = managedQuery(
-				MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, 
-				null, 
-				null, 
-				null, 
-				MediaStore.Audio.Media.TITLE);
+			Cursor cursor = managedQuery(
+					MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+					null,
+					null,
+					null,
+					MediaStore.Audio.Media.TITLE);
 
-		adapter = new SimpleCursorAdapter(this,android.R.layout.simple_list_item_1, cursor, from, to);
-		setListAdapter(adapter);
+			adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, from, to);
+			setListAdapter(adapter);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog){
+		if(Utility.allowAuthenticationDialog==true){
 			Utility.showLock(SelectAudioActivity.this);
 		}
 		Utility.UserPauseStatus(SelectAudioActivity.this);
@@ -109,7 +116,7 @@ public class SelectAudioActivity extends ListActivity {
 			if(!mBinded){
 				mBinded = bindService(SERVICE_INTENT, serviceConnection, Context.BIND_AUTO_CREATE);
 			}
-		}catch(Exception ignored){
+		}catch(Exception e){
 		}
 	} 
 
@@ -144,7 +151,7 @@ public class SelectAudioActivity extends ListActivity {
 	/**
 	 * Bind service with the activity.
 	 */
-	private final ServiceConnection serviceConnection = new ServiceConnection() {
+	private ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			mService = ((MainService.MyBinder) binder).getService();

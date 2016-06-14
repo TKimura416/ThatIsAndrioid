@@ -9,16 +9,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -27,21 +23,19 @@ import com.jcraft.jsch.SftpATTRS;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.db.One2OneChatDb;
 import com.thatsit.android.encryption.helper.EncryptionManager;
-import com.thatsit.android.fragement.FileDownloadStatusCallback;
 import com.thatsit.android.fragement.FragmentChatScreen;
 import com.thatsit.android.xmpputils.Constants;
-import com.thatsit.android.R;
 
 public class FileReceiveraAsync_  {
-	private final ThatItApplication myApplication;
-	private final Context parentContext;
+	private ThatItApplication myApplication;
+	private Context parentContext;
 	private NotificationManager mNotifyManager ;
-	private final NotificationCompat.Builder	mBuilder;
+	private NotificationCompat.Builder	mBuilder;
 	public static int notificaion_id = 11;
 	private String FILE_PATH=""; // initialized in onCreated
-	private final String incomingFileName;
-	private final Handler handler = new Handler();
-	private final EncryptionManager encryptionManager;
+	private String incomingFileName;
+	private Handler handler = new Handler();
+	private EncryptionManager encryptionManager;
 	private Session session = null;
 	private Channel channel = null;
 	private ChannelSftp channelSftp = null;
@@ -50,12 +44,9 @@ public class FileReceiveraAsync_  {
 	/**
 	 * Download file from server
 	 * @param fileName - downloading file
-	 * @param feildToUpdate - downloaded
-	 * @param progressBar - file downloading status
 	 * @param context
 	 */
-	public FileReceiveraAsync_(String fileName,TextView feildToUpdate,
-							   ProgressBar progressBar, Context context) {
+	public FileReceiveraAsync_(String fileName,Context context) {
 
 		notificaion_id = (int) System.currentTimeMillis();
 		notificaion_id = (notificaion_id < 0) ? -notificaion_id : notificaion_id;
@@ -82,7 +73,7 @@ public class FileReceiveraAsync_  {
 	/**
 	 *  Building progress in notification.
 	 */
-	private void PreExecute(int notificaion_id){
+	protected void PreExecute(int notificaion_id){
 		// configure the notification
 		mNotifyManager = (NotificationManager) parentContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -91,28 +82,21 @@ public class FileReceiveraAsync_  {
 		mNotifyManager.notify(notificaion_id, mBuilder.build());
 	}
 
-	public void doInBackground(final String fileName, final FileDownloadStatusCallback callback) {
+	public void doInBackground(final String fileName) {
 
 		new Thread() {
 			public void run() {
 				try {
 					String ftpFilePath = "/ThatsItDirectory/"+fileName;
-					downloadSFTpSign(ftpFilePath, callback,notificaion_id);
+					downloadSFTpSign(ftpFilePath, notificaion_id);
 
 				} catch (Exception e) {
 					e.printStackTrace();
-					//indicateErrorInnotification();
 				}
 			}}.start();
 	}
 
-
-	/**
-	 *
-	 * @param callback  - stop progress in case of downloaded or error
-	 */
-	private void stopIndeterminantProgressBar(FileDownloadStatusCallback callback,
-											  final int notificaion_id){
+	private void stopIndeterminantProgressBar( final int notificaion_id){
 		try {
 			new One2OneChatDb(parentContext).updateFileDownloadstatus(incomingFileName);
 			mBuilder.setContentText("Download Complete");
@@ -139,10 +123,8 @@ public class FileReceiveraAsync_  {
 	/**
 	 *
 	 * @param ftp_path - SFTP path -> File location.
-	 * @param callback - File download status -> Success or failure
 	 */
-	private void downloadSFTpSign(final String ftp_path,final FileDownloadStatusCallback callback,
-								  int notificaion_id) {
+	private void downloadSFTpSign(final String ftp_path,int notificaion_id) {
 
 		try {
 			JSch jsch = new JSch();
@@ -171,7 +153,7 @@ public class FileReceiveraAsync_  {
 			SftpATTRS attrs = channelSftp.lstat(ftp_path);
 			long size = attrs.getSize();
 
-			int read;
+			int read = 0;
 			byte[] bytes = new byte[1024];
 
 			while ((read = bis.read(bytes)) != -1) {
@@ -189,7 +171,7 @@ public class FileReceiveraAsync_  {
 			bis.close();
 			output.close();
 			channelSftp.rm(ftp_path);
-			stopIndeterminantProgressBar(callback,notificaion_id);
+			stopIndeterminantProgressBar(notificaion_id);
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

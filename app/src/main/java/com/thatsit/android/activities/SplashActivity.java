@@ -45,7 +45,6 @@ public class SplashActivity extends Activity {
 		userVisited = true;
 		Utility.contactActivity =null;
 		Utility.fragmentContact = null;
-		Utility.refreshApplicationListener = null;
 		Utility.enteredFragmentOnce = false;
 		Utility.serviceBinded = false;
 	}

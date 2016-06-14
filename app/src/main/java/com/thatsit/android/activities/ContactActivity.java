@@ -9,9 +9,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -25,7 +22,6 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -33,8 +29,8 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -65,7 +61,6 @@ import com.seasia.myquick.model.CheckMessage_ChatPasswrd;
 import com.seasia.myquick.model.GetSubscriptionHistoryTemplate;
 import com.seasia.myquick.model.ValidateUserLoginStatus;
 import com.seasia.myquick.model.ValidateUserStatusID;
-import com.thatsit.android.LogFile;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
@@ -90,6 +85,7 @@ import com.thatsit.android.interfaces.ValidateUserStatusIdInterface;
 import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
 
+import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.packet.IQ;
 
@@ -97,7 +93,7 @@ import org.jivesoftware.smack.packet.IQ;
  * This is the main container on which fragments are implemented.
  * It is opened once user gets signed in and gets connected to openfire.
  */
-public class ContactActivity extends AppCompatActivity implements OnClickListener{
+public class ContactActivity extends ActionBarActivity implements OnClickListener{
 	final String TAG = getClass().getSimpleName();
 	public static ImageButton mBtn_Contact,mBtn_Chat,mBtn_Invite,mBtn_Account;
 	private FragmentManager mFragmentManager;
@@ -122,7 +118,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	private String ExpiryDate;
 	private Handler handler;
 	public static TextView textView_toolbar_title;
-	public static final ImageLoader loader= ImageLoader.getInstance();
+	public static ImageLoader loader= ImageLoader.getInstance();
 	public static DisplayImageOptions options;
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
@@ -137,9 +133,8 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	private List<NavigationAdapter> listParent;
 	private HashMap<String, List<String>> listDataChild;
 	private View lastColored;
-	private final String PROJECT_NUMBER="354278772391";//"773007732943";
+	private String PROJECT_NUMBER="354278772391";//"773007732943";
 	private String registrationID;
-	//private NetworkChangeReceiver networkChangeReceiver;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -268,11 +263,10 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	public void sendUserLoginStatus(String statusID) {
 		if (Utility.getEmail() != null) {
 
-			if(Utility.googleServicesUnavailable){
+			if(Utility.googleServicesUnavailable == true){
 				registrationID = "";
 			}
 			Utility.UserLoginStatus(ContactActivity.this, Utility.getEmail(), "True", registrationID,statusID, mValidateUserLoginInterface);
-			LogFile.createLog(Utility.getEmail());
 		}
 	}
 
@@ -300,8 +294,8 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ExpandableListView) findViewById(R.id.nav_left_drawer);
 
-		listParent = new ArrayList<>();
-		listDataChild = new HashMap<>();
+		listParent = new ArrayList<NavigationAdapter>();
+		listDataChild = new HashMap<String, List<String>>();
 
 		// Navigation Drawer of Flight starts
 		listParent.add(new NavigationAdapter(getString(R.string.Contacts), R.drawable.contact_icon_hover));
@@ -347,12 +341,11 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 
 		mDrawerList.setOnGroupClickListener(new OnGroupClickListener() {
 
-			@TargetApi(Build.VERSION_CODES.KITKAT)
 			@Override
 			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
 				int index = parent.getFlatListPosition(ExpandableListView.getPackedPositionForGroup(groupPosition));
 				parent.setItemChecked(index, true);
-				String parentTitle = customAdapter.getGroup(groupPosition).getTitle();
+				String parentTitle = ((NavigationAdapter) customAdapter.getGroup(groupPosition)).getTitle();
 
 				if(lastColored != null){
 					lastColored.setBackgroundColor(Color.TRANSPARENT);
@@ -366,11 +359,11 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 					openFragmentChatDiscussions();
 				}
 
-				if (!(Objects.equals(parentTitle, getString(R.string.Invitations)) || (Objects.equals(parentTitle, getString(R.string.Admin))))) {
+				if (!(parentTitle == getString(R.string.Invitations) || (parentTitle == getString(R.string.Admin)))) {
 					mDrawerLayout.closeDrawer(navDrawerView);
 				}
 
-				if((Objects.equals(parentTitle, getString(R.string.Invitations)) || (Objects.equals(parentTitle, getString(R.string.Admin))))) {
+				if((parentTitle == getString(R.string.Invitations) || (parentTitle == getString(R.string.Admin)))) {
 
 					RelativeLayout rel_expand =(RelativeLayout) v.findViewById(R.id.rel1);
 					RelativeLayout rel_collapse =(RelativeLayout) v.findViewById(R.id.rel2);
@@ -464,7 +457,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 
 	private void openFragmentContacts() {
 
-		if(!Utility.enteredFragmentOnce) {
+		if(Utility.enteredFragmentOnce == false) {
 			setContactUI();
 		}
 	}
@@ -474,7 +467,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 		if(NetworkAvailabilityReceiver.isInternetAvailable(ContactActivity.this)){
 			FragmentContact.groupPressed = false;
 
-			if(!dialogOpen){
+			if(dialogOpen == false){
 				dialogOpen = true;
 				openChatPasswordDialog(ContactActivity.this);
 			}
@@ -634,6 +627,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 		mSharedPreferences_Gcm = getSharedPreferences("GcmPreference", 0);
 		String message = mSharedPreferences_Gcm.getString("GcmPreference", "");
 
+		Utility.alertDialog = null;
 		if(!TextUtils.isEmpty(message) && message.equalsIgnoreCase("Account Disabled")){
 			Utility.openAlert(ContactActivity.this,"AccountDisabled","Your account seems to get disabled. Kindly Sign in with different account.");
 		}
@@ -646,17 +640,13 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	 *  Register Broadcast Receivers.
 	 */
 	private void registerReceiver() {
-	/*	networkChangeReceiver = new NetworkChangeReceiver();
-		IntentFilter filter = new IntentFilter();
-		filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-		registerReceiver(networkChangeReceiver, filter);*/
 
 		this.registerReceiver(mMessageReceiver,new IntentFilter("OpenFragmentPayment"));
-		//this.registerReceiver(mMessageReceiver, new IntentFilter("Connection Error"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Account Disabled"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Account Paused"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("checkExpiryStatus"));
 		this.registerReceiver(mMessageReceiver,new IntentFilter("Offline Xmpp Signal"));
+
 		try {
 			this.registerReceiver(one2OneChatReceiver,new IntentFilter(MainService.CHAT));
 		} catch (Exception e) {
@@ -679,7 +669,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	public void onBackPressed() {
 		try {
 
-			if(Utility.fragChatIsOpen) {
+			if(Utility.fragChatIsOpen == true) {
 
 				if(!NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
 					Utility.showMessage(getResources().getString(R.string.Network_Availability));
@@ -714,9 +704,10 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	public void onResume(){
 		super.onResume();
 		try {
-			if(Utility.allowAuthenticationDialog) {
+			if(Utility.allowAuthenticationDialog==true) {
 				Utility.showLock(ContactActivity.this);
 			}else {
+				Utility.noNetwork = false;
 				callExpiryWebService();
 			}
 		} catch (Exception e) {
@@ -801,7 +792,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	/**
 	 *  Setting up service connection and binding with activity.
 	 */
-	private final ServiceConnection serviceConnection = new ServiceConnection() {
+	private ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			try {
@@ -859,7 +850,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	/**
 	 * Set icons' UI on switching between fragments.
 	 */
-	private void setContactUI() {
+	public void setContactUI() {
 
 		iconStateChanger(true, false, false, false);
 		try {
@@ -985,7 +976,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 				mFragmentTransaction.replace(R.id.fragmentContainer, mFragmentInvitationReceive);
 				mFragmentTransaction.commit();
 			}
-		}catch(Exception ignored){
+		}catch(Exception e){
 		}
 	}
 
@@ -993,15 +984,13 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	 * Broadcast receiver to display star on incoming message.
 	 */
 
-	private final BroadcastReceiver one2OneChatReceiver = new BroadcastReceiver() {
+	private BroadcastReceiver one2OneChatReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			try {
-				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-					if (Objects.equals(intent.getAction(), MainService.CHAT)) {
-                        displayPingOnList(intent);
-                        mService.setIncomingChatNotification();
-                    }
+				if (intent.getAction() == MainService.CHAT) {
+					displayPingOnList(intent);
+					mService.setIncomingChatNotification();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -1011,7 +1000,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 
 
 	// handler for received Intents for the "my-event" event
-	private final BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+	private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			try {
@@ -1083,7 +1072,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	 *
 	 * @param activity - Display alert on activity to enter chat password.
 	 */
-	private void openChatPasswordDialog(final ContactActivity activity) {
+	public void openChatPasswordDialog(final ContactActivity activity ) {
 
 		dialogChatPassword=null;
 
@@ -1193,7 +1182,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	 *  Check Chat Password Interface - Get result from async to confirm correct password.
 	 */
 
-	private final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
+	CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
 
 		@Override
 		public void checkChatPassword(CheckMessage_ChatPasswrd chat_password) {
@@ -1220,7 +1209,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	 *  Get expiration date for the jID.
 	 */
 
-	private final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(
@@ -1240,7 +1229,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 							MainService.mService.mTimer.cancel();
 							MainService.mService.mTimer = null;
 						}
-						if(Utility.googleServicesUnavailable) {
+						if(Utility.googleServicesUnavailable == true) {
 							Utility.openAlert(ContactActivity.this, "AccountDisabled", "Your account seems to get disabled. Kindly Sign in with different account.");
 						}
 					}
@@ -1255,7 +1244,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	/**
 	 * Check if current date has exceeded the expiration date.
 	 */
-	private void checkTimePassed(){
+	public void checkTimePassed(){
 
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("MMM-dd-yyyy");
@@ -1290,7 +1279,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	 * Send Login status to server
 	 */
 
-	private final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 			Log.e("",""+mValidateUserLoginStatus);
@@ -1298,7 +1287,7 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 	};
 
 
-	private final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
+	ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
 		@Override
 		public void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID) {
 

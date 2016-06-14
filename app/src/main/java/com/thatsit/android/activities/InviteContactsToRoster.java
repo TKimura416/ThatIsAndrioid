@@ -52,7 +52,6 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.MainService.MyMessageListner;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.Utility;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.beans.TemplateGroupMessageHolder;
@@ -69,31 +68,31 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.seasia.myquick.model.AppSinglton;
 
-public class InviteContactsToRoster  extends Activity implements RefreshApplicationListener{
-	private final String TAG = "SuggestContact";
+public class InviteContactsToRoster  extends Activity{
+	final String TAG = "SuggestContact";
 	private MainService mService;
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
 	private ThatItApplication myApplication;
-	private final MyRosterListnerInvite myRosterListner = new MyRosterListnerInvite();
+	private MyRosterListnerInvite myRosterListner = new MyRosterListnerInvite();
 	private boolean isSomeoneInvited = false;
 	private UsersAdapter usersAdapter;
 	private Handler handler=new Handler();
 	private ListView mlistView_Contacts;
 	private static final Intent SERVICE_INTENT = new Intent();
 	private String invitationSentUser;
-	private final ArrayList<String> jids= new ArrayList<>();
-	private final ArrayList<String> listcardname = new ArrayList<>();
-	private final ArrayList<String> listcardlastname = new ArrayList<>();
-	private final ArrayList<String> listcardprofilepic = new ArrayList<>();
-	private final ParseUtil parseUtil = new ParseUtil();
-	private final VCard card = new VCard();
+	private ArrayList<String> jids= new ArrayList<String>();
+	private ArrayList<String> listcardname = new ArrayList<String>();
+	private ArrayList<String> listcardlastname = new ArrayList<String>();
+	private ArrayList<String> listcardprofilepic = new ArrayList<String>();
+	private	ParseUtil parseUtil = new ParseUtil();
+	private VCard card = new VCard();
 	private static String nicknameToJoin;
 	private static String groupNameWithMessage;
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
 	}
-	private final HashMap<Integer,View> viewContainer = new HashMap<>();
+	private HashMap<Integer,View> viewContainer = new HashMap<Integer, View>();
 	@SuppressLint("ValidFragment")
 	public InviteContactsToRoster(MainService mService) {
 		this.mService = mService;
@@ -191,7 +190,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 	/**
 	 * Set roster information in listview.
 	 */
-	private void setListAdapter() {
+	public void setListAdapter( ) {
 		try {
 			usersAdapter = new UsersAdapter();
 			mlistView_Contacts.setAdapter(usersAdapter);
@@ -220,7 +219,7 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 	/**
 	 * The Adapter class to provide access to the data items.
 	 */
-	private class UsersAdapter extends BaseAdapter {
+	class UsersAdapter extends BaseAdapter {
 		Handler vCardHandler=new Handler();
 
 		@SuppressLint("NewApi")
@@ -577,9 +576,9 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 
 	public enum chat_option{
 		ADD_PERSON,LEAVE
-	}
+	};
 
-	private static MultiUserChat muc =null;
+	static MultiUserChat muc =null;
 
 	/**
 	 * @param option - Add or remove jID to or from room.
@@ -611,7 +610,10 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 		if (!connection.isConnected()) {
 			try {
 				connection.connect();
-			} catch (Exception e) {
+			} catch (XMPPException e) {
+				e.printStackTrace();
+			}
+			catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -693,21 +695,5 @@ public class InviteContactsToRoster  extends Activity implements RefreshApplicat
 
 			}
 		}).start();
-	}
-	@Override
-	public void refreshApplication() {
-
-		if(!mConnection.isConnected() || !mConnection.isAuthenticated()){
-
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						mConnection.connect();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}).start();}
 	}
 }

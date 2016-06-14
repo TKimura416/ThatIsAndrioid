@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
@@ -59,7 +58,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,7 +71,6 @@ import com.thatsit.android.FileReceiveraAsync_;
 import com.thatsit.android.MainService;
 import com.thatsit.android.MainService.MyMessageListner;
 import com.thatsit.android.R;
-import com.thatsit.android.RefreshApplicationListener;
 import com.thatsit.android.UpdateFTPStatus;
 import com.thatsit.android.Utility;
 import com.thatsit.android.Utils;
@@ -100,11 +97,11 @@ import com.seasia.myquick.model.AppSinglton;
 /**
  * in this fragment, one2one chat is performed with the roster entry.
  */
-public class FragmentChatScreen extends Fragment implements OnClickListener,RefreshApplicationListener {
+public class FragmentChatScreen extends Fragment implements OnClickListener {
 	private static final String TAG = FragmentChatScreen.class.getSimpleName();
 	private ImageView mImageVw_ChatScreen,fragChat_img_smiley;
 	private RelativeLayout fragChat_btn_MsgSend_rel;
-	private ListView mListView_Chat;
+	public  ListView mListView_Chat;
 	private TextView fragChat_txt_UserName,fragChat_txt_profileDescription;
 	private View mView;
 	private FragmentManager mFragmentManager;
@@ -114,11 +111,11 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private Uri selectedImageUriFromGallery,selectedVideoUriFromGallery;
 	private String picturePath,videoPath;
 	private String LastID;
-	private final StringBuilder copyValue = new StringBuilder();
-	private static final ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
+	private StringBuilder copyValue = new StringBuilder();
+	private static ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
 	private final One2OneChatReceiver one2OneChatReceiver = new One2OneChatReceiver();
 	private static final Intent SERVICE_INTENT = new Intent();
-	private final Handler mHandler = new Handler();
+	private Handler mHandler = new Handler();
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
 	private ThatItApplication myApplication;
@@ -128,24 +125,22 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	private ContactActivity hostActivity;
 	public static DiscussArrayAdapter adapter;
 	private RelativeLayout rel_overflowImage,fragChat_clipboard;
-	private final ArrayList<Integer> ListItem_position_new = new ArrayList<>();
-	private final ArrayList<String> ListItem_position_all = new ArrayList<>();
-	private final ArrayList<Integer> ListItem_position_deletes = new ArrayList<>();
+	private ArrayList<Integer> ListItem_position_new = new ArrayList<Integer>();
+	private ArrayList<String> ListItem_position_all = new ArrayList<String>();
+	private ArrayList<Integer> ListItem_position_deletes = new ArrayList<Integer>();
 	private ImageView /*img_copy,img_cut,*/img_accept;
 	private TextView img_delete;
-	private RelativeLayout activityRootView;
+	public RelativeLayout activityRootView;
 	private ClipData clip;
 	private View View_Color;
 	private String chatRecipientPhoto;
 	public static byte[] byteArray;
 	private String msg;
-	private ProgressBar mprgBarFtpStatus;
-	private TextView mTxtVwPercentageCompletion;
 	private final int FILE_SELECT_CODE = 13;
 	private final int PHOTO_SELECT_CODE=14;
 	private final int VIDEO_SELECT_CODE=15;
 	public static ProgressDialog progressDialog;
-	private static String messageStatus;
+	public static String messageStatus;
 	private String personFirstName,personLastName;
 	private static String subject;
 	private static String subject_socket;
@@ -163,9 +158,8 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
 	}
 
-	@SuppressLint("ValidFragment")
-	public FragmentChatScreen(MainService mainService, RosterEntry entry, String profilePicDrawable, boolean lastFragment,
-							  String personFirstName, String personLastName){
+	public FragmentChatScreen(MainService mainService, RosterEntry entry, String profilePicDrawable,boolean lastFragment,
+							  String personFirstName,String personLastName){
 		try {
 			mService = mainService;
 			mRosterEntry = entry;
@@ -202,7 +196,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			ThatItApplication.getApplication().getIncomingFilePings().remove(mRosterEntry.getUser());
 			Utility.stopDialog();
 
-			if(mRosterEntry !=null && mRosterEntry.getUser().contains("@") && Utility.googleServicesUnavailable){
+			if(mRosterEntry !=null && mRosterEntry.getUser().contains("@") && Utility.googleServicesUnavailable == true){
 				String entryWithoutHost = mRosterEntry.getUser().replace("@190.97.163.145","");
 				new Validate_ThatsItId_Async(getActivity(),entryWithoutHost,mValidateThatsItIdInterface).execute();
 			}
@@ -275,7 +269,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			if(chatRecipientPhoto == null){
 				ContactActivity.options = new DisplayImageOptions.Builder()
 						.displayer(new RoundedBitmapDisplayer(200))
-								//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+						//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
 						.showImageOnFail(R.drawable.no_img)
 						.showImageForEmptyUri(R.drawable.no_img)
 						.cacheOnDisk(true)
@@ -287,7 +281,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 				ContactActivity.options = new DisplayImageOptions.Builder()
 						.displayer(new RoundedBitmapDisplayer(200))
-								//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+						//.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
 						.showImageOnFail(R.drawable.no_img)
 						.showImageForEmptyUri(R.drawable.no_img)
 						.cacheOnDisk(true)
@@ -318,7 +312,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	private void setAdapter(){
+	public void setAdapter(){
 		try {
 			adapter  = new DiscussArrayAdapter(hostActivity,chatRecipientPhoto,mListView_Chat);
 			mListView_Chat.setAdapter(adapter);  //Set empty adapter
@@ -358,7 +352,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 	private void showRequiredValues(int minusVal) {
-		int startPoint;
+		int startPoint = 0;
 		startPoint = cursor.getCount() - minusVal;
 		if (startPoint <0) {
 			startPoint = 0;
@@ -443,11 +437,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		rel_overflowImage=(RelativeLayout) mView.findViewById(R.id.fragChat_rltv_img2);
 		fragChat_btn_MsgSend_rel=(RelativeLayout)mView.findViewById(R.id.fragChat_btn_MsgSend_rel);
 		fragChat_clipboard=(RelativeLayout) mView.findViewById(R.id.fragChat_clipboard);
-		//img_copy=(ImageView) mView.findViewById(R.id.img_copy);
-		mprgBarFtpStatus=(ProgressBar)mView.findViewById(R.id.prgBarFtpProgress);
-		mTxtVwPercentageCompletion=(TextView)mView.findViewById(R.id.txtvwPercentageFeild);
 		img_delete=(TextView) mView.findViewById(R.id.img_delete);
-		//img_cut=(ImageView) mView.findViewById(R.id.img_cut);
 		img_accept=(ImageView) mView.findViewById(R.id.img_tick);
 		activityRootView =(RelativeLayout)mView.findViewById(R.id.RelativeLayout1);
 		btn_loadMore = (Button)mView.findViewById(R.id.btn_loadMore);
@@ -456,7 +446,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Send message to jID.
 	 */
-	private void sendChatMessage() {
+	protected void sendChatMessage() {
 		try {
 			final String to = mRosterEntry.getUser();
 			msg = mEdtTxtChat.getText().toString().trim();
@@ -536,7 +526,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Send message with file to jID.
 	 */
-	private void sendMessageWithFileSubject(String fileName){
+	public void sendMessageWithFileSubject(String fileName){
 
 		try {
 			String to = mRosterEntry.getUser();
@@ -595,7 +585,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Send message with file to jID.
 	 */
-	private void sendMessageWithFileSubjectViaSocket(String fileName, long id){
+	public  void sendMessageWithFileSubjectViaSocket(String fileName, long id){
 
 		try {
 			String to = mRosterEntry.getUser();
@@ -654,7 +644,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 * Note: jid is participant jid  It's not owner jid because we want to save owner chat and his
 	 * participant chat into participant id
 	 * */
-	private void saveOwnerChat(String jid, String name, String msg, String subject, byte[] Images, String messageStatus){
+	void saveOwnerChat(String jid, String name, String msg,String subject, byte[] Images,String messageStatus){
 		try {
 			one2OneChatDb = new One2OneChatDb(ThatItApplication.getApplication());
 			One2OneChatDb.addMessage(jid, name, msg,subject,byteArray, DbOpenHelper.USER_TYPE_OWNER,messageStatus);
@@ -698,6 +688,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 									showSocketFileDownloadPrompt(json.getString("file_name"), json.getString("ip"), json.getString("file_path"));
 								} else {
 									Toast.makeText(getActivity(), "Please Wait while Current file is downloaded.", Toast.LENGTH_SHORT).show();
+									;
 								}
 							} else {
 								showFTPFileDownloadPrompt(subject);
@@ -789,7 +780,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			case R.id.fragChat_img_smiley:
 
 				onItemLongClickCalled = false;
-				if(!Utility.smileyScreenOpened){
+				if(Utility.smileyScreenOpened == false){
 					Utility.smileyScreenOpened = true;
 					MUCActivity.chek_Activity = false;
 					Intent intent = new Intent(getActivity(),GridViewActivity.class);
@@ -829,7 +820,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 					for (int i = 0; i < ListItem_position_new.size(); i++) {
 						isDeleted=chatDb.deleteMessage(ListItem_position_new.get(i));
 					}
-					if (isDeleted) {
+					if (isDeleted == true) {
 						LastID="0";
 						ListItem_position_new.clear();
 						setAdapter();
@@ -860,7 +851,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	private void addIncommingChatListner(){
+	void addIncommingChatListner(){
 		try {
 			if (mConnection.isConnected()) {
 				ChatManager chatmanager = mConnection.getChatManager();
@@ -872,7 +863,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	}
 
 
-	private void sendMessage(String to, String msg, MyMessageListner mMessageListner) {
+	public void sendMessage(String to, String msg, MyMessageListner mMessageListner) {
 
 		if (!mConnection.isConnected())   return;
 		ChatManager chatmanager = mConnection.getChatManager();
@@ -886,7 +877,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	private void sendMessageWithFile(String to, String revisedMsgToBeSent, MyMessageListner mMessageListner, String fileName) {
+	public void sendMessageWithFile(String to,String revisedMsgToBeSent, MyMessageListner mMessageListner,String fileName) {
 
 		if (!mConnection.isConnected())   return;
 		ChatManager chatmanager = mConnection.getChatManager();
@@ -901,7 +892,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	private void sendMessageWithFileViaSocket(String to, String revisedMsgToBeSent, MyMessageListner mMessageListner, String fileName, long id) {
+	public void sendMessageWithFileViaSocket(String to,String revisedMsgToBeSent, MyMessageListner mMessageListner,String fileName, long id) {
 
 		if (!mConnection.isConnected())   return;
 		ChatManager chatmanager = mConnection.getChatManager();
@@ -936,10 +927,9 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 * Broadcast receiver to receive incoming message.
 	 */
 	class One2OneChatReceiver extends BroadcastReceiver{
-		@TargetApi(Build.VERSION_CODES.KITKAT)
 		@Override
 		public void onReceive(Context arg0, final Intent arg1) {
-			if(Objects.equals(arg1.getAction(), MainService.CHAT)){
+			if(arg1.getAction() == MainService.CHAT){
 				updateChatList(arg0, arg1);
 				ThatItApplication.getApplication().getIncomingPings().remove(mRosterEntry.getUser());
 				ThatItApplication.getApplication().getIncomingFilePings().remove(mRosterEntry.getUser());
@@ -956,7 +946,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	/**
 	 * Update chat list when new message received.
 	 */
-	private void updateChatList(Context arg0, final Intent arg1) {
+	public void updateChatList(Context arg0, final Intent arg1) {
 		mHandler.post(new Runnable() {
 			@Override
 			public void run() {
@@ -1140,7 +1130,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 			for (int i = 0; i < ListItem_position_deletes.size(); i++) {
 				isDeleted=chatDb.deleteMessage(ListItem_position_deletes.get(i));
 			}
-			if (isDeleted) {
+			if (isDeleted == true) {
 				LastID="0";
 				ListItem_position_new.clear();
 				ListItem_position_all.clear();
@@ -1164,7 +1154,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		mFragmentTransaction.commit();
 	}
 
-	private void displayContactSection() {
+	public void displayContactSection() {
 
 		ContactActivity.mBtn_Contact.setBackgroundResource(R.drawable.contact_icon_hover);
 		ContactActivity.mBtn_Chat.setBackgroundResource(R.drawable.comment_icon_sm);
@@ -1194,7 +1184,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 					}
 				}
 			}.start();
-		} catch (ActivityNotFoundException ignored) {
+		} catch (ActivityNotFoundException e) {
 		}
 	}
 
@@ -1207,7 +1197,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 				if (resultCode == Activity.RESULT_OK) {
 
-					File f;
+					File f = null;
 					try {
 						String path = data.getStringExtra("path");
 						f = new File(path);
@@ -1269,9 +1259,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	 */
 	private void processOtherFiles(File f) {
 
-		new FileDispatcherAsync(f, mTxtVwPercentageCompletion,
-				mprgBarFtpStatus,mService.getFileTransferListener(),
-				mRosterEntry.getUser().split("@")[0],getActivity(),new UpdateFTPStatus(){
+		new FileDispatcherAsync(f,mRosterEntry.getUser().split("@")[0],new UpdateFTPStatus(){
 
 			@Override
 			public void showProgress(int currentProgress) {
@@ -1341,7 +1329,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 	private void sendSelectedVideoFileFromGallery() {
 
-		File f;
+		File f = null;
 		try {
 			f = new File(videoPath);
 
@@ -1374,10 +1362,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	}
 
 	private void processVideoFile(File f) {
-		new FileDispatcherAsync(f, mTxtVwPercentageCompletion,
-				mprgBarFtpStatus,
-				mService.getFileTransferListener(),
-				mRosterEntry.getUser().split("@")[0],getActivity(), new UpdateFTPStatus(){
+		new FileDispatcherAsync(f,mRosterEntry.getUser().split("@")[0],new UpdateFTPStatus(){
 
 			@Override
 			public void showProgress(int currentProgress) {
@@ -1395,7 +1380,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 
 	private void sendSelectedImageFileFromGallery() {
 
-		File f;
+		File f = null;
 		try {
 			f = new File(picturePath);
 			if (f.exists()) {
@@ -1421,7 +1406,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 				}
 			}
 		}
-		catch (Exception ignored) {
+		catch (Exception e) {
 		}
 	}
 
@@ -1447,11 +1432,8 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	private void processFile(File f){
-		new FileDispatcherAsync(f, mTxtVwPercentageCompletion,
-				mprgBarFtpStatus,
-				mService.getFileTransferListener(),
-				mRosterEntry.getUser().split("@")[0],getActivity(), new UpdateFTPStatus(){
+	public void processFile(File f){
+		new FileDispatcherAsync(f, mRosterEntry.getUser().split("@")[0], new UpdateFTPStatus(){
 
 			@Override
 			public void showProgress(int currentProgress) {
@@ -1474,7 +1456,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 					Intent.ACTION_PICK,
 					android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI), PHOTO_SELECT_CODE);
 
-		} catch (Exception ignored) {
+		} catch (Exception e) {
 		}
 
 	}
@@ -1547,12 +1529,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 								dialog.dismiss();
 								if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
 
-									mService.acceptCurrentincomingFileRequest(fileName,new FileDownloadStatusCallback() {
-
-										@Override
-										public void onDownloadComplete() {
-										}
-									});
+									mService.acceptCurrentincomingFileRequest(fileName);
 
 								} else {
 									Toast.makeText(getActivity(),getResources().getString(R.string.Network_Availability),Toast.LENGTH_SHORT).show();
@@ -1657,23 +1634,11 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 		}
 	}
 
-	@Override
-	public void refreshApplication() {
-		if(!mConnection.isConnected())
-			try {
-				mConnection.connect();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		setAdapter();
-		onStart();
-	}
-
 	/**
 	 *  Check if roster entry exists on Admin
 	 */
 
-	private final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+	ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
 		@Override
 		public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 
@@ -1743,17 +1708,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 										}).start();
 									}
 								});
-
-						/*alertDialogBuilder.setNegativeButton("Cancel",
-								new DialogInterface.OnClickListener() {
-									@Override
-									public void onClick(DialogInterface arg0, int arg1) {
-
-										alertDialog.dismiss();
-										alertDialog = null;
-										Utility.stopDialog();
-									}
-								});*/
 						alertDialog = alertDialogBuilder.create();
 						alertDialog.show();
 						alertDialog.setCancelable(false);
@@ -1766,7 +1720,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener,Refr
 	}
 
 	/**
-	 *  DELETE ROSTER FROM OPENFIRE.............................................................................................
+	 *  Delete roster from openfire
 	 */
 	private void removeContactFromRoster(RosterEntry entryToBeRemoved) {
 		try {

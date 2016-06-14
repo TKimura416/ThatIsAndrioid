@@ -29,11 +29,10 @@ import com.thatsit.android.application.ThatItApplication;
 
 public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Void>{
 
-	private final XMPPConnection mConnection;
-	private final String chatUserName;
-	private final String chatPassword;
-	private final Activity activity;
-	private boolean userAlreadyExists = false;
+	private XMPPConnection mConnection;
+	private String chatUserName,chatPassword;
+	private Activity activity;
+	private boolean userAlreadyExists,registerFailed;
 	private SharedPreferences settings;
 
 	public RegisterUserOnChatServerAsyncTask(Activity activity,XMPPConnection mConnection, String chatUserName, String chatPassword) {
@@ -49,7 +48,7 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 		try {
 			mConnection.connect();
 			AccountManager accountManager = mConnection.getAccountManager();
-			Map<String, String> attributes = new HashMap<>();
+			Map<String, String> attributes = new HashMap<String, String>();
 			attributes.put("username", chatUserName);
 			attributes.put("password", chatPassword);
 			attributes.put("name", "");
@@ -70,6 +69,7 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 
 		} catch (XMPPException e) {
 			e.printStackTrace();
+			registerFailed = true;
 			try {
 				if(e.getXMPPError().getCode() == 409){
 					userAlreadyExists = true;
@@ -92,6 +92,10 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 			openAlertDialog();
 			clearCredentials();
 			userAlreadyExists = false;
+		}
+		else if(registerFailed == true){
+			clearCredentials();
+			Utility.showMessage("Registration Failed");
 		}
 		else{
 			Intent ints = new Intent(activity,PaymentConfirmationActivity.class);
