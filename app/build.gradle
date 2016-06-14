@@ -13,6 +13,11 @@ android {
         targetSdkVersion 23
         multiDexEnabled true
     }
+
+    dexOptions{
+        javaMaxHeapSize "4g"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
