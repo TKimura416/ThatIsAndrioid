@@ -1578,11 +1578,11 @@ public class FragmentContact extends Fragment implements OnClickListener {
 			public void onFinish() {
 				ProgressBarStatus("Stop");
 				if (!(mConnection.isConnected() || mConnection.isAuthenticated())) {
-					ProgressBarStatus("Start");
-					Utility.showMessage("Reconnecting to server...");
+					//ProgressBarStatus("Start");
+					//Utility.showMessage("Reconnecting to server...");
 					showConnectionErrorAlert();
 				} else {
-					ProgressBarStatus("Stop");
+					//ProgressBarStatus("Stop");
 					Roster roster = mConnection.getRoster();
 					roster.addRosterListener(myRosterListner);
 					setUserAdapter();
