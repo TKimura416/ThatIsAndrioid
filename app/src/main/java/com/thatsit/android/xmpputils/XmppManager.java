@@ -52,6 +52,7 @@ public class XmppManager {
 	public synchronized static XmppManager getInstance() {
 		if (sXmppManager == null) {
 			sXmppManager = new XmppManager();
+			Log.e("XmppManager","getting Instance");
 		}
 		return sXmppManager;
 	}
@@ -80,8 +81,11 @@ public class XmppManager {
 			connConfig.setSASLAuthenticationEnabled(false);
 			Roster.setDefaultSubscriptionMode(Roster.SubscriptionMode.manual);
 			configure(ProviderManager.getInstance());
-		} catch (Exception e) {
-			Utility.stopDialog();
+            Log.e("XmppManager","getting Instance");
+
+        } catch (Exception e) {
+            Log.e("XmppManager","getting Instance" + e.getMessage() + e.toString());
+            Utility.stopDialog();
 			e.printStackTrace();
 		}
 	}

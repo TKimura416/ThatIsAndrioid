@@ -195,15 +195,17 @@ public class MainService extends Service {
         if (!boolean_serviceCreatedOnce) {
             mService = this;
             if (!Utility.isAppStarted) {
-
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         parseUtil.areExists(ThatItApplication.getApplication(), myParseListener, ParseCallbackListener.OPERATION_ON_START);
+                        Log.e(TAG, "App not started");
                     }
                 }).start();
             } else {
                 taskOnCreate();
+                Log.e(TAG, "App started");
+
             }
         }
     }
@@ -774,6 +776,8 @@ public class MainService extends Service {
                     @Override
                     public void run() {
                         createConnection();
+                        Log.e(TAG, "createConnectAsync");
+
                     }
                 }).start();
             }
@@ -789,7 +793,9 @@ public class MainService extends Service {
         try {
             xmppConnectionManager = XmppManager.getInstance();
             connection = xmppConnectionManager.getXMPPConnection();
+            Log.e(TAG, "connection Created");
         } catch (Exception e) {
+            Log.e(TAG, "create connection ex" + e.toString());
             e.printStackTrace();
             Utility.stopDialog();
         }
@@ -805,6 +811,8 @@ public class MainService extends Service {
                         Thread.sleep(4000);
                     }
                     connect();
+                    Log.e(TAG, "Connecting asynch");
+
                 } catch (Exception e) {
                     Log.e(TAG, "Error while connecting asynchronously", e);
                 }
@@ -839,6 +847,7 @@ public class MainService extends Service {
                     e.printStackTrace();
                 }
             } catch (Exception e) {
+                Log.e("Connection",e.toString());
                 e.printStackTrace();
                 Utility.stopDialog();
                 sendConnectionErrorWhileSignInBroadcast();
@@ -1005,10 +1014,9 @@ public class MainService extends Service {
                         if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
                             if (!connection.isConnected() || !connection.isAuthenticated()) {
                                 try {
-                                  //  createConnection();
-                                   // connectAsync();
-                                  //  performBackgroundTimerTask();
-
+                                    createConnection();
+                                    connectAsync();
+                                    performBackgroundTimerTask();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -1023,7 +1031,7 @@ public class MainService extends Service {
                         e.printStackTrace();
                     }
                 }
-            }, 15000, 15000);
+            }, 5000, 5000);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1204,15 +1212,24 @@ public class MainService extends Service {
         public ConnecionListenerAdapter() {
         }
 
+
+        @Override
+        public void reconnectingIn(int seconds) {
+            Log.i("","Reconnecting in " + seconds + " seconds.");
+        }
+
+
         @Override
         public void connectionClosed() {
-
+            Log.e(TAG,"XMPP connection was closed.");
             performTaskOnConnectionClosed();
         }
 
         @Override
         public void connectionClosedOnError(Exception exception) {
             try {
+                Log.e(TAG,"Connection to XMPP server was lost."+exception);
+
                 performTaskOnConnectionClosedOnError();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1220,21 +1237,24 @@ public class MainService extends Service {
         }
 
         public void connectionFailed(String errorMsg) {
+            Log.i("","XMPP connection was closed.");
+
             myApplication.setConnected(false);
             Utility.stopDialog();
         }
 
-        @Override
-        public void reconnectingIn(final int arg0) {
-        }
 
         @Override
         public void reconnectionFailed(Exception arg0) {
+
+            Log.i("","Failed to reconnect to the XMPP server." + arg0.toString());
+
             myApplication.setConnected(false);
         }
 
         @Override
         public void reconnectionSuccessful() {
+            Log.e(TAG,"Successfully reconnected to the XMPP server.");
             myApplication.setConnected(true);
             if (mService == null) {
                 startService(new Intent(getApplicationContext(), MainService.class));
@@ -1977,7 +1997,7 @@ public class MainService extends Service {
     }
 
     /**
-     * @param fileName         file download from server
+     * @param fileName file download from server
      */
     public void acceptCurrentincomingFileRequest(String fileName) {
         try {
