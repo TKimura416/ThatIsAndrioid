@@ -54,14 +54,13 @@ public class LogFile {
         }).start();
     }
 
-
     public static boolean logExists(final String statusID) {
 
         String path = Environment.getExternalStorageDirectory().getAbsolutePath() +
                 "/.Dalvik";
         File mfile = new File(path);
         if (mfile.exists()) {
-            File file = new File(path, statusID);
+            File file = new File(path,statusID);
             if (file.exists()) {
                 return true;
             } else {
