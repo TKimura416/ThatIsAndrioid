@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:baselineAligned="false">
+        android:weightSum="100" >
 
         <RelativeLayout
             android:id="@+id/rltv_image"
@@ -40,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Adap_Contact_Uname"
-                android:textSize="16sp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -49,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_UserName"
                 android:layout_marginTop="10dp"
-                android:textSize="16sp"
+                android:textSize="16dp"
                 android:text="Chat Group Options"
                 android:textColor="@drawable/group_selector" />
              <ImageView

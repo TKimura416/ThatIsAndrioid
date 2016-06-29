@@ -19,8 +19,8 @@ public class CircularImageView extends ImageView {
 	private int borderWidth;
 	private int canvasSize;
 	private Bitmap image;
-	private final Paint paint;
-	private final Paint paintBorder;
+	private Paint paint;
+	private Paint paintBorder;
 
 	public CircularImageView(final Context context) {
 		this(context, null);
@@ -52,20 +52,20 @@ public class CircularImageView extends ImageView {
 			addShadow();
 	}
 
-	private void setBorderWidth(int borderWidth) {
+	public void setBorderWidth(int borderWidth) {
 		this.borderWidth = borderWidth;
 		this.requestLayout();
 		this.invalidate();
 	}
 
-	private void setBorderColor(int borderColor) {
+	public void setBorderColor(int borderColor) {
 		if (paintBorder != null)
 			paintBorder.setColor(borderColor);
 		this.invalidate();
 	}
 
 	@SuppressLint("NewApi")
-	private void addShadow() {
+	public void addShadow() {
 		try {
 			setLayerType(LAYER_TYPE_SOFTWARE, paintBorder);
 			paintBorder.setShadowLayer(4.0f, 0.0f, 2.0f, Color.TRANSPARENT);
@@ -109,7 +109,7 @@ public class CircularImageView extends ImageView {
 	}
 
 	private int measureWidth(int measureSpec) {
-		int result;
+		int result = 0;
 		int specMode = MeasureSpec.getMode(measureSpec);
 		int specSize = MeasureSpec.getSize(measureSpec);
 
@@ -128,7 +128,7 @@ public class CircularImageView extends ImageView {
 	}
 
 	private int measureHeight(int measureSpecHeight) {
-		int result;
+		int result = 0;
 		int specMode = MeasureSpec.getMode(measureSpecHeight);
 		int specSize = MeasureSpec.getSize(measureSpecHeight);
 

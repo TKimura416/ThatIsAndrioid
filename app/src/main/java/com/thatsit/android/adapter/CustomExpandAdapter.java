@@ -14,10 +14,10 @@ import android.widget.TextView;
 
 public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
-    private final List<NavigationAdapter> parentRecord;
-    private final HashMap<String, List<String>> childRecord;
+    private List<NavigationAdapter> parentRecord;
+    private HashMap<String, List<String>> childRecord;
     private LayoutInflater inflater = null;
-    private final Activity mContext;
+    private Activity mContext;
 
     public CustomExpandAdapter(Activity context, List<NavigationAdapter> parentList, HashMap<String, List<String>> childList) {
         this.parentRecord = parentList;
@@ -28,7 +28,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public String getChild(int groupPosition, int childPosition) {
-        return this.childRecord.get(getGroup(groupPosition).getTitle()).get(childPosition);
+        return this.childRecord.get(((NavigationAdapter) getGroup(groupPosition)).getTitle()).get(childPosition);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
             holder.childTitle.setText(childConfig);
 
-        } catch (Exception ignored) {
+        } catch (Exception e) {
         }
         return convertView;
     }
@@ -88,7 +88,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
             	 holder.expand_icon.setVisibility(View.GONE);
             }
             
-        } catch (Exception ignored) {
+        } catch (Exception e) {
         }
         return convertView;
     }
@@ -104,7 +104,7 @@ public class CustomExpandAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this.childRecord.get(getGroup(groupPosition).getTitle()).size();
+        return this.childRecord.get(((NavigationAdapter) getGroup(groupPosition)).getTitle()).size();
     }
 
     @Override

@@ -38,9 +38,9 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 	private long timeMillis;
 	private UpdateFTPStatus statusCallback;
 	private Handler handle;
-	private Session session = null;
-	private Channel channel = null;
-	private ChannelSftp channelSftp = null;
+	Session session = null;
+	Channel channel = null;
+	ChannelSftp channelSftp = null;
 	private EncryptionManager encryptionManager;
 	private long max = 0;
 	private long count = 0;
@@ -62,7 +62,7 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 		PreExecution();
 	}
 
-	private FileDispatcherAsync(long fileSizeBytes, int id) {
+	public FileDispatcherAsync(long fileSizeBytes,int id) {
 		// File transfer initiated
 		this.id = id;
 		this.fileSizeBytes = fileSizeBytes;
@@ -102,7 +102,7 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 	/**
 	 *  Building progress notification.
 	 */
-	private void PreExecution(){
+	protected void PreExecution(){
 
 		initialiseNotificationManager("Sending File","Establishing Connection");
 		mBuilder.setProgress(100, 0, true).setOngoing(true);
@@ -116,7 +116,7 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 
 		new Thread() {
 			public void run() {
-
+				// Connect with your SFTP server in background thread
 				connectToSFTP();
 			}
 		}.start();
@@ -166,7 +166,7 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 				e.printStackTrace();
 			}
 
-			// Get toatl file size in bytes
+			// Get total file size in bytes
 			fileSizeBytes = mFile.length();
 
 			// Upload file to SFTP server
@@ -202,6 +202,7 @@ public class FileDispatcherAsync implements SftpProgressMonitor{
 			mNotifyManager.cancel(id);
 		}
 		try {
+			// Disconnect your connection from server
 			session.disconnect();
 			channel.disconnect();
 		} catch (Exception e) {

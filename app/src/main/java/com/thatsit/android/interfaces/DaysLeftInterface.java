@@ -4,5 +4,5 @@ import com.seasia.myquick.model.CheckSubscriptionKeyValidity;
 
 public interface DaysLeftInterface {
 
-	void daysLeft(CheckSubscriptionKeyValidity daysLeft);
+	public void daysLeft(CheckSubscriptionKeyValidity daysLeft);
 }

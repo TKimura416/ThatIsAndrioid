@@ -8,12 +8,11 @@ import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 import com.thatsit.android.interfaces.ValidateUserPauseStateInterface;
 
 public class UserPauseStateAsync extends AsyncTask<Void, Void, AuthenticateUserServiceTemplate> {
-    private final Context context;
-    private final ValidateUserPauseStateInterface mValidateUserPauseStateInterface;
+    private Context context;
+    private ValidateUserPauseStateInterface mValidateUserPauseStateInterface;
     private String rosterEntry;
     private ProgressDialog pdDialog;
-    private final String EmailId;
-    private final String ThatsItpassword;
+    private String EmailId,ThatsItpassword;
 
     public UserPauseStateAsync(Context context,String EmailId,String ThatsItpassword,
                                     ValidateUserPauseStateInterface mValidateUserPauseStateInterface) {

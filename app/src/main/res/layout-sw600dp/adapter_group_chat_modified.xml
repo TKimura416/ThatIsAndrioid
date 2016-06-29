@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:minHeight="50dp"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:orientation="horizontal" >
 
         <RelativeLayout
             android:id="@+id/rel_left_arrow"
@@ -79,7 +78,7 @@
         android:padding="5dp"
         android:text="dsdn"
         android:textColor="#0000FF"
-        android:textSize="@dimen/text_size_added_removed"
+        android:textSize="20dp"
         android:textStyle="italic|bold"
         android:visibility="gone" >
     </TextView>

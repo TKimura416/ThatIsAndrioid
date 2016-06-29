@@ -60,10 +60,10 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 	private FragmentInvitationSent mFragmentInvitationSent;
 	private EditText mEdit_Id, mEdit_Message;
 	private String Ids, Messages;
-	private static String idExtension;
+	public static String idExtension;
 	private ContactActivity hostActivity;
 	private static final Intent SERVICE_INTENT = new Intent();
-	private final ParseUtil parseUtil = new ParseUtil();
+	ParseUtil parseUtil = new ParseUtil();
 	private LinearLayout fragInvite_tabs_lnrlayout;
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName("com.thatsit.android",
@@ -328,7 +328,7 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 		}
 	}
 
-	private void sendFriendRequest(final String jid) {
+	public void sendFriendRequest(final String jid) {
 
 		parseUtil.addRequest(getActivity(), jid, new ParseCallbackListener() {
 			@Override
@@ -438,7 +438,7 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 	 *  Check if roster entry exists on Admin
 	 */
 
-	private final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+	ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
 		@Override
 		public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

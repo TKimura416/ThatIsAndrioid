@@ -55,6 +55,7 @@ import com.thatsit.android.activities.WelcomeActivity;
 import com.thatsit.android.adapter.ImageAdapter;
 import com.thatsit.android.adapter.PresenceAdapter;
 import com.thatsit.android.application.ThatItApplication;
+import com.thatsit.android.beans.LogFile;
 import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.db.One2OneChatDb;
 import com.thatsit.android.encryption.helper.EncryptionManager;
@@ -406,6 +407,118 @@ public class Utility {
 		dialog.show();
 	}
 
+
+
+	public static void showLoginPromtSplash(final Activity activity ) {
+
+		try {
+			if(dialog!=null && dialog.isShowing()){
+				dialog.dismiss();
+			}
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		dialog=null;
+
+		if(dialog==null ){
+
+			dialog = new Dialog(activity);
+
+			dialog.setContentView(R.layout.login_promt);
+			dialog.setTitle("Enter Login Password 1");
+
+			isAuthenticationWindowOpened = true;
+			Utility.isShowing = true;
+
+			try{
+				Button btnAccept  = (Button)dialog.findViewById(R.id.btn_accept);
+				Button btnDecline  = (Button)dialog.findViewById(R.id.btn_decline);
+				EditText etUsername = (EditText)dialog.findViewById(R.id.etUsername);
+				TextView signInDifferentUser = (TextView)dialog.findViewById(R.id.signInDifferentUser);
+
+				etUsername.setEnabled(false);
+				etUsername.setVisibility(View.GONE);
+				final EditText etPassword = (EditText)dialog.findViewById(R.id.etPassword);
+
+				InputMethodManager imm = (InputMethodManager)activity .getSystemService(Context.INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
+
+				etUsername.setText(Utility.email_id);
+
+				signInDifferentUser.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+
+						openExitDialog(activity);
+					}
+				});
+
+				btnAccept.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						try {
+							try {
+								InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+								imm.hideSoftInputFromWindow(etPassword.getWindowToken(), 0);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication()))
+							{
+								if (etPassword.getText().toString().trim().toCharArray().length == 0) {
+									Utility.showMessage("Enter login password");
+								} else {
+									String login_password = encryptionManager.encryptPayload(etPassword.getText().toString());
+									login_password = URLEncoder.encode(login_password, "UTF-8");
+									if (login_password.contains("%")) {
+										login_password = login_password.replace("%", "2");
+									}
+									if (login_password.equals(Utility.getPassword())) {
+										Utility.allowAuthenticationDialog = false;
+										isAuthenticationWindowOpened = false;
+										dialog.dismiss();
+										dialog = null;
+										Intent intent = new Intent(activity, SplashActivity.class);
+										activity.startActivity(intent);
+										activity.finish();
+									} else {
+										stopDialog();
+										Utility.showMessage("Incorrect Password");
+									}
+								}
+							}else{
+								Utility.showMessage("No Network Available");
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+
+				btnDecline.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+						dialog=null;
+						Intent intent = new Intent(Intent.ACTION_MAIN);
+						intent.addCategory(Intent.CATEGORY_HOME);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						activity .startActivity(intent);
+						activity.finish();
+					}
+				});
+
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			dialog.setCancelable(false);
+			dialog.setCanceledOnTouchOutside(false);
+		}
+		dialog.show();
+	}
+
 	/**
 	 * Open dialog after the app is resumed after stop.
 	 * @param
@@ -417,6 +530,10 @@ public class Utility {
 		}
 	}
 
+	public static void taskOnNoInternet(Activity  activity){
+		Utility.showLoginPromtSplash(activity);
+	}
+
 	/**
 	 * Set Prompt dialog true i.e. allowed to be opened on resume.
 	 * @param isAllowed
@@ -426,12 +543,6 @@ public class Utility {
 
 		try {
 			allowAuthenticationDialog = true;
-			/*if(allowAuthenticationDialog){
-				View v = activity.getWindow().getDecorView();
-				v.setDrawingCacheEnabled(true);
-				v.buildDrawingCache();
-				catchedBitmap = Bitmap.createBitmap(v.getDrawingCache());
-			}*/
 		} catch (OutOfMemoryError e) {
 			e.printStackTrace();
 		}
@@ -489,6 +600,9 @@ public class Utility {
 
 		SharedPreferences clearRegisterData = ThatItApplication.getApplication().getSharedPreferences("register_data",Context.MODE_PRIVATE);
 		clearRegisterData.edit().clear().commit();
+
+		SharedPreferences statusID = ThatItApplication.getApplication().getSharedPreferences("statusID",Context.MODE_PRIVATE);
+		statusID.edit().clear().commit();
 	}
 
 	/**
@@ -923,6 +1037,11 @@ public class Utility {
 
 	private static void performSignOutTask(Context context) {
 
+		if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
+			SharedPreferences mSharedPreferences = context.getSharedPreferences("statusID", context.MODE_PRIVATE);
+			String sharedStatusID = mSharedPreferences.getString("statusID", "");
+			LogFile.deleteLog(sharedStatusID);
+		}
 		clearAppSingletonData();
 		clearAllSharedPreferences();
 		clearDatabase();
@@ -1052,16 +1171,11 @@ public class Utility {
 			if (SCREEN_ORIENTATION == 0) {
 				// PORTRAIT
 				activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-			} /*else if (SCREEN_ORIENTATION == 1) {
-					// REVERSE PORTRAIT
-					activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
-				}*/ else if (SCREEN_ORIENTATION == 2) {
+			}
+			else if (SCREEN_ORIENTATION == 2) {
 				// LANDSCAPE
 				activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-			}/* else if (SCREEN_ORIENTATION == 3) {
-					// REVERSE LANDSCAPE
-					activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-				}*/
+			}
 		}
 	}
 

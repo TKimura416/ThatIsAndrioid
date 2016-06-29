@@ -43,8 +43,8 @@ import com.seasia.myquick.model.AppSinglton;
 
 @SuppressLint("NewApi")
 public class MUCActivity extends Activity {
-	private static ArrayList<TemplateGroupMessageHolder> groupMessageHolders = new ArrayList<>();
-	private MultiUserChat muc;
+	private static ArrayList<TemplateGroupMessageHolder> groupMessageHolders = new ArrayList<TemplateGroupMessageHolder>();
+	public MultiUserChat muc;
 	private ListView listMUCMessages;
 	public static EditText edtChat;
 	private ImageView sendBtn,fragChat_img_smiley;
@@ -60,7 +60,7 @@ public class MUCActivity extends Activity {
 	private final IncomingReceiver one2OneChatReceiver = new IncomingReceiver();
 	private String psedoname;
 	private String revisedMessage;
-	private static boolean isPromtAllowed=true;
+	public static boolean isPromtAllowed=true;
 
 	@Override
 	protected void onStop() {
@@ -149,7 +149,7 @@ public class MUCActivity extends Activity {
 	 *
 	 * @param message - incoming group message
 	 */
-	private void setListAdapter(TemplateGroupMessageHolder message){
+	public void setListAdapter(TemplateGroupMessageHolder message){
 		try {
 			groupMessageHolders.add(message);
 			MUCActivity.this.runOnUiThread(new Runnable() {
@@ -168,7 +168,7 @@ public class MUCActivity extends Activity {
 	 *  Set adapter to display values in listview.
 	 */
 	private void setAdapter() {
-		groupMessageHolders = new ArrayList<>();
+		groupMessageHolders = new ArrayList<TemplateGroupMessageHolder>();
 		if(MainService.mService.connection.isConnected()){
 			showPreviousChat();
 		}else{
@@ -220,7 +220,7 @@ public class MUCActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				if(!Utility.smileyScreenOpened){
+				if(Utility.smileyScreenOpened == false){
 					Utility.smileyScreenOpened = true;
 					chek_Activity = true;
 					Intent intent = new Intent(MUCActivity.this,GridViewActivity.class);
@@ -283,7 +283,7 @@ public class MUCActivity extends Activity {
 
 		Log.e("isOpened", Utility.allowAuthenticationDialog+"");
 
-		if(Utility.allowAuthenticationDialog){
+		if(Utility.allowAuthenticationDialog==true){
 			Utility.showLock(MUCActivity.this);
 		}
 		try {
@@ -298,7 +298,7 @@ public class MUCActivity extends Activity {
 	/**
 	 * Scroll screen to the latest message received.
 	 */
-	private void setReverseList() {
+	protected void setReverseList() {
 		try {
 			listMUCMessages.post(new Runnable() {
 				@Override

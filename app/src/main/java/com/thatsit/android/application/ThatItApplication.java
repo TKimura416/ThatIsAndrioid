@@ -11,6 +11,8 @@ import org.jivesoftware.smack.RosterGroup;
 import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 
+import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.multidex.MultiDexApplication;
@@ -21,7 +23,7 @@ import com.parse.Parse;
 import com.thatsit.android.db.One2OneChatDb;
 
 public class ThatItApplication extends MultiDexApplication {
-	private final String TAG = getClass().getSimpleName();
+	String TAG = getClass().getSimpleName();
 
 	/** Preference key for account username. */
 	public static final String ACCOUNT_USERNAME_KEY = "account_username";
@@ -30,19 +32,19 @@ public class ThatItApplication extends MultiDexApplication {
 	public static final String ACCOUNT_CHAT_PASSWORD_KEY = "account_chat_password";
 
 	public static final String ACCOUNT_EMAIL_ID = "account_email";
-	private boolean mIsConnected;
+	boolean mIsConnected;
 	private boolean mIsAccountConfigured;
-	private static ThatItApplication app;
-	private SharedPreferences mSettings;
+	static ThatItApplication app;
+	public SharedPreferences mSettings;
 	private final PreferenceListener mPreferenceListener = new PreferenceListener();
-	private Hashtable<String, Packet> incomingRequestHash = new Hashtable<>();
+	private Hashtable<String, Packet> incomingRequestHash = new Hashtable<String, Packet>();
 	private RosterGroup currentRosterGroupReference=null;
 	private MultiUserChat currentMUCRefernece=null;
 	private MultiUserChat currentGroupChatCoversation=null;
-	private static SecretKey myDesKey;
-	private final String keyValue="SecretKeySpec@d1";
-	private Set<String> incomingPings = new HashSet<>();
-	private Set<String> incomingGroupPings = new HashSet<>();
+	public static SecretKey myDesKey;
+	private String keyValue="SecretKeySpec@d1";
+	private Set<String> incomingPings = new HashSet<String>();
+	private Set<String> incomingGroupPings = new HashSet<String>();
 	
 	
 	public Set<String> getIncomingGroupPings() {
@@ -53,9 +55,9 @@ public class ThatItApplication extends MultiDexApplication {
 		this.incomingGroupPings = incomingGroupPings;
 	}
 
-	private Set<String> incomingFilePings = new HashSet<>();
-	private Hashtable<String, Boolean> sentInvites = new Hashtable<>();
-	private Hashtable<String, String> sentInvitesMessages = new Hashtable<>();
+	private Set<String> incomingFilePings = new HashSet<String>();
+	private Hashtable<String, Boolean> sentInvites = new Hashtable<String, Boolean>();
+	private Hashtable<String, String> sentInvitesMessages = new Hashtable<String, String>();
 	
 	@Override
 	public void onCreate() {

@@ -9,8 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="50dp"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:orientation="horizontal" >
 
         <RelativeLayout
             android:id="@+id/rel_left_arrow"
@@ -48,7 +47,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_weight="0.32"
                 android:text="User"
-                android:textSize="15sp"
+                android:textSize="15dp"
                 android:visibility="visible" />
 
             <ImageView
@@ -77,7 +76,7 @@
         android:padding="5dp"
         android:text="dsdn"
         android:textColor="#0000FF"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="italic|bold"
         android:visibility="gone" >
     </TextView>

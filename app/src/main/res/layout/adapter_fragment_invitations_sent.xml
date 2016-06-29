@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:baselineAligned="false">
+        android:weightSum="100" >
 
         <RelativeLayout
             android:id="@+id/invRec_rel_profilePic"

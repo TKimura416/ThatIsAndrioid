@@ -2,15 +2,18 @@ package com.thatsit.android.activities;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -37,7 +40,7 @@ import java.net.URLEncoder;
  */
 public class ChangeLoginPassword extends Activity implements OnClickListener{
 
-	private static final boolean isPromtAllowed=true;
+	public static boolean isPromtAllowed=true;
 	private EditText edt_enterOldPwd,edt_enterNewPwd,edt_confirmNewPwd;
 	private Button createPass_btn_submit;
 	private String OldPassword,NewPassword,ConfirmNewPassword;
@@ -57,7 +60,7 @@ public class ChangeLoginPassword extends Activity implements OnClickListener{
 		initialiseVariable();
 		initialiseListener();
 		encryptionManager = new EncryptionManager();
-		mSharedPreferences = getSharedPreferences("USERID", MODE_PRIVATE);
+		mSharedPreferences = getSharedPreferences("USERID", MODE_WORLD_READABLE);
 		AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 
 	}
@@ -65,7 +68,7 @@ public class ChangeLoginPassword extends Activity implements OnClickListener{
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog){
+		if(Utility.allowAuthenticationDialog==true){
 			Utility.showLock(ChangeLoginPassword.this);
 		}
 		Utility.UserPauseStatus(ChangeLoginPassword.this);

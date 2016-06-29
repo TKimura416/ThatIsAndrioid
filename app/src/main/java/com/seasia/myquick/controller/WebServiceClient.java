@@ -24,6 +24,7 @@ import org.apache.http.util.EntityUtils;
 import android.content.Context;
 import android.util.Log;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 import com.seasia.myquick.model.CheckMessage_ChatPasswrd;
 import com.seasia.myquick.model.CheckSubscriptionKeyValidity;
@@ -45,7 +46,7 @@ import java.security.KeyStore;
 
 public class WebServiceClient {
 
-	private final Context mContext;
+	public Context mContext;
 	//private final String BASE_URL = "http://dotnetstg2.seasiaconsulting.com/Thatsit/Services/ThatsItService.svc/";
 	private final String BASE_URL = "https://thatsitsrv.com/services/ThatsItService.svc/";
 	private final String INSERT_USER_DATA = "InsertUserData";
@@ -65,8 +66,8 @@ public class WebServiceClient {
 	private final String VALIDATE_USER_LOGIN_STATUS = "ValidateUserLoginStatus";
 	private final String VALIDATE_USER_STATUS_ID = "GeneateRandomNumber";
 
-	private static final int TIMEOUT_CONNECTION = 50 * 1000;
-	private static final int TIMEOUT_SOCKET = 50 * 1000;
+	public static final int TIMEOUT_CONNECTION = 50 * 1000;
+	public static final int TIMEOUT_SOCKET = 50 * 1000;
 
 	public WebServiceClient(Context parentRef) {
 		mContext = parentRef;
@@ -124,7 +125,7 @@ public class WebServiceClient {
 		}
 	}
 
-	private static HttpClient getNewHttpClient() {
+	public static HttpClient getNewHttpClient() {
 		try {
 			KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
 			trustStore.load(null, null);

@@ -31,21 +31,21 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 public class UsersAdapter extends BaseAdapter {
 
 	private String filter = "";
-	private final ArrayList<String> jids;
-	private HashMap<Integer, View> viewContainer = new HashMap<>();
-	private final Activity activity;
-	private final XMPPConnection mConnection;
-	private ArrayList<String> listcardname = new ArrayList<>();
-	private ArrayList<String> listcardlastname = new ArrayList<>();
-	private ArrayList<String> listcardprofilepic = new ArrayList<>();
-	private final LayoutInflater inflater;
+	private ArrayList<String> jids;
+	private HashMap<Integer, View> viewContainer = new HashMap<Integer, View>();
+	private Activity activity;
+	private XMPPConnection mConnection;
+	private ArrayList<String> listcardname = new ArrayList<String>();
+	private ArrayList<String> listcardlastname = new ArrayList<String>();
+	private ArrayList<String> listcardprofilepic = new ArrayList<String>();
+	private LayoutInflater inflater;
 
 	public UsersAdapter(ArrayList<String> jids,Activity activity,
 						XMPPConnection mConnection,ArrayList<String> listcardname,
 						ArrayList<String> listcardlastname,ArrayList<String> listcardprofilepic) {
 
 		inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		viewContainer = new HashMap<>();
+		viewContainer = new HashMap<Integer, View>();
 		this.activity = activity;
 		this.jids = jids;
 		this.mConnection = mConnection;
@@ -60,7 +60,7 @@ public class UsersAdapter extends BaseAdapter {
 
 		inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.filter = filter;
-		viewContainer = new HashMap<>();
+		viewContainer = new HashMap<Integer, View>();
 		this.activity = activity;
 		this.jids = jids;
 		this.mConnection = mConnection;
@@ -121,7 +121,7 @@ public class UsersAdapter extends BaseAdapter {
 				}else{
 					s = jids.get(position);
 				}
-			} catch (NullPointerException ignored) {
+			} catch (NullPointerException e) {
 			}
 			viewHolder.tvMyQuickID.setText(s);
 

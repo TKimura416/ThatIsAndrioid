@@ -55,7 +55,7 @@ import com.seasia.myquick.model.AppSinglton;
 @SuppressLint("ValidFragment")
 public class FragmentInvitationReceive extends Fragment implements OnClickListener {
 
-	private final VCard card = new VCard();
+	private VCard card = new VCard();
 	private Handler handler;
 
 	@Override
@@ -233,9 +233,9 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 
 							Roster roster = MainService.mService.connection.getRoster();
 							Collection<RosterEntry> entries = roster.getEntries();
-							List<RosterEntry> userList = new ArrayList<>(entries);
+							List<RosterEntry> userList = new ArrayList<RosterEntry>(entries );
 
-							ArrayList<String> existIds = new ArrayList<>();
+							ArrayList<String> existIds = new ArrayList<String>();
 							for (int i = 0; i < userList.size(); i++) {
 								String userId = userList.get(i).getUser(); 
 								Log.v(""+i, "userId->"+userId);
@@ -319,7 +319,7 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 
 														} else {
 															Utility.stopDialog();
-															Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_sendingRequest), Toast.LENGTH_SHORT).show();
+															Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_sendingRequest), 1).show();
 														}
 													}
 												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_ACCEPTED, ParseOperationDecider.FRIEND_REQUEST_ACCEPTED);
@@ -371,13 +371,14 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 
 																} else {
 																	Utility.stopDialog();
-																	Toast.makeText(getActivity(), "Error in cancelling request", Toast.LENGTH_SHORT).show();
+																	Toast.makeText(getActivity(), "Error in cancelling request", 1).show();
 																}
 															}
 														}, requestId);
 
 													}
 												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_DELETED);
+												;
 
 											} catch (Exception e1) {
 												e1.printStackTrace();
@@ -444,7 +445,7 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 		}).start();
 	}
 
-	private final ParseUtil parseUtil = new ParseUtil();
+	ParseUtil parseUtil = new ParseUtil();
 
 	private class InvitationView {
 		TextView txtvwInvitationSender;

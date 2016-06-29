@@ -12,6 +12,8 @@ import java.util.Calendar;
 import java.util.List;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.packet.VCard;
+
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -31,12 +34,16 @@ import android.graphics.drawable.BitmapDrawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,6 +83,7 @@ import com.thatsit.android.activities.ChangeLoginPassword;
 import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.activities.WelcomeActivity;
 import com.thatsit.android.application.ThatItApplication;
+import com.thatsit.android.beans.LogFile;
 import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.interfaces.ValidateUserLoginInterface;
 
@@ -123,6 +131,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 	private LinearLayout fragInvite_tabs_lnrlayout;
 	private InputMethodManager imm;
 	private ProgressDialog pdDialog;
+	private int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 3;
 
 	@SuppressLint("ValidFragment")
 	public FragmentBasicSetting(MainService service) {
@@ -593,6 +602,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 		}
 	}
 
+
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		switch (v.getId()) {
@@ -773,8 +783,71 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 
 	private void openGallery() {
 
-		Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-		startActivityForResult(intent, GALLERY_IMAGE_REQUEST_CODE);
+		if (Build.VERSION.SDK_INT >= 23){
+
+			if (ContextCompat.checkSelfPermission(getActivity(),
+					Manifest.permission.READ_EXTERNAL_STORAGE)
+					!= PackageManager.PERMISSION_GRANTED) {
+
+				// Should we show an explanation?
+				if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+						Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+					// Show an expanation to the user *asynchronously* -- don't block
+					// this thread waiting for the user's response! After the user
+					// sees the explanation, try again to request the permission.
+
+				} else {
+
+					// No explanation needed, we can request the permission.
+
+					/*ActivityCompat.requestPermissions(getActivity(),
+							new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+							MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);*/
+					requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+							MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+
+					// MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+					// app-defined int constant. The callback method gets the
+					// result of the request.
+				}
+			}else{
+				/*ActivityCompat.requestPermissions(getActivity(),
+						new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+						MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);*/
+				requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+						MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+			}
+		}else {
+			Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+			startActivityForResult(intent, GALLERY_IMAGE_REQUEST_CODE);
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		switch (requestCode) {
+			case 3: {
+				// If request is cancelled, the result arrays are empty.
+				if (grantResults.length > 0
+						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+					// permission was granted, yay! Get your Photo
+					Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+					startActivityForResult(intent, GALLERY_IMAGE_REQUEST_CODE);
+
+				} else {
+
+					// permission denied, boo! Disable the
+					// functionality that depends on this permission.
+				}
+				return;
+			}
+
+			// other 'case' lines to check for other
+			// permissions this app might request
+		}
 	}
 
 	@Override
@@ -1078,7 +1151,12 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 
 	private void performSignOutTask() {
 
-			clearAppSingletonData();
+		if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
+			SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("statusID", getActivity().MODE_PRIVATE);
+			String sharedStatusID = mSharedPreferences.getString("statusID", "");
+			LogFile.deleteLog(sharedStatusID);
+		}
+		clearAppSingletonData();
 		clearAllSharedPreferences();
 		clearDatabase();
 		Utility.isAppStarted = false;
@@ -1137,6 +1215,9 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 
 		SharedPreferences clearRegisterData = ThatItApplication.getApplication().getSharedPreferences("register_data",Context.MODE_PRIVATE);
 		clearRegisterData.edit().clear().commit();
+
+		SharedPreferences statusID = ThatItApplication.getApplication().getSharedPreferences("statusID",Context.MODE_PRIVATE);
+		statusID.edit().clear().commit();
 	}
 
 	/**

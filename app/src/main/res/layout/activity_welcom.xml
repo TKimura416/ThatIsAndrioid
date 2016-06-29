@@ -4,7 +4,7 @@
     android:id="@+id/welcome"
     android:layout_height="fill_parent"
     android:background="@drawable/background_img"
-    tools:context=".activities.WelcomeActivity" >
+    tools:context=".WelcomeActivity" >
 
     <ScrollView
         android:id="@+id/scrool"
@@ -109,7 +109,7 @@
                     android:layout_marginTop="15dp"
                     android:textColor="#0000ff"
                     android:textStyle="italic|bold"
-                    android:textSize="20sp"
+                    android:textSize="20dp"
                     android:visibility="gone"
                     android:text="Do You Have A Promotional Code?" />
             </LinearLayout>

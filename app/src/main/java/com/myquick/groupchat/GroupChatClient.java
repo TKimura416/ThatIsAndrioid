@@ -17,7 +17,7 @@ import com.thatsit.android.xmpputils.Constants;
  */
 
 
-class GroupChatClient {
+public class GroupChatClient {
 	public static void createNewChatGroup(XMPPConnection connection , String groupQualifiedName, String ownerJid) throws XMPPException{
 		
 		// Create a MultiUserChat using a XMPPConnection for a room
@@ -39,7 +39,7 @@ class GroupChatClient {
 	          }
 	      }
 	      // Sets the new owner of the room
-	      List<String> owners = new ArrayList<>();
+	      List<String> owners = new ArrayList<String>();
 	      owners.add(connection.getUser());
 	      submitForm.setAnswer("muc#roomconfig_roomowners", owners);
 	      // Send the completed form (with default values) to the server to configure the room

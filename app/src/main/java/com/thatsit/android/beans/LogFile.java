@@ -1,9 +1,5 @@
 package com.thatsit.android.beans;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.IOException;
-
 /**
  * Created by psingh5 on 6/15/2016.
  */

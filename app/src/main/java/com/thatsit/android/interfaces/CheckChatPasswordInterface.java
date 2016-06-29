@@ -4,5 +4,5 @@ import com.seasia.myquick.model.CheckMessage_ChatPasswrd;
 
 public interface CheckChatPasswordInterface {
 
-	void checkChatPassword(CheckMessage_ChatPasswrd chat_password);
+	public void checkChatPassword(CheckMessage_ChatPasswrd chat_password);
 }

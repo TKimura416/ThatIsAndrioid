@@ -5,27 +5,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
+import com.thatsit.android.activities.MUCActivity;
+import com.thatsit.android.activities.SelectAudioActivity;
 import com.thatsit.android.fragement.FragmentChatScreen;
 
 public class AndroidExplorer extends ListActivity {
 
 
-	private static final boolean isPromtAllowed=true;
+	public static boolean isPromtAllowed=true;
 	private List<String> item = null;
 	private List<String> path = null;
-	private final String root="/";
+	private String root="/";
 	private TextView myPath;
 
 	/** Called when the activity is first created. */
@@ -47,7 +55,7 @@ public class AndroidExplorer extends ListActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog){
+		if(Utility.allowAuthenticationDialog==true){
 			Utility.showLock(AndroidExplorer.this);
 		}
 	}
@@ -65,8 +73,8 @@ public class AndroidExplorer extends ListActivity {
 	
 	private void getDir(String dirPath){
 		myPath.setText("Location: " + dirPath);
-		item = new ArrayList<>();
-		path = new ArrayList<>();
+		item = new ArrayList<String>();
+		path = new ArrayList<String>();
 		File f = new File(dirPath);
 		File[] files = f.listFiles();
 		if(!dirPath.equals(root)){
@@ -75,16 +83,19 @@ public class AndroidExplorer extends ListActivity {
 			item.add("../");
 			path.add(f.getParent());
 		}
-		for (File file : files) {
+		for(int i=0; i < files.length; i++)
+		{
+			File file = files[i];
+
 			path.add(file.getPath());
-			if (file.isDirectory())
+			if(file.isDirectory())
 				item.add(file.getName() + "/");
 
 			else
 				item.add(file.getName());
 		}
 
-		ArrayAdapter<String> fileList = new ArrayAdapter<>(this, R.layout.file_explorer_row, item);
+		ArrayAdapter<String> fileList =	new ArrayAdapter<String>(this, R.layout.file_explorer_row, item);
 		setListAdapter(fileList);
 	}
 

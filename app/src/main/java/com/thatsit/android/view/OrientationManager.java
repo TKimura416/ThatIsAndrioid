@@ -7,7 +7,7 @@ import com.thatsit.android.interfaces.OrientationListener;
 
 public class OrientationManager  extends OrientationEventListener {
 
-	private ScreenOrientation screenOrientation;
+	public ScreenOrientation screenOrientation;
 	private OrientationListener listener;
 
 	public enum ScreenOrientation {
@@ -51,7 +51,7 @@ public class OrientationManager  extends OrientationEventListener {
 		}
 	}
 
-	private void setListener(OrientationListener listener) {
+	public void setListener(OrientationListener listener) {
 		this.listener = listener;
 	}
 

@@ -8,12 +8,12 @@ import com.thatsit.android.Utility;
 import com.thatsit.android.interfaces.ValidateUserLoginInterface;
 
 public class ValidateUserLoginStatusAsync extends AsyncTask<Void, Void, ValidateUserLoginStatus> {
-        private final Context context;
-        private final ValidateUserLoginInterface mValidateUserLoginInterface;
-        private final String email;
-        private final String status;
-        private final String registrationId;
-        private final String statusID;
+        private Context context;
+        private ValidateUserLoginInterface mValidateUserLoginInterface;
+        private String email;
+        private String status;
+        private String registrationId;
+        private String statusID;
 
         public ValidateUserLoginStatusAsync(Context context,String email,String status,
                                             String registrationId,String statusID,

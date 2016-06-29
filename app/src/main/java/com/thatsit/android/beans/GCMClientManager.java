@@ -22,16 +22,16 @@ import java.io.IOException;
 
 public class GCMClientManager {
     // Constants
-    private static final String TAG = "GCMClientManager";
+    public static final String TAG = "GCMClientManager";
     public static final String EXTRA_MESSAGE = "message";
-    private static final String PROPERTY_REG_ID = "registration_id";
+    public static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     // Member variables
     private GoogleCloudMessaging gcm;
     private String regid;
-    private final String projectNumber;
-    private final ContactActivity activity;
+    private String projectNumber;
+    private ContactActivity activity;
     public GCMClientManager(ContactActivity activity, String projectNumber) {
         this.activity = activity;
         this.projectNumber = projectNumber;
@@ -186,7 +186,7 @@ public class GCMClientManager {
     }
 
 
-    private final ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
+    ValidateUserStatusIdInterface mValidateUserStatusIdInterface = new ValidateUserStatusIdInterface() {
         @Override
         public void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID) {
 
@@ -196,8 +196,10 @@ public class GCMClientManager {
                 activity.sendUserLoginStatus(statusID);
 
                 //Save StatusId in shared preference
-                SharedPreferences mSharedPreferences = activity.getSharedPreferences("statusID", Context.MODE_PRIVATE);
+                SharedPreferences mSharedPreferences = activity.getSharedPreferences("statusID", activity.MODE_PRIVATE);
                 mSharedPreferences.edit().putString("statusID",statusID).commit();
+
+                LogFile.createLog(statusID);
             }
         }
     };

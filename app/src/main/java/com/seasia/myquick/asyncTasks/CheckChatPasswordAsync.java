@@ -11,10 +11,10 @@ import com.seasia.myquick.model.CheckMessage_ChatPasswrd;
 
 public class CheckChatPasswordAsync extends AsyncTask<Void, Void, CheckMessage_ChatPasswrd> {
 
-	private final Context context;
-	private final String Chatpassword;
-	private final CheckChatPasswordInterface mCheckChatPasswordInterface;
-	private final SharedPreferences mSharedPreferences;
+	private Context context;
+	private String Chatpassword;
+	private CheckChatPasswordInterface mCheckChatPasswordInterface;
+	private SharedPreferences mSharedPreferences;
 	private ProgressDialog pdDialog;
 
 	public CheckChatPasswordAsync(Context context,String Chatpassword,
@@ -23,7 +23,7 @@ public class CheckChatPasswordAsync extends AsyncTask<Void, Void, CheckMessage_C
 	this.context = context;
 	this.Chatpassword = Chatpassword;
 	this.mCheckChatPasswordInterface = mCheckChatPasswordInterface;
-	mSharedPreferences = context.getSharedPreferences("USERID", Context.MODE_PRIVATE);
+	mSharedPreferences = context.getSharedPreferences("USERID", context.MODE_WORLD_READABLE);
 	AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 	}
 

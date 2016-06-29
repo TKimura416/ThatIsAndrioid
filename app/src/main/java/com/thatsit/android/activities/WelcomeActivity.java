@@ -45,6 +45,7 @@ import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
 import com.thatsit.android.application.ThatItApplication;
+import com.thatsit.android.beans.LogFile;
 import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.thatsit.android.interfaces.OrientationListener;
@@ -56,15 +57,14 @@ import com.thatsit.android.xmpputils.XmppManager;
 @SuppressLint("WorldWriteableFiles")
 public class WelcomeActivity extends FragmentActivity implements OnClickListener,OrientationListener {
 	private boolean isShown = false;
-	private final String TAG = getClass().getSimpleName();
-	private static Button mBtn_SignIn;
-	private static Button mBtn_BuyId;
+	final String TAG = getClass().getSimpleName();
+	public static Button mBtn_SignIn, mBtn_BuyId;
 	private String ThatsItId, ThatsItpassword, EmailId;
-	private boolean mBinded;
+	boolean mBinded;
 	private SharedPreferences settings;
 	private String jid, password;
 	public static boolean dismissProgressBar = false;
-	private static final ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
+	private static ConnectionBroadcastReceiver connectionBroadcastReceiver = new ConnectionBroadcastReceiver();
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
 	private MainService mService;
@@ -124,7 +124,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 
 	private void checkIfDialogOpened(Bundle savedInstanceState) {
 
-		if(Utility.isDialogOpened){
+		if(Utility.isDialogOpened == true){
 			showLoginPromtScreen();
 			etUsername.setText(savedInstanceState.getString("EmailId"));
 			etPassword.setText(savedInstanceState.getString("Password"));
@@ -302,10 +302,10 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 		}
 	}
 
-	private void skipLoginScreenIfAlreadyConnected() {
+	void skipLoginScreenIfAlreadyConnected() {
 		try {
 			myApplication = ThatItApplication.getApplication();
-			if (myApplication != null) {
+			if (myApplication instanceof ThatItApplication) {
 				if (myApplication.isConnected() && mConnection.isConnected()) {
 					Intent intent = new Intent(WelcomeActivity.this,
 							ContactActivity.class);
@@ -322,7 +322,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 * Create connection and bind service.
 	 */
-	private final ServiceConnection serviceConnection = new ServiceConnection() {
+	private ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			Log.d(TAG, "   ServiceConnected   ********************");
@@ -359,7 +359,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 * Store user credentials in shared preference.
 	 */
-	private void saveCredential() {
+	void saveCredential() {
 		try {
 			SharedPreferences.Editor edit = settings.edit();
 			edit.putString(ThatItApplication.ACCOUNT_USERNAME_KEY, jid);
@@ -426,33 +426,29 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 
 					Utility.saveThatsItPincode(WelcomeActivity.this,AppSinglton.thatsItPincode);
 
-					switch (AppSinglton.userId) {
-						case "3":
-							Utility.stopDialog();
-							Utility.showMessage("Please Check Your Credentials");
-							Utility.unlockScreenRotation(WelcomeActivity.this);
+					if (AppSinglton.userId.equals("3")) {
+						Utility.stopDialog();
+						Utility.showMessage("Please Check Your Credentials");
+						Utility.unlockScreenRotation(WelcomeActivity.this);
 
-							break;
-						case "2":
-							Utility.stopDialog();
-							Utility.LoginStarted = false;
-							if (Utility.mTimer != null) {
-								Utility.mTimer.cancel();
-							}
-							openAlert("Your account has been suspended by the Admin");
-							Utility.unlockScreenRotation(WelcomeActivity.this);
+					} else if (AppSinglton.userId.equals("2")) {
+						Utility.stopDialog();
+						Utility.LoginStarted = false;
+						if(Utility.mTimer != null){
+							Utility.mTimer.cancel();
+						}
+						openAlert("Your account has been suspended by the Admin");
+						Utility.unlockScreenRotation(WelcomeActivity.this);
 
-							break;
-						default:
-							dismissProgressBar = true;
-							try {
-								Utility.LoginStarted = true;
-								Utility.startLoginTimer(WelcomeActivity.this, 1);
-								connectXMPPService();
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-							break;
+					} else {
+						dismissProgressBar = true;
+						try {
+							Utility.LoginStarted = true;
+							Utility.startLoginTimer(WelcomeActivity.this,1);
+							connectXMPPService();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 					}
 				} else {
 					Utility.unlockScreenRotation(WelcomeActivity.this);
@@ -471,7 +467,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 * Enter login credentials alert.
 	 */
-	private void showLoginPromtScreen() {
+	public void showLoginPromtScreen() {
 
 		if (signIndialog == null) {
 			Utility.isDialogOpened = true;
@@ -573,7 +569,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	/**
 	 *  Validate User Login Status
 	 */
-	private final ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
+	ValidateUserLoginInterface mValidateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 
@@ -581,20 +577,25 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 				if(mValidateUserLoginStatus != null){
 
 					String UserLoginStatus = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getUserLoginStatus();
+					String statusID = "";
 					if(UserLoginStatus != null){
 						if(UserLoginStatus.equalsIgnoreCase("True")){
-							// Check if status id is equal to one present in shared preference
+							// Check if status id is equal to one present in log file
 							// If both values are equal, perform login
 							// else show already login alert
 
-							String statusID = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getStatusId();
+							 statusID = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getStatusId();
 
-							SharedPreferences mSharedPreferences = getSharedPreferences("statusID", MODE_PRIVATE);
-							String sharedStatusID = mSharedPreferences.getString("statusID", "");
+							/*SharedPreferences mSharedPreferences = getSharedPreferences("statusID", MODE_PRIVATE);
+							String sharedStatusID = mSharedPreferences.getString("statusID", "");*/
 
-							if(statusID.equalsIgnoreCase(sharedStatusID)){
+							/*if(statusID.equalsIgnoreCase(sharedStatusID)){
 								new GetDataAsync().execute();
-							}else{
+							}*/
+							if(LogFile.logExists(statusID) == true){
+								new GetDataAsync().execute();
+							}
+							else{
 								Utility.stopDialog();
 								Utility.openAlert(WelcomeActivity.this,"AlreadyLoggedIn", "User already logged in some other device.");
 								Utility.unlockScreenRotation(WelcomeActivity.this);
@@ -602,6 +603,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 						}
 						else{
 							// allow user to login
+							LogFile.deleteLog(statusID);
 							new GetDataAsync().execute();
 						}
 					}else{
@@ -625,7 +627,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	 * Send Login status to server
 	 */
 
-	private final ValidateUserLoginInterface validateUserLoginInterface = new ValidateUserLoginInterface() {
+	ValidateUserLoginInterface validateUserLoginInterface = new ValidateUserLoginInterface() {
 		@Override
 		public void validateUserLogin(Context context,ValidateUserLoginStatus mValidateUserLoginStatus) {
 			if(mValidateUserLoginStatus != null){

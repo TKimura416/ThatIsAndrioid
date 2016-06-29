@@ -5,6 +5,7 @@
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
+  <!--   <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"> -->
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -16,12 +17,12 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:windowBackground">@drawable/background_img</item>
-
+        
     </style>
 
-
+    
     <style name="FullHeightDialog" parent="android:style/Theme.Dialog">
-        <item name="android:windowNoTitle">true</item>
-    </style>
-
+		<item name="android:windowNoTitle">true</item>
+	</style>
+	
 </resources>

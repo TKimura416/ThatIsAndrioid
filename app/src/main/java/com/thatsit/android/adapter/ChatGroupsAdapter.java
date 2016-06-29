@@ -31,7 +31,7 @@ import com.seasia.myquick.model.AppSinglton;
 
 public class ChatGroupsAdapter extends BaseAdapter{
 
-	private final Activity parentReference;
+	private Activity parentReference;
 	private ArrayList<RosterGroup> rosterGroups;
 
 
@@ -45,13 +45,13 @@ public class ChatGroupsAdapter extends BaseAdapter{
 	 * Display groups in alphabetic order.
 	 */
 	private void parseGroups(){
-		TreeMap<String, RosterGroup> tMap = new TreeMap<>();
+		TreeMap<String, RosterGroup> tMap = new TreeMap<String, RosterGroup>();
 		
 		for(int i =0;i<rosterGroups.size();i++){
 			tMap.put(rosterGroups.get(i).getName().split("__")[1].replaceAll("%2b", " "), rosterGroups.get(i));
 		}
 	
-		rosterGroups = new ArrayList<>();
+		rosterGroups = new ArrayList<RosterGroup>();
 		
 		for (TreeMap.Entry<String,RosterGroup> entry: tMap.entrySet()) {
 			RosterGroup holder = entry.getValue();
@@ -139,7 +139,7 @@ public class ChatGroupsAdapter extends BaseAdapter{
 											notifyDataSetChanged();
 										}
 									});									
-								} catch (Exception ignored) {
+								} catch (Exception e) {
 								}
 
 							}

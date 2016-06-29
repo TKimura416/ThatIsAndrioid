@@ -13,11 +13,11 @@ import com.seasia.myquick.model.GetSubscriptionHistoryParams;
 
 
 public class CustomAdapter_PaymentSetting extends BaseAdapter {
-	private final GetSubscriptionHistoryParams[] mHistory;
+	GetSubscriptionHistoryParams[] mHistory;
 	private String MY_QUICK_ID ="";
 
 
-	private final LayoutInflater layoutinflater;
+	private LayoutInflater layoutinflater;
 	public CustomAdapter_PaymentSetting(Context context,GetSubscriptionHistoryParams[] subscriptionHistory) {
 
 		layoutinflater = LayoutInflater.from(context);

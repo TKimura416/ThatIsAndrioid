@@ -72,19 +72,19 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     private String personFirstName;
     private String personLastname;
     private Handler handler;
-    private final ArrayList<String> jids = new ArrayList<>();
-    private final ArrayList<String> listcardname = new ArrayList<>();
-    private final ArrayList<String> listcardlastname = new ArrayList<>();
-    private final ArrayList<String> listcardprofilepic = new ArrayList<>();
-    private final ArrayList<String> messageList = new ArrayList<>();
-    private final ArrayList<String> timeList = new ArrayList<>();
-    private final ArrayList<String> userTypeList = new ArrayList<>();
+    private ArrayList<String> jids = new ArrayList<String>();
+    private ArrayList<String> listcardname = new ArrayList<String>();
+    private ArrayList<String> listcardlastname = new ArrayList<String>();
+    private ArrayList<String> listcardprofilepic = new ArrayList<String>();
+    private ArrayList<String> messageList = new ArrayList<String>();
+    private ArrayList<String> timeList = new ArrayList<String>();
+    private ArrayList<String> userTypeList = new ArrayList<String>();
     private ContactActivity hostActivity;
-    private ArrayList<String> filteredArrayList = new ArrayList<>();
-    private ArrayList<String> filteredFirstName = new ArrayList<>();
-    private ArrayList<String> filteredLastName = new ArrayList<>();
-    private ArrayList<String> filteredProfilePic = new ArrayList<>();
-    private ArrayList<String> filteredMessage = new ArrayList<>();
+    private ArrayList<String> filteredArrayList = new ArrayList<String>();
+    private ArrayList<String> filteredFirstName = new ArrayList<String>();
+    private ArrayList<String> filteredLastName = new ArrayList<String>();
+    private ArrayList<String> filteredProfilePic = new ArrayList<String>();
+    private ArrayList<String> filteredMessage = new ArrayList<String>();
     private AlertDialog alertDialog;
     private ArrayList<String> getRosterHistoryList;
     private ArrayList<Integer> rosterHistoryToBeDeleted;
@@ -165,8 +165,8 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     }
 
     private void initialiseSharedPreference() {
-        mSharedPreferences_reg = getActivity().getSharedPreferences("register_data", getActivity().MODE_PRIVATE);
-        mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_PRIVATE);
+        mSharedPreferences_reg = getActivity().getSharedPreferences("register_data", getActivity().MODE_WORLD_READABLE);
+        mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_WORLD_READABLE);
         AppSinglton.userId = mSharedPreferences.getString("USERID", "");
     }
 
@@ -306,7 +306,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                             profilePicDrawable = null;
                         }
                     }
-                    if (Utility.googleServicesUnavailable) {
+                    if (Utility.googleServicesUnavailable == true) {
                         new Validate_ThatsItId_Async(getActivity(), entryWithoutHost, mValidateThatsItIdInterface).execute();
                     } else {
                         removeIncomingPings();
@@ -344,13 +344,13 @@ public class FragmentChatHistoryScreen extends SuperFragment{
      */
     class ChatUsersAdapter extends BaseAdapter implements Filterable{
 
-        private final LayoutInflater inflater;
-        private ArrayList<String> jids = new ArrayList<>();
-        private ArrayList<String> listcardname = new ArrayList<>();
-        private ArrayList<String> listcardprofilepic = new ArrayList<>();
-        private ArrayList<String> messageList = new ArrayList<>();
-        private ArrayList<String> timeList = new ArrayList<>();
-        private ArrayList<String> userTypeList = new ArrayList<>();
+        private LayoutInflater inflater;
+        private ArrayList<String> jids = new ArrayList<String>();
+        private ArrayList<String> listcardname = new ArrayList<String>();
+        private ArrayList<String> listcardprofilepic = new ArrayList<String>();
+        private ArrayList<String> messageList = new ArrayList<String>();
+        private ArrayList<String> timeList = new ArrayList<String>();
+        private ArrayList<String> userTypeList = new ArrayList<String>();
 
 
         public ChatUsersAdapter(ArrayList<String> jids,	ArrayList<String> listcardname,
@@ -445,11 +445,11 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                 protected FilterResults performFiltering(CharSequence constraint) {
                     FilterResults filterResults = new FilterResults();
 
-                    filteredArrayList = new ArrayList<>();
-                    filteredFirstName = new ArrayList<>();
-                    filteredLastName = new ArrayList<>();
-                    filteredProfilePic = new ArrayList<>();
-                    filteredMessage = new ArrayList<>();
+                    filteredArrayList =  new ArrayList<String>();
+                    filteredFirstName =  new ArrayList<String>();
+                    filteredLastName = new ArrayList<String>();
+                    filteredProfilePic =  new ArrayList<String>();
+                    filteredMessage =  new ArrayList<String>();
 
                     if(constraint != null && jids!=null  && constraint.length()>0) {
                         for(int i =0 ; i <jids.size();i++){
@@ -560,7 +560,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
      *  Check if roster entry exists on Admin
      */
 
-    private final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+    ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
         @Override
         public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

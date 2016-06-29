@@ -53,6 +53,7 @@ public class FileReceiveraAsync_  {
 		parentContext=context;
 		encryptionManager = new EncryptionManager();
 
+		// Create storage for downloaded file
 		FILE_PATH=Environment.getExternalStorageDirectory().getAbsolutePath() +"/Thats It";
 
 		File wallpaperDirectory = new File(FILE_PATH);
@@ -96,6 +97,10 @@ public class FileReceiveraAsync_  {
 			}}.start();
 	}
 
+	/**
+	 * Close the notification progress bar after file downloaded
+	 * @param notificaion_id
+     */
 	private void stopIndeterminantProgressBar( final int notificaion_id){
 		try {
 			new One2OneChatDb(parentContext).updateFileDownloadstatus(incomingFileName);
@@ -159,6 +164,7 @@ public class FileReceiveraAsync_  {
 			while ((read = bis.read(bytes)) != -1) {
 				output.write(bytes, 0, read);
 				count += read;
+				// Display percentage of file downloaded in the progress bar
 				long percentNow = count*100/size;
 				mBuilder.setContentTitle("File Download " +incomingFileName)
 						.setContentText("Downloading File  "+ percentNow + " %")
@@ -177,6 +183,7 @@ public class FileReceiveraAsync_  {
 			ex.printStackTrace();
 			mNotifyManager.cancel(notificaion_id);
 		}
+		// Disconnect your connection from server
 		session.disconnect();
 		channel.disconnect();
 	}

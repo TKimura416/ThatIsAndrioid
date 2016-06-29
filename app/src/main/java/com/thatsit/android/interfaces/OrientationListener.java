@@ -11,5 +11,5 @@ import com.thatsit.android.view.OrientationManager;
  * @author Apr 15, 2015  5:25:07 PM
  */
 public interface OrientationListener {
-	void onOrientationChange(OrientationManager.ScreenOrientation screenOrientation);
+	public void onOrientationChange(OrientationManager.ScreenOrientation screenOrientation);
 }

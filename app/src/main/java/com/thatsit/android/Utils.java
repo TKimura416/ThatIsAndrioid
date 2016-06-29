@@ -47,7 +47,7 @@ public class Utils{
 				os.write(bytes, 0, count);
 			}
 		}
-		catch(Exception ignored){}
+		catch(Exception ex){}
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class Utils{
 				}
 			}
 
-		} catch (SocketException ignored) {
+		} catch (SocketException ex) {
 		}
 		return "no wifi connection.";
 	}
@@ -116,13 +116,15 @@ public class Utils{
 	}
 
 	public static boolean isUserExists() {
-		return Utility.getUserName().length() > 0 && Utility.getPassword().length() > 0;
+		if(Utility.getUserName().length()>0 && Utility.getPassword().length()>0)
+			return true;
+		else return false;
 	}
 
 	public static boolean isLoginTaskRunning = false;
 	public static void loginUser(){
 
-		if(Utility.getUserName().length()>0 && !isLoginTaskRunning){
+		if(Utility.getUserName().length()>0 && isLoginTaskRunning==false){
 			isLoginTaskRunning = true;
 
 			if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication()))
@@ -132,7 +134,7 @@ public class Utils{
 		}
 	}
 
-	private class GetDataAsync extends AsyncTask<Void, Void, AuthenticateUserServiceTemplate> {
+	public class GetDataAsync extends AsyncTask<Void, Void, AuthenticateUserServiceTemplate> {
 
 		@Override
 		protected AuthenticateUserServiceTemplate doInBackground(Void... arg0) {
@@ -157,7 +159,7 @@ public class Utils{
 			}
 
 			try {
-				if(!Utility.serviceBinded){
+				if(Utility.serviceBinded == false){
 					connectXMPPService();
 				}
 			} catch (Exception e) {
@@ -167,7 +169,7 @@ public class Utils{
 		}
 	}
 
-	private synchronized void connectXMPPService() {
+	public synchronized void connectXMPPService() {
 		Intent SERVICE_INTENT = new Intent();
 		Log.e("Service_Utils", "Service_Utils");
 		SERVICE_INTENT.setComponent(new ComponentName(
@@ -221,6 +223,6 @@ public class Utils{
 
 	public static boolean isAppNotOpenedYet() {
 		return Utility.fragmentContact==null;
-	}
+	};
 
 }

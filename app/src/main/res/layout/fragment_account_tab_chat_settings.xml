@@ -260,8 +260,7 @@
         android:background="@drawable/contact_bottom_bar"
         android:orientation="horizontal"
         android:padding="3dp"
-        android:weightSum="100"
-        android:baselineAligned="false">
+        android:weightSum="100" >
 
         <RelativeLayout
             android:id="@+id/rel1"

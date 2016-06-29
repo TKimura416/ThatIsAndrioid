@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/Congratulations"
-                android:textSize="28sp" />
+                android:textSize="28dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -139,7 +139,8 @@
             android:id="@+id/paymentConfirm_submitBtn_rellayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="100dp"
+            android:layout_below="@+id/paymentConfirm_rellayout_idExpDate">
 
             <Button
                 android:id="@+id/paymentConfirm_btn_signin"

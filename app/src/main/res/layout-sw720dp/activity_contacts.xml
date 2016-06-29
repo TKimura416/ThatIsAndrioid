@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_img"
-    tools:context=".activities.ContactActivity" >
+    tools:context=".MainActivity" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -67,8 +67,7 @@
         android:orientation="horizontal"
         android:padding="5dp"
         android:visibility="gone"
-        android:weightSum="100"
-        android:baselineAligned="false">
+        android:weightSum="100" >
 
         <RelativeLayout
             android:id="@+id/linlytTabOne"

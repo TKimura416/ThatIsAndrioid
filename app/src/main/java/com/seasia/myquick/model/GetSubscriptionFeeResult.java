@@ -1,7 +1,5 @@
 package com.seasia.myquick.model;
 
-import java.util.Arrays;
-
 public class GetSubscriptionFeeResult {
 	 private Status Status;
 
@@ -30,6 +28,6 @@ public class GetSubscriptionFeeResult {
 	    @Override
 	    public String toString()
 	    {
-	        return "ClassPojo [Status = "+Status+", GetSubscriptionFeeParams = "+ Arrays.toString(GetSubscriptionFeeParams) +"]";
+	        return "ClassPojo [Status = "+Status+", GetSubscriptionFeeParams = "+GetSubscriptionFeeParams+"]";
 	    }
 }

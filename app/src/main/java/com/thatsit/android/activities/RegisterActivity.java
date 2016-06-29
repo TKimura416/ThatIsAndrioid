@@ -10,10 +10,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -65,7 +67,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 		OnTouchListener,OrientationListener {
 
 	private Button mBtn_Register;
-	private static TextView mTxt_ThatsItId;
+	public static TextView mTxt_ThatsItId;
 	private EditText mEdt_Password, mEdt_ConfrmPassword, mEdt_MeesagePasswd,
 			mEdt_ConfirmMeesagePasswd,edt_Register_email,edt_enterPincode;
 	private String country, age, gender;
@@ -81,7 +83,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	private SharedPreferences settings;
 	private XmppManager mXmppManager;
 	private XMPPConnection mConnection;
-	private final Utility mUtility = new Utility();
+	private Utility mUtility = new Utility();
 	private String Chat_password;
 	private SharedPreferences mSharedPreferences;
 	private RelativeLayout rltv_top;
@@ -104,7 +106,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 			//getValueFromBundle();
 			initialise_Variables();
 			initialiseSharedPreferences();
-			if(Utility.hasPincode){
+			if(Utility.hasPincode == true){
 				rltv_top.setVisibility(View.GONE);
 				edt_enterPincode.setVisibility(View.VISIBLE);
 			}else{
@@ -249,19 +251,15 @@ public class RegisterActivity extends Activity implements OnClickListener,
 					int selectedOption = mRgroup.getCheckedRadioButtonId();
 					radioGenderButton = (RadioButton) findViewById(selectedOption);
 					gender = radioGenderButton.getText().toString();
-					switch (gender) {
-						case "Female":
-							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							break;
-						case "Male":
-							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							break;
-						default:
-							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							break;
+					if (gender.equals("Female")) {
+						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+					} else if (gender.equals("Male")) {
+						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+					} else {
+						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -276,19 +274,15 @@ public class RegisterActivity extends Activity implements OnClickListener,
 					int selectedOption = mRgroup.getCheckedRadioButtonId();
 					radioGenderButton = (RadioButton) findViewById(selectedOption);
 					gender = radioGenderButton.getText().toString();
-					switch (gender) {
-						case "Female":
-							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							break;
-						case "Male":
-							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							break;
-						default:
-							mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							break;
+					if (gender.equals("Female")) {
+						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+					} else if (gender.equals("Male")) {
+						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+					} else {
+						mRadio_Female.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_Male.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -338,7 +332,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Method to save user login credentials into local sharedprefences database.
 	 */
-	private void saveCredential() {
+	void saveCredential() {
 		try {
 			SharedPreferences.Editor edit = settings.edit();
 			edit.putString(ThatItApplication.ACCOUNT_USERNAME_KEY, chatUserName);
@@ -402,7 +396,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 			} else if (Chat_password.trim().toCharArray().length < 6) {
 				Toast.makeText(RegisterActivity.this,"Minimum Chat Password Length Should be 6 Characters ",Toast.LENGTH_SHORT).show();
 
-			} else if (Utility.hasPincode
+			} else if (Utility.hasPincode == true
 					&& edt_enterPincode.getText().toString().trim().toCharArray().length == 0) {
 				Toast.makeText(RegisterActivity.this,"Enter Promotional Code",Toast.LENGTH_SHORT).show();
 			} else if(mEdt_MeesagePasswd.getText().toString().trim()
@@ -421,7 +415,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 					Chat_password = Chat_password.replace("%","2");
 				}
 
-				if(Utility.hasPincode){
+				if(Utility.hasPincode == true){
 					chatUserName = edt_enterPincode.getText().toString().trim().toUpperCase();
 					AppSinglton.thatsItPincode = chatUserName;
 
@@ -477,9 +471,9 @@ public class RegisterActivity extends Activity implements OnClickListener,
 
 	private void initialise_Spinner_Age() {
 		try {
-			ArrayList<String> yearsTitle = new ArrayList<>();
+			ArrayList<String> yearsTitle = new ArrayList<String>();
 			yearsTitle.add("Select Your Birth Year");
-			ArrayList<String> years = new ArrayList<>();
+			ArrayList<String> years = new ArrayList<String>();
 			int thisYear = Calendar.getInstance().get(Calendar.YEAR);
 
 			/*for (int i = 1900; i <= thisYear; i++) {
@@ -490,7 +484,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 				years.add(Integer.toString(i));
 			}
 			yearsTitle.addAll(years);
-			ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 					R.layout.spinner_items, yearsTitle);
 			mYearOfBirthSpinner.setAdapter(adapter);
 		} catch (Exception e) {
@@ -503,7 +497,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	 * Get register details  for the Thats It ID.
 	 */
 
-	private final RegisterInterface mRegisterInterface = new RegisterInterface() {
+	RegisterInterface mRegisterInterface = new RegisterInterface() {
 
 		@Override
 		public void registerInterfaceMethod(
@@ -511,25 +505,23 @@ public class RegisterActivity extends Activity implements OnClickListener,
 
 			try {
 				RetVal = mInsertUserResponseTemplate.getInsertUserDataResult().getmInsertUserDataParams()[0].getRetVal().toString();
-				switch (RetVal) {
-					case "1":
-						AppSinglton.userId = mInsertUserResponseTemplate.getInsertUserDataResult().getmInsertUserDataParams()[0].getUserId();
-						mSharedPreferences.edit().putString("USERID", AppSinglton.userId).commit();
+				if (RetVal.equals("1")) {
+					AppSinglton.userId = mInsertUserResponseTemplate.getInsertUserDataResult().getmInsertUserDataParams()[0].getUserId();
+					mSharedPreferences.edit().putString("USERID",AppSinglton.userId).commit();
 
-						if (Utility.hasPincode) {
-							new RegisterUserOnChatServerAsyncTask(RegisterActivity.this, mConnection, chatUserName, login_password).execute();
-						}
-						break;
-					case "0":
-						Utility.stopDialog();
-						Utility.unlockScreenRotation(RegisterActivity.this);
-						Toast.makeText(getApplicationContext(), "Email ID Already Exists.", Toast.LENGTH_SHORT).show();
-						break;
-					case "2":
-						Utility.stopDialog();
-						Utility.unlockScreenRotation(RegisterActivity.this);
-						Toast.makeText(getApplicationContext(), "Promotion Code Already Exists.", Toast.LENGTH_SHORT).show();
-						break;
+					if(Utility.hasPincode == true){
+						new RegisterUserOnChatServerAsyncTask(RegisterActivity.this,mConnection,chatUserName,login_password).execute();
+					}
+				}
+				else if(RetVal.equals("0")){
+					Utility.stopDialog();
+					Utility.unlockScreenRotation(RegisterActivity.this);
+					Toast.makeText(getApplicationContext(),"Email ID Already Exists.", Toast.LENGTH_SHORT).show();
+				}
+				else if(RetVal.equals("2")){
+					Utility.stopDialog();
+					Utility.unlockScreenRotation(RegisterActivity.this);
+					Toast.makeText(getApplicationContext(),"Promotion Code Already Exists.", Toast.LENGTH_SHORT).show();
 				}
 			} catch (Exception e) {
 				Utility.stopDialog();
@@ -543,7 +535,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	 * Check if pincode exists on the server.
 	 */
 
-	private final ValidatePincodeInterface mValidatePincodeInterface = new ValidatePincodeInterface() {
+	ValidatePincodeInterface mValidatePincodeInterface = new ValidatePincodeInterface() {
 
 		@Override
 		public void validatePincode(ValidatePincode mValidatePincode) {
@@ -572,7 +564,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Get Subscription fee.
 	 */
-	private final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
+	SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
 
 		@Override
 		public void subscriptionFee(
@@ -610,7 +602,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	/**
 	 * Get 16-digit user ID.
 	 */
-	private final UserIdInterface mUserIdInterface = new UserIdInterface() {
+	UserIdInterface mUserIdInterface = new UserIdInterface() {
 
 		@Override
 		public void getUserId(GenerateKeyIdResponse mGenerateKeyIdResponse) {

@@ -18,7 +18,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:text="@string/terms_and_conditions"
+            android:text="Terms and Conditions"
             android:textColor="#ffffff"
             android:textSize="@dimen/title_text_720_portrait"
             android:textStyle="bold" />
@@ -70,8 +70,7 @@
         android:layout_height="wrap_content"
         android:weightSum="2"
         android:layout_alignParentBottom="true"
-        android:layout_margin="15dp"
-        android:baselineAligned="false">
+        android:layout_margin="15dp">
 
         <RelativeLayout
             android:layout_width="0dp"

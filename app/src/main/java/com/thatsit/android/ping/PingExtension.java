@@ -9,10 +9,10 @@ import org.jivesoftware.smack.packet.IQ;
 public class PingExtension extends IQ {
 
     /** Namespace of the Ping XEP. */
-    private static final String NAMESPACE = "urn:xmpp:ping";
+    public static final String NAMESPACE = "urn:xmpp:ping";
 
     /** Xml element name for the ping. */
-    private static final String ELEMENT = "ping";
+    public static final String ELEMENT = "ping";
 
     /**
      * Create a ping iq packet.

@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/Congratulations"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/Id_Succesful"
-                android:textSize="15sp" />
+                android:textSize="15dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/Essential_Below"
-                android:textSize="15sp" />
+                android:textSize="15dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -93,14 +93,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="THAT'S IT ID     : "
-                    android:textSize="15sp" />
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/paymentConfirm_txtview_idNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/paymentConfirm_txtview_thatsId"
-                    android:textSize="15sp" />
+                    android:textSize="15dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -114,14 +114,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="EXPIRY DATE   : "
-                    android:textSize="15sp" />
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/paymentConfirm_txtview_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/paymentConfirm_txtview_ExpDate"
-                    android:textSize="15sp" />
+                    android:textSize="15dp" />
             </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>

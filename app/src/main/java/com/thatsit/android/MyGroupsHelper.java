@@ -1,5 +1,6 @@
 package com.thatsit.android;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -38,11 +39,11 @@ import com.seasia.myquick.model.AppSinglton;
 
 public class MyGroupsHelper {
 
-	private static Activity mContext;
+	public static Activity mContext;
 	private static String  groupName="";
-	private static final ParseUtil parseUtil = new ParseUtil();
+	private static ParseUtil parseUtil = new ParseUtil();
 	private static Handler handler = new Handler();
-	private static Dialog createGroupDialog;
+	public static Dialog createGroupDialog;
 	private static ArrayList<RosterGroup> list = null;
 
 
@@ -80,9 +81,9 @@ public class MyGroupsHelper {
 									} else {
 
 										Collection<RosterGroup> rGroups = MainService.mService.connection.getRoster().getGroups();
-										list = new ArrayList<>(rGroups);
+										list = new ArrayList<RosterGroup>(rGroups);
 
-										ArrayList<String> groupList = new ArrayList<>();
+										ArrayList<String> groupList = new ArrayList<String>();
 										for (int i = 0; i < list.size(); i++) {
 											groupList.add(list.get(i).getName().split("__")[1].replaceAll("%2b", " "));
 										}
@@ -192,7 +193,7 @@ public class MyGroupsHelper {
 
 								RosterGroup rGroup = mConnection.getRoster().getGroup(
 										chatGrpInstance.getRoom().split("@")[0]);
-								String groupName;
+								String groupName=null;
 								try {
 									groupName = rGroup.getName();
 									InviteContactsToRoster.addRemove(chat_option.LEAVE, AppSinglton.thatsItPincode,groupName);
@@ -292,7 +293,7 @@ public class MyGroupsHelper {
 		builder.show();
 	}
 
-	private static void leaveGroupFromParse(final String mGroupName, final MultiUserChat chatGrpInstance){
+	static void leaveGroupFromParse(final String  mGroupName,final MultiUserChat chatGrpInstance){
 
 		parseUtil.leaveGroup( mGroupName , AppSinglton.thatsItPincode, new ParseCallbackListener() {
 
@@ -330,7 +331,7 @@ public class MyGroupsHelper {
 		alert.show();
 	}
 
-	private static void joinParse(final String groupName_complete, final XMPPConnection xmppConnectionInstance){
+	public static void joinParse(final String groupName_complete,final XMPPConnection xmppConnectionInstance){
 		parseUtil.joinGroup(groupName_complete, AppSinglton.thatsItPincode, new ParseCallbackListener() {
 			@Override
 			public void done(List<ParseObject> receipients, ParseException e,

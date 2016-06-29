@@ -79,7 +79,7 @@ public class GridViewActivity extends Activity{
 			public void onItemClick(AdapterView<?> arg0, View arg1, final int position,long arg3) {
 
 				try {
-					if(MUCActivity.chek_Activity){
+					if(MUCActivity.chek_Activity == true){
 						MUCActivity.edtChat.append(processSmileyCodes(ImageAdapter.mThumbIdsForDispatch[position]));
 					}
 					else{

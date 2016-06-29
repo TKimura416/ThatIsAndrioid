@@ -7,15 +7,16 @@ import java.net.Socket;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 public class ClientChatThread implements Runnable {
 
 	public static boolean connected;
-	private final String  ip;
-	private final Activity act;
+	String  ip;
+	Activity act;
 	int buffersize = 0;
-	private final String msg;
-	private Socket socket2;
+	String msg;
+	Socket socket2;
 
 	public ClientChatThread(String ips,Activity act,String msg){
 		this.ip = ips;

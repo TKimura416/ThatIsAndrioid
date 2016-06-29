@@ -60,7 +60,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 			Utility.setDeviceTypeAndSecureFlag(PaymentConfirmationActivity.this);
 			mXmppManager = XmppManager.getInstance();
 			mConnection = mXmppManager.getXMPPConnection();
-			mSharedPreferences = getSharedPreferences("USERID", MODE_PRIVATE);
+			mSharedPreferences = getSharedPreferences("USERID", MODE_WORLD_READABLE);
 			AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 
 			initialise_Variables();
@@ -118,7 +118,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 		case R.id.paymentConfirm_btn_signin:
 			try {
 				if(checkRegistration){
-					Toast.makeText(PaymentConfirmationActivity.this, "You Are Not Registered.Please Register To Continue", Toast.LENGTH_LONG).show();
+					Toast.makeText(PaymentConfirmationActivity.this, "You Are Not Registered.Please Register To Continue", 0).show();
 					return;
 				}
 				if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
@@ -163,7 +163,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 	 * background service to maintain connection.
 	 */
 
-	private final ServiceConnection serviceConnection = new ServiceConnection() {
+	private ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			try {
@@ -208,7 +208,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 					mTxt_ExpiryDate.setText("" + DaysLeft);
 				}else{
 					checkRegistration=true;
-					Toast.makeText(PaymentConfirmationActivity.this, "Registration Unsuccessfull", Toast.LENGTH_LONG).show();
+					Toast.makeText(PaymentConfirmationActivity.this, "Registration Unsuccessfull", 0).show();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -231,7 +231,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 	 *  Get expiration date for the jID.
 	 */
 
-	private final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(

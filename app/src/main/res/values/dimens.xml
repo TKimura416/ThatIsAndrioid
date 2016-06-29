@@ -4,10 +4,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="keyboard_height">230dip</dimen>
-    <dimen name="title_text">20sp</dimen>
-    <dimen name="welcome">18sp</dimen>
-    <dimen name="notification_text_size">18sp</dimen>
-    <dimen name="text_size_added_removed">20sp</dimen>
-    <bool name="isTablet">false</bool>
 
+    <!--
+    -->
+    <dimen name="title_text">20dp</dimen>
+    <dimen name="welcome">18dp</dimen>
+
+    <bool name="isTablet">false</bool>
 </resources>

@@ -1,5 +1,6 @@
 package com.thatsit.android.fragement;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -69,7 +70,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	private SharedPreferences mSharedPreferences;
 	private int ACTION;
 	private String ExpiryDate;
-	private String SubscribeDate;
+	String SubscribeDate;
 	private ContactActivity hostActivity;
 	private LinearLayout fragInvite_tabs_lnrlayout;
 
@@ -106,7 +107,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 		initialise_Listener();
 		
 		Utility.fragPaymentSettingsOpen = true;
-		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_PRIVATE);
+		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_WORLD_READABLE);
 		AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 		try {
 
@@ -219,7 +220,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  UPDATE SUBSCRIPTION INTERFACE
 	 */
-	private final UpdateSubscriptionInterface mUpdateSubscriptionInterface = new UpdateSubscriptionInterface() {
+	UpdateSubscriptionInterface mUpdateSubscriptionInterface = new UpdateSubscriptionInterface() {
 
 		@Override
 		public void updateSubscription(UpdateSubsciptionTemplate updateSubsciption) {
@@ -249,7 +250,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  GET NO OF DAYS LEFT TO EXPIRE
 	 */
-	private final DaysLeftInterface mDaysLeftInterface = new DaysLeftInterface() {
+	DaysLeftInterface mDaysLeftInterface = new DaysLeftInterface() {
 
 		@Override
 		public void daysLeft(CheckSubscriptionKeyValidity daysLeft) {
@@ -275,7 +276,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	 *  GET SUBSCRIPTION HISTORY (EXPIRY DATE)
 	 */
 
-	private final SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
+	SubscriptionHistoryInterface mSubscriptionHistoryInterface = new SubscriptionHistoryInterface() {
 
 		@Override
 		public void subscriptionHistory(
@@ -313,7 +314,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	/**
 	 *  GET SUBCRIPTION FEE
 	 */
-	private final SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
+	SubscriptionFeeInterface mSubscriptionFeeInterface = new SubscriptionFeeInterface() {
 
 		@Override
 		public void subscriptionFee(
@@ -336,7 +337,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 		}
 	};
 
-	private void checkTimePassed(){
+	public void checkTimePassed(){
 
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("MMM-dd-yyyy");

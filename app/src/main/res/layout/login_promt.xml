@@ -57,7 +57,7 @@
             android:singleLine="true"
             android:text="Sign in with different account"
             android:textColor="#0000ff"
-            android:textSize="@dimen/notification_text_size"
+            android:textSize="18dp"
             android:textStyle="italic" />
 
         <LinearLayout

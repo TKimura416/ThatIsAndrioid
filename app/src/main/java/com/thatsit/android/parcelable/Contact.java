@@ -40,7 +40,7 @@ public class Contact implements Parcelable {
    private String mSelectedRes;
    private String mMsgState;
    private List<String> mRes;
-   private final List<String> mGroups = new ArrayList<>();
+   private final List<String> mGroups = new ArrayList<String>();
    private String mName;
    private String mAvatarId;
 
@@ -57,7 +57,7 @@ public class Contact implements Parcelable {
 	   mName = in.readString();
 	   mMsgState = in.readString();
 	   mAvatarId = in.readString();
-	   mRes = new ArrayList<>();
+	   mRes = new ArrayList<String>();
 	   in.readStringList(mRes);
 	   in.readStringList(mGroups);
 
@@ -72,7 +72,7 @@ public class Contact implements Parcelable {
    mName = mJID;
    mStatus = Status.CONTACT_STATUS_DISCONNECT;
    mMsgState = null;
-   mRes = new ArrayList<>();
+   mRes = new ArrayList<String>();
    String res = StringUtils.parseResource(jid);
    mSelectedRes = res;
    if (!"".equals(res))
@@ -92,7 +92,7 @@ public class Contact implements Parcelable {
    mName = mJID;
    mStatus = Status.CONTACT_STATUS_DISCONNECT;
    mMsgState = null;
-   mRes = new ArrayList<>();
+   mRes = new ArrayList<String>();
    String res = StringUtils.parseResource(enduri);
    mSelectedRes = res;
    mRes.add(res);
@@ -182,7 +182,7 @@ public class Contact implements Parcelable {
     * Get the groups the contact is in.
     * @return the mGroups
     */
-   private List<String> getGroups() {
+   public List<String> getGroups() {
    return mGroups;
    }
 
@@ -214,7 +214,7 @@ public class Contact implements Parcelable {
     * Get the list of resource for the contact.
     * @return the mRes
     */
-   private List<String> getMRes() {
+   public List<String> getMRes() {
    return mRes;
    }
 

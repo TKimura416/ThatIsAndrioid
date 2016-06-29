@@ -4,5 +4,5 @@ import com.seasia.myquick.model.SubcriptionFeeTemplate;
 
 public interface SubscriptionFeeInterface {
 
-	void subscriptionFee(SubcriptionFeeTemplate mSubcriptionFeeTemplate);
+	public void subscriptionFee(SubcriptionFeeTemplate mSubcriptionFeeTemplate);
 }

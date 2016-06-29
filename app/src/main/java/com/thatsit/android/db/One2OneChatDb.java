@@ -1,5 +1,9 @@
 package com.thatsit.android.db;
 
+import java.util.ArrayList;
+
+import org.jivesoftware.smack.RosterEntry;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -80,7 +84,8 @@ public class One2OneChatDb extends Database {
 			values.put(DbOpenHelper.COLUMN_FILE_DOWNLOAD_STATUS, "1"); // 1 == file has been downloaded successfully
 			long result = databaseW.update(TABLE_NAME, values, "subject='" + fileName + "'" + andUserName(), null);
 			Log.e("UPDATE_STATUS" , result+"");
-			return result > 0;
+			if(result>0) return true;
+			else return false;
 		}
 	}
 
@@ -97,7 +102,11 @@ public class One2OneChatDb extends Database {
 			if(cursor!=null)
 				cursor.moveToFirst();
 			String downloadStatus=cursor.getString(cursor.getColumnIndex(DbOpenHelper.COLUMN_FILE_DOWNLOAD_STATUS));
-			return !downloadStatus.equalsIgnoreCase("0");
+			if(downloadStatus.equalsIgnoreCase("0")){
+				return false;
+			}else{
+				return true;
+			}
 		}catch(Exception e){
 			return false;
 		}

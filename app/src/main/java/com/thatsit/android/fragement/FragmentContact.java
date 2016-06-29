@@ -4,8 +4,6 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
-
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.Roster;
 import org.jivesoftware.smack.RosterEntry;
@@ -30,7 +28,6 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -90,14 +87,14 @@ import com.seasia.myquick.model.FetchUserSettingTemplates;
 
 public class FragmentContact extends Fragment implements OnClickListener {
 
-	private final boolean LastFragment = false;
-	private final String TAG = "FragmentContact";
-	private ListView mlistView_Contacts;
+	private boolean LastFragment = false;
+	final String TAG = "FragmentContact";
+	public ListView mlistView_Contacts;
 	private View mView;
 	private Handler handler = new Handler();
 	private FragmentManager mFragmentManager;
 	private FragmentTransaction mFragmentTransaction;
-	private EditText mEdt_Search;
+	public EditText mEdt_Search;
 	private ImageView profile_pic;
 	private TextView txt_pseudoName, txt_desciption,txt_friendlist;
 	private String profileImageString,entryWithoutHost;
@@ -108,12 +105,12 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private XMPPConnection mConnection;
 	private XmppManager mXmppManager;
 	private ThatItApplication myApplication;
-	private final MyRosterListner myRosterListner = new MyRosterListner();
+	private MyRosterListner myRosterListner = new MyRosterListner();
 	public static UsersAdapter usersAdapter;
 	public static ImageView imgVwAddNewGroup;
 	private Button btnToggleContacts, btnToggleGroups;
 	private ListView lstvwChatGroups;
-	private ChatGroupsAdapter chatGroupsAdapter;
+	public ChatGroupsAdapter chatGroupsAdapter;
 	private ArrayList<RosterGroup> list = null;
 	public ProgressBar progressBar_groups;
 	private RosterEntry entry,entryToBeRemoved;
@@ -124,17 +121,16 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private ArrayList<Integer> rosterHistoryToBeDeleted;
 	private VCard card;
 	private ImageView refresh_icon;
-	private final ArrayList<String> jids = new ArrayList<>();
-	private final ArrayList<String> listcardname = new ArrayList<>();
-	private final ArrayList<String> listcardlastname = new ArrayList<>();
-	private final ArrayList<String> listcardprofilepic = new ArrayList<>();
+	private ArrayList<String> jids = new ArrayList<String>();
+	private ArrayList<String> listcardname = new ArrayList<String>();
+	private ArrayList<String> listcardlastname = new ArrayList<String>();
+	private ArrayList<String> listcardprofilepic = new ArrayList<String>();
 	private String personFirstName, personLastName;
 	private SharedPreferences mSharedPreferences,mSharedPreferences_reg;
-	private final ParseUtil parseUtil = new ParseUtil();
+	private ParseUtil parseUtil = new ParseUtil();
 	private ResetRoster resetRoster = null;
 	private boolean dialogOpen = false;
-	public boolean areGroupsReady;
-	private boolean groupsEmpty = false;
+	public boolean areGroupsReady, groupsEmpty = false;
 	private Activity activity;
 	private Dialog dialogChatPassword = null;
 	private EncryptionManager encryptionManager;
@@ -147,7 +143,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				Constants.MAINSERVICE_PACKAGE, Constants.MAINSERVICE_PACKAGE
 				+ Constants.MAINSERVICE_NAME));
 	}
-	private final RostListener rostListener = new RostListener();
+	private RostListener rostListener = new RostListener();
 	private ProgressDialog progressDialog;
 	private SharedPreferences mSettings;
 
@@ -240,7 +236,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				callWebServiceData();
 				setView();
 
-				if(Utility.groupNotificationClicked){
+				if(Utility.groupNotificationClicked == true){
 					Utility.groupNotificationClicked = false;
 					displayGroupSection();
 					//Utility.stopDialog();
@@ -253,7 +249,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	}
 
 	private void checkBooleanValue() {
-		if(FragmentContact.groupPressed){
+		if(FragmentContact.groupPressed == true){
 			displayContactSection();
 			FragmentContact.groupPressed = false;
 		}
@@ -276,7 +272,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		}
 	}
 
-	private void joinAndSetGroupAdapter() {
+	public void joinAndSetGroupAdapter() {
 		//setGroupAdapter();
 		MainService.mService.joinToGroups();
 	}
@@ -323,7 +319,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	 */
 	private void callWebServiceData() {
 
-		if(Utility.FragmentContactDataFetchedOnce){
+		if(Utility.FragmentContactDataFetchedOnce == true){
 			getDataFromSharedPrefernce();
 		} else {
 			//Utility.startDialog(activity);
@@ -431,7 +427,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 						Utility.showMessage(getResources().getString(R.string.Network_Availability));
 					}
 					else if(!MainService.mService.connection.isConnected() && !MainService.mService.connection.isAuthenticated()){
-						Utility.showMessage("Please wait while connection is restored");
+						//Utility.showMessage("Please wait while connection is restored");
 					}
 					else {
 						itemLongClickPressed = true;
@@ -458,12 +454,12 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					}
 
 					else if(!mConnection.isConnected() && !mConnection.isAuthenticated()){
-						Utility.showMessage("Please wait while connection is restored");
+						//Utility.showMessage("Please wait while connection is restored");
 					}
 					else {
 						if(!dialogOpen){
 
-							if (!itemLongClickPressed) {
+							if (itemLongClickPressed != true) {
 
 								//mEdt_Search.setText("");
 								ACTION = 1;
@@ -618,7 +614,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					}
 					try {
 						String jId = rosterEntries.get(i).getUser().split("@")[0];
-						String firstname;
+						String firstname = "";
 						String lastname = "";
 						String profilePic = "";
 						if(!TextUtils.isEmpty(card.getFirstName())){
@@ -677,7 +673,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 						}
 						else{
 							String jId = rosterEntries.get(i).getUser().split("@")[0];
-							String firstname;
+							String firstname = "";
 							String lastname = "";
 							String profilePic = "";
 
@@ -790,7 +786,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				});
 
 			}else{
-				Utility.showMessage("Please wait while connection is restored");
+				//Utility.showMessage("Please wait while connection is restored");
 			}
 		} else {
 			Utility.showMessage(getResources().getString(R.string.Network_Availability));
@@ -805,16 +801,14 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		@Override
 		public void onReceive(Context arg0, final Intent arg1) {
 			try {
-				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-					if (Objects.equals(arg1.getAction(), MainService.CHAT)) {
-                        displayPingOnList(arg1);
-                        if (FragmentContact.this.isVisible()) {
-                            displayPingOnList(arg1);
-                            mService.setIncomingChatNotification();
-                        } else {
-                            mService.setIncomingChatNotification();
-                        }
-                    }
+				if (arg1.getAction() == MainService.CHAT) {
+					displayPingOnList(arg1);
+					if (FragmentContact.this.isVisible()) {
+						displayPingOnList(arg1);
+						mService.setIncomingChatNotification();
+					} else {
+						mService.setIncomingChatNotification();
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -827,7 +821,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		addIncommingChatListner();
 	}
 
-	private void addIncommingChatListner() {
+	void addIncommingChatListner() {
 		try {
 			if (MainService.mService.connection.isConnected()) {
 				ChatManager chatmanager = MainService.mService.connection.getChatManager();
@@ -868,13 +862,13 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		@SuppressLint("DefaultLocale")
 		@Override
 		public void done(List<ParseObject> receipients, ParseException e,int requestId) {
-			ArrayList<String> receipients_to_be_rejected = new ArrayList<>();
+			ArrayList<String> receipients_to_be_rejected = new ArrayList<String>();
 			rosterEntries = getUSerRosters();
 
 			if (e == null) {
 				if (rosterEntries == null)
-					rosterEntries = new ArrayList<>();
-				ArrayList<RosterEntry> rosterEntries1 = new ArrayList<>();
+					rosterEntries = new ArrayList<RosterEntry>();
+				ArrayList<RosterEntry> rosterEntries1 = new ArrayList<RosterEntry>();
 				for (int i = 0; i < receipients.size(); i++) {
 					Resources resources = myApplication.getResources();
 					ParseObject object = receipients.get(i);
@@ -893,6 +887,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				}
 
 				rosterEntries = rosterEntries1;
+				rosterEntries1 = null;
 			}
 			resetRoster = new ResetRoster(rosterEntries);
 			resetRoster.execute();
@@ -1004,7 +999,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	}
 
 	private boolean JidsExist = false;
-	private void taskOnCreate() {
+	public void taskOnCreate() {
 
 		Cursor cursor = One2OneChatDb.getAllRoster();
 		cursor.moveToFirst();
@@ -1138,7 +1133,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		}
 	}
 
-	private void displayContactSection() {
+	public void displayContactSection() {
 		if(getResources().getBoolean(R.bool.isTablet)){
 			ContactActivity.textView_toolbar_title.setText("Contacts");
 		}
@@ -1228,7 +1223,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				areGroupsReady = false;
 				groupsEmpty = false;
 				Collection<RosterGroup> rGroups = MainService.mService.connection.getRoster().getGroups();
-				list = new ArrayList<>(rGroups);
+				list = new ArrayList<RosterGroup>(rGroups);
 				if (list != null) {
 					if (list.size() == 0) {
 						groupsEmpty = true;
@@ -1271,6 +1266,8 @@ public class FragmentContact extends Fragment implements OnClickListener {
 			public void run() {
 				try {
 					usersAdapter.notifyDataSetChanged();
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -1311,7 +1308,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					}
 					else if(!(MainService.mService.connection.isConnected()|| MainService.mService.connection.isAuthenticated())){
 						MainService.mService.connectAsync();
-						Utility.showMessage("Please wait while connection is restored");
+						//Utility.showMessage("Please wait while connection is restored");
 					}
 				}
 				break;
@@ -1321,7 +1318,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	/**
 	 * Enter chat password before going to chat screen or display room list
 	 */
-	private void openChatPasswordDialog(final Activity activity) {
+	public void openChatPasswordDialog(final Activity activity ) {
 
 		dialogChatPassword=null;
 
@@ -1357,7 +1354,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 
 								if (!MainService.mService.connection.isConnected() || !MainService.mService.connection.isAuthenticated()) {
 
-									Utility.showMessage("Please wait while connection is restored");
+									//Utility.showMessage("Please wait while connection is restored");
 									dialogOpen = false;
 									dialogChatPassword.dismiss();
 									groupPressed = false;
@@ -1390,7 +1387,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 														displayGroupSection();
 													}
 												} else {
-													if (Utility.googleServicesUnavailable) {
+													if (Utility.googleServicesUnavailable == true) {
 														new Validate_ThatsItId_Async(getActivity(), entryWithoutHost, mValidateThatsItIdInterface).execute();
 													} else {
 														if (ACTION == 1) {
@@ -1460,7 +1457,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	/**
 	 * Check Chat password - Correct - Procced else display toast message
 	 */
-	private final CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
+	CheckChatPasswordInterface mCheckChatPasswordInterface = new CheckChatPasswordInterface() {
 
 		@Override
 		public void checkChatPassword(CheckMessage_ChatPasswrd chat_password) {
@@ -1475,7 +1472,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 
 						hostActivity.storeChatPasswordInSharedPreference(Chatpassword);
 
-						if(Utility.googleServicesUnavailable){
+						if(Utility.googleServicesUnavailable == true){
 							if (TextUtils.isEmpty(entryWithoutHost)) {
 								if (ACTION == 1) {
 									// OPEN CHAT SCREEN
@@ -1489,7 +1486,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 								}
 							} else {
 								// Check if roster entry exists on Admin
-								if (Utility.googleServicesUnavailable) {
+								if (Utility.googleServicesUnavailable == true) {
 									new Validate_ThatsItId_Async(getActivity(), entryWithoutHost, mValidateThatsItIdInterface).execute();
 								}
 							}
@@ -1581,7 +1578,6 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					ProgressBarStatus("Start");
 					Utility.showMessage("Reconnecting to server...");
 					showConnectionErrorAlert();
-					//There must be an error reconnection
 				} else {
 					ProgressBarStatus("Stop");
 					Roster roster = mConnection.getRoster();
@@ -1611,7 +1607,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	 *  Check if roster entry exists on Admin
 	 */
 
-	private final ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
+	ValidateThatsItIdInterface mValidateThatsItIdInterface = new ValidateThatsItIdInterface() {
 		@Override
 		public void validateThatsItId(ValidateThatsItID mValidateThatsItID) {
 

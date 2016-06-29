@@ -3,7 +3,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@drawable/background_img"
-                tools:context=".activities.RegisterActivity" >
+                tools:context=".RegisterActivity" >
 
     <RelativeLayout
         android:id="@+id/register_header_rellayout"
@@ -65,8 +65,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="40dp"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -77,6 +76,7 @@
                         android:id="@+id/Register_edttxt_enterPwd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="5"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/reg_enter_password_img"
                         android:ems="10"
@@ -182,8 +182,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="40dp"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -257,6 +256,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/register_btn_selector" />
 

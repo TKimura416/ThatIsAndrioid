@@ -31,7 +31,7 @@ public class EncryptionManager {
 	private static final int iterationCount = 10;
 
 	// 8-byte Salt
-	private static final byte[] salt = {(byte)0xB2, (byte)0x12, (byte)0xD5, (byte)0xB2,
+	private static byte[] salt = {(byte)0xB2, (byte)0x12, (byte)0xD5, (byte)0xB2,
 		(byte)0x44, (byte)0x21, (byte)0xC3, (byte)0xC3};
 	private final String passPhrase = "My Secret Password";
 
@@ -50,7 +50,15 @@ public class EncryptionManager {
 
 			ecipher.init(Cipher.ENCRYPT_MODE, key, paramSpec);
 			dcipher.init(Cipher.DECRYPT_MODE, key, paramSpec);
-		} catch (NoSuchAlgorithmException | InvalidAlgorithmParameterException | InvalidKeyException | InvalidKeySpecException | NoSuchPaddingException e) {
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (NoSuchPaddingException e) {
+			e.printStackTrace();
+		} catch (InvalidKeySpecException e) {
+			e.printStackTrace();
+		} catch (InvalidKeyException e) {
+			e.printStackTrace();
+		} catch (InvalidAlgorithmParameterException e) {
 			e.printStackTrace();
 		}
 	}

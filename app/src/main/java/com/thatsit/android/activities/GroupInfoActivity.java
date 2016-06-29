@@ -21,11 +21,11 @@ import com.parse.ParseObject;
 
 public class GroupInfoActivity extends Activity {
 
-	private static final boolean isPromtAllowed=true;
+	public static boolean isPromtAllowed=true;
 	private ListView lvMembers;
 	private TextView mtvGroupName;
 	private CustomGroupMemberAdapter groupMemberAdapter;
-	private final ParseUtil parseUtil = new ParseUtil();
+	private ParseUtil parseUtil = new ParseUtil();
 
 	@Override
 	protected void onDestroy() {
@@ -74,7 +74,7 @@ public class GroupInfoActivity extends Activity {
 							receipients.get(0).getString(ThatItApplication.getApplication()
 									.getString(	R.string.column_group_members))," ");
 
-					ArrayList<String> members = new ArrayList<>();
+					ArrayList<String> members = new ArrayList<String>();
 
 					int size = stringTokenizer.countTokens();
 
@@ -97,7 +97,7 @@ public class GroupInfoActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if(Utility.allowAuthenticationDialog){
+		if(Utility.allowAuthenticationDialog==true){
 			Utility.showLock(GroupInfoActivity.this);
 		}
 		Utility.UserPauseStatus(GroupInfoActivity.this);

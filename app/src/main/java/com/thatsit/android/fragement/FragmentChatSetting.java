@@ -1,5 +1,6 @@
 package com.thatsit.android.fragement;
 
+import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Mode;
 import org.jivesoftware.smack.packet.Presence.Type;
@@ -10,6 +11,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -65,10 +67,9 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	private SharedPreferences mSharedPreferences;
 	private TextView text_PseudoName,tv_setNotificationTone;
 	private RadioGroup mRgroupStatus,mRgroupVibrate;
-	private static boolean IsvibrateOn = false;
-	private static boolean isAvailable=false;
-	private static RadioButton mRadio_VibrateOn;
-	private static RadioButton mRadio_VibrateOff;
+	public static boolean IsvibrateOn = false;
+	public static boolean isAvailable=false;
+	public static RadioButton mRadio_VibrateOn,mRadio_VibrateOff;
 	private SharedPreferences mSharedPreferencesVibrate,mSharedPreferencesVibRead,
 			mSharedPreferences_reg,mSharedPreferencesAvailable,mSharedPreferencesAvlRead;
 	private MainService mService;
@@ -152,7 +153,7 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 
 		mSharedPreferences_reg = getActivity().getSharedPreferences("register_data", 0);
 
-		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_PRIVATE);
+		mSharedPreferences = getActivity().getSharedPreferences("USERID", getActivity().MODE_WORLD_READABLE);
 		AppSinglton.userId = mSharedPreferences.getString("USERID", "");
 
 		String psedoname=mSharedPreferences_reg.getString("PseudoName","");
@@ -228,21 +229,17 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 							mSharedPreferencesAvailable=getActivity().getSharedPreferences("mSharedPreferencesAvlValue",0);
 							mSharedPreferencesAvailable.edit().putString("Avl_Value",RadioStatus).commit();
 
-							switch (RadioStatus) {
-								case "Available":
-									mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
-									mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+							if (RadioStatus.equals("Available")) {
+								mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
+								mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 
-									break;
-								case "Busy":
-									mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-									mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.busy, 0, 0, 0);
+							} else if (RadioStatus.equals("Busy")) {
+								mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+								mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.busy, 0, 0, 0);
 
-									break;
-								default:
-									mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
-									mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-									break;
+							} else {
+								mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
+								mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -278,21 +275,17 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 								mSharedPreferencesAvailable = getActivity().getSharedPreferences("mSharedPreferencesAvlValue", 0);
 								mSharedPreferencesAvailable.edit().putString("Avl_Value", RadioStatus).commit();
 
-								switch (RadioStatus) {
-									case "Available":
-										mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
-										mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+								if (RadioStatus.equals("Available")) {
+									mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
+									mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 
-										break;
-									case "Busy":
-										mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-										mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.busy, 0, 0, 0);
+								} else if (RadioStatus.equals("Busy")) {
+									mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+									mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.busy, 0, 0, 0);
 
-										break;
-									default:
-										mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
-										mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-										break;
+								} else {
+									mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
+									mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 								}
 							} catch (Exception e) {
 								e.printStackTrace();
@@ -324,24 +317,20 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 					mSharedPreferencesVibrate = getActivity().getSharedPreferences("mSharedPreferencesVibrateValue", 0);
 					mSharedPreferencesVibrate.edit().putString("Vibrate_Value", RadioVibrate).commit();
 
-					switch (RadioVibrate) {
-						case "On":
-							if (!checkIfVibratorExists()) {
-								Utility.showMessage("Your device does not support vibration");
-							}
-							mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+					if (RadioVibrate.equals("On")) {
+						if (!checkIfVibratorExists()) {
+							Utility.showMessage("Your device does not support vibration");
+						}
+						mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+						mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 
-							break;
-						case "Off":
-							mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+					} else if (RadioVibrate.equals("Off")) {
+						mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
 
-							break;
-						default:
-							mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							break;
+					} else {
+						mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -362,21 +351,17 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 					mSharedPreferencesVibrate=getActivity().getSharedPreferences("mSharedPreferencesVibrateValue",0);
 					mSharedPreferencesVibrate.edit().putString("Vibrate_Value",RadioVibrate).commit();
 
-					switch (RadioVibrate) {
-						case "On":
-							mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+					if (RadioVibrate.equals("On")) {
+						mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+						mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 
-							break;
-						case "Off":
-							mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+					} else if (RadioVibrate.equals("Off")) {
+						mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
 
-							break;
-						default:
-							mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-							mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-							break;
+					} else {
+						mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+						mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -409,7 +394,11 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	private boolean checkIfVibratorExists() {
 		String vs = Context.VIBRATOR_SERVICE;
 		Vibrator mVibrator = (Vibrator)getActivity().getSystemService(vs);
-		return mVibrator.hasVibrator();
+		if(mVibrator.hasVibrator()){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	/**
@@ -417,21 +406,17 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	 */
 	private void checkVibrateOptions(){
 		IsvibrateOn = false;
-		switch (RadioVibrate) {
-			case "On":
-				mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-				mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+		if (RadioVibrate.equals("On")) {
+			mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+			mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 
-				break;
-			case "Off":
-				mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-				mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
+		} else if (RadioVibrate.equals("Off")) {
+			mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+			mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
 
-				break;
-			default:
-				mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-				mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
-				break;
+		} else {
+			mRadio_VibrateOn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+			mRadio_VibrateOff.setCompoundDrawablesWithIntrinsicBounds(R.drawable.radio_btn, 0, 0, 0);
 		}
 	}
 
@@ -441,21 +426,17 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	private void checkAvailavibilityOptions(){
 		isAvailable=true;
 
-		switch (RadioStatus) {
-			case "Available":
-				mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
-				mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+		if (RadioStatus.equals("Available")) {
+			mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
+			mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 
-				break;
-			case "Busy":
-				mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-				mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.busy, 0, 0, 0);
+		} else if (RadioStatus.equals("Busy")) {
+			mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
+			mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.busy, 0, 0, 0);
 
-				break;
-			default:
-				mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
-				mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
-				break;
+		} else {
+			mRadio_Available.setCompoundDrawablesWithIntrinsicBounds(R.drawable.tick, 0, 0, 0);
+			mRadio_Busy.setCompoundDrawablesWithIntrinsicBounds(R.drawable.unradio_btn, 0, 0, 0);
 		}
 	}
 
@@ -572,7 +553,7 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 	/**
 	 *  Change chat password interface.
 	 */
-	private final ChangeChatPasswordInterface mChangeChatPasswordInterface = new ChangeChatPasswordInterface() {
+	ChangeChatPasswordInterface mChangeChatPasswordInterface = new ChangeChatPasswordInterface() {
 
 		@Override
 		public void changeChatPassword(
@@ -586,19 +567,17 @@ public class FragmentChatSetting extends Fragment implements OnClickListener{
 				RetVal=mUpdateMessagePaswordTemplate.getmUpdateMessagePasswordResult().getmUpdateMessagePasswordParams()[0].getRetVal();
 				Utility.stopDialog();
 
-				switch (RetVal) {
-					case "1":
-						SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
-						edit.putString(ThatItApplication.ACCOUNT_CHAT_PASSWORD_KEY, NewPassword);
-						edit.commit();
-						Toast.makeText(getActivity(), "Password Successfully Changed", Toast.LENGTH_LONG).show();
-						break;
-					case "2":
-						Toast.makeText(getActivity(), "Old Password Does Not Match", Toast.LENGTH_LONG).show();
-						break;
-					default:
-						Toast.makeText(getActivity(), "Password could not be changed. Please try again", Toast.LENGTH_LONG).show();
-						break;
+				if(RetVal.equals("1")){
+					SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+					edit.putString(ThatItApplication.ACCOUNT_CHAT_PASSWORD_KEY, NewPassword);
+					edit.commit();
+					Toast.makeText(getActivity(), "Password Successfully Changed", Toast.LENGTH_LONG).show();
+				}
+				else if(RetVal.equals("2")){
+					Toast.makeText(getActivity(), "Old Password Does Not Match", Toast.LENGTH_LONG).show();
+				}
+				else{
+					Toast.makeText(getActivity(), "Password could not be changed. Please try again", Toast.LENGTH_LONG).show();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

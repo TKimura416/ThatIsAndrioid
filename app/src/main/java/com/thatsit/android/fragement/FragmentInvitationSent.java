@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.Objects;
 
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.packet.VCard;
@@ -59,11 +58,11 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 	private FragmentInvitationReceive mFragmentInvitationReceive;
 	private LinearLayout mLinLytInviationsSentContainer;
 	private MainService  mService;
-	private final VCard card = new VCard();
-	private final ParseUtil parseUtil = new ParseUtil();
+	VCard card = new VCard();
+	ParseUtil parseUtil = new ParseUtil();
 	private ContactActivity hostActivity;
 	private Handler handler;
-	private final ArrayList<String> jids = new ArrayList<>();
+	private ArrayList<String> jids = new ArrayList<String>();
 	private LinearLayout fragInvSent_tabs_lnrlayout;
 
 
@@ -297,14 +296,14 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 										Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
 									}
 
-									if (card != null && card.getFirstName() != null && !Objects.equals(card.getFirstName(), ""))
+									if (card != null && card.getFirstName() != null && card.getFirstName() != "")
 										invitationSentView.mtxtVwInvitationRecipient.setText(card.getFirstName());
 
 									else {
 										invitationSentView.mtxtVwInvitationRecipient.setText("My Name");
 									}
 
-									if (card != null && card.getLastName() != null && !Objects.equals(card.getLastName(), "")) {
+									if (card != null && card.getLastName() != null && card.getLastName() != "") {
 										invitationSentView.mtxtVwInvitationMessage.setText(card.getLastName());
 									} else {
 										invitationSentView.mtxtVwInvitationMessage.setText("Hi there! i would like to add you ");

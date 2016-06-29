@@ -33,13 +33,13 @@ public class Subscription extends Activity {
 	private static final Intent SERVICE_INTENT = new Intent();
 	private static final String TAG = Subscription.class.getSimpleName();
 	private String mContact;
-	private MainService mService;
-	private final ServiceConnection mServConn = new MainServiceConnection();
+	MainService mService;
+	private ServiceConnection mServConn = new MainServiceConnection();
 //	private final ConnectionBroadcastReceiver mReceiver = new ConnectionBroadcastReceiver();
-	private final MyOnClickListener mClickListener = new MyOnClickListener();
-	private final Handler handler;
-	private final XmppManager xmppManager;
-	private final XMPPConnection connection;
+	private MyOnClickListener mClickListener = new MyOnClickListener();
+	Handler handler;
+	XmppManager xmppManager;
+	XMPPConnection connection;
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName("com.thatsit.android", "com.thatsit.android.MainService"));
@@ -169,7 +169,7 @@ public class Subscription extends Activity {
 			}
 			finish();
 		}
-	}
+	};
 
 	/**
 	 * The ServiceConnection used to connect to the Beem service.

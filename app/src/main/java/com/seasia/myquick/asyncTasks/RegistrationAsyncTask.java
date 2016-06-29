@@ -8,21 +8,12 @@ import com.seasia.myquick.model.InsertUserResponseTemplate;
 
 public class RegistrationAsyncTask extends AsyncTask<Context, Void, InsertUserResponseTemplate>{
 
-	private final String pincode;
-	private final String password;
-	private final String subsciptionMode;
-	private final String subscriptionAction;
-	private final String gender;
-	private final String country;
-	private final String DeviceType;
-	private final String city;
-	private final String image;
-	private final String age;
-	private final String chatPassword;
-	private final String email;
-	private final String subscriptionFee;
-	private final Context mContext;
-	private final RegisterInterface mRegisterInterface;
+	private String pincode, password, subsciptionMode,
+	subscriptionAction, gender, country, DeviceType, city, image, age,
+	chatPassword, email;
+	private String subscriptionFee;
+	private Context mContext;
+	private RegisterInterface mRegisterInterface;
 
 	public RegistrationAsyncTask(String pincode, String password,
 			String subsciptionMode, String subscriptionFee,
@@ -60,6 +51,6 @@ public class RegistrationAsyncTask extends AsyncTask<Context, Void, InsertUserRe
 	protected void onPostExecute(InsertUserResponseTemplate result) {
 		mRegisterInterface.registerInterfaceMethod(result);
 		super.onPostExecute(result);
-	}
+	};
 
 }

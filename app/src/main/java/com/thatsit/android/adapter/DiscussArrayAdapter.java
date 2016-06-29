@@ -10,13 +10,17 @@ import org.jivesoftware.smack.XMPPConnection;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -30,23 +34,24 @@ import com.thatsit.android.activities.ContactActivity;
 import com.thatsit.android.beans.OneBubble;
 import com.thatsit.android.db.One2OneChatDb;
 import com.thatsit.android.encryption.helper.EncryptionManager;
+import com.thatsit.android.fragement.FragmentChatScreen;
 import com.thatsit.android.xmpputils.XmppManager;
 
 public class DiscussArrayAdapter extends BaseAdapter {
     private OneBubble bubble;
-    private final Activity activity;
+    private Activity activity;
     private XMPPConnection connection;
     private XmppManager xmppManager;
-    private final HashMap<Integer, View> viewContainer = new HashMap<>();
+    private HashMap<Integer, View> viewContainer = new HashMap<Integer, View>();
     private String getMessageStatus;
-    private final List<OneBubble> messages = new ArrayList<>();
-    private final int EMPTY = 0;
-    private final EncryptionManager encryptionManager;
-    private String revisedMessage;
+    private List<OneBubble> messages = new ArrayList<OneBubble>();
+    final int EMPTY = 0;
+    private EncryptionManager encryptionManager;
+    String revisedMessage;
     private String recipientPhoto = null;
-    private final One2OneChatDb dbClientInstance;
-    private final ListView listView;
-    private final LayoutInflater inflater;
+    private One2OneChatDb dbClientInstance;
+    private ListView listView;
+    private LayoutInflater inflater;
 
     public void add(OneBubble newBubble) {
         if (messages.size() == EMPTY) {
@@ -222,14 +227,14 @@ public class DiscussArrayAdapter extends BaseAdapter {
 
 
     @SuppressLint("SimpleDateFormat")
-    private static String getDate(long milliSeconds, String dateFormat) {
+    public static String getDate(long milliSeconds, String dateFormat) {
         SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);
         return formatter.format(calendar.getTime());
     }
 
-    private void notifiAdapter() {
+    public void notifiAdapter() {
         this.notifyDataSetChanged();
     }
 

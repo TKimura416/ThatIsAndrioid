@@ -4,5 +4,5 @@ import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 
 public interface WelcomeSignInInterface {
 
-	void getWelcomeData(AuthenticateUserServiceTemplate mAuthenticateUserServiceTemplate);
+	public void getWelcomeData(AuthenticateUserServiceTemplate mAuthenticateUserServiceTemplate);
 }

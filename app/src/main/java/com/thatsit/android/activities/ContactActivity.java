@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -69,6 +70,7 @@ import com.thatsit.android.adapter.NavigationAdapter;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.beans.GCMClientManager;
 import com.thatsit.android.beans.GcmTokenIQ;
+import com.thatsit.android.beans.LogFile;
 import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.thatsit.android.fragement.FragmentBasicSetting;
 import com.thatsit.android.fragement.FragmentChatHistoryScreen;
@@ -1037,8 +1039,12 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 					// [2016/06/06 04:02 KSH] Offline -> online signal received via GCM.
 					//
 					//if(!(MainService.mService.connection.isConnected()|| MainService.mService.connection.isAuthenticated())){
-						MainService.mService.connectAsync();
-						Utility.showMessage("Resume connection...");
+
+					Utility.allowAuthenticationDialog = true;
+					Utility.showLock(ContactActivity.this);
+
+					MainService.mService.connectAsync();
+					Utility.showMessage("Resume connection...");
 					//}
 				}
 			} catch (Exception e) {
@@ -1299,16 +1305,25 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 				//Save StatusId in shared preference
 				SharedPreferences mSharedPreferences = getSharedPreferences("statusID", MODE_PRIVATE);
 				mSharedPreferences.edit().putString("statusID",statusID).commit();
+
+				// Save status Id in log file
+				LogFile.createLog(statusID);
 			}
 		}
 	};
+
+	/*@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		Log.e("","");
+	}*/
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		this.unregisterReceiver(mMessageReceiver);
 		this.unregisterReceiver(one2OneChatReceiver);
-	//	this.unregisterReceiver(networkChangeReceiver);
+		//	this.unregisterReceiver(networkChangeReceiver);
 		if(MainService.mService.mTimer != null){
 			MainService.mService.mTimer.cancel();
 			MainService.mService.mTimer = null;

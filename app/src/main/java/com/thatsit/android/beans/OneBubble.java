@@ -1,14 +1,14 @@
 package com.thatsit.android.beans;
 
 public class OneBubble {
-	public final boolean isOwner;
-	public final String id;
-	public final String message;
-	public final long timestamp;
-	public final boolean isVisibleTime;
-	public final String name;
-	public final String messageStatus;
-	public final String messageSubject;
+	public boolean isOwner;
+	public String id;
+	public String message;
+	public long timestamp;
+	public boolean isVisibleTime;
+	public String name;
+	public String messageStatus;
+	public String messageSubject;
 
 	/**
 	 * 

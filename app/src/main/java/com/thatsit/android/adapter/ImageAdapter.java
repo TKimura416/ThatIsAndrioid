@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 public class ImageAdapter extends BaseAdapter {
 	
-	private TextView txtView;
-	private final Context mContext;
-	public static final String[] mThumbIds = { "\ud83d\ude00", "\ud83d\ude01",
+	TextView txtView;
+	private Context mContext;
+	public static String[] mThumbIds = { "\ud83d\ude00", "\ud83d\ude01",
 			"\ud83d\ude02", "\ud83d\ude03", "\ud83d\ude04", "\ud83d\ude05",
 			"\ud83d\ude06", "\ud83d\ude07", "\ud83d\ude08", "\ud83d\ude09",
 			"\ud83d\ude0a", "\ud83d\ude0b", "\ud83d\ude0c", "\ud83d\ude0d",
@@ -27,7 +27,7 @@ public class ImageAdapter extends BaseAdapter {
 			"\ud83d\ude4a", "\ud83d\ude4b", "\ud83d\ude4c", "\ud83d\ude4d",
 			"\ud83d\ude4e", "\ud83d\ude4f" };
 
-	public static final String[] mThumbIdsForDispatch = { ":-83d:-e00", ":-83d:-e01", ":-83d:-e02",
+	public static String[] mThumbIdsForDispatch = { ":-83d:-e00", ":-83d:-e01", ":-83d:-e02",
 		":-83d:-e03", ":-83d:-e04", ":-83d:-e05", ":-83d:-e06", ":-83d:-e07", ":-83d:-e08",
 		":-83d:-e09", ":-83d:-e0a", ":-83d:-e0b", ":-83d:-e0c", ":-83d:-e0d", ":-83d:-e0e",
 		":-83d:-e0f", ":-83d:-e10", ":-83d:-e12", ":-83d:-e13" ,":-83d:-e14",":-83d:-e16",":-83d:-e18",":-83d:-e1a"

@@ -4,5 +4,5 @@ import com.seasia.myquick.model.UpdateSubsciptionTemplate;
 
 public interface UpdateSubscriptionInterface {
 
-	void updateSubscription(UpdateSubsciptionTemplate updateSubsciption);
+	public void updateSubscription(UpdateSubsciptionTemplate updateSubsciption);
 }

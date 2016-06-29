@@ -1,5 +1,6 @@
 package com.seasia.myquick.asyncTasks;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import com.thatsit.android.interfaces.SubscriptionHistoryInterface;
@@ -9,9 +10,9 @@ import com.seasia.myquick.model.GetSubscriptionHistoryTemplate;
 public class GetDataAsyncSubscriptionHistory extends AsyncTask<Void, Void, GetSubscriptionHistoryTemplate>{
 
 	
-	private final Context context;
-	private final SubscriptionHistoryInterface mSubscriptionHistoryInterface;
-	private final String UserID;
+	private Context context;
+	private SubscriptionHistoryInterface mSubscriptionHistoryInterface;
+	private String UserID;
 	
 	public GetDataAsyncSubscriptionHistory(Context context,String UserID,
 			SubscriptionHistoryInterface mSubscriptionHistoryInterface) {

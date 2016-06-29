@@ -2,6 +2,7 @@ package com.seasia.myquick.asyncTasks;
 
 import com.thatsit.android.interfaces.ValidatePincodeInterface;
 import com.seasia.myquick.controller.WebServiceClient;
+import com.seasia.myquick.model.UpdateSubsciptionTemplate;
 import com.seasia.myquick.model.ValidatePincode;
 
 import android.content.Context;
@@ -9,9 +10,9 @@ import android.os.AsyncTask;
 
 public class ValidatePincodeAsync extends AsyncTask<Void, Void, ValidatePincode> {
 
-	private final Context context;
-	private final ValidatePincodeInterface mValidatePincodeInterface;
-	private final String chatUserName;
+	private Context context;
+	private ValidatePincodeInterface mValidatePincodeInterface;
+	private String chatUserName;
 	
 	public ValidatePincodeAsync(Context context,String chatUserName,
 			ValidatePincodeInterface mValidatePincodeInterface) {

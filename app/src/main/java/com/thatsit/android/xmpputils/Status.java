@@ -13,19 +13,19 @@ public final class Status {
     public static final int CONTACT_STATUS_DISCONNECT = 100;
 
     /** Status of a unavailable (long away) contact. */
-    private static final int CONTACT_STATUS_UNAVAILABLE = 200;
+    public static final int CONTACT_STATUS_UNAVAILABLE = 200;
 
     /** Status of a away contact. */
-    private static final int CONTACT_STATUS_AWAY = 300;
+    public static final int CONTACT_STATUS_AWAY = 300;
 
     /** Status of a busy contact. */
-    private static final int CONTACT_STATUS_BUSY = 400;
+    public static final int CONTACT_STATUS_BUSY = 400;
 
     /** Status of a available contact. */
     public static final int CONTACT_STATUS_AVAILABLE = 500;
 
     /** Status of a available for chat contact. */
-    private static final int CONTACT_STATUS_AVAILABLE_FOR_CHAT = 600;
+    public static final int CONTACT_STATUS_AVAILABLE_FOR_CHAT = 600;
 
     /**
      * Default constructor masked.
@@ -68,7 +68,7 @@ public final class Status {
      * @return an int representing the status
      */
     public static int getStatusFromPresence(final Presence presence) {
-    int res;
+    int res = Status.CONTACT_STATUS_DISCONNECT;
     if (presence.getType().equals(Presence.Type.unavailable)) {
         res = Status.CONTACT_STATUS_DISCONNECT;
     } else {

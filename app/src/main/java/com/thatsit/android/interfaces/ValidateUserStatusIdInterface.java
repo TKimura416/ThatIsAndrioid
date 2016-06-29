@@ -1,7 +1,9 @@
 package com.thatsit.android.interfaces;
 
+import android.content.Context;
+
 import com.seasia.myquick.model.ValidateUserStatusID;
 
 public interface ValidateUserStatusIdInterface {
-    void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID);
+    public void validateUserStatusId(ValidateUserStatusID mValidateUserStatusID);
 }

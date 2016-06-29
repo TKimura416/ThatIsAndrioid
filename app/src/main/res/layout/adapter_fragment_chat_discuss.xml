@@ -28,8 +28,7 @@
         android:layout_toRightOf="@+id/rel_left_arrow"
         android:background="@drawable/round_rect_shape"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:baselineAligned="false">
+        android:weightSum="100" >
 
         <RelativeLayout
             android:id="@+id/rltv_circularImage"
@@ -74,7 +73,7 @@
                     android:layout_toRightOf="@+id/adapterChatSender_img_online"
                     android:text="My Name"
                     android:maxLength="15"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -85,7 +84,7 @@
                     android:layout_toRightOf="@+id/adapterChatSender_text_userName"
                     android:singleLine="true"
                     android:textColor="#ff0000"
-                    android:textSize="15sp" />
+                    android:textSize="15dp" />
             </RelativeLayout>
 
             <RelativeLayout

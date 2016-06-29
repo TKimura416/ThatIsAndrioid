@@ -31,13 +31,13 @@ import com.thatsit.android.fragement.FragmentChatScreen;
 public class ServerThread implements Runnable {
 
 	private ServerSocket serverSocket2;
-	private final Activity act;
+	private Activity act;
 	private String message  = "";
 	private String sender = "";
 	private String url = "";
 	private FileOutputStream output_file = null;
-	private long code_received = 0;
-	private long code_total = 0;
+	long code_received = 0;
+	long code_total = 0;
 	private Builder mBuilder;
 	private NotificationManager mNotifyManager;
 	private ClientThread send_file;
@@ -79,6 +79,7 @@ public class ServerThread implements Runnable {
          				    bytesRead = is.read(receiveData, 0, receiveData.length);
          				    if(bytesRead == -1)
          				    {
+         				    	check = true;
 								break;
          				    }
          				    
@@ -129,7 +130,7 @@ public class ServerThread implements Runnable {
 						else if(message.startsWith(Constants.ACCEPT)){
 							
 							if(Constants.File_URI !=  null){
-								ArrayList<String> ips = new ArrayList<>();
+								ArrayList<String> ips = new ArrayList<String>();
 								ips.add( client.getInetAddress().getHostAddress());
 								
 								String filePath = message.substring(message.indexOf("$")+1,message.lastIndexOf("#"));
@@ -139,7 +140,7 @@ public class ServerThread implements Runnable {
 								com.myquick.socket.Constants.isDownloading = true;
 							}
 							else{
-								ArrayList<String> ips = new ArrayList<>();
+								ArrayList<String> ips = new ArrayList<String>();
 								ips.add( client.getInetAddress().getHostAddress());
 								
 								ClientChatThread thread = new ClientChatThread(client.getInetAddress().getHostAddress(), act,Constants.ERROR);
@@ -202,7 +203,7 @@ public class ServerThread implements Runnable {
         }
 	}
 	
-	private String getLocalIpv4Address(){
+	public String getLocalIpv4Address(){
 	    try {
 	    	String ipv4;
 	        List<NetworkInterface>  nilist = Collections.list(NetworkInterface.getNetworkInterfaces());
@@ -224,7 +225,7 @@ public class ServerThread implements Runnable {
 				}
 	        }
 
-	    } catch (SocketException ignored) {
+	    } catch (SocketException ex) {
 	     }
 	    return "no wifi connection.";
 	}

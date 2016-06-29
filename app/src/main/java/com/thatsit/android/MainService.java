@@ -83,7 +83,6 @@ import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.db.One2OneChatDb;
 import com.thatsit.android.fragement.FragmentChatScreen;
-import com.thatsit.android.fragement.FragmentContact;
 import com.thatsit.android.fragement.FragmentContact.MyRosterListner;
 import com.thatsit.android.invites.PresenceType;
 import com.thatsit.android.parcelable.Contact;
@@ -112,7 +111,7 @@ import com.seasia.myquick.model.AppSinglton;
 @SuppressLint("NewApi")
 public class MainService extends Service {
 
-    private final String TAG = getClass().getSimpleName();
+    final String TAG = getClass().getSimpleName();
     static Context context;
     private String mPreviousStatus;
     private static String FilePath;
@@ -127,9 +126,9 @@ public class MainService extends Service {
     public static ArrayList<String> roomList = new ArrayList<>();
     private ArrayList<Integer> rosterHistoryToBeDeleted;
     private String unsubsrcibedUser;
-    private final ArrayList<String> group_name = new ArrayList<>();
-    private final Hashtable<String, MultiUserChat> group_mucs = new Hashtable<>();
-    private final Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
+    public ArrayList<String> group_name = new ArrayList<String>();
+    public Hashtable<String, MultiUserChat> group_mucs = new Hashtable<String, MultiUserChat>();
+    public Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<String, MUCPacketListener>();
     private ChatManager chatmanager = null;
     private PacketListener mMessagePacketListener = null;
     PacketCollector mpPacketCollector;
@@ -144,9 +143,9 @@ public class MainService extends Service {
 
     // Notification
     private static NotificationManager mNotificationManager;
-    public static final int NOTIFICATION_FRIEND_REQUEST = 1;
-    public static final int NOTIFICATION_MESSAGE_RECEIVED = 2;
-    private final int FOREGROUND_NOTIFICATION_ID = 0;
+    public static int NOTIFICATION_FRIEND_REQUEST = 1;
+    public static int NOTIFICATION_MESSAGE_RECEIVED = 2;
+    private int FOREGROUND_NOTIFICATION_ID = 0;
 
     // XMPP
     public XMPPConnection connection;
@@ -169,19 +168,19 @@ public class MainService extends Service {
     private NetworkChangeReceiver networkChangeReceiver;
 
     // Listeners
-    public final IncomingChatManagerListener mIncomingChatManagerListener = new IncomingChatManagerListener();
-    public final MyMessageListner mMessageListner = new MyMessageListner();
-    private final SubscribePacketListener mSubscribePacketListener = new SubscribePacketListener();
-    private final UnSubscribePacketListener mUnSubscribePacketListener = new UnSubscribePacketListener();
-    private final PingListener mPingListener = new PingListener();
+    public IncomingChatManagerListener mIncomingChatManagerListener = new IncomingChatManagerListener();
+    public MyMessageListner mMessageListner = new MyMessageListner();
+    public final SubscribePacketListener mSubscribePacketListener = new SubscribePacketListener();
+    public final UnSubscribePacketListener mUnSubscribePacketListener = new UnSubscribePacketListener();
+    public final PingListener mPingListener = new PingListener();
     private FileTransferManager fileTransferManager;
-    private final ParseUtil parseUtil = new ParseUtil();
-    private final MyParseListener myParseListener = new MyParseListener();
+    ParseUtil parseUtil = new ParseUtil();
+    MyParseListener myParseListener = new MyParseListener();
 
     // Booleans
     private static boolean boolean_serviceCreatedOnce = false;
-    private static boolean boolean_groupCreated = false;
-    private static boolean boolean_istTimeLoad = true;
+    public static boolean boolean_groupCreated = false;
+    static boolean boolean_istTimeLoad = true;
     private static String RadioVibrate;
 
     @Override
@@ -195,17 +194,15 @@ public class MainService extends Service {
         if (!boolean_serviceCreatedOnce) {
             mService = this;
             if (!Utility.isAppStarted) {
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         parseUtil.areExists(ThatItApplication.getApplication(), myParseListener, ParseCallbackListener.OPERATION_ON_START);
-                        Log.e(TAG, "App not started");
                     }
                 }).start();
             } else {
                 taskOnCreate();
-                Log.e(TAG, "App started");
-
             }
         }
     }
@@ -324,15 +321,15 @@ public class MainService extends Service {
                     history.setMaxStanzas(0);
                     mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
                     try {
-                        List<RosterGroup> rGroups;
+                        List<RosterGroup> rGroups = new ArrayList<RosterGroup>();
                         Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
-                        rGroups = new ArrayList<>(rGroups_Collection);
+                        rGroups = new ArrayList<RosterGroup>(rGroups_Collection);
                         for (int i = 0; i < rGroups.size(); i++) {
                             String r_name = rGroups.get(i).getName();
                             r_name = r_name.replace("%2b", " ");
 
                             MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
-                            String nicknameToJoin;
+                            String nicknameToJoin = null;
                             if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
                                 nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
                             } else {
@@ -383,15 +380,15 @@ public class MainService extends Service {
                     history.setMaxStanzas(0);
                     mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
                     try {
-                        List<RosterGroup> rGroups;
+                        List<RosterGroup> rGroups = new ArrayList<RosterGroup>();
                         Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
-                        rGroups = new ArrayList<>(rGroups_Collection);
+                        rGroups = new ArrayList<RosterGroup>(rGroups_Collection);
                         for (int i = 0; i < rGroups.size(); i++) {
                             String r_name = rGroups.get(i).getName();
                             r_name = r_name.replace("%2b", " ");
 
                             MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
-                            String nicknameToJoin;
+                            String nicknameToJoin = null;
                             if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
                                 nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
                             } else {
@@ -506,14 +503,14 @@ public class MainService extends Service {
             Form submitForm = form.createAnswerForm();
             for (Iterator<FormField> fields = submitForm.getFields();
                  fields.hasNext(); ) {
-                FormField field = fields.next();
+                FormField field = (FormField) fields.next();
                 if (!FormField.TYPE_HIDDEN.equals(field.getType()) && field.getVariable() != null) {
                     submitForm.setDefaultAnswer(field.getVariable());
                 }
             }
             submitForm.setAnswer("muc#roomconfig_publicroom", true);
             submitForm.setAnswer("muc#roomconfig_persistentroom", true);
-            List<String> owners = new ArrayList<>();
+            List<String> owners = new ArrayList<String>();
             owners.add(connectionInstance.getUser());
             submitForm.setAnswer("muc#roomconfig_roomowners", owners);
 
@@ -531,7 +528,7 @@ public class MainService extends Service {
         private String messageFromId;
         private String jabberID;
         private String message;
-        private ArrayList<String> groupName = new ArrayList<>();
+        private ArrayList<String> groupName = new ArrayList<String>();
 
         public MUCPacketListener(ArrayList<String> group_name) {
             this.groupName = group_name;
@@ -703,7 +700,7 @@ public class MainService extends Service {
         }
         try {
             // refresh fragment contacts
-            FragmentContact.usersAdapter.notifyDataSetChanged();
+            Utility.fragmentContact.usersAdapter.notifyDataSetChanged();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -715,9 +712,9 @@ public class MainService extends Service {
     /**
      * Incoming group message notification
      */
-    private static void setIncomingGroupChatNotification(String msg) {
+    public static void setIncomingGroupChatNotification(String msg) {
 
-        AudioPreference = ThatItApplication.getApplication().getSharedPreferences("AudioPreference", MODE_PRIVATE);
+        AudioPreference = ThatItApplication.getApplication().getSharedPreferences("AudioPreference", MODE_WORLD_READABLE);
         FilePath = AudioPreference.getString("AudioPreference", "");
 
         mNotificationManager = (NotificationManager) myApplication.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -776,8 +773,6 @@ public class MainService extends Service {
                     @Override
                     public void run() {
                         createConnection();
-                        Log.e(TAG, "createConnectAsync");
-
                     }
                 }).start();
             }
@@ -789,13 +784,11 @@ public class MainService extends Service {
     /**
      * Setup XMPP connection
      */
-    private void createConnection() {
+    public void createConnection() {
         try {
             xmppConnectionManager = XmppManager.getInstance();
             connection = xmppConnectionManager.getXMPPConnection();
-            Log.e(TAG, "connection Created");
         } catch (Exception e) {
-            Log.e(TAG, "create connection ex" + e.toString());
             e.printStackTrace();
             Utility.stopDialog();
         }
@@ -807,12 +800,10 @@ public class MainService extends Service {
             @Override
             public void run() {
                 try {
-                    if (Utility.reloginCalled) {
+                    if (Utility.reloginCalled == true) {
                         Thread.sleep(4000);
                     }
                     connect();
-                    Log.e(TAG, "Connecting asynch");
-
                 } catch (Exception e) {
                     Log.e(TAG, "Error while connecting asynchronously", e);
                 }
@@ -825,7 +816,7 @@ public class MainService extends Service {
     /**
      * Connect to Xmpp server (openfir)
      */
-    private synchronized void connect() throws Exception {
+    public synchronized void connect() throws Exception {
         if (connection == null) {
             createConnection();
         }
@@ -847,7 +838,6 @@ public class MainService extends Service {
                     e.printStackTrace();
                 }
             } catch (Exception e) {
-                Log.e("Connection",e.toString());
                 e.printStackTrace();
                 Utility.stopDialog();
                 sendConnectionErrorWhileSignInBroadcast();
@@ -862,7 +852,7 @@ public class MainService extends Service {
      * Username - jID
      * Password  - get from edittext
      */
-    private void login() throws Exception {
+    public void login() throws Exception {
 
         try {
             mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
@@ -955,7 +945,7 @@ public class MainService extends Service {
 
                     public void processPacket(Packet packet) {
 
-                        if (!Utility.reloginCalled) {
+                        if (Utility.reloginCalled == false) {
                             Message message = (Message) packet;
                             if (message.getBody() != null) {
                                 String fromName = StringUtils.parseBareAddress(message.getFrom());
@@ -1014,16 +1004,17 @@ public class MainService extends Service {
                         if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
                             if (!connection.isConnected() || !connection.isAuthenticated()) {
                                 try {
-                                    createConnection();
-                                    connectAsync();
-                                    performBackgroundTimerTask();
+                                  //  createConnection();
+                                   // connectAsync();
+                                  //  performBackgroundTimerTask();
+
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                             } else {
                                 performBackgroundTimerTask();
                             }
-                            if (Utility.googleServicesUnavailable) {
+                            if (Utility.googleServicesUnavailable == true) {
                                 checkExpiryStatus("checkExpiryStatus");
                             }
                         }
@@ -1031,7 +1022,7 @@ public class MainService extends Service {
                         e.printStackTrace();
                     }
                 }
-            }, 5000, 5000);
+            }, 15000, 15000);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1093,21 +1084,25 @@ public class MainService extends Service {
         boolean i = true;
 
         try {
-            i = WelcomeActivity.userVisited;
+            if (WelcomeActivity.userVisited == true) {
+                i = true;
+            } else {
+                i = false;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         if (Utility.contactActivity == null) {
 
-            if (SplashActivity.userVisited && i) {
+            if (SplashActivity.userVisited == true && i == true) {
 
                 Utility.stopDialog();
                 Intent intent = new Intent();
                 intent.setAction(SIGNIN);
                 ThatItApplication.getApplication().sendBroadcast(intent);
             } else {
-                if (SplashActivity.userVisited || WelcomeActivity.userVisited) {
+                if (SplashActivity.userVisited == true || WelcomeActivity.userVisited == true) {
                     Intent intent = new Intent(ThatItApplication.getApplication(), ContactActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
@@ -1121,7 +1116,7 @@ public class MainService extends Service {
     /**
      * Send presence available after login
      */
-    private void changeStatusAndPriority(int status, String msg) {
+    public void changeStatusAndPriority(int status, String msg) {
         try {
             Presence pres = new Presence(Presence.Type.available);
             String m;
@@ -1150,7 +1145,7 @@ public class MainService extends Service {
      * Send Presence packet to connection
      */
 
-    private void setPersence(Type type) {
+    public void setPersence(Type type) {
         try {
             Presence presence = new Presence(type);
             if (type != Presence.Type.available) {
@@ -1212,24 +1207,15 @@ public class MainService extends Service {
         public ConnecionListenerAdapter() {
         }
 
-
-        @Override
-        public void reconnectingIn(int seconds) {
-            Log.i("","Reconnecting in " + seconds + " seconds.");
-        }
-
-
         @Override
         public void connectionClosed() {
-            Log.e(TAG,"XMPP connection was closed.");
+
             performTaskOnConnectionClosed();
         }
 
         @Override
         public void connectionClosedOnError(Exception exception) {
             try {
-                Log.e(TAG,"Connection to XMPP server was lost."+exception);
-
                 performTaskOnConnectionClosedOnError();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1237,24 +1223,21 @@ public class MainService extends Service {
         }
 
         public void connectionFailed(String errorMsg) {
-            Log.i("","XMPP connection was closed.");
-
             myApplication.setConnected(false);
             Utility.stopDialog();
         }
 
+        @Override
+        public void reconnectingIn(final int arg0) {
+        }
 
         @Override
         public void reconnectionFailed(Exception arg0) {
-
-            Log.i("","Failed to reconnect to the XMPP server." + arg0.toString());
-
             myApplication.setConnected(false);
         }
 
         @Override
         public void reconnectionSuccessful() {
-            Log.e(TAG,"Successfully reconnected to the XMPP server.");
             myApplication.setConnected(true);
             if (mService == null) {
                 startService(new Intent(getApplicationContext(), MainService.class));
@@ -1267,7 +1250,7 @@ public class MainService extends Service {
      */
     private void performTaskOnConnectionClosed() {
 
-        if (!Utility.connectionClosedCalled) {
+        if (Utility.connectionClosedCalled == false) {
             try {
                 Utility.loginCalledOnce = false;
                 Utility.connectionClosedCalled = true;
@@ -1275,7 +1258,7 @@ public class MainService extends Service {
                 Utils.isLoginTaskRunning = false;
 
                 try {
-                    if (WelcomeActivity.dismissProgressBar) {
+                    if (WelcomeActivity.dismissProgressBar == true) {
                         Utility.stopDialog();
                     }
                 } catch (Exception e1) {
@@ -1284,7 +1267,7 @@ public class MainService extends Service {
                 sendConnectionErrorWhileSignInBroadcast();
                 sendConnectionErrorBroadcast();
 
-                if (!Utility.disconnected) {
+                if (Utility.disconnected == false) {
                     reLogin();
                 }
             } catch (Exception e) {
@@ -1301,7 +1284,7 @@ public class MainService extends Service {
         boolean_serviceCreatedOnce = false;
         Utils.isLoginTaskRunning = false;
         Utility.loginCalledOnce = false;
-        if (WelcomeActivity.dismissProgressBar) {
+        if (WelcomeActivity.dismissProgressBar == true) {
             try {
                 Utility.stopDialog();
             } catch (Exception e) {
@@ -1314,7 +1297,7 @@ public class MainService extends Service {
     /**
      * Reconnect to openfire on connection break
      */
-    private void reLogin() {
+    public void reLogin() {
 
         if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
             Utility.reloginCalled = true;
@@ -1354,9 +1337,9 @@ public class MainService extends Service {
 
                 Roster roster = MainService.mService.connection.getRoster();
                 Collection<RosterEntry> entries = roster.getEntries();
-                List<RosterEntry> userList = new ArrayList<>(entries);
+                List<RosterEntry> userList = new ArrayList<RosterEntry>(entries);
 
-                ArrayList<String> existIds = new ArrayList<>();
+                ArrayList<String> existIds = new ArrayList<String>();
                 for (int i = 0; i < userList.size(); i++) {
                     String userId = userList.get(i).getUser();
                     existIds.add(userId);
@@ -1438,7 +1421,7 @@ public class MainService extends Service {
             switch (requestId) {
                 case OPERATION_ON_START:
                     try {
-                        Hashtable<String, Boolean> hashMap = new Hashtable<>();
+                        Hashtable<String, Boolean> hashMap = new Hashtable<String, Boolean>();
                         for (int i = 0; i < receipients.size(); i++) {
                             String id = receipients.get(i).getString(getResources().getString(R.string.column_receipient));
                             id = (id + "@" + connection.getServiceName()).toUpperCase();
@@ -1605,7 +1588,7 @@ public class MainService extends Service {
                     ThatItApplication.getApplication().getIncomingRequestHash().remove(from);
 
                     NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    notificationManager.cancel(NOTIFICATION_FRIEND_REQUEST);
+                    notificationManager.cancel(mService.NOTIFICATION_FRIEND_REQUEST);
                 }
             }
             parseUtil.removeRequest(mService, AppSinglton.thatsItPincode, from, myParseListener, ParseCallbackListener.OPERATION_FRIEND_REQUEST_DELETED);
@@ -1633,7 +1616,7 @@ public class MainService extends Service {
      * @param id    the id of the notification.
      * @param notif the notification to show
      */
-    private void sendNotification(int id, Notification notif) {
+    public void sendNotification(int id, Notification notif) {
         NotificationManager mNotificationManager = (NotificationManager) myApplication
                 .getSystemService(NOTIFICATION_SERVICE);
         notif.defaults |= Notification.DEFAULT_VIBRATE;
@@ -1676,7 +1659,7 @@ public class MainService extends Service {
      * @return list of roster objects
      */
     public ArrayList<RosterEntry> getRosters(MyRosterListner myRosterListner) {
-        ArrayList<RosterEntry> rosterEntries = new ArrayList<>();
+        ArrayList<RosterEntry> rosterEntries = new ArrayList<RosterEntry>();
         try {
             Roster roster = connection.getRoster();
             roster.addRosterListener(myRosterListner);
@@ -1693,7 +1676,7 @@ public class MainService extends Service {
 
     public ArrayList<RosterEntry> getRostersSuggest(
             MyRosterListnerSuggest myRosterListner) {
-        ArrayList<RosterEntry> rosterEntries = new ArrayList<>();
+        ArrayList<RosterEntry> rosterEntries = new ArrayList<RosterEntry>();
         try {
             Roster roster = connection.getRoster();
             roster.addRosterListener(myRosterListner);
@@ -1710,7 +1693,7 @@ public class MainService extends Service {
 
     public ArrayList<RosterEntry> getRostersInvite(
             MyRosterListnerInvite myRosterListner) {
-        ArrayList<RosterEntry> rosterEntries = new ArrayList<>();
+        ArrayList<RosterEntry> rosterEntries = new ArrayList<RosterEntry>();
         try {
             Roster roster = connection.getRoster();
             roster.addRosterListener(myRosterListner);
@@ -1794,7 +1777,7 @@ public class MainService extends Service {
                 } else if (message.getBody().equalsIgnoreCase("Group Invitation")) {
                     if (!connection.isConnected()) return;
                     try {
-                        if (boolean_groupCreated) {
+                        if (boolean_groupCreated == true) {
                             from = message.getFrom();
                             showNotification("Group Added", " added you in a group.");
                             triggerFragmentRefresh("Refresh_Group_Adapter");
@@ -1814,7 +1797,7 @@ public class MainService extends Service {
                         @Override
                         public void run() {
                             try {
-                                if (Utility.fragChatHistoryOpened) {
+                                if (Utility.fragChatHistoryOpened == true) {
                                     Utility.fragmentChatHistoryScreen.prepareChatRosterData();
                                 }
                             } catch (Exception e) {
@@ -1872,7 +1855,7 @@ public class MainService extends Service {
      * @param chat
      * @param message Incoming chat message stored in DB
      */
-    private void saveParticipantChat(Chat chat, Message message) {
+    void saveParticipantChat(Chat chat, Message message) {
         try {
             RosterEntry rosterEntry = getRosterEntryFromJID(StringUtils.parseBareAddress(message.getFrom()));
             String jid = rosterEntry.getUser();
@@ -1895,7 +1878,7 @@ public class MainService extends Service {
         }
     }
 
-    private void sendChatBroadast(Chat chat, Message message) {
+    void sendChatBroadast(Chat chat, Message message) {
         try {
             RosterEntry rosterEntry = getRosterEntryFromJID(StringUtils.parseBareAddress(message.getFrom()));
 
@@ -1911,7 +1894,7 @@ public class MainService extends Service {
         }
     }
 
-    private void setIncomingChatListner() {
+    public void setIncomingChatListner() {
         if (connection.isConnected()) {
             chatmanager = connection.getChatManager();
             //	chatmanager.removeChatListener(mIncomingChatManagerListener);
@@ -1971,7 +1954,7 @@ public class MainService extends Service {
         notificationManager.notify(0, mNotification);
     }
 
-    private void clearCredential() {
+    void clearCredential() {
         mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
         mSettings.edit().clear().commit();
     }
@@ -1997,7 +1980,7 @@ public class MainService extends Service {
     }
 
     /**
-     * @param fileName file download from server
+     * @param fileName         file download from server
      */
     public void acceptCurrentincomingFileRequest(String fileName) {
         try {

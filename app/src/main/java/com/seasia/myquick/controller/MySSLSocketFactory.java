@@ -2,6 +2,7 @@ package com.seasia.myquick.controller;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -17,9 +18,9 @@ import javax.net.ssl.X509TrustManager;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 
 @SuppressWarnings("deprecation")
-class MySSLSocketFactory extends SSLSocketFactory {
+public class MySSLSocketFactory extends SSLSocketFactory {
 
-	private final SSLContext sslContext = SSLContext.getInstance("TLS");
+	SSLContext sslContext = SSLContext.getInstance("TLS");
 
 	public MySSLSocketFactory(KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
 		super(truststore);
@@ -40,7 +41,7 @@ class MySSLSocketFactory extends SSLSocketFactory {
 	}
 
 	@Override
-	public Socket createSocket(Socket socket, String host, int port, boolean autoClose) throws IOException {
+	public Socket createSocket(Socket socket, String host, int port, boolean autoClose) throws IOException, UnknownHostException {
 		return sslContext.getSocketFactory().createSocket(socket, host, port, autoClose);
 	}
 

@@ -69,8 +69,7 @@
         android:layout_below="@id/fragChat_clipboard"
         android:background="@drawable/red_bar"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:baselineAligned="false">
+        android:weightSum="100" >
 
         <RelativeLayout
             android:id="@+id/fragChat_rltv_img"

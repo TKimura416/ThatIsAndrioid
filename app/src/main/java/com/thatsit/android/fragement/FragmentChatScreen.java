@@ -1,20 +1,5 @@
 package com.thatsit.android.fragement;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.jivesoftware.smack.Chat;
-import org.jivesoftware.smack.ChatManager;
-import org.jivesoftware.smack.RosterEntry;
-import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.packet.Message;
-import org.jivesoftware.smack.packet.Presence;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -23,7 +8,6 @@ import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
-import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -61,10 +45,15 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.myquick.filebrowser.AndroidExplorer;
+import com.myquick.socket.ClientChatThread;
+import com.myquick.socket.ServerThread;
+import com.myquickapp.receivers.ConnectionBroadcastReceiver;
+import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.seasia.myquick.asyncTasks.Validate_ThatsItId_Async;
+import com.seasia.myquick.model.AppSinglton;
 import com.seasia.myquick.model.ValidateThatsItID;
 import com.thatsit.android.FileDispatcherAsync;
 import com.thatsit.android.FileReceiveraAsync_;
@@ -87,12 +76,20 @@ import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.thatsit.android.interfaces.ValidateThatsItIdInterface;
 import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
-import com.myquick.filebrowser.AndroidExplorer;
-import com.myquick.socket.ClientChatThread;
-import com.myquick.socket.ServerThread;
-import com.myquickapp.receivers.ConnectionBroadcastReceiver;
-import com.myquickapp.receivers.NetworkAvailabilityReceiver;
-import com.seasia.myquick.model.AppSinglton;
+import org.jivesoftware.smack.Chat;
+import org.jivesoftware.smack.ChatManager;
+import org.jivesoftware.smack.RosterEntry;
+import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.packet.Message;
+import org.jivesoftware.smack.packet.Presence;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * in this fragment, one2one chat is performed with the roster entry.
@@ -128,10 +125,9 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 	private ArrayList<Integer> ListItem_position_new = new ArrayList<Integer>();
 	private ArrayList<String> ListItem_position_all = new ArrayList<String>();
 	private ArrayList<Integer> ListItem_position_deletes = new ArrayList<Integer>();
-	private ImageView /*img_copy,img_cut,*/img_accept;
+	private ImageView img_accept;
 	private TextView img_delete;
 	public RelativeLayout activityRootView;
-	private ClipData clip;
 	private View View_Color;
 	private String chatRecipientPhoto;
 	public static byte[] byteArray;
@@ -769,7 +765,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 							e1.printStackTrace();
 						}
 					}else{
-						Utility.showMessage("Please wait while connection gets restored");
+						//Utility.showMessage("Please wait while connection gets restored");
 					}
 				}
 				else{
@@ -998,7 +994,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 							Intent intent  = new Intent(getActivity(),SuggestContactActivity.class);
 							startActivity(intent);
 						}else{
-							Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
+							//Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
 						}
 					}else{
 						Toast.makeText(getActivity(), getResources().getString(R.string.Network_Availability), Toast.LENGTH_SHORT).show();
@@ -1016,7 +1012,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 								sendRequestIPMessage();
 								launchPhotoPicker();
 							}else{
-								Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
+								//Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
 							}
 						}else{
 							Toast.makeText(getActivity(), getResources().getString(R.string.Network_Availability), Toast.LENGTH_SHORT).show();
@@ -1035,7 +1031,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 							sendRequestIPMessage();
 							launchVideoPicker();
 						}else{
-							Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
+							//Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
 						}
 					}else{
 						Toast.makeText(getActivity(), getResources().getString(R.string.Network_Availability), Toast.LENGTH_SHORT).show();
@@ -1051,7 +1047,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 							sendRequestIPMessage();
 							launchFilePicker();
 						}else{
-							Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
+							//Toast.makeText(getActivity(),"Please wait while connection gets restored", Toast.LENGTH_SHORT).show();
 						}
 					}else{
 						Toast.makeText(getActivity(), getResources().getString(R.string.Network_Availability), Toast.LENGTH_SHORT).show();
@@ -1262,10 +1258,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 		new FileDispatcherAsync(f,mRosterEntry.getUser().split("@")[0],new UpdateFTPStatus(){
 
 			@Override
-			public void showProgress(int currentProgress) {
-			}
-
-			@Override
 			public void markStatus(boolean isComplete,String name) {
 
 				if(isComplete)
@@ -1365,10 +1357,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 		new FileDispatcherAsync(f,mRosterEntry.getUser().split("@")[0],new UpdateFTPStatus(){
 
 			@Override
-			public void showProgress(int currentProgress) {
-			}
-
-			@Override
 			public void markStatus(boolean isComplete, String name) {
 				if(isComplete)
 					sendMessageWithFileSubject(name);
@@ -1377,7 +1365,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 	}
 
 	// Sending image from gallery
-
 	private void sendSelectedImageFileFromGallery() {
 
 		File f = null;
@@ -1434,10 +1421,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 
 	public void processFile(File f){
 		new FileDispatcherAsync(f, mRosterEntry.getUser().split("@")[0], new UpdateFTPStatus(){
-
-			@Override
-			public void showProgress(int currentProgress) {
-			}
 
 			@Override
 			public void markStatus(boolean isComplete,
