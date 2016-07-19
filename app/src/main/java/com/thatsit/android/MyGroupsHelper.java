@@ -1,15 +1,19 @@
 package com.thatsit.android;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 //import org.jivesoftware.smack.RosterEntry;
 //import org.jivesoftware.smack.RosterGroup;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smack.roster.RosterGroup;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -48,7 +52,7 @@ public class MyGroupsHelper {
 	private static ArrayList<RosterGroup> list = null;
 
 
-	public static void createNewGroupDialog(final Activity context,final XMPPConnection xmppConnectionInstance) {
+	public static void createNewGroupDialog(final Activity context, final XMPPTCPConnection xmppConnectionInstance) {
 
 		if (createGroupDialog == null) {
 			createGroupDialog = new Dialog(context);
@@ -81,7 +85,7 @@ public class MyGroupsHelper {
 										Toast.makeText(context,"Enter group name ", Toast.LENGTH_SHORT).show();
 									} else {
 
-										Collection<RosterGroup> rGroups = MainService.mService.connection.getRoster().getGroups();
+										Collection<RosterGroup> rGroups = Roster.getInstanceFor(MainService.mService.connection).getGroups();
 										list = new ArrayList<>(rGroups);
 
 										ArrayList<String> groupList = new ArrayList<>();
@@ -110,6 +114,12 @@ public class MyGroupsHelper {
 														} catch (XMPPException e1) {
 															e1.printStackTrace();
 															Utility.showMessage("Error while creating group.");
+														} catch (InterruptedException e) {
+															e.printStackTrace();
+														} catch (IOException e) {
+															e.printStackTrace();
+														} catch (SmackException e) {
+															e.printStackTrace();
 														}
 													} else {
 														joinParse(groupName_complete, xmppConnectionInstance);
@@ -192,8 +202,8 @@ public class MyGroupsHelper {
 							@Override
 							public void run() {
 
-								RosterGroup rGroup = mConnection.getRoster().getGroup(
-										chatGrpInstance.getRoom().split("@")[0]);
+								RosterGroup rGroup = Roster.getInstanceFor(mConnection).getGroup(
+										chatGrpInstance.getRoom().toString().split("@")[0]);
 								String groupName;
 								try {
 									groupName = rGroup.getName();
@@ -243,13 +253,13 @@ public class MyGroupsHelper {
 							try {
 								ThatItApplication.getApplication().setCurrentMUCRefernece(chatGrpInstance);
 								ThatItApplication.getApplication().setCurrentRosterGroupReference(
-										mConnection.getRoster().getGroup(chatGrpInstance.getRoom().split("@")[0]));
+										Roster.getInstanceFor(mConnection).getGroup(chatGrpInstance.getRoom().toString().split("@")[0]));
 
 								handler.post(new Runnable() {
 
 									@Override
 									public void run() {
-										String groupNameWithMessage = chatGrpInstance.getRoom().split("@")[0].split("__")[1].replaceAll("%2b", " ");
+										String groupNameWithMessage = chatGrpInstance.getRoom().toString().split("@")[0].split("__")[1].replaceAll("%2b", " ");
 										Intent intent = new Intent(parentReference, InviteContactsToRoster.class);
 										intent.putExtra("GROUP NAME",groupNameWithMessage);
 										parentReference.startActivity(intent);
@@ -266,7 +276,7 @@ public class MyGroupsHelper {
 				if (optionsBasicUser[item].equals("Group Members")) {
 					try {
 						Intent it = new Intent(ThatItApplication.getApplication(),GroupInfoActivity.class);
-						it.putExtra("group_name", chatGrpInstance.getRoom());
+						it.putExtra("group_name", chatGrpInstance.getRoom().toString());
 						it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						ThatItApplication.getApplication().startActivity(it);
 					} catch (Exception e) {
@@ -306,7 +316,13 @@ public class MyGroupsHelper {
 			@Override
 			public void done(ParseException parseException, int requestId) {
 				if(parseException==null)
-					chatGrpInstance.leave();
+					try {
+						chatGrpInstance.leave();
+					} catch (SmackException.NotConnectedException e) {
+						e.printStackTrace();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 				else{
 					parseException.printStackTrace();
 				}

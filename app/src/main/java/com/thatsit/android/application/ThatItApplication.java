@@ -6,9 +6,8 @@ import java.util.Set;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.jivesoftware.smack.RosterGroup;
-import org.jivesoftware.smack.packet.Packet;
+import org.jivesoftware.smack.packet.Stanza;
+import org.jivesoftware.smack.roster.RosterGroup;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 
 import android.content.SharedPreferences;
@@ -35,7 +34,7 @@ public class ThatItApplication extends MultiDexApplication {
 	private static ThatItApplication app;
 	private SharedPreferences mSettings;
 	private final PreferenceListener mPreferenceListener = new PreferenceListener();
-	private Hashtable<String, Packet> incomingRequestHash = new Hashtable<>();
+	private Hashtable<String, Stanza> incomingRequestHash = new Hashtable<>();
 	private RosterGroup currentRosterGroupReference=null;
 	private MultiUserChat currentMUCRefernece=null;
 	private MultiUserChat currentGroupChatCoversation=null;
@@ -175,12 +174,12 @@ public class ThatItApplication extends MultiDexApplication {
 		Log.i(TAG, isConnected + "    setConnected ");
 	}
 
-	public Hashtable<String, Packet> getIncomingRequestHash() {
+	public Hashtable<String, Stanza> getIncomingRequestHash() {
 		return incomingRequestHash;
 	}
 
 	public void setIncomingRequestHash(
-			Hashtable<String, Packet> incomingRequestHash) {
+			Hashtable<String, Stanza> incomingRequestHash) {
 		this.incomingRequestHash = incomingRequestHash;
 	}
 

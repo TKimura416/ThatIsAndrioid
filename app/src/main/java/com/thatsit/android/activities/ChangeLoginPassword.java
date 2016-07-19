@@ -29,6 +29,8 @@ import com.seasia.myquick.controller.WebServiceClient;
 import com.seasia.myquick.model.AppSinglton;
 import com.seasia.myquick.model.UpdateUserPasswordTemplate;
 
+import org.jivesoftware.smackx.iqregister.AccountManager;
+
 import java.net.URLEncoder;
 
 /**
@@ -203,7 +205,8 @@ public class ChangeLoginPassword extends Activity implements OnClickListener{
 					if(obj.getmUpdateUserPasswordResult().getmUpdateUserPasswordParams()[0].getRetVal().equals("1")){
 
 						if(XmppManager.getInstance().getXMPPConnection()!=null	&& XmppManager.getInstance().getXMPPConnection().isAuthenticated() ){
-							XmppManager.getInstance().getXMPPConnection().getAccountManager().changePassword(NewPassword);
+//							XmppManager.getInstance().getXMPPConnection().getAccountManager().changePassword(NewPassword);
+							AccountManager.getInstance(XmppManager.getInstance().getXMPPConnection()).changePassword(NewPassword);
 						}
 
 						SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ChangeLoginPassword.this).edit();

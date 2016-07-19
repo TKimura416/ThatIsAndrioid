@@ -3,11 +3,17 @@ package com.thatsit.android.adapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.jivesoftware.smack.RosterEntry;
+//import org.jivesoftware.smack.RosterEntry;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Mode;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smack.roster.RosterEntry;
+import org.jxmpp.jid.impl.JidCreate;
+import org.jxmpp.stringprep.XmppStringprepException;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -181,14 +187,22 @@ public class UsersAdapter extends BaseAdapter {
 				e.printStackTrace();
 			}
 			if(entry!=null) {
-				Presence presence = mConnection.getRoster().getPresence(
-						entry.getUser());
+				Presence presence = Roster.getInstanceFor(mConnection).getPresence(
+						entry.getJid());
 				Presence.Mode userMode = presence.getMode();
 				// // remove from roster List
 				if (presence.getType().equals(Presence.Type.unsubscribed)) {
 					try {
-						mConnection.getRoster().removeEntry(entry);
+						Roster.getInstanceFor(mConnection).removeEntry(entry);
 					} catch (XMPPException e) {
+						e.printStackTrace();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					} catch (SmackException.NotLoggedInException e) {
+						e.printStackTrace();
+					} catch (SmackException.NoResponseException e) {
+						e.printStackTrace();
+					} catch (SmackException.NotConnectedException e) {
 						e.printStackTrace();
 					}
 				}
@@ -255,6 +269,11 @@ public class UsersAdapter extends BaseAdapter {
 		if (!jid.contains("@")) {
 			jid = jid + "@" + mConnection.getHost();
 		}
-		return mConnection.getRoster().getEntry(jid);
+		try {
+			return Roster.getInstanceFor(mConnection).getEntry(JidCreate.bareFrom(jid));
+		} catch (XmppStringprepException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

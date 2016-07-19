@@ -6,15 +6,26 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-import org.jivesoftware.smack.ChatManager;
-import org.jivesoftware.smack.Roster;
-import org.jivesoftware.smack.RosterEntry;
-import org.jivesoftware.smack.RosterGroup;
-import org.jivesoftware.smack.RosterListener;
+//import org.jivesoftware.smack.ChatManager;
+//import org.jivesoftware.smack.Roster;
+//import org.jivesoftware.smack.RosterEntry;
+//import org.jivesoftware.smack.RosterGroup;
+//import org.jivesoftware.smack.RosterListener;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.packet.Presence;
-import org.jivesoftware.smackx.packet.*;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smack.roster.RosterEntry;
+import org.jivesoftware.smack.roster.RosterGroup;
+import org.jivesoftware.smack.roster.RosterListener;
+//import org.jivesoftware.smackx.packet.*;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+import org.jxmpp.jid.Jid;
+import org.jxmpp.jid.impl.JidCreate;
+import org.jxmpp.stringprep.XmppStringprepException;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -371,13 +382,13 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		progressBar = (ProgressBar)mView.findViewById(R.id.progressBar);
 	}
 
-	private RosterEntry getEntryUsingJid(String jid) {
+	private RosterEntry getEntryUsingJid(String jid) throws XmppStringprepException {
 
 		jid = jid.toLowerCase();
 		if (!jid.contains("@")) {
 			jid = jid + "@" + MainService.mService.connection.getHost();
 		}
-		return MainService.mService.connection.getRoster().getEntry(jid);
+		return Roster.getInstanceFor(MainService.mService.connection).getEntry(JidCreate.bareFrom(jid));
 	}
 
 	private void initialise_Listeners() {
@@ -607,15 +618,15 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				//card = new VCard();
 				One2OneChatDb oneToOne = new One2OneChatDb(ThatItApplication.getApplication());
 				for (int i = 0; i < rosterEntries.size(); i++) {
-					try {
+//					try {
 						card = null;
 						card = new VCard();
-						if(mConnection.isConnected() && mConnection.isAuthenticated()) {
-							card.load(MainService.mService.connection, rosterEntries.get(i).getUser());
-						}
-						} catch (XMPPException e) {
-						e.printStackTrace();
-					}
+//						if(mConnection.isConnected() && mConnection.isAuthenticated()) {
+//							card.load(MainService.mService.connection, rosterEntries.get(i).getUser());
+//						}
+//						} catch (XMPPException e) {
+//						e.printStackTrace();
+//					}
 					try {
 						String jId = rosterEntries.get(i).getUser().split("@")[0];
 						String firstname;
@@ -742,15 +753,18 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	public final class MyRosterListner implements RosterListener,ParseCallbackListener{
 
 		@Override
-		public void entriesAdded(Collection<String> people_collection) {
+		public void entriesAdded(Collection<Jid> addresses) {
+
 		}
 
 		@Override
-		public void entriesDeleted(Collection<String> arg0) {
+		public void entriesUpdated(Collection<Jid> addresses) {
+
 		}
 
 		@Override
-		public void entriesUpdated(Collection<String> arg0) {
+		public void entriesDeleted(Collection<Jid> addresses) {
+
 		}
 
 		@Override
@@ -830,7 +844,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private void addIncommingChatListner() {
 		try {
 			if (MainService.mService.connection.isConnected()) {
-				ChatManager chatmanager = MainService.mService.connection.getChatManager();
+				ChatManager chatmanager = ChatManager.getInstanceFor(MainService.mService.connection);
 				chatmanager.addChatListener(mService.mIncomingChatManagerListener);
 			}
 		} catch (Exception e) {
@@ -1015,7 +1029,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 
 		if(cursor.getCount()>0){
 			JidsExist = true;
-			Roster roster = mConnection.getRoster();
+			Roster roster = Roster.getInstanceFor(mConnection);
 			roster.addRosterListener(myRosterListner);
 			do {
 				String jid = cursor.getString(cursor
@@ -1092,15 +1106,15 @@ public class FragmentContact extends Fragment implements OnClickListener {
 									public void run() {
 										try {
 											try {
-												Utility.removeFriendIfExists(entryToBeRemoved.getUser());
+												Utility.removeFriendIfExists(entryToBeRemoved.getJid().asUnescapedString());
 												removeContactFromRoster(entryToBeRemoved);
-												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getUser().toUpperCase());
-												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getUser().toLowerCase());
+												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getJid().asUnescapedString().toUpperCase());
+												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getJid().asUnescapedString().toLowerCase());
 												try {
 													Utility mUtility = new Utility();
 													mUtility.deleteUnsubscribedUserChatHistory(
 															getRosterHistoryList,rosterHistoryToBeDeleted,
-															entryToBeRemoved.getUser(),mService);
+															entryToBeRemoved.getJid(),mService);
 												} catch (Exception e) {
 													e.printStackTrace();
 												}
@@ -1191,7 +1205,17 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	 */
 	private void removeContactFromRoster(RosterEntry entryToBeRemoved) {
 		try {
-			MainService.mService.connection.getRoster().removeEntry(entryToBeRemoved);
+			try {
+				Roster.getInstanceFor(MainService.mService.connection).removeEntry(entryToBeRemoved);
+			} catch (SmackException.NotLoggedInException e) {
+				e.printStackTrace();
+			} catch (SmackException.NoResponseException e) {
+				e.printStackTrace();
+			} catch (SmackException.NotConnectedException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		} catch (XMPPException e) {
 			e.printStackTrace();
 		}
@@ -1227,7 +1251,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 			if (MainService.mService.connection.isConnected() && MainService.mService.connection.isAuthenticated()) {
 				areGroupsReady = false;
 				groupsEmpty = false;
-				Collection<RosterGroup> rGroups = MainService.mService.connection.getRoster().getGroups();
+				Collection<RosterGroup> rGroups = Roster.getInstanceFor(MainService.mService.connection).getGroups();
 				list = new ArrayList<>(rGroups);
 				if (list != null) {
 					if (list.size() == 0) {
@@ -1253,8 +1277,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private void openChatScreen() {
 
 		mFragmentTransaction = mFragmentManager.beginTransaction();
-		FragmentChatScreen fragmentChatScreen = new FragmentChatScreen(
-				mService, entry, profilePicDrawable, LastFragment,personFirstName, personLastName);
+		FragmentChatScreen fragmentChatScreen = new FragmentChatScreen(mService, entry, profilePicDrawable, LastFragment,personFirstName, personLastName);
 		mFragmentTransaction.replace(R.id.fragmentContainer, fragmentChatScreen);
 		mFragmentTransaction.commit();
 		ContactActivity.mBtn_Contact.setBackgroundResource(R.drawable.contact_icon_sm);
@@ -1584,7 +1607,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					//There must be an error reconnection
 				} else {
 					ProgressBarStatus("Stop");
-					Roster roster = mConnection.getRoster();
+					Roster roster = Roster.getInstanceFor(mConnection);
 					roster.addRosterListener(myRosterListner);
 					setUserAdapter();
 				}
@@ -1676,7 +1699,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 														Utility mUtility = new Utility();
 														mUtility.deleteUnsubscribedUserChatHistory(
 																getRosterHistoryList,rosterHistoryToBeDeleted,
-																entry.getUser(),mService);
+																entry.getJid(),mService);
 													} catch (Exception e) {
 														e.printStackTrace();
 													}

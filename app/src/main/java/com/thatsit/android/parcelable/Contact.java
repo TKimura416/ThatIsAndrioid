@@ -4,11 +4,9 @@ package com.thatsit.android.parcelable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import org.jivesoftware.smack.RosterGroup;
 import org.jivesoftware.smack.packet.Presence;
-import org.jivesoftware.smack.util.StringUtils;
-
+import org.jivesoftware.smack.roster.RosterGroup;
+import org.jxmpp.util.XmppStringUtils;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -68,12 +66,12 @@ public class Contact implements Parcelable {
     * @param jid JID of the contact
     */
    public Contact(final String jid) {
-   mJID = StringUtils.parseBareAddress(jid);
-   mName = mJID;
+      mJID = jid;
+      mName = mJID;
    mStatus = Status.CONTACT_STATUS_DISCONNECT;
    mMsgState = null;
    mRes = new ArrayList<>();
-   String res = StringUtils.parseResource(jid);
+   String res = XmppStringUtils.parseResource(jid);//StringUtils.parseResource(jid);
    mSelectedRes = res;
    if (!"".equals(res))
        mRes.add(res);
@@ -88,12 +86,14 @@ public class Contact implements Parcelable {
    if (!"xmpp".equals(uri.getScheme()))
        throw new IllegalArgumentException();
    String enduri = uri.getEncodedSchemeSpecificPart();
-   mJID = StringUtils.parseBareAddress(enduri);
-   mName = mJID;
+//   mJID = StringUtils.parseBareAddress(enduri);
+   mJID = XmppStringUtils.parseBareJid(enduri);
+//   mJID = StringUtils.parseBareAddress(enduri);
+   mName = XmppStringUtils.parseBareJid(mJID);
    mStatus = Status.CONTACT_STATUS_DISCONNECT;
    mMsgState = null;
    mRes = new ArrayList<>();
-   String res = StringUtils.parseResource(enduri);
+   String res = XmppStringUtils.parseBareJid(enduri);
    mSelectedRes = res;
    mRes.add(res);
    }
@@ -106,12 +106,15 @@ public class Contact implements Parcelable {
     */
    public static Uri makeXmppUri(String jid) {
    StringBuilder build = new StringBuilder("xmpp:");
-   String name = StringUtils.parseName(jid);
+//   String name = StringUtils.parseName(jid);
+   String name = XmppStringUtils.parseLocalpart(jid);
    build.append(name);
    if (!"".equals(name))
        build.append('@');
-   build.append(StringUtils.parseServer(jid));
-   String resource = StringUtils.parseResource(jid);
+   build.append(XmppStringUtils.parseDomain(jid));
+//   build.append(StringUtils.parseServer(jid));
+   String resource = XmppStringUtils.parseResource(jid);
+//   String resource = StringUtils.parseResource(jid);
    if (!"".equals(resource)) {
        build.append('/');
        build.append(resource);
@@ -319,7 +322,7 @@ public class Contact implements Parcelable {
    public void setName(String name) {
    if (name == null || "".equals(name)) {
        this.mName = this.mJID;
-       this.mName = StringUtils.parseName(this.mName);
+       this.mName = XmppStringUtils.parseLocalpart(this.mName);
        if (this.mName == null || "".equals(this.mName))
        this.mName = this.mJID;
    } else {
@@ -378,11 +381,11 @@ public class Contact implements Parcelable {
     */
    public Uri toUri(String resource) {
    StringBuilder build = new StringBuilder("xmpp:");
-   String name = StringUtils.parseName(mJID);
+   String name = XmppStringUtils.parseLocalpart(mJID);
    build.append(name);
    if (!"".equals(name))
        build.append('@');
-   build.append(StringUtils.parseServer(mJID));
+   build.append(XmppStringUtils.parseLocalpart(mJID));
    if (!"".equals(resource)) {
        build.append('/');
        build.append(resource);

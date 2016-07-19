@@ -3,13 +3,16 @@ package com.thatsit.android.fragement;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jivesoftware.smack.Roster;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Presence;
-import org.jivesoftware.smackx.Form;
-import org.jivesoftware.smackx.ReportedData.Row;
-import org.jivesoftware.smackx.packet.VCard;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smackx.search.ReportedData;
 import org.jivesoftware.smackx.search.UserSearchManager;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+import org.jivesoftware.smackx.xdata.Form;
+import org.jxmpp.jid.impl.JidCreate;
+import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -306,7 +309,7 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 
 	private boolean isSelfInvite(String ids2) {
 		if (MainService.mService.connection != null && MainService.mService.connection.isConnected()) {
-			if (ids2.trim().equalsIgnoreCase(MainService.mService.connection.getUser().split("@")[0]))
+			if (ids2.trim().equalsIgnoreCase(MainService.mService.connection.getUser().toString()))
 				return true;
 		}
 		return false;
@@ -335,62 +338,66 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 			public void done(ParseException parseException,int reqId) {
 				if(parseException==null){
 					idExtension = jid + "@" + MainService.mService.connection.getServiceName();
-					Roster roster = MainService.mService.connection.getRoster();
-					if (!roster.contains(idExtension)) {
-						try {
-							Presence subscribe = new Presence(Presence.Type.subscribe);
-							subscribe.setTo(idExtension);
-							subscribe.setFrom(MainService.mService.connection.getUser());
-							subscribe.setStatus(Messages);
-							MainService.mService.connection.sendPacket(subscribe);
-							ThatItApplication.getApplication().getSentInvites().put(idExtension.toUpperCase(), true);
-							handler.post(new Runnable() {
+					Roster roster = Roster.getInstanceFor(MainService.mService.connection);
+					try {
+						if (!roster.contains(JidCreate.bareFrom(idExtension))) {
+                            try {
+                                Presence subscribe = new Presence(Presence.Type.subscribe);
+                                subscribe.setTo(idExtension);
+                                subscribe.setFrom(MainService.mService.connection.getUser());
+                                subscribe.setStatus(Messages);
+                                MainService.mService.connection.sendPacket(subscribe);
+                                ThatItApplication.getApplication().getSentInvites().put(idExtension.toUpperCase(), true);
+                                handler.post(new Runnable() {
 
-								@Override
-								public void run() {
-									mEdit_Id.setText("");
-									mEdit_Message.setText("");
-									Toast.makeText(getActivity(), "Invitation Sent Successfully", Toast.LENGTH_SHORT).show();
-									Utility.stopDialog();								}
-							});
-						} catch (Exception e) {
-							e.printStackTrace();
+                                    @Override
+                                    public void run() {
+                                        mEdit_Id.setText("");
+                                        mEdit_Message.setText("");
+                                        Toast.makeText(getActivity(), "Invitation Sent Successfully", Toast.LENGTH_SHORT).show();
+                                        Utility.stopDialog();								}
+                                });
+                            } catch (Exception e) {
+                                e.printStackTrace();
 
-							parseUtil.removeRequest(getActivity(), AppSinglton.thatsItPincode, jid, new ParseCallbackListener() {
-								@Override
-								public void done(List<ParseObject> receipients, ParseException e,
-												 int requestId) {
-									Utility.stopDialog();
-								}
+                                parseUtil.removeRequest(getActivity(), AppSinglton.thatsItPincode, jid, new ParseCallbackListener() {
+                                    @Override
+                                    public void done(List<ParseObject> receipients, ParseException e,
+                                                     int requestId) {
+                                        Utility.stopDialog();
+                                    }
 
-								@Override
-								public void done(ParseException parseException, int requestId) {
-									Log.e("operation", "Fragment invitation - friend request send operation cancelled");
-									Utility.stopDialog();
-								}
-							}, 0);
-						}
-					} else {
-						getActivity().runOnUiThread(new Runnable() {
-							@Override
-							public void run() {
+                                    @Override
+                                    public void done(ParseException parseException, int requestId) {
+                                        Log.e("operation", "Fragment invitation - friend request send operation cancelled");
+                                        Utility.stopDialog();
+                                    }
+                                }, 0);
+                            }
+                        } else {
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
 
-								Toast.makeText(getActivity(), "User already exists in your list", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "User already exists in your list", Toast.LENGTH_SHORT).show();
 
-								parseUtil.removeRequest(getActivity(), AppSinglton.thatsItPincode,jid, new ParseCallbackListener() {
-									@Override
-									public void done(ParseException parseException,int i) {
-										Utility.stopDialog();
-									}
-									@Override
-									public void done(
-											List<ParseObject> phoneList,
-											ParseException e,int i) {
-										Utility.stopDialog();
-									}
-								},0);
-							}
-						});
+                                    parseUtil.removeRequest(getActivity(), AppSinglton.thatsItPincode,jid, new ParseCallbackListener() {
+                                        @Override
+                                        public void done(ParseException parseException,int i) {
+                                            Utility.stopDialog();
+                                        }
+                                        @Override
+                                        public void done(
+                                                List<ParseObject> phoneList,
+                                                ParseException e,int i) {
+                                            Utility.stopDialog();
+                                        }
+                                    },0);
+                                }
+                            });
+                        }
+					} catch (XmppStringprepException e) {
+						e.printStackTrace();
 					}
 
 				}else{
@@ -417,19 +424,31 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 		if(jidToAdd.length()!=11){
 			return false;
 		}
+		try {
 
 		UserSearchManager search = new UserSearchManager(MainService.mService.connection);
-		Form searchForm = search.getSearchForm("search." + MainService.mService.connection.getServiceName());
+		Form searchForm = search.getSearchForm( MainService.mService.connection.getServiceName());
 		Form answerForm = searchForm.createAnswerForm();
 		answerForm.setAnswer("Username", true);
 		answerForm.setAnswer("search", jidToAdd);
-		org.jivesoftware.smackx.ReportedData data = search.getSearchResults(answerForm, "search." + MainService.mService.connection.getServiceName());
+//		ReportedData data = search.getSearchResults(answerForm, "search." + MainService.mService.connection.getXMPPServiceDomain());
+		ReportedData data = null;
+			data = search.getSearchResults(answerForm, MainService.mService.connection.getServiceName());
+
 		if (data.getRows() != null ) {
-			Iterator<Row> it = data.getRows();
-			if (it.hasNext()) {
+//			Iterator<Row> it = data.getRows();
+			List<ReportedData.Row> it = data.getRows();
+			if (it.size()>0) {
 				return true;
 
 			}
+		}
+		} catch (SmackException.NoResponseException e) {
+			e.printStackTrace();
+		} catch (SmackException.NotConnectedException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 		return false;
 	}

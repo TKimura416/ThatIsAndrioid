@@ -147,7 +147,7 @@ public class FragmentPaymentSetting extends Fragment implements OnClickListener{
 	private void initialise_Variables() {
 
 		mFragmentChatSetting =new FragmentChatSetting(mService);
-		mFragmentBasicSetting=new FragmentBasicSetting(mService);
+		mFragmentBasicSetting=new FragmentBasicSetting();
 
 		fragInvite_tabs_lnrlayout = (LinearLayout)mView.findViewById(R.id.fragInvite_tabs_lnrlayout);
 		mBtnBasic_Setting =(Button)mView.findViewById(R.id.basic_Setting);

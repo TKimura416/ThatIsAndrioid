@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.jivesoftware.smack.Roster;
-import org.jivesoftware.smack.RosterEntry;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Type;
-import org.jivesoftware.smackx.packet.VCard;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smack.roster.RosterEntry;
+
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -166,7 +167,7 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 	public void onStart() {
 		super.onStart();
 
-		populateIncomingInvitation();
+//		populateIncomingInvitation();
 	}
 
 	@Override
@@ -213,195 +214,195 @@ public class FragmentInvitationReceive extends Fragment implements OnClickListen
 		}
 	}
 
-	/**
-	 * Add all incoming invitaions.
-	 */
-	public void populateIncomingInvitation() {
-
-		getActivity().runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				try {
-					LayoutInflater inflater = LayoutInflater.from(getActivity());
-					invitationsContainer.removeAllViews();
-
-					if(ThatItApplication.getApplication().getIncomingRequestHash().keySet() != null) {
-
-						for (final String key : ThatItApplication.getApplication().getIncomingRequestHash().keySet()) {
-
-
-							Roster roster = MainService.mService.connection.getRoster();
-							Collection<RosterEntry> entries = roster.getEntries();
-							List<RosterEntry> userList = new ArrayList<>(entries);
-
-							ArrayList<String> existIds = new ArrayList<>();
-							for (int i = 0; i < userList.size(); i++) {
-								String userId = userList.get(i).getUser(); 
-								Log.v(""+i, "userId->"+userId);
-								existIds.add(userId);
-							}
-
-
-							if(!existIds.contains(key)){ 
-
-								final InvitationView invitationView = new InvitationView();
-								View currentinvitationView = new View(getActivity());
-								currentinvitationView = inflater.inflate(R.layout.adapter_fragment_invitations_received, null);
-
-								invitationView.txtvwInvitationSender = (TextView) currentinvitationView.findViewById(R.id.invRec_txt_invitationMessage);
-								invitationView.txtvwinvitationMessage = (TextView) currentinvitationView.findViewById(R.id.invRec_txt_invitationMessageInfo);
-								invitationView.txtvwinvitationSenderID = (TextView) currentinvitationView.findViewById(R.id.invRec_txt_pinNo);
-								invitationView.imagesUserPic = (ImageView) currentinvitationView.findViewById(R.id.invRec_img_profilePic);
-								invitationView.btnAccept = (Button) currentinvitationView.findViewById(R.id.invRec_btn_accept);
-								invitationView.btnDeny = (Button) currentinvitationView.findViewById(R.id.invRec_btn_decline);
-
-								try {
-									card.load(MainService.mService.connection, key);
-									if (card.getFirstName() == null) {
-										invitationView.txtvwInvitationSender.setText("My Name");
-									} else {
-										invitationView.txtvwInvitationSender.setText(card.getFirstName());
-									}
-
-									if (card.getField("profile_picture_url") != null) {
-
-										ContactActivity.options = new DisplayImageOptions.Builder().displayer(new RoundedBitmapDisplayer(200))
-										.showImageOnFail(R.drawable.no_img)
-										.showImageForEmptyUri(R.drawable.no_img)
-										.cacheInMemory(true)
-										.cacheOnDisk(true)
-										.build();
-										ContactActivity.loader.displayImage(card.getField("profile_picture_url"), invitationView.imagesUserPic, ContactActivity.options);
-
-									}
-								} catch (XMPPException e) {
-									invitationView.txtvwInvitationSender.setText(key);
-									e.printStackTrace();
-								}
-
-								invitationView.txtvwinvitationSenderID.setText(key.split("@")[0]);
-								Presence p = (Presence) ThatItApplication.getApplication().getIncomingRequestHash().get(key);
-
-								String getStatus = p.getStatus();
-								if (getStatus == null) {
-									invitationView.txtvwinvitationMessage.setText("Hi,can we be friends");
-								} else {
-									invitationView.txtvwinvitationMessage.setText(getStatus);
-								}
-								invitationView.btnAccept.setOnClickListener(new View.OnClickListener() {
-
-									@Override
-									public void onClick(View v) {
-
-										if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
-											try {
-												Utility.startDialog(getActivity());
-
-												parseUtil.updateOperation(getActivity(), key, AppSinglton.thatsItPincode, new ParseCallbackListener() {
-
-													@Override
-													public void done(List<ParseObject> receipients, ParseException e,
-															int requestId) {
-													}
-
-													@Override
-													public void done(ParseException parseException, int requestId) {
-
-														if (parseException == null) {
-
-															ThatItApplication.getApplication().getIncomingRequestHash().remove(key);
-															sendUserPresence(key);
-															populateIncomingInvitation();
-															Toast.makeText(getActivity(), "Friend Request Accepted", Toast.LENGTH_SHORT).show();
-															NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-															notificationManager.cancel(MainService.NOTIFICATION_FRIEND_REQUEST);
-
-														} else {
-															Utility.stopDialog();
-															Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_sendingRequest), Toast.LENGTH_SHORT).show();
-														}
-													}
-												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_ACCEPTED, ParseOperationDecider.FRIEND_REQUEST_ACCEPTED);
-											} catch (Exception e) {
-												e.printStackTrace();
-												Utility.stopDialog();
-											}
-										}else{
-											Utility.showMessage(getResources().getString(R.string.Network_Availability));
-										}
-									}
-								});
-
-								invitationView.btnDeny.setOnClickListener(new View.OnClickListener() {
-
-									@Override
-									public void onClick(View v) {
-
-										if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
-											try {
-
-												Utility.startDialog(getActivity());
-												parseUtil.removeRequest(getActivity(), key, AppSinglton.thatsItPincode, new ParseCallbackListener() {
-
-													@Override
-													public void done(List<ParseObject> receipients, ParseException e,
-															int requestId) {
-													}
-
-													@Override
-													public void done(ParseException parseException, int requestId) {
-
-														ParseUtil parseUtil = new ParseUtil();
-														parseUtil.removeRequest(ThatItApplication.getApplication(), AppSinglton.thatsItPincode, key, new ParseCallbackListener() {
-
-															@Override
-															public void done(List<ParseObject> receipients, ParseException e,
-																	int requestId) {
-															}
-
-															@Override
-															public void done(ParseException parseException, int requestId) {
-
-																if (parseException == null) {
-																	removeFriendRequest(key);
-																	populateIncomingInvitation();
-																	NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-																	notificationManager.cancel(mService.NOTIFICATION_FRIEND_REQUEST);
-
-																} else {
-																	Utility.stopDialog();
-																	Toast.makeText(getActivity(), "Error in cancelling request", Toast.LENGTH_SHORT).show();
-																}
-															}
-														}, requestId);
-
-													}
-												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_DELETED);
-
-											} catch (Exception e1) {
-												e1.printStackTrace();
-												Utility.stopDialog();
-											}
-										}else{
-											Utility.showMessage(getResources().getString(R.string.Network_Availability));
-										}
-									}
-								});
-								invitationsContainer.addView(currentinvitationView);
-							}
-						}
-						Utility.stopDialog();
-					}else{
-						Utility.stopDialog();
-					}
-				} catch (Exception e) {
-					Utility.stopDialog();
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	/**
+//	 * Add all incoming invitaions.
+//	 */
+//	public void populateIncomingInvitation() {
+//
+//		getActivity().runOnUiThread(new Runnable() {
+//
+//			@Override
+//			public void run() {
+//				try {
+//					LayoutInflater inflater = LayoutInflater.from(getActivity());
+//					invitationsContainer.removeAllViews();
+//
+//					if(ThatItApplication.getApplication().getIncomingRequestHash().keySet() != null) {
+//
+//						for (final String key : ThatItApplication.getApplication().getIncomingRequestHash().keySet()) {
+//
+//
+//							Roster roster = Roster.getInstanceFor(MainService.mService.connection);
+//							Collection<RosterEntry> entries = roster.getEntries();
+//							List<RosterEntry> userList = new ArrayList<>(entries);
+//
+//							ArrayList<String> existIds = new ArrayList<>();
+//							for (int i = 0; i < userList.size(); i++) {
+//								String userId = userList.get(i).getUser();
+//								Log.v(""+i, "userId->"+userId);
+//								existIds.add(userId);
+//							}
+//
+//
+//							if(!existIds.contains(key)){
+//
+//								final InvitationView invitationView = new InvitationView();
+//								View currentinvitationView = new View(getActivity());
+//								currentinvitationView = inflater.inflate(R.layout.adapter_fragment_invitations_received, null);
+//
+//								invitationView.txtvwInvitationSender = (TextView) currentinvitationView.findViewById(R.id.invRec_txt_invitationMessage);
+//								invitationView.txtvwinvitationMessage = (TextView) currentinvitationView.findViewById(R.id.invRec_txt_invitationMessageInfo);
+//								invitationView.txtvwinvitationSenderID = (TextView) currentinvitationView.findViewById(R.id.invRec_txt_pinNo);
+//								invitationView.imagesUserPic = (ImageView) currentinvitationView.findViewById(R.id.invRec_img_profilePic);
+//								invitationView.btnAccept = (Button) currentinvitationView.findViewById(R.id.invRec_btn_accept);
+//								invitationView.btnDeny = (Button) currentinvitationView.findViewById(R.id.invRec_btn_decline);
+//
+//								try {
+//									card.load(MainService.mService.connection, key);
+//									if (card.getFirstName() == null) {
+//										invitationView.txtvwInvitationSender.setText("My Name");
+//									} else {
+//										invitationView.txtvwInvitationSender.setText(card.getFirstName());
+//									}
+//
+//									if (card.getField("profile_picture_url") != null) {
+//
+//										ContactActivity.options = new DisplayImageOptions.Builder().displayer(new RoundedBitmapDisplayer(200))
+//										.showImageOnFail(R.drawable.no_img)
+//										.showImageForEmptyUri(R.drawable.no_img)
+//										.cacheInMemory(true)
+//										.cacheOnDisk(true)
+//										.build();
+//										ContactActivity.loader.displayImage(card.getField("profile_picture_url"), invitationView.imagesUserPic, ContactActivity.options);
+//
+//									}
+//								} catch (XMPPException e) {
+//									invitationView.txtvwInvitationSender.setText(key);
+//									e.printStackTrace();
+//								}
+//
+//								invitationView.txtvwinvitationSenderID.setText(key.split("@")[0]);
+//								Presence p = (Presence) ThatItApplication.getApplication().getIncomingRequestHash().get(key);
+//
+//								String getStatus = p.getStatus();
+//								if (getStatus == null) {
+//									invitationView.txtvwinvitationMessage.setText("Hi,can we be friends");
+//								} else {
+//									invitationView.txtvwinvitationMessage.setText(getStatus);
+//								}
+//								invitationView.btnAccept.setOnClickListener(new View.OnClickListener() {
+//
+//									@Override
+//									public void onClick(View v) {
+//
+//										if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
+//											try {
+//												Utility.startDialog(getActivity());
+//
+//												parseUtil.updateOperation(getActivity(), key, AppSinglton.thatsItPincode, new ParseCallbackListener() {
+//
+//													@Override
+//													public void done(List<ParseObject> receipients, ParseException e,
+//															int requestId) {
+//													}
+//
+//													@Override
+//													public void done(ParseException parseException, int requestId) {
+//
+//														if (parseException == null) {
+//
+//															ThatItApplication.getApplication().getIncomingRequestHash().remove(key);
+//															sendUserPresence(key);
+//															populateIncomingInvitation();
+//															Toast.makeText(getActivity(), "Friend Request Accepted", Toast.LENGTH_SHORT).show();
+//															NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+//															notificationManager.cancel(MainService.NOTIFICATION_FRIEND_REQUEST);
+//
+//														} else {
+//															Utility.stopDialog();
+//															Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_sendingRequest), Toast.LENGTH_SHORT).show();
+//														}
+//													}
+//												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_ACCEPTED, ParseOperationDecider.FRIEND_REQUEST_ACCEPTED);
+//											} catch (Exception e) {
+//												e.printStackTrace();
+//												Utility.stopDialog();
+//											}
+//										}else{
+//											Utility.showMessage(getResources().getString(R.string.Network_Availability));
+//										}
+//									}
+//								});
+//
+//								invitationView.btnDeny.setOnClickListener(new View.OnClickListener() {
+//
+//									@Override
+//									public void onClick(View v) {
+//
+//										if(NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
+//											try {
+//
+//												Utility.startDialog(getActivity());
+//												parseUtil.removeRequest(getActivity(), key, AppSinglton.thatsItPincode, new ParseCallbackListener() {
+//
+//													@Override
+//													public void done(List<ParseObject> receipients, ParseException e,
+//															int requestId) {
+//													}
+//
+//													@Override
+//													public void done(ParseException parseException, int requestId) {
+//
+//														ParseUtil parseUtil = new ParseUtil();
+//														parseUtil.removeRequest(ThatItApplication.getApplication(), AppSinglton.thatsItPincode, key, new ParseCallbackListener() {
+//
+//															@Override
+//															public void done(List<ParseObject> receipients, ParseException e,
+//																	int requestId) {
+//															}
+//
+//															@Override
+//															public void done(ParseException parseException, int requestId) {
+//
+//																if (parseException == null) {
+//																	removeFriendRequest(key);
+//																	populateIncomingInvitation();
+//																	NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+//																	notificationManager.cancel(mService.NOTIFICATION_FRIEND_REQUEST);
+//
+//																} else {
+//																	Utility.stopDialog();
+//																	Toast.makeText(getActivity(), "Error in cancelling request", Toast.LENGTH_SHORT).show();
+//																}
+//															}
+//														}, requestId);
+//
+//													}
+//												}, ParseCallbackListener.OPERATION_FRIEND_REQUEST_DELETED);
+//
+//											} catch (Exception e1) {
+//												e1.printStackTrace();
+//												Utility.stopDialog();
+//											}
+//										}else{
+//											Utility.showMessage(getResources().getString(R.string.Network_Availability));
+//										}
+//									}
+//								});
+//								invitationsContainer.addView(currentinvitationView);
+//							}
+//						}
+//						Utility.stopDialog();
+//					}else{
+//						Utility.stopDialog();
+//					}
+//				} catch (Exception e) {
+//					Utility.stopDialog();
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 *

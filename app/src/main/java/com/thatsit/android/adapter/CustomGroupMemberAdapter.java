@@ -3,7 +3,9 @@ package com.thatsit.android.adapter;
 import java.util.ArrayList;
 
 import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smackx.packet.VCard;
+import org.jivesoftware.smackx.vcardtemp.VCardManager;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+import org.jxmpp.jid.impl.JidCreate;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -75,7 +77,8 @@ public class CustomGroupMemberAdapter  extends ArrayAdapter<String>{
 					if(!complete_jid.contains("@")){
 						complete_jid = complete_jid+"@"+connection.getHost();
 					}
-					vcard.load(connection,complete_jid);
+					VCardManager.getInstanceFor(connection).loadVCard(JidCreate.entityBareFrom(complete_jid));
+//					vcard.load(connection,complete_jid);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

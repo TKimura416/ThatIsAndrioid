@@ -1,5 +1,6 @@
 package com.seasia.myquick.asyncTasks;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 //import org.jivesoftware.smack.AccountManager;
@@ -11,10 +12,15 @@ import org.jivesoftware.smack.filter.AndFilter;
 import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.filter.PacketIDFilter;
 import org.jivesoftware.smack.filter.PacketTypeFilter;
+import org.jivesoftware.smack.filter.StanzaFilter;
+import org.jivesoftware.smack.filter.StanzaIdFilter;
+import org.jivesoftware.smack.filter.StanzaTypeFilter;
 import org.jivesoftware.smack.packet.IQ;
 //import org.jivesoftware.smack.packet.Registration;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smackx.iqregister.AccountManager;
 import org.jivesoftware.smackx.iqregister.packet.Registration;
+import org.jxmpp.jid.parts.Localpart;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,13 +39,13 @@ import com.thatsit.android.application.ThatItApplication;
 
 public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Void>{
 
-	private XMPPConnection mConnection;
+	private XMPPTCPConnection mConnection;
 	private String chatUserName,chatPassword;
 	private Activity activity;
 	private boolean userAlreadyExists,registerFailed;
 	private SharedPreferences settings;
 
-	public RegisterUserOnChatServerAsyncTask(Activity activity,XMPPConnection mConnection, String chatUserName, String chatPassword) {
+	public RegisterUserOnChatServerAsyncTask(Activity activity,XMPPTCPConnection mConnection, String chatUserName, String chatPassword) {
 
 		this.mConnection = mConnection;
 		this.chatUserName = chatUserName;
@@ -51,41 +57,45 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 	protected Void doInBackground(Void... params) {
 		try {
 			mConnection.connect();
-			AccountManager accountManager = mConnection.getAccountManager();
+			AccountManager accountManager = AccountManager.getInstance( mConnection);
 			Map<String, String> attributes = new HashMap<String, String>();
 			attributes.put("username", chatUserName);
 			attributes.put("password", chatPassword);
 			attributes.put("name", "");
 
 			if (accountManager.supportsAccountCreation()) {
-				accountManager.createAccount(chatUserName, chatPassword,attributes);
+				accountManager.createAccount(Localpart.from(chatUserName), chatPassword,attributes);
 				}
 			Registration reg = new Registration();
-			reg.setType(IQ.Type.SET);
+			reg.setType(IQ.Type.set);
 			reg.setTo(mConnection.getServiceName());
-			reg.addAttribute("username", chatUserName);
-			reg.addAttribute("password", chatPassword);
-			reg.addAttribute("email", "");
-			reg.addAttribute("name", "");
-			PacketFilter filter = new AndFilter(new PacketIDFilter(reg.getPacketID()), new PacketTypeFilter(IQ.class));
+//			reg.addAttribute("username", chatUserName);
+//			reg.addAttribute("password", chatPassword);
+//			reg.addAttribute("email", "");
+//			reg.addAttribute("name", "");
+			StanzaFilter filter = new AndFilter(new StanzaIdFilter(reg.getStanzaId()), new StanzaTypeFilter(IQ.class));
 			PacketCollector collector = mConnection.createPacketCollector(filter);
-			mConnection.sendPacket(reg);
+			mConnection.sendStanza(reg);
 
 		} catch (XMPPException e) {
 			e.printStackTrace();
 			registerFailed = true;
-			try {
-				if(e.getX MPPError().getCode() == 409){
-					userAlreadyExists = true;
-				}
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
+//			try {
+//				if(e.getXMPPError().getCode() == 409){
+//					userAlreadyExists = true;
+//				}
+//			} catch (Exception e1) {
+//				e1.printStackTrace();
+//			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (SmackException.NoResponseException e) {
 			e.printStackTrace();
 		} catch (SmackException.NotConnectedException e) {
+			e.printStackTrace();
+		} catch (SmackException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;

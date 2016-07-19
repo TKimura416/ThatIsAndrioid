@@ -3,6 +3,7 @@ package com.thatsit.android.activities;
 
 import java.util.ArrayList;
 
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Message.Type;
@@ -100,12 +101,12 @@ public class MUCActivity extends Activity {
 	private void getRoomName() {
 		try {
 			if(psedoname.equalsIgnoreCase("")){
-				nicknameToJoin = "My Name" +" ("+MainService.mService.connection.getUser().split("@")[0]+")";
+				nicknameToJoin = "My Name" +" ("+MainService.mService.connection.getUser().asUnescapedString().split("@")[0]+")";
 			}else{
-				nicknameToJoin = psedoname +" ("+MainService.mService.connection.getUser().split("@")[0]+")";
+				nicknameToJoin = psedoname +" ("+MainService.mService.connection.getUser().asUnescapedString().split("@")[0]+")";
 			}
-			group_name_compelete =muc.getRoom().split("@")[0];
-			group_name = muc.getRoom().split("@")[0].split("__")[1];
+			group_name_compelete =muc.getRoom().asUnescapedString().split("@")[0];
+			group_name = muc.getRoom().asUnescapedString().split("@")[0].split("__")[1];
 			group_name = group_name.replaceAll("%2b", " ");
 			mTxtVwGroupName.setText(group_name);
 
@@ -258,7 +259,9 @@ public class MUCActivity extends Activity {
 					try {
 						muc.sendMessage(newMessage);
 						edtChat.setText("");
-					} catch (XMPPException e) {
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					} catch (SmackException.NotConnectedException e) {
 						e.printStackTrace();
 					}
 					One2OneChatDb.addGroupMessage(group_name_compelete,AppSinglton.thatsItPincode, revisedMessage);

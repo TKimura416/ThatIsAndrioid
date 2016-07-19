@@ -10,6 +10,11 @@ public class GcmTokenIQ extends IQ {
     private final String m_strXmlns = "urn:xmpp:apns";
     private String m_strGcmToken = "";
 
+    public GcmTokenIQ(String childElementName) {
+        super(childElementName);
+    }
+
+
     /**
      * Set GCM token to send.
      * @param p_strGcmToken Token string
@@ -18,8 +23,13 @@ public class GcmTokenIQ extends IQ {
         m_strGcmToken = p_strGcmToken;
     }
 
-    public String getChildElementXML() {
-        String w_strRequest = "<query xmlns='" + m_strXmlns + "'><token>" + m_strGcmToken + "</token></query>";
-        return w_strRequest;
+//    public String getChildElementXML() {
+//        String w_strRequest = "<query xmlns='" + m_strXmlns + "'><token>" + m_strGcmToken + "</token></query>";
+//        return w_strRequest.toString();
+//    }
+
+    @Override
+    protected IQChildElementXmlStringBuilder getIQChildElementBuilder(IQChildElementXmlStringBuilder xml) {
+        return null;
     }
 }

@@ -6,9 +6,13 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smackx.vcardtemp.VCardManager;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+import org.jxmpp.jid.impl.JidCreate;
+import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -287,50 +291,61 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 							}
 						});
 
-						if(Roster.getInstanceFor(MainService.mService.connection).contains(entry.getKey())){
+						try {
+							if(Roster.getInstanceFor(MainService.mService.connection).contains(JidCreate.bareFrom(entry.getKey()) )){
 
-							if(!jids.contains(entry.getKey().toLowerCase().split("@")[0])) {
+                                if(!jids.contains(entry.getKey().toLowerCase().split("@")[0])) {
 
-								try {
-									if (MainService.mService.connection != null && MainService.mService.connection.isAuthenticated() && MainService.mService.connection.isConnected()) {
-										card.load(MainService.mService.connection, entry.getKey());
-									} else {
-										Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-									}
+                                    try {
+                                        if (MainService.mService.connection != null && MainService.mService.connection.isAuthenticated() && MainService.mService.connection.isConnected()) {
+											VCardManager.getInstanceFor(MainService.mService.connection).loadVCard(JidCreate.entityBareFrom( entry.getKey()));
+//											card.load(MainService.mService.connection, entry.getKey());
+                                        } else {
+                                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                                        }
 
-									if (card != null && card.getFirstName() != null && !Objects.equals(card.getFirstName(), ""))
-										invitationSentView.mtxtVwInvitationRecipient.setText(card.getFirstName());
+                                        if (card != null && card.getFirstName() != null && !Objects.equals(card.getFirstName(), ""))
+                                            invitationSentView.mtxtVwInvitationRecipient.setText(card.getFirstName());
 
-									else {
-										invitationSentView.mtxtVwInvitationRecipient.setText("My Name");
-									}
+                                        else {
+                                            invitationSentView.mtxtVwInvitationRecipient.setText("My Name");
+                                        }
 
-									if (card != null && card.getLastName() != null && !Objects.equals(card.getLastName(), "")) {
-										invitationSentView.mtxtVwInvitationMessage.setText(card.getLastName());
-									} else {
-										invitationSentView.mtxtVwInvitationMessage.setText("Hi there! i would like to add you ");
-									}
-									if (card.getField("profile_picture_url") != null) {
+                                        if (card != null && card.getLastName() != null && !Objects.equals(card.getLastName(), "")) {
+                                            invitationSentView.mtxtVwInvitationMessage.setText(card.getLastName());
+                                        } else {
+                                            invitationSentView.mtxtVwInvitationMessage.setText("Hi there! i would like to add you ");
+                                        }
+                                        if (card.getField("profile_picture_url") != null) {
 
-										ContactActivity.options = new DisplayImageOptions.Builder()
-												.displayer(new RoundedBitmapDisplayer(200))
-												.showImageOnFail(R.drawable.no_img)
-												.showImageForEmptyUri(R.drawable.no_img)
-												.cacheInMemory(true)
-												.cacheOnDisk(true)
-												.build();
-										ContactActivity.loader.displayImage(card.getField("profile_picture_url"), invitationSentView.imagesUserPic, ContactActivity.options);
+                                            ContactActivity.options = new DisplayImageOptions.Builder()
+                                                    .displayer(new RoundedBitmapDisplayer(200))
+                                                    .showImageOnFail(R.drawable.no_img)
+                                                    .showImageForEmptyUri(R.drawable.no_img)
+                                                    .cacheInMemory(true)
+                                                    .cacheOnDisk(true)
+                                                    .build();
+                                            ContactActivity.loader.displayImage(card.getField("profile_picture_url"), invitationSentView.imagesUserPic, ContactActivity.options);
 
-									}
-								} catch (XMPPException e) {
-									e.printStackTrace();
-								}
-								invitationSentView.mtxtVwInvitationRecipientID.setText(entry.getKey().split("@")[0]);
+                                        }
+                                    } catch (XMPPException e) {
+                                        e.printStackTrace();
+                                    }
+                                    invitationSentView.mtxtVwInvitationRecipientID.setText(entry.getKey().split("@")[0]);
 
-								mLinLytInviationsSentContainer.addView(currentRow);
-							}
-						}else{
-							Utility.stopDialog();
+                                    mLinLytInviationsSentContainer.addView(currentRow);
+                                }
+                            }else{
+                                Utility.stopDialog();
+                            }
+						} catch (XmppStringprepException e) {
+							e.printStackTrace();
+						} catch (SmackException.NoResponseException e) {
+							e.printStackTrace();
+						} catch (SmackException.NotConnectedException e) {
+							e.printStackTrace();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
 						}
 					}
 					Utility.stopDialog();

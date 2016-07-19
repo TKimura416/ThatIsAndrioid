@@ -2,12 +2,17 @@ package com.thatsit.android.activities;
 
 import java.net.URLEncoder;
 import org.jivesoftware.smack.PacketListener;
+import org.jivesoftware.smack.StanzaListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.filter.MessageTypeFilter;
 import org.jivesoftware.smack.filter.PacketFilter;
+import org.jivesoftware.smack.filter.StanzaFilter;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Packet;
+import org.jivesoftware.smack.packet.Stanza;
 import org.jivesoftware.smack.util.StringUtils;
+import org.jxmpp.util.XmppStringUtils;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -334,19 +339,19 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			PacketFilter filter = new MessageTypeFilter(Message.Type.chat);
-			mConnection.addPacketListener(new PacketListener() {
+//			StanzaFilter filter = new MessageTypeFilter(Message.Type.chat);
 
-				public void processPacket(Packet packet) {
+			mConnection.addAsyncStanzaListener(new StanzaListener() {
+
+				public void processPacket(Stanza packet) {
 					Message message = (Message) packet;
 					if (message.getBody() != null) {
-						String fromName = StringUtils.parseBareAddress(message
-								.getFrom());
+						String fromName = XmppStringUtils.parseBareJid(message.getFrom().toString());
 						Log.i("XMPPClient", "Got text [" + message.getBody()
 								+ "] from [" + fromName + "]");
 					}
 				}
-			}, filter);
+			}, MessageTypeFilter.CHAT);
 		}
 
 		@Override

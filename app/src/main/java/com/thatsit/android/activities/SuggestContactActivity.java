@@ -36,12 +36,16 @@ import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
 
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.roster.RosterEntry;
+import org.jivesoftware.smack.roster.RosterListener;
+import org.jivesoftware.smackx.vcardtemp.VCardManager;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+import org.jxmpp.jid.Jid;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -64,7 +68,7 @@ public class SuggestContactActivity  extends Activity {
 	private HashMap<Integer,View> viewContainer = new HashMap<Integer, View>();
 	private Handler hand = new Handler();
 	private static final Intent SERVICE_INTENT = new Intent();
-	private Hashtable<String, VCard> rosterVCardsHash = new Hashtable<String, VCard>();
+	private Hashtable<Jid, VCard> rosterVCardsHash = new Hashtable<Jid, VCard>();
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
@@ -238,8 +242,17 @@ public class SuggestContactActivity  extends Activity {
 				@Override
 				public void run() {
 					try {
-						card.load(mConnection, entry.getUser());
-						rosterVCardsHash.put(entry.getUser(), card);
+						try {
+							VCardManager.getInstanceFor(mConnection).loadVCard(entry.getJid().asEntityBareJidIfPossible());
+						} catch (SmackException.NoResponseException e) {
+							e.printStackTrace();
+						} catch (SmackException.NotConnectedException e) {
+							e.printStackTrace();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+//						card.load(mConnection, entry.getUser());
+						rosterVCardsHash.put(entry.getJid(), card);
 					} catch (XMPPException e) {
 						e.printStackTrace();
 					}
@@ -300,7 +313,7 @@ public class SuggestContactActivity  extends Activity {
 	void addIncommingChatListner(){
 		try {
 			if (mConnection.isConnected()) {
-				ChatManager chatmanager = mConnection.getChatManager();
+				ChatManager chatmanager = ChatManager.getInstanceFor(mConnection);
 				chatmanager.addChatListener(mService.mIncomingChatManagerListener);
 			}
 		} catch (Exception e) {
@@ -344,17 +357,17 @@ public class SuggestContactActivity  extends Activity {
 	public final class MyRosterListnerSuggest implements RosterListener {
 
 		@Override
-		public void entriesAdded(Collection<String> arg0) {
+		public void entriesAdded(Collection<Jid> arg0) {
 			resetRoster();
 		}
 
 		@Override
-		public void entriesDeleted(Collection<String> arg0) {
+		public void entriesDeleted(Collection<Jid> arg0) {
 			resetRoster();
 		}
 
 		@Override
-		public void entriesUpdated(Collection<String> arg0) {
+		public void entriesUpdated(Collection<Jid> arg0) {
 			resetRoster();
 		}
 

@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smackx.packet.VCard;
-import android.annotation.SuppressLint;
+import org.jivesoftware.smackx.vcardtemp.VCardManager;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -85,7 +88,6 @@ import com.thatsit.android.interfaces.ValidateUserLoginInterface;
  * This fragment contains user registration data and provision to set his name,
  * description,profile pic.
  */
-@SuppressLint({ "ValidFragment", "NewApi" })
 public class FragmentBasicSetting extends SuperFragment implements OnClickListener,
 		View.OnTouchListener {
 
@@ -124,18 +126,17 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 	private InputMethodManager imm;
 	private ProgressDialog pdDialog;
 
-	@SuppressLint("ValidFragment")
-	public FragmentBasicSetting(MainService service) {
-	}
 
 	public FragmentBasicSetting() {
 	}
 
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		hostActivity = (ContactActivity) activity;
-	}
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        hostActivity = (ContactActivity) context;
+
+    }
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -615,6 +616,8 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 	 */
 	private class GetDataAsync extends AsyncTask<Void, Void, UpdateUserSettingTemplate> {
 
+        String email_id="";
+
 		@Override
 		protected void onPreExecute() {
 
@@ -622,6 +625,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 			pdDialog.setMessage("Updating Data");
 			pdDialog.show();
 			pdDialog.setCancelable(false);
+            email_id=mEdt_emailID.getText().toString();
 		}
 
 		@Override
@@ -633,7 +637,7 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 				UpdateUserSettingTemplate obj = new WebServiceClient(
 						getActivity()).change_UserBasicSettings(
 						AppSinglton.userId, mGender, mCountry, state, city,
-						profile_img64, mAge, mPsuedoName, mPseudodescription, mEdt_emailID.getText().toString());
+						profile_img64, mAge, mPsuedoName, mPseudodescription, email_id);
 				return obj;
 			} catch (Exception e) {
 				return null;
@@ -927,10 +931,17 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 			else
 				me.setField("profile_picture", "");
 			try {
-				me.save(MainService.mService.connection);
+				VCardManager.getInstanceFor(MainService.mService.connection).saveVCard(me);
+//				me.save(MainService.mService.connection);
 			} catch (XMPPException e) {
 				Utility.RegsiterDataFetchedOnce = false;
 				pdDialog.dismiss();
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SmackException.NoResponseException e) {
+				e.printStackTrace();
+			} catch (SmackException.NotConnectedException e) {
 				e.printStackTrace();
 			}
 		}

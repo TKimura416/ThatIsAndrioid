@@ -14,17 +14,21 @@ public class PingExtension extends IQ {
     /** Xml element name for the ping. */
     private static final String ELEMENT = "ping";
 
-    /**
-     * Create a ping iq packet.
-     */
-    public PingExtension() {
+    public PingExtension(IQ iq) {
+        super(iq);
     }
 
+//
+//    @Override
+//    public String getChildElementXML() {
+//        if (getType() == Type.result)
+//            return null;
+//        return "<" + ELEMENT + " xmlns=\"" + NAMESPACE + "\" />";
+////    }
+
     @Override
-    public String getChildElementXML() {
-        if (getType() == IQ.Type.RESULT)
-            return null;
-        return "<" + ELEMENT + " xmlns=\"" + NAMESPACE + "\" />";
+    protected IQChildElementXmlStringBuilder getIQChildElementBuilder(IQChildElementXmlStringBuilder xml) {
+        return null;
     }
 
 }

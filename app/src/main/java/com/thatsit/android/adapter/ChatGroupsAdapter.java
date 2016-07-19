@@ -3,8 +3,9 @@ package com.thatsit.android.adapter;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import org.jivesoftware.smack.RosterGroup;
+import org.jivesoftware.smack.roster.RosterGroup;
 import org.jivesoftware.smackx.muc.MultiUserChat;
+import org.jivesoftware.smackx.muc.MultiUserChatManager;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -33,7 +34,7 @@ public class ChatGroupsAdapter extends BaseAdapter{
 
 	private final Activity parentReference;
 	private ArrayList<RosterGroup> rosterGroups;
-
+	MultiUserChat muChat;
 
 	public ChatGroupsAdapter(Activity context ,ArrayList<RosterGroup> chatGroups){
 		parentReference = context;
@@ -105,7 +106,7 @@ public class ChatGroupsAdapter extends BaseAdapter{
 			@Override
 			public void onClick(View v) {
 				try{
-					MultiUserChat muChat =new MultiUserChat(XmppManager.getInstance().getXMPPConnection(),currentRosterGroup.getName()+"@conference."+Constants.HOST);
+//					muChat =new MultiUserChat(XmppManager.getInstance().getXMPPConnection(),currentRosterGroup.getName()+"@conference."+Constants.HOST, MultiUserChatManager.getInstanceFor(XmppManager.getInstance().getXMPPConnection()));
 					MyGroupsHelper.selectChatGroupOption(muChat, XmppManager.getInstance().getXMPPConnection(), parentReference);
 				}catch(Exception e){
 					Toast.makeText(parentReference, "Could not retreive room options", Toast.LENGTH_LONG).show();
@@ -127,7 +128,7 @@ public class ChatGroupsAdapter extends BaseAdapter{
 							public void run() {
 								try {
 									
-									MultiUserChat muChat = new MultiUserChat(MainService.mService.connection,AppSinglton.currentGroupName);
+//									MultiUserChat muChat = new MultiUserChat(MainService.mService.connection,AppSinglton.currentGroupName);
 									ThatItApplication.getApplication().setCurrentGroupChatCoversation(muChat);
 									
 									Intent it = new Intent(ThatItApplication.getApplication(),MUCActivity.class);

@@ -6,19 +6,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.SmackConfiguration;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.chat.Chat;
+import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Message.Type;
 import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.RosterEntry;
+import org.jivesoftware.smack.roster.RosterListener;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smackx.muc.DiscussionHistory;
 import org.jivesoftware.smackx.muc.MultiUserChat;
+import org.jivesoftware.smackx.muc.packet.GroupChatInvitation;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+import org.jxmpp.jid.Jid;
+import org.jxmpp.jid.impl.JidCreate;
+import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -77,8 +87,8 @@ public class InviteContactsToRoster  extends Activity{
 	private Handler handler=new Handler();
 	private ListView mlistView_Contacts;
 	private static final Intent SERVICE_INTENT = new Intent();
-	private String invitationSentUser;
-	private ArrayList<String> jids= new ArrayList<String>();
+	private Jid invitationSentUser;
+	private ArrayList<Jid> jids= new ArrayList<Jid>();
 	private ArrayList<String> listcardname = new ArrayList<String>();
 	private ArrayList<String> listcardlastname = new ArrayList<String>();
 	private ArrayList<String> listcardprofilepic = new ArrayList<String>();
@@ -170,8 +180,12 @@ public class InviteContactsToRoster  extends Activity{
 					String lastname = cursor.getString(cursor.getColumnIndex(DbOpenHelper.LASTNAME));
 					String profilePic = cursor.getString(cursor.getColumnIndex(DbOpenHelper.PROFILE_PIC_URL));
 
-					jids.add(jid);
-					listcardname.add(firstname);
+                    try {
+                        jids.add(JidCreate.bareFrom(jid));
+                    } catch (XmppStringprepException e) {
+                        e.printStackTrace();
+                    }
+                    listcardname.add(firstname);
 					listcardprofilepic.add(profilePic);
 					listcardlastname.add( lastname );
 				}while(cursor.moveToNext());
@@ -202,16 +216,16 @@ public class InviteContactsToRoster  extends Activity{
 	 * @param jid - jID obtained from Roster list
 	 * @return - Returns jID
 	 */
-	private RosterEntry getEntryUsingJid(String jid){
+	private RosterEntry getEntryUsingJid(Jid jid){
 
-		jid = jid.toLowerCase();
+//		jid = jid.toLowerCase();
+//
+//		if(!jid.contains("@")){
+//			jid = jid +"@" + mConnection.getHost();
+//		}
 
-		if(!jid.contains("@")){
-			jid = jid +"@" + mConnection.getHost();
-		}
-
-		return mConnection.getRoster().getEntry(jid);
-	}
+            return Roster.getInstanceFor(mConnection).getEntry(jid.asBareJid());
+    }
 
 	/**
 	 * The Adapter class to provide access to the data items.
@@ -297,7 +311,7 @@ public class InviteContactsToRoster  extends Activity{
 
 							final ParseUtil parseUtil = new ParseUtil();
 							parseUtil.joinGroup(
-									ThatItApplication.getApplication() .getCurrentMUCRefernece().getRoom()
+									ThatItApplication.getApplication() .getCurrentMUCRefernece().getRoom().asUnescapedString()
 									,jids.get(position)+"@"+XmppManager.getInstance().getXMPPConnection().getHost()
 									, new ParseCallbackListener() {
 
@@ -315,21 +329,35 @@ public class InviteContactsToRoster  extends Activity{
 													if(parseException==null){
 														//	send invite
 
-														invitationSentUser = jids.get(position)+"@"+mConnection.getHost();
-
+														invitationSentUser = jids.get(position);//+"@"+mConnection.getHost();
 														Message message = new Message(invitationSentUser);
 														if(TextUtils.isEmpty(groupNameWithMessage)){
 															message.setBody("Join me for a group chat!");
 														}else{
 															message.setBody("Join me for a group chat in " + groupNameWithMessage+" !");
 														}
-														message.addExtension(new GroupChatInvitation(ThatItApplication.getApplication().getCurrentMUCRefernece().getRoom()));
+														message.addExtension(new GroupChatInvitation(ThatItApplication.getApplication().getCurrentMUCRefernece().getRoom().asUnescapedString()));
 														if(XmppManager.getInstance().getXMPPConnection()!=null	&&	XmppManager.getInstance().getXMPPConnection().isAuthenticated()){
-															XmppManager.getInstance().getXMPPConnection().sendPacket(message);
+															try {
+																XmppManager.getInstance().getXMPPConnection().sendStanza(message);
+															} catch (SmackException.NotConnectedException e) {
+																e.printStackTrace();
+															} catch (InterruptedException e) {
+																e.printStackTrace();
+															}
 														}
 														try {
-															ThatItApplication.getApplication().getCurrentRosterGroupReference().addEntry(entry);
-															ThatItApplication.getApplication().getCurrentMUCRefernece().invite(invitationSentUser, "please join my group");
+															try {
+																ThatItApplication.getApplication().getCurrentRosterGroupReference().addEntry(entry);
+																ThatItApplication.getApplication().getCurrentMUCRefernece().invite(invitationSentUser.asUnescapedString(), "please join my group");
+
+															} catch (SmackException.NoResponseException e) {
+																e.printStackTrace();
+															} catch (SmackException.NotConnectedException e) {
+																e.printStackTrace();
+															} catch (InterruptedException e) {
+																e.printStackTrace();
+															}
 															isSomeoneInvited=true;
 															handler.post(new Runnable() {
 
@@ -344,10 +372,10 @@ public class InviteContactsToRoster  extends Activity{
 														} catch (XMPPException e) {
 															e.printStackTrace();
 															parseUtil.leaveGroup(ThatItApplication.getApplication()
-																	.getCurrentMUCRefernece().getRoom(),invitationSentUser , null, ParseCallbackListener.OPERATION_LEAVE_GROUP);
+																	.getCurrentMUCRefernece().getRoom().asUnescapedString(),invitationSentUser.asUnescapedString() , null, ParseCallbackListener.OPERATION_LEAVE_GROUP);
 														}
-														addRemove(chat_option.ADD_PERSON, invitationSentUser.subSequence(0, invitationSentUser.indexOf("@"))+"", ThatItApplication.getApplication()
-																.getCurrentMUCRefernece().getRoom());
+														addRemove(chat_option.ADD_PERSON, invitationSentUser.asUnescapedString(), ThatItApplication.getApplication()
+																.getCurrentMUCRefernece().getRoom().asUnescapedString());
 
 													}
 													Utility.stopDialog();
@@ -374,7 +402,7 @@ public class InviteContactsToRoster  extends Activity{
 
 		@Override
 		public String getItem(int arg0) {
-			return jids.get(arg0);
+			return jids.get(arg0).asUnescapedString();
 		}
 
 		@Override
@@ -389,7 +417,7 @@ public class InviteContactsToRoster  extends Activity{
 	private void sendGroupInviteMessage() {
 		try {
 			if (mConnection.isConnected()) {
-				sendMessage(invitationSentUser, "Group Invitation", mService.mMessageListner);
+				sendMessage(invitationSentUser.asUnescapedString(), "Group Invitation", mService.mMessageListner);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -405,16 +433,18 @@ public class InviteContactsToRoster  extends Activity{
 	private void sendMessage(String user, String msg,MyMessageListner mMessageListner) {
 
 		if (!mConnection.isConnected())   return;
-		ChatManager chatmanager = mConnection.getChatManager();
-		Chat newChat = chatmanager.createChat(invitationSentUser, mMessageListner);
+		ChatManager chatmanager = ChatManager.getInstanceFor(mConnection);
+		Chat newChat = chatmanager.createChat(invitationSentUser.asEntityJidIfPossible(), mMessageListner);
 		try {
 			Message newMessage = new Message();
 			newMessage.setBody(msg);
 			newChat.sendMessage(newMessage);
-		} catch (XMPPException e) {
-			Log.d(TAG, "Error Delivering block");
-		}
-	}
+		} catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (SmackException.NotConnectedException e) {
+            e.printStackTrace();
+        }
+    }
 
 	/**
 	 * ViewHolder - enables you to access each list item view without the need for the look up, saving valuable processor cycles.
@@ -434,7 +464,7 @@ public class InviteContactsToRoster  extends Activity{
 
 		if(!isSomeoneInvited){
 
-			parseUtil.getGroupMembers(ThatItApplication.getApplication() .getCurrentMUCRefernece().getRoom(), new ParseCallbackListener() {
+			parseUtil.getGroupMembers(ThatItApplication.getApplication() .getCurrentMUCRefernece().getRoom().asUnescapedString(), new ParseCallbackListener() {
 
 				@Override
 				public void done(List<ParseObject> receipients, ParseException e,
@@ -470,17 +500,17 @@ public class InviteContactsToRoster  extends Activity{
 	public final class MyRosterListnerInvite implements RosterListener {
 
 		@Override
-		public void entriesAdded(Collection<String> arg0) {
+		public void entriesAdded(Collection<Jid> arg0) {
 			getRosterfromDatabase();
 		}
 
 		@Override
-		public void entriesDeleted(Collection<String> arg0) {
+		public void entriesDeleted(Collection<Jid> arg0) {
 			getRosterfromDatabase();
 		}
 
 		@Override
-		public void entriesUpdated(Collection<String> arg0) {
+		public void entriesUpdated(Collection<Jid> arg0) {
 			getRosterfromDatabase();
 		}
 
@@ -584,10 +614,10 @@ public class InviteContactsToRoster  extends Activity{
 	 */
 	public static void addRemove(final chat_option option ,final String jid,String GroupName){
 
-		final XMPPConnection connection =XmppManager.getInstance().getXMPPConnection();
+		final XMPPTCPConnection connection =XmppManager.getInstance().getXMPPConnection();
 		final SharedPreferences mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
 		try {
-			nicknameToJoin = mSharedPreferences.getString("pseudoName", "anonymous") +" ("+connection.getUser().split("@")[0]+")";
+			nicknameToJoin = mSharedPreferences.getString("pseudoName", "anonymous") +" ("+connection.getUser().asUnescapedString()+")";
 		} catch (Exception e3) {
 			e3.printStackTrace();
 		}
@@ -596,7 +626,7 @@ public class InviteContactsToRoster  extends Activity{
 			GroupName = GroupName+"@conference."+connection.getHost();
 
 		try {
-			if(muc!=null && muc.getRoom().equalsIgnoreCase(GroupName) ){
+			if(muc!=null && muc.getRoom().asUnescapedString().equalsIgnoreCase(GroupName) ){
 				muc.leave();
 
 			}
@@ -615,7 +645,7 @@ public class InviteContactsToRoster  extends Activity{
 			}
 		}
 
-		muc = new MultiUserChat(connection, GroupName);
+//		muc = new MultiUserChat(connection, GroupName);
 
 		System.out.println(nicknameToJoin);
 		new Thread(new Runnable() {
@@ -625,12 +655,12 @@ public class InviteContactsToRoster  extends Activity{
 				EncryptionManager encryptionManager = new EncryptionManager();
 				DiscussionHistory history = new DiscussionHistory();
 				history.setMaxStanzas(0);
-				if(!muc.isJoined())
-					try {
-						muc.join(nicknameToJoin, "", history, SmackConfiguration.getPacketReplyTimeout());
-					} catch (XMPPException e1) {
-						e1.printStackTrace();
-					}
+//				if(!muc.isJoined())
+//					try {
+////						muc.join(nicknameToJoin, "", history, SmackConfiguration.getDefaultPacketReplyTimeout());
+//					} catch (XMPPException e1) {
+//						e1.printStackTrace();
+//					}
 
 				String revisedMessage ="";
 				String post = Constants.post+AppSinglton.thatsItPincode;
@@ -643,8 +673,18 @@ public class InviteContactsToRoster  extends Activity{
 					if(!jid.contains("@")){
 						complete_jid = complete_jid+"@"+connection.getHost();
 					}
-					card.load(connection, complete_jid);
-					personName= card.getFirstName() +" ("+jid+")";
+                    try {
+                        card.load(connection, JidCreate.entityBareFrom(complete_jid));
+                    } catch (SmackException.NoResponseException e) {
+                        e.printStackTrace();
+                    } catch (SmackException.NotConnectedException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (XmppStringprepException e) {
+                        e.printStackTrace();
+                    }
+                    personName= card.getFirstName() +" ("+jid+")";
 
 				} catch (XMPPException e1) {
 					e1.printStackTrace();
@@ -683,14 +723,12 @@ public class InviteContactsToRoster  extends Activity{
 				} catch (SmackException.NotConnectedException e) {
 					e.printStackTrace();
 				}
-
-				muc.addMessageListener(new PacketListener() {
-
-					@Override
-					public void processPacket(Packet arg0) {
-						System.out.println(arg0.getFrom() );
-					}
-				});
+                muc.addMessageListener(new MessageListener() {
+                    @Override
+                    public void processMessage(Message message) {
+                        Log.e("message",message.getBody());
+                    }
+                });
 
 			}
 		}).start();

@@ -247,13 +247,12 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 		try {
 			XmppManager w_xmppManager = XmppManager.getInstance();
 			XMPPConnection w_xmppConnection = w_xmppManager.getXMPPConnection();
-
-			GcmTokenIQ w_iq = new GcmTokenIQ();
+			GcmTokenIQ w_iq = new GcmTokenIQ(p_strGcmToken);
 			w_iq.setTo(Constants.HOST);
-			w_iq.setType(IQ.Type.SET);
-			w_iq.setPacketID("apns68057d6a");
+			w_iq.setType(IQ.Type.set);
+			w_iq.setStanzaId("apns68057d6a");
 			w_iq.setGcmToken(p_strGcmToken);
-			w_xmppConnection.sendPacket(w_iq);
+			w_xmppConnection.sendStanza(w_iq);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;
@@ -509,7 +508,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 
 		try {
 			FragmentContact.groupPressed = false;
-			mBasicSettingFragment=new FragmentBasicSetting(mService);
+			mBasicSettingFragment=new FragmentBasicSetting();
 			mFragmentTransaction = mFragmentManager.beginTransaction();
 			mFragmentTransaction.replace(R.id.fragmentContainer, mBasicSettingFragment);
 			mFragmentTransaction.commit();

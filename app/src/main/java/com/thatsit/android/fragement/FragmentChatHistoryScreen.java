@@ -1,8 +1,13 @@
 package com.thatsit.android.fragement;
 
 import java.util.ArrayList;
-import org.jivesoftware.smack.RosterEntry;
+
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smack.roster.RosterEntry;
+import org.jxmpp.jid.Jid;
+import org.jxmpp.jid.impl.JidCreate;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -67,12 +72,12 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     private LayoutInflater inflater;
     private EncryptionManager encryptionManager ;
     private String psedoName, profiledescription,profileImageString,entryWithoutHost;
-    private RosterEntry  rosterEntry;
+    private RosterEntry rosterEntry;
     private String profilePicDrawable;
     private String personFirstName;
     private String personLastname;
     private Handler handler;
-    private final ArrayList<String> jids = new ArrayList<>();
+    private final ArrayList<Jid> jids = new ArrayList<>();
     private final ArrayList<String> listcardname = new ArrayList<>();
     private final ArrayList<String> listcardlastname = new ArrayList<>();
     private final ArrayList<String> listcardprofilepic = new ArrayList<>();
@@ -80,7 +85,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     private final ArrayList<String> timeList = new ArrayList<>();
     private final ArrayList<String> userTypeList = new ArrayList<>();
     private ContactActivity hostActivity;
-    private ArrayList<String> filteredArrayList = new ArrayList<>();
+    private ArrayList<Jid> filteredArrayList = new ArrayList<>();
     private ArrayList<String> filteredFirstName = new ArrayList<>();
     private ArrayList<String> filteredLastName = new ArrayList<>();
     private ArrayList<String> filteredProfilePic = new ArrayList<>();
@@ -210,7 +215,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                     String message = messages.toString();
                     String userType = cursor.getString(cursor.getColumnIndex(DbOpenHelper.COLUMN_OWNER_OR_PARTICIPANT));
                     String time = cursor.getString(cursor.getColumnIndex(DbOpenHelper.COLUMN_TIMESTAMP));
-                    jids.add(jid);
+                    jids.add(JidCreate.bareFrom(jid));
                     messageList.add(message);
                     timeList.add(time);
                     userTypeList.add(userType);
@@ -219,7 +224,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
             cursor.close();
 
             for (int i = 0; i < jids.size(); i++) {
-                Cursor cursor_entry = One2OneChatDb.getRosterEntry(jids.get(i));
+                Cursor cursor_entry = One2OneChatDb.getRosterEntry(jids.get(i).asUnescapedString());
                 cursor_entry.moveToFirst();
 
                 if (cursor_entry.getCount() > 0) {
@@ -281,7 +286,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                     Lastfragment = true;
                     if(!mEdt_SearchChatHistory.getText().toString().trim().equalsIgnoreCase("")){
                         rosterEntry = MainService.mService.getRosterEntryFromJID(filteredArrayList.get(position));
-                        entryWithoutHost = filteredArrayList.get(position);
+                        entryWithoutHost = filteredArrayList.get(position).toString();
                         personFirstName = filteredFirstName.get(position);
                         entryWithoutHost = entryWithoutHost.replace("@190.97.163.145", "");
                         personLastname = filteredLastName.get(position);
@@ -294,8 +299,8 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                     }
                     else {
                         // mEdt_SearchChatHistory.setText("");
-                        rosterEntry = MainService.mService.getRosterEntryFromJID(jids.get(position));
-                        entryWithoutHost = jids.get(position);
+                        rosterEntry = MainService.mService.getRosterEntryFromJID(( jids.get(position)  ) );
+                        entryWithoutHost = jids.get(position).asUnescapedString();
                         personFirstName = listcardname.get(position);
                         entryWithoutHost = entryWithoutHost.replace("@190.97.163.145", "");
                         personLastname = listcardlastname.get(position);
@@ -345,7 +350,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     class ChatUsersAdapter extends BaseAdapter implements Filterable{
 
         private final LayoutInflater inflater;
-        private ArrayList<String> jids = new ArrayList<>();
+        private ArrayList<Jid> jids = new ArrayList<>();
         private ArrayList<String> listcardname = new ArrayList<>();
         private ArrayList<String> listcardprofilepic = new ArrayList<>();
         private ArrayList<String> messageList = new ArrayList<>();
@@ -353,7 +358,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
         private ArrayList<String> userTypeList = new ArrayList<>();
 
 
-        public ChatUsersAdapter(ArrayList<String> jids,	ArrayList<String> listcardname,
+        public ChatUsersAdapter(ArrayList<Jid> jids,	ArrayList<String> listcardname,
                                 ArrayList<String> listcardprofilepic,ArrayList<String> messageList,
                                 ArrayList<String> timeList,ArrayList<String> userTypeList){
 
@@ -373,7 +378,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
 
         @Override
         public String getItem(int position) {
-            return jids.get(position);
+            return jids.get(position).asUnescapedString();
         }
 
         @Override
@@ -400,7 +405,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                 }
 
                 holder.name.setText(listcardname.get(position));
-                holder.myQuickID.setText(jids.get(position).split("@")[0]);
+                holder.myQuickID.setText(jids.get(position).asUnescapedString());
 
                 String revisedMessage = processSmileyCodes(messageList.get(position));
                 holder.lastMsg.setText(encryptionManager.decryptPayload(revisedMessage));
@@ -453,7 +458,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
 
                     if(constraint != null && jids!=null  && constraint.length()>0) {
                         for(int i =0 ; i <jids.size();i++){
-                            String searchText = jids.get(i);
+                            String searchText = jids.get(i).toString();
                             if(searchText.startsWith(constraint.toString())){
                                 filteredArrayList.add(jids.get(i));
                                 filteredFirstName.add(listcardname.get(i));
@@ -480,7 +485,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
 
                 @Override
                 protected void publishResults(CharSequence contraint, FilterResults results) {
-                    filteredArrayList = (ArrayList<String>) results.values;
+                    filteredArrayList = (ArrayList<Jid>) results.values;
                     if (results.count > 0) {
 
                         if(filteredArrayList.size()>0){
@@ -614,7 +619,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                                                         Utility mUtility = new Utility();
                                                         mUtility.deleteUnsubscribedUserChatHistory(
                                                                 getRosterHistoryList,rosterHistoryToBeDeleted,
-                                                                rosterEntry.getUser(),MainService.mService);
+                                                                rosterEntry.getJid(),MainService.mService);
                                                     } catch (Exception e) {
                                                         e.printStackTrace();
                                                     }
@@ -643,8 +648,16 @@ public class FragmentChatHistoryScreen extends SuperFragment{
      */
     private void removeContactFromRoster(RosterEntry entryToBeRemoved) {
         try {
-            MainService.mService.connection.getRoster().removeEntry(entryToBeRemoved);
+            Roster.getInstanceFor(MainService.mService.connection).removeEntry(entryToBeRemoved);
         } catch (XMPPException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (SmackException.NotLoggedInException e) {
+            e.printStackTrace();
+        } catch (SmackException.NoResponseException e) {
+            e.printStackTrace();
+        } catch (SmackException.NotConnectedException e) {
             e.printStackTrace();
         }
     }

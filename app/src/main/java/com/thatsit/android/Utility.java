@@ -142,7 +142,7 @@ public class Utility {
 
 			ArrayList<String> getRosterHistoryList,
 			ArrayList<Integer> rosterHistoryToBeDeleted,
-			String rosterWhoseHistoryDeleted, MainService mService) {
+			Jid rosterWhoseHistoryDeleted, MainService mService) {
 		try {
 			getRosterHistoryList = new ArrayList<String>();
 			rosterHistoryToBeDeleted = new ArrayList<Integer>();

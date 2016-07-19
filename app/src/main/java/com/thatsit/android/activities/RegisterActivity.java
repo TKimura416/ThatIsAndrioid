@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 
 import android.app.Activity;
 import android.content.Context;
@@ -80,7 +81,7 @@ public class RegisterActivity extends Activity implements OnClickListener,
 	private String RetVal;
 	private SharedPreferences settings;
 	private XmppManager mXmppManager;
-	private XMPPConnection mConnection;
+	private XMPPTCPConnection mConnection;
 	private final Utility mUtility = new Utility();
 	private String Chat_password;
 	private SharedPreferences mSharedPreferences;

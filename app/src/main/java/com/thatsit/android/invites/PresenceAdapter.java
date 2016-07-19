@@ -52,8 +52,8 @@ public class PresenceAdapter implements Parcelable {
     public PresenceAdapter(final Presence presence) {
     mType = PresenceType.getPresenceType(presence);
     mStatus = Status.getStatusFromPresence(presence);
-    mTo = presence.getTo();
-    mFrom = presence.getFrom();
+    mTo = presence.getTo().toString();
+    mFrom = presence.getFrom().toString();
     mStatusText = presence.getStatus();
     }
 
