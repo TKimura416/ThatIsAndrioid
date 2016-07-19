@@ -7,7 +7,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smackx.packet.VCard;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -286,7 +287,7 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 							}
 						});
 
-						if(MainService.mService.connection.getRoster().contains(entry.getKey().toLowerCase())){
+						if(Roster.getInstanceFor(MainService.mService.connection).contains(entry.getKey())){
 
 							if(!jids.contains(entry.getKey().toLowerCase().split("@")[0])) {
 

@@ -8,14 +8,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.net.io.Util;
-import org.jivesoftware.smack.AccountManager;
+//import org.jivesoftware.smack.AccountManager;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Type;
-import org.jivesoftware.smack.packet.RosterPacket;
-import org.jivesoftware.smackx.packet.VCard;
+import org.jivesoftware.smack.roster.packet.RosterPacket;
+import org.jivesoftware.smackx.iqregister.AccountManager;
+import org.jivesoftware.smackx.vcardtemp.VCardManager;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+import org.jxmpp.jid.BareJid;
+import org.jxmpp.jid.EntityBareJid;
+import org.jxmpp.jid.Jid;
+import org.jxmpp.jid.impl.JidCreate;
+//import org.jivesoftware.smack.packet.RosterPacket;
+//import org.jivesoftware.smackx.packet.VCard;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -201,11 +210,12 @@ public class Utility {
 				sendPresence(p,IdToBeRemoved,connection);
 
 			RosterPacket packet = new RosterPacket();
-			packet.setType(IQ.Type.SET);
-			RosterPacket.Item item  = new RosterPacket.Item(IdToBeRemoved, null);
+			packet.setType(IQ.Type.set);
+			BareJid jidToRemoved= JidCreate.bareFrom(IdToBeRemoved);
+			RosterPacket.Item item  = new RosterPacket.Item(jidToRemoved, null);
 			item.setItemType(RosterPacket.ItemType.remove);
 			packet.addRosterItem(item);
-			connection.sendPacket(packet);
+			connection.sendStanza(packet);
 
 
 		} catch (Exception e1) {
@@ -218,10 +228,10 @@ public class Utility {
 			PresenceAdapter preAdapt = new PresenceAdapter(p);
 			Presence presence2 = new Presence(PresenceType.getPresenceTypeFrom(preAdapt.getType()));
 			presence2.setTo(p.getTo());
-			deniedID = p.getTo();
+//			deniedID = p.getTo();
 			if (connection != null) {
 				presence2.setFrom(connection.getUser());
-				connection.sendPacket(presence2);
+				connection.sendStanza(presence2);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -673,7 +683,9 @@ public class Utility {
 
 		//ProviderManager.getInstance().addIQProvider("vCard", "vcard-temp:x:update", new VCardProvider());
 		try {
-			card.load(XmppManager.getInstance().getXMPPConnection(), friend_jid);
+            EntityBareJid entityfriend_jid=JidCreate.entityBareFrom(friend_jid);
+            VCardManager.getInstanceFor(MainService.mService.connection).loadVCard(entityfriend_jid);
+//			card.load(XmppManager.getInstance().getXMPPConnection(), friend_jid);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -889,8 +901,16 @@ public class Utility {
 													// Remove user from XMPP Server
 													try {
 														if(MainService.mService.connection.isConnected() && MainService.mService.connection.isAuthenticated()){
-															AccountManager accountManager = MainService.mService.connection.getAccountManager();
-															accountManager.deleteAccount();
+															AccountManager accountManager = AccountManager.getInstance(MainService.mService.connection);
+															try {
+																accountManager.deleteAccount();
+															} catch (SmackException.NoResponseException e) {
+																e.printStackTrace();
+															} catch (SmackException.NotConnectedException e) {
+																e.printStackTrace();
+															} catch (InterruptedException e) {
+																e.printStackTrace();
+															}
 															performSignOutTask(context);
 														}
 													} catch (XMPPException e) {

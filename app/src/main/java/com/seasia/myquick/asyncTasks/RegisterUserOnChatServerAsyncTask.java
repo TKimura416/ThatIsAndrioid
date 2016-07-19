@@ -2,8 +2,9 @@ package com.seasia.myquick.asyncTasks;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.jivesoftware.smack.AccountManager;
+//import org.jivesoftware.smack.AccountManager;
 import org.jivesoftware.smack.PacketCollector;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.filter.AndFilter;
@@ -11,7 +12,10 @@ import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.filter.PacketIDFilter;
 import org.jivesoftware.smack.filter.PacketTypeFilter;
 import org.jivesoftware.smack.packet.IQ;
-import org.jivesoftware.smack.packet.Registration;
+//import org.jivesoftware.smack.packet.Registration;
+import org.jivesoftware.smackx.iqregister.AccountManager;
+import org.jivesoftware.smackx.iqregister.packet.Registration;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -71,12 +75,18 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 			e.printStackTrace();
 			registerFailed = true;
 			try {
-				if(e.getXMPPError().getCode() == 409){
+				if(e.getX MPPError().getCode() == 409){
 					userAlreadyExists = true;
 				}
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (SmackException.NoResponseException e) {
+			e.printStackTrace();
+		} catch (SmackException.NotConnectedException e) {
+			e.printStackTrace();
 		}
 		return null;
 	}

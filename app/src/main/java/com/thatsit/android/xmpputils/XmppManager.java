@@ -2,10 +2,13 @@
 package com.thatsit.android.xmpputils;
 
 import org.jivesoftware.smack.AndroidConnectionConfiguration;
+import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.Roster;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.provider.PrivacyProvider;
 import org.jivesoftware.smack.provider.ProviderManager;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
+import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 import org.jivesoftware.smackx.GroupChatInvitation;
 import org.jivesoftware.smackx.PrivateDataManager;
 import org.jivesoftware.smackx.bytestreams.ibb.provider.CloseIQProvider;
@@ -45,7 +48,7 @@ public class XmppManager {
 	public static final int DISCONNECTING = 4;
 	public static final int WAITING_TO_CONNECT = 5;
 	public static final int WAITING_FOR_NETWORK = 6;
-	private static AndroidConnectionConfiguration connConfig = null;
+	private static XMPPTCPConnectionConfiguration connConfig = null;
 	private static XmppManager sXmppManager;
 	private XMPPConnection mConnection;
 
@@ -65,7 +68,7 @@ public class XmppManager {
 	public XMPPConnection getXMPPConnection() {
 		if (mConnection == null) {
 			setConnectionConfig();
-			mConnection = new XMPPConnection(connConfig);
+			mConnection = new XMPPTCPConnection(connConfig);
 		}
 		return mConnection;
 	}
@@ -73,14 +76,20 @@ public class XmppManager {
 	// XMPP Connection Config
 	private void setConnectionConfig() {
 		try {
-			connConfig = new AndroidConnectionConfiguration(Constants.HOST, Constants.PORT,Constants.SERVICE);
-			connConfig.setDebuggerEnabled(true);
-			connConfig.setReconnectionAllowed(true);
-			connConfig.setRosterLoadedAtLogin(true);
-			connConfig.setSendPresence(true);
-			connConfig.setSASLAuthenticationEnabled(false);
-			Roster.setDefaultSubscriptionMode(Roster.SubscriptionMode.manual);
-			configure(ProviderManager.getInstance());
+            XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration
+                    .builder();
+            config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
+            config.setHost(Constants.HOST);
+            config.setPort(Constants.PORT);
+            config.setDebuggerEnabled(true);
+            config.setSendPresence(true);
+
+//			connConfig.setReconnectionAllowed(true);
+//			connConfig.setRosterLoadedAtLogin(true);
+//			connConfig.setSendPresence(true);
+//			connConfig.setSASLAuthenticationEnabled(false);
+//			Roster.setDefaultSubscriptionMode(Roster.SubscriptionMode.manual);
+//			configure(ProviderManager.getInstance());
             Log.e("XmppManager","getting Instance");
 
         } catch (Exception e) {
@@ -109,7 +118,7 @@ public class XmppManager {
 		pm.addExtensionProvider("x", "jabber:x:roster", new RosterExchangeProvider());
 
 		// Message Events
-		pm.addExtensionProvider("x", "jabber:x:event", new MessageEventProvider());
+		pm.addExtensionProvider("x", "jabber:x:event", new MessageEventProvider()   );
 
 		// Chat State
 		pm.addExtensionProvider("active", "http://jabber.org/protocol/chatstates",

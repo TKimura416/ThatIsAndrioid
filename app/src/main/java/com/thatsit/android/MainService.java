@@ -9,22 +9,21 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import org.jivesoftware.smack.Chat;
-import org.jivesoftware.smack.ChatManager;
-import org.jivesoftware.smack.ChatManagerListener;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.PacketCollector;
 import org.jivesoftware.smack.PacketListener;
-import org.jivesoftware.smack.Roster;
-import org.jivesoftware.smack.RosterEntry;
-import org.jivesoftware.smack.RosterGroup;
 import org.jivesoftware.smack.SmackConfiguration;
+import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.StanzaListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.chat.Chat;
+import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.filter.PacketTypeFilter;
+import org.jivesoftware.smack.filter.StanzaFilter;
+import org.jivesoftware.smack.filter.StanzaTypeFilter;
 import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Packet;
@@ -32,19 +31,21 @@ import org.jivesoftware.smack.packet.PacketExtension;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Mode;
 import org.jivesoftware.smack.packet.Presence.Type;
+import org.jivesoftware.smack.packet.Stanza;
 import org.jivesoftware.smack.provider.ProviderManager;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smack.roster.RosterEntry;
+import org.jivesoftware.smack.roster.RosterGroup;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.util.StringUtils;
-import org.jivesoftware.smackx.Form;
-import org.jivesoftware.smackx.FormField;
-import org.jivesoftware.smackx.GroupChatInvitation;
 import org.jivesoftware.smackx.bytestreams.socks5.provider.BytestreamsProvider;
 import org.jivesoftware.smackx.filetransfer.FileTransferListener;
 import org.jivesoftware.smackx.filetransfer.FileTransferManager;
 import org.jivesoftware.smackx.filetransfer.FileTransferRequest;
 import org.jivesoftware.smackx.muc.DiscussionHistory;
 import org.jivesoftware.smackx.muc.MultiUserChat;
-import org.jivesoftware.smackx.provider.DiscoverInfoProvider;
-import org.jivesoftware.smackx.provider.DiscoverItemsProvider;
+import org.jivesoftware.smackx.xdata.Form;
+import org.jivesoftware.smackx.xdata.FormField;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -129,9 +130,9 @@ public class MainService extends Service {
     private String unsubsrcibedUser;
     private final ArrayList<String> group_name = new ArrayList<>();
     private final Hashtable<String, MultiUserChat> group_mucs = new Hashtable<>();
-    private final Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
+//    private final Hashtable<String, MUCPacketListener> group_packet_listeners = new Hashtable<>();
     private ChatManager chatmanager = null;
-    private PacketListener mMessagePacketListener = null;
+    private StanzaListener mMessagePacketListener = null;
     PacketCollector mpPacketCollector;
 
     // Preferences
@@ -149,7 +150,7 @@ public class MainService extends Service {
     private final int FOREGROUND_NOTIFICATION_ID = 0;
 
     // XMPP
-    public XMPPConnection connection;
+    public XMPPTCPConnection connection;
     private XmppManager xmppConnectionManager;
     public static MainService mService;
 
@@ -305,125 +306,129 @@ public class MainService extends Service {
         group_packet_listeners.remove(groupName);
     }
 
+    // haktic to review later
+
+
     /**
      * Join all groups after successful login
      */
-    public void joinToGroups() {
+//    public void joinToGroups() {
+//
+//        if (connection.isConnected() && connection.isAuthenticated()) {
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    boolean_istTimeLoad = false;
+//
+//                    if (xmppConnectionManager == null || connection == null) {
+//                        xmppConnectionManager = XmppManager.getInstance();
+//                        connection = xmppConnectionManager.getXMPPConnection();
+//                    }
+//                    DiscussionHistory history = new DiscussionHistory();
+//                    history.setMaxStanzas(0);
+//                    mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
+//                    try {
+//                        List<RosterGroup> rGroups;
+//                        Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
+//                        rGroups = new ArrayList<>(rGroups_Collection);
+//                        for (int i = 0; i < rGroups.size(); i++) {
+//                            String r_name = rGroups.get(i).getName();
+//                            r_name = r_name.replace("%2b", " ");
+//
+//                            MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
+//                            String nicknameToJoin;
+//                            if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
+//                                nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
+//                            } else {
+//                                nicknameToJoin = mSharedPreferences.getString("pseudoName", "anonymous") + " (" + connection.getUser().split("@")[0] + ")";
+//                            }
+//
+//                            String room_name = muChat.getRoom().split("@")[0].replace("%2b", " ");
+//
+//                            if (!muChat.isJoined()) {
+//                                try {
+//                                    muChat.join(nicknameToJoin, "", history, SmackConfiguration.getPacketReplyTimeout());
+//
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//
+//                            if (!group_name.contains(room_name)) {
+//                                group_name.add(room_name);
+//                                MUCPacketListener listener = new MUCPacketListener(group_name);
+//                                muChat.addMessageListener(listener);
+//                                onGroupAddedJoined(room_name, muChat, listener);
+//                            }
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//            }).start();
+//        }
+//    }
 
-        if (connection.isConnected() && connection.isAuthenticated()) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    boolean_istTimeLoad = false;
+// haktic to review later
 
-                    if (xmppConnectionManager == null || connection == null) {
-                        xmppConnectionManager = XmppManager.getInstance();
-                        connection = xmppConnectionManager.getXMPPConnection();
-                    }
-                    DiscussionHistory history = new DiscussionHistory();
-                    history.setMaxStanzas(0);
-                    mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
-                    try {
-                        List<RosterGroup> rGroups;
-                        Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
-                        rGroups = new ArrayList<>(rGroups_Collection);
-                        for (int i = 0; i < rGroups.size(); i++) {
-                            String r_name = rGroups.get(i).getName();
-                            r_name = r_name.replace("%2b", " ");
-
-                            MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
-                            String nicknameToJoin;
-                            if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
-                                nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
-                            } else {
-                                nicknameToJoin = mSharedPreferences.getString("pseudoName", "anonymous") + " (" + connection.getUser().split("@")[0] + ")";
-                            }
-
-                            String room_name = muChat.getRoom().split("@")[0].replace("%2b", " ");
-
-                            if (!muChat.isJoined()) {
-                                try {
-                                    muChat.join(nicknameToJoin, "", history, SmackConfiguration.getPacketReplyTimeout());
-
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            if (!group_name.contains(room_name)) {
-                                group_name.add(room_name);
-                                MUCPacketListener listener = new MUCPacketListener(group_name);
-                                muChat.addMessageListener(listener);
-                                onGroupAddedJoined(room_name, muChat, listener);
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }).start();
-        }
-    }
-
-
-    public void joinToGroups(final OnGroupJoined groupJoined) {
-
-        if (connection.isConnected() && connection.isAuthenticated()) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    boolean_istTimeLoad = false;
-
-                    if (xmppConnectionManager == null || connection == null) {
-                        xmppConnectionManager = XmppManager.getInstance();
-                        connection = xmppConnectionManager.getXMPPConnection();
-                    }
-                    DiscussionHistory history = new DiscussionHistory();
-                    history.setMaxStanzas(0);
-                    mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
-                    try {
-                        List<RosterGroup> rGroups;
-                        Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
-                        rGroups = new ArrayList<>(rGroups_Collection);
-                        for (int i = 0; i < rGroups.size(); i++) {
-                            String r_name = rGroups.get(i).getName();
-                            r_name = r_name.replace("%2b", " ");
-
-                            MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
-                            String nicknameToJoin;
-                            if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
-                                nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
-                            } else {
-                                nicknameToJoin = mSharedPreferences.getString("pseudoName", "anonymous") + " (" + connection.getUser().split("@")[0] + ")";
-                            }
-
-                            String room_name = muChat.getRoom().split("@")[0].replace("%2b", " ");
-
-                            if (!muChat.isJoined()) {
-                                try {
-                                    muChat.join(nicknameToJoin, "", history, SmackConfiguration.getPacketReplyTimeout());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                            if (!group_name.contains(room_name)) {
-                                group_name.add(room_name);
-                                MUCPacketListener listener = new MUCPacketListener(group_name);
-                                muChat.addMessageListener(listener);
-                                onGroupAddedJoined(room_name, muChat, listener);
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    groupJoined.OnGroupJoined();
-                }
-            }).start();
-        } else {
-            groupJoined.OnGroupJoined();
-        }
-    }
+//    public void joinToGroups(final OnGroupJoined groupJoined) {
+//
+//        if (connection.isConnected() && connection.isAuthenticated()) {
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    boolean_istTimeLoad = false;
+//
+//                    if (xmppConnectionManager == null || connection == null) {
+//                        xmppConnectionManager = XmppManager.getInstance();
+//                        connection = xmppConnectionManager.getXMPPConnection();
+//                    }
+//                    DiscussionHistory history = new DiscussionHistory();
+//                    history.setMaxStanzas(0);
+//                    mSharedPreferences = ThatItApplication.getApplication().getSharedPreferences("UpdatePseudoName", 0);
+//                    try {
+//                        List<RosterGroup> rGroups;
+//                        Collection<RosterGroup> rGroups_Collection = connection.getRoster().getGroups();
+//                        rGroups = new ArrayList<>(rGroups_Collection);
+//                        for (int i = 0; i < rGroups.size(); i++) {
+//                            String r_name = rGroups.get(i).getName();
+//                            r_name = r_name.replace("%2b", " ");
+//
+//                            MultiUserChat muChat = new MultiUserChat(connection, rGroups.get(i).getName() + "@conference." + Constants.HOST);
+//                            String nicknameToJoin;
+//                            if (TextUtils.isEmpty(mSharedPreferences.getString("pseudoName", "anonymous"))) {
+//                                nicknameToJoin = "My Name" + " (" + connection.getUser().split("@")[0] + ")";
+//                            } else {
+//                                nicknameToJoin = mSharedPreferences.getString("pseudoName", "anonymous") + " (" + connection.getUser().split("@")[0] + ")";
+//                            }
+//
+//                            String room_name = muChat.getRoom().split("@")[0].replace("%2b", " ");
+//
+//                            if (!muChat.isJoined()) {
+//                                try {
+//                                    muChat.join(nicknameToJoin, "", history, SmackConfiguration.getPacketReplyTimeout());
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                            if (!group_name.contains(room_name)) {
+//                                group_name.add(room_name);
+//                                MUCPacketListener listener = new MUCPacketListener(group_name);
+//                                muChat.addMessageListener(listener);
+//                                onGroupAddedJoined(room_name, muChat, listener);
+//                            }
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                    groupJoined.OnGroupJoined();
+//                }
+//            }).start();
+//        } else {
+//            groupJoined.OnGroupJoined();
+//        }
+//    }
 
 
     /**
@@ -438,60 +443,63 @@ public class MainService extends Service {
         group_packet_listeners.put(room_name, listener);
     }
 
-    /**
-     * Create group -> Join group -> Send invitaion
-     */
-    public void createAndJoinGroup(final String groupName, final GroupCreatingJoinListener listener) {
 
-        if (connection.isConnected() && connection.isAuthenticated()) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
+    // haktic to review later
 
-                    System.out.println("" + MainService.this.getClass().getCanonicalName() + "   :" + " joinand create");
-                    xmppConnectionManager = XmppManager.getInstance();
-
-                    MultiUserChat muc = new MultiUserChat(connection, connection.getUser().split("@")[0] + "__" + groupName + "@conference." + Constants.HOST);
-                    try {
-                        connection.getRoster().createGroup(connection.getUser().split("@")[0] + "__" + groupName);
-
-                    } catch (Exception e) {
-                        Utility.stopDialog();
-                        Utility.showMessage("Creation Error");
-                        e.printStackTrace();
-                    }
-
-                    DiscussionHistory history = new DiscussionHistory();
-                    history.setMaxStanzas(0);
-
-                    String room_name = null;
-
-                    try {
-                        muc.join(connection.getUser().split("@")[0], "", history, SmackConfiguration.getPacketReplyTimeout());
-                        room_name = muc.getRoom().split("@conference")[0].replace("%2b", " ");
-
-                    } catch (XMPPException e) {
-                        Utility.stopDialog();
-                        e.printStackTrace();
-                    }
-
-                    if (!group_name.contains(room_name) && room_name != null) {
-                        group_name.add(room_name);
-                        MUCPacketListener mucListener = new MUCPacketListener(connection.getUser().split("@")[0] + "__" + groupName);
-                        muc.addMessageListener(mucListener);
-                        if (room_name != null) {
-                            onGroupAddedJoined(room_name, muc, mucListener);
-                        }
-                        ThatItApplication.getApplication().setCurrentMUCRefernece(muc);
-                        ThatItApplication.getApplication().setCurrentRosterGroupReference(connection.getRoster().getGroup(connection.getUser().split("@")[0] + "__" + groupName));
-                        setConfig(muc, connection);
-                        listener.onGroupCreateJoin();
-                        triggerFragmentRefresh("Refresh_Group_Adapter");
-                    }
-                }
-            }).start();
-        }
-    }
+//    /**
+//     * Create group -> Join group -> Send invitaion
+//     */
+//    public void createAndJoinGroup(final String groupName, final GroupCreatingJoinListener listener) {
+//
+//        if (connection.isConnected() && connection.isAuthenticated()) {
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//
+//                    System.out.println("" + MainService.this.getClass().getCanonicalName() + "   :" + " joinand create");
+//                    xmppConnectionManager = XmppManager.getInstance();
+//
+//                    MultiUserChat muc = new MultiUserChat(connection, connection.getUser().split("@")[0] + "__" + groupName + "@conference." + Constants.HOST);
+//                    try {
+//                        connection.getRoster().createGroup(connection.getUser().split("@")[0] + "__" + groupName);
+//
+//                    } catch (Exception e) {
+//                        Utility.stopDialog();
+//                        Utility.showMessage("Creation Error");
+//                        e.printStackTrace();
+//                    }
+//
+//                    DiscussionHistory history = new DiscussionHistory();
+//                    history.setMaxStanzas(0);
+//
+//                    String room_name = null;
+//
+//                    try {
+//                        muc.join(connection.getUser().split("@")[0], "", history, SmackConfiguration.getPacketReplyTimeout());
+//                        room_name = muc.getRoom().split("@conference")[0].replace("%2b", " ");
+//
+//                    } catch (XMPPException e) {
+//                        Utility.stopDialog();
+//                        e.printStackTrace();
+//                    }
+//
+//                    if (!group_name.contains(room_name) && room_name != null) {
+//                        group_name.add(room_name);
+//                        MUCPacketListener mucListener = new MUCPacketListener(connection.getUser().split("@")[0] + "__" + groupName);
+//                        muc.addMessageListener(mucListener);
+//                        if (room_name != null) {
+//                            onGroupAddedJoined(room_name, muc, mucListener);
+//                        }
+//                        ThatItApplication.getApplication().setCurrentMUCRefernece(muc);
+//                        ThatItApplication.getApplication().setCurrentRosterGroupReference(connection.getRoster().getGroup(connection.getUser().split("@")[0] + "__" + groupName));
+//                        setConfig(muc, connection);
+//                        listener.onGroupCreateJoin();
+//                        triggerFragmentRefresh("Refresh_Group_Adapter");
+//                    }
+//                }
+//            }).start();
+//        }
+//    }
 
     /**
      * Setup XMPP Config
@@ -499,22 +507,23 @@ public class MainService extends Service {
      * @param multiUserChat
      * @param connectionInstance
      */
-    private static void setConfig(MultiUserChat multiUserChat, XMPPConnection connectionInstance) {
+    private static void setConfig(MultiUserChat multiUserChat, XMPPTCPConnection connectionInstance) {
 
         try {
             Form form = multiUserChat.getConfigurationForm();
             Form submitForm = form.createAnswerForm();
-            for (Iterator<FormField> fields = submitForm.getFields();
+            for (Iterator<FormField> fields = (Iterator<FormField>) submitForm.getFields();
                  fields.hasNext(); ) {
                 FormField field = fields.next();
-                if (!FormField.TYPE_HIDDEN.equals(field.getType()) && field.getVariable() != null) {
+//                if (!FormField.TYPE_HIDDEN.equals(field.getType()) && field.getVariable() != null) {
+                if (!FormField.FORM_TYPE.equals(field.getType()) && field.getVariable() != null) {
                     submitForm.setDefaultAnswer(field.getVariable());
                 }
             }
             submitForm.setAnswer("muc#roomconfig_publicroom", true);
             submitForm.setAnswer("muc#roomconfig_persistentroom", true);
             List<String> owners = new ArrayList<>();
-            owners.add(connectionInstance.getUser());
+            owners.add(String.valueOf(connectionInstance.getUser()));
             submitForm.setAnswer("muc#roomconfig_roomowners", owners);
 
             multiUserChat.sendConfigurationForm(submitForm);
@@ -522,93 +531,104 @@ public class MainService extends Service {
             e.printStackTrace();
         }
     }
+// haktic to review later
 
-    /**
-     * Common muc packet listener for group chat
-     */
-    public static class MUCPacketListener implements PacketListener {
-
-        private String messageFromId;
-        private String jabberID;
-        private String message;
-        private ArrayList<String> groupName = new ArrayList<>();
-
-        public MUCPacketListener(ArrayList<String> group_name) {
-            this.groupName = group_name;
-        }
-
-        public MUCPacketListener(String groupName) {
-        }
-
-        @SuppressLint("DefaultLocale")
-        @Override
-        public void processPacket(Packet packet) {
-
-            if (packet != null) {
-
-                Message messageObject = (Message) packet;
-                String from = messageObject.getFrom();
-                String room = from.substring(0, from.lastIndexOf("@"));
-                String senderID = "";
-
-                try {
-                    int start = from.indexOf("(");
-                    int end = from.indexOf(")");
-                    messageFromId = from.substring(start, end);
-                    messageFromId = messageFromId.replace("(", "");
-                    senderID = messageFromId;
-
-                } catch (Exception e) {
-                    StringTokenizer stringTokenizer = new StringTokenizer(from, "/");
-                    String room1 = stringTokenizer.nextToken();
-                    room = room1.substring(0, room1.lastIndexOf("@"));
-                    try {
-                        messageFromId = stringTokenizer.nextToken();
-                    } catch (Exception e1) {
-                        //Log.e("MainService", e1.getMessage()+"");
-                    }
-                    if (!TextUtils.isEmpty(senderID)) {
-                        senderID = messageFromId.substring(0, messageFromId.indexOf("@"));
-                    }
-                }
-
-                if (!senderID.equalsIgnoreCase(AppSinglton.thatsItPincode.toLowerCase())) {
-
-                    if (!messageObject.getBody().equals("This room is not anonymous.")) {
-                        AppSinglton.MessageFromId.add(messageFromId);
-
-                        if (!messageFromId.contains("@"))
-                            messageFromId = messageFromId + "@" + com.thatsit.android.xmpputils.Constants.HOST;
-
-                        jabberID = messageFromId;
-
-                        String group_room = room.split("@")[0].split("__")[1].replaceAll("%2b", " ");
-
-                        setIncomingGroupChatNotification("Message Group " + group_room);
-
-                        ThatItApplication.getApplication().getIncomingGroupPings().add(room);
-                        message = Utility.processSmileyCodes(messageObject.getBody().replaceAll("____", " : "));
-                        One2OneChatDb.addGroupMessage(room, senderID, messageObject.getBody());
-
-                        sendBroadcastToRefreshGroupAdapter();
-                        sendBroadcastToUpdateMucChatUI(room);
-                    }
-                }
-            }
-        }
-
-        /**
-         * SEND BROADCAST TO MUC ACTIVITY TO ADD BUBBLE IN THE LIST.
-         */
-        private void sendBroadcastToUpdateMucChatUI(String room) {
-            Intent intent = new Intent();
-            intent.setAction("GROUP MESSAGE");
-            intent.putExtra("group_name", room);
-            intent.putExtra("message", message);
-            intent.putExtra("jid", jabberID);
-            ThatItApplication.getApplication().sendBroadcast(intent);
-        }
-    }
+//    /**
+//     * Common muc packet listener for group chat
+//     */
+//    public static class MUCPacketListener implements PacketListener, MessageListener {
+//
+//        private String messageFromId;
+//        private String jabberID;
+//        private String message;
+//        private ArrayList<String> groupName = new ArrayList<>();
+//
+//        public MUCPacketListener(ArrayList<String> group_name) {
+//            this.groupName = group_name;
+//        }
+//
+//        public MUCPacketListener(String groupName) {
+//        }
+//
+//        @SuppressLint("DefaultLocale")
+//        @Override
+//        public void processPacket(Packet packet) {
+//
+//            if (packet != null) {
+//
+//                Message messageObject = (Message) packet;
+//                String from = messageObject.getFrom();
+//                String room = from.substring(0, from.lastIndexOf("@"));
+//                String senderID = "";
+//
+//                try {
+//                    int start = from.indexOf("(");
+//                    int end = from.indexOf(")");
+//                    messageFromId = from.substring(start, end);
+//                    messageFromId = messageFromId.replace("(", "");
+//                    senderID = messageFromId;
+//
+//                } catch (Exception e) {
+//                    StringTokenizer stringTokenizer = new StringTokenizer(from, "/");
+//                    String room1 = stringTokenizer.nextToken();
+//                    room = room1.substring(0, room1.lastIndexOf("@"));
+//                    try {
+//                        messageFromId = stringTokenizer.nextToken();
+//                    } catch (Exception e1) {
+//                        //Log.e("MainService", e1.getMessage()+"");
+//                    }
+//                    if (!TextUtils.isEmpty(senderID)) {
+//                        senderID = messageFromId.substring(0, messageFromId.indexOf("@"));
+//                    }
+//                }
+//
+//                if (!senderID.equalsIgnoreCase(AppSinglton.thatsItPincode.toLowerCase())) {
+//
+//                    if (!messageObject.getBody().equals("This room is not anonymous.")) {
+//                        AppSinglton.MessageFromId.add(messageFromId);
+//
+//                        if (!messageFromId.contains("@"))
+//                            messageFromId = messageFromId + "@" + com.thatsit.android.xmpputils.Constants.HOST;
+//
+//                        jabberID = messageFromId;
+//
+//                        String group_room = room.split("@")[0].split("__")[1].replaceAll("%2b", " ");
+//
+//                        setIncomingGroupChatNotification("Message Group " + group_room);
+//
+//                        ThatItApplication.getApplication().getIncomingGroupPings().add(room);
+//                        message = Utility.processSmileyCodes(messageObject.getBody().replaceAll("____", " : "));
+//                        One2OneChatDb.addGroupMessage(room, senderID, messageObject.getBody());
+//
+//                        sendBroadcastToRefreshGroupAdapter();
+//                        sendBroadcastToUpdateMucChatUI(room);
+//                    }
+//                }
+//            }
+//        }
+//
+//        /**
+//         * SEND BROADCAST TO MUC ACTIVITY TO ADD BUBBLE IN THE LIST.
+//         */
+//        private void sendBroadcastToUpdateMucChatUI(String room) {
+//            Intent intent = new Intent();
+//            intent.setAction("GROUP MESSAGE");
+//            intent.putExtra("group_name", room);
+//            intent.putExtra("message", message);
+//            intent.putExtra("jid", jabberID);
+//            ThatItApplication.getApplication().sendBroadcast(intent);
+//        }
+//
+//        @Override
+//        public void processPacket(Stanza packet) throws SmackException.NotConnectedException, InterruptedException {
+//
+//        }
+//
+//        @Override
+//        public void processMessage(Message message) {
+//
+//        }
+//    }
 
     /**
      * Broadcast to refresh group adapter to display ping on group
@@ -913,22 +933,22 @@ public class MainService extends Service {
                 changeStatusAndPriority(Status.CONTACT_STATUS_AVAILABLE, "");
 
                 // Send Presence Packets
-                PacketFilter filter = new PacketFilter() {
+                StanzaFilter filter = new StanzaFilter() {
                     @Override
-                    public boolean accept(Packet packet) {
-                        if (packet instanceof Presence) {
-                            Presence pres = (Presence) packet;
+                    public boolean accept(Stanza stanza) {
+                        if (stanza instanceof Presence) {
+                            Presence pres = (Presence) stanza;
                             if (pres.getType() == Presence.Type.subscribe)
                                 return true;
                         }
                         return false;
                     }
                 };
-                PacketFilter filter_unsubscribed = new PacketFilter() {
+                StanzaFilter filter_unsubscribed = new StanzaFilter() {
                     @Override
-                    public boolean accept(Packet packet) {
-                        if (packet instanceof Presence) {
-                            Presence pres = (Presence) packet;
+                    public boolean accept(Stanza stanza) {
+                        if (stanza instanceof Presence) {
+                            Presence pres = (Presence) stanza;
                             if (pres.getType() == Presence.Type.unsubscribed)
                                 return true;
                         }
@@ -936,8 +956,9 @@ public class MainService extends Service {
                     }
                 };
 
-                connection.addPacketListener(mSubscribePacketListener, filter);
-                connection.addPacketListener(mUnSubscribePacketListener, filter_unsubscribed);
+
+                connection.addAsyncStanzaListener(mSubscribePacketListener, filter);
+                connection.addAsyncStanzaListener(mUnSubscribePacketListener, filter_unsubscribed);
 
                 //Add Incoming Chat Listener on Connection
                 setIncomingChatListner();
@@ -945,13 +966,26 @@ public class MainService extends Service {
                 //Add Incoming File Listener on Connection
                 setFileTransferListener();
 
-                filter = new PacketTypeFilter(PingExtension.class);
-                connection.addPacketListener(mPingListener, filter);
+                filter = new StanzaTypeFilter(PingExtension.class);
+                connection.addAsyncStanzaListener(mPingListener, filter);
 
 
                 Utility.connectionClosedCalled = false;
 
-                connection.addPacketListener(new PacketListener() {
+                connection.addAsyncStanzaListener(new StanzaListener() {
+                    @Override
+                    public void processPacket(Stanza packet) throws SmackException.NotConnectedException, InterruptedException {
+                        if (!Utility.reloginCalled) {
+                            Message message = (Message) packet;
+                            if (message.getBody() != null) {
+                                String fromName = StringUtils.parseBareAddress(message.getFrom());
+                                mMessagePacketListener = this;
+                            }
+                        }
+                    }
+                }, filter);
+
+                connection.addAsyncStanzaListener(new PacketListener() {
 
                     public void processPacket(Packet packet) {
 
@@ -1044,21 +1078,39 @@ public class MainService extends Service {
         if (connection.isConnected() && connection.isAuthenticated()) {
             if (!isRunningInForeground()) {
                 Presence p = new Presence(Type.available, "I am away", 42, Mode.chat);
-                MainService.mService.connection.sendPacket(p);
+                try {
+                    MainService.mService.connection.sendStanza(p);
+                } catch (SmackException.NotConnectedException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             } else {
                 SharedPreferences mSharedPreferencesAvlRead = getSharedPreferences("mSharedPreferencesAvlValue", 0);
                 String RadioStatus = mSharedPreferencesAvlRead.getString("Avl_Value", "");
 
                 if (!TextUtils.isEmpty(RadioStatus) && RadioStatus.equals("Busy")) {
                     Presence p = new Presence(Type.available, "I am busy", 42, Mode.dnd);
-                    MainService.mService.connection.sendPacket(p);
+                    try {
+                        MainService.mService.connection.sendStanza(p);
+                    } catch (SmackException.NotConnectedException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     Presence p = new Presence(Type.available, "I am online", 42, Mode.available);
-                    MainService.mService.connection.sendPacket(p);
+                    try {
+                        MainService.mService.connection.sendStanza(p);
+                    } catch (SmackException.NotConnectedException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             try {
-                joinToGroups();
+//                joinToGroups();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -1215,9 +1267,21 @@ public class MainService extends Service {
 
         @Override
         public void reconnectingIn(int seconds) {
-            Log.i("","Reconnecting in " + seconds + " seconds.");
+            Log.e("","Reconnecting in " + seconds + " seconds.");
         }
 
+
+        @Override
+        public void connected(XMPPConnection connection) {
+            Log.e("","Is Now Connected");
+
+        }
+
+        @Override
+        public void authenticated(XMPPConnection connection, boolean resumed) {
+            Log.i("","Is Now Authenticated.");
+
+        }
 
         @Override
         public void connectionClosed() {
@@ -2065,7 +2129,7 @@ public class MainService extends Service {
      * Check for group duplicacy
      */
     private boolean doesGroupExist(String groopName) {
-        Collection<RosterGroup> rosterGroups = connection.getRoster().getGroups();
+        Collection<RosterGroup> rosterGroups = Roster.getInstanceFor(connection).getGroups();
         for (RosterGroup currentGroup : rosterGroups) {
             if (currentGroup.getName().equals(groopName))
                 return true;

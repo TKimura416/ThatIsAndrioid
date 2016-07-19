@@ -1,18 +1,5 @@
 package com.thatsit.android.activities;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Hashtable;
-
-import org.jivesoftware.smack.ChatManager;
-import org.jivesoftware.smack.RosterEntry;
-import org.jivesoftware.smack.RosterListener;
-import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.packet.Presence;
-import org.jivesoftware.smackx.packet.VCard;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
@@ -39,6 +26,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.myquickapp.receivers.NetworkAvailabilityReceiver;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
@@ -46,8 +35,18 @@ import com.thatsit.android.Utility;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.xmpputils.Constants;
 import com.thatsit.android.xmpputils.XmppManager;
-import com.myquickapp.receivers.NetworkAvailabilityReceiver;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+
+import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.chat.ChatManager;
+import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smack.roster.RosterEntry;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Hashtable;
 
 @SuppressLint("UseSparseArrays")
 public class SuggestContactActivity  extends Activity {

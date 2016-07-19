@@ -6,22 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import org.jivesoftware.smack.Chat;
-import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.PacketListener;
-import org.jivesoftware.smack.RosterEntry;
-import org.jivesoftware.smack.RosterListener;
 import org.jivesoftware.smack.SmackConfiguration;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Message.Type;
 import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smack.packet.Presence;
-import org.jivesoftware.smackx.GroupChatInvitation;
+import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smackx.muc.DiscussionHistory;
 import org.jivesoftware.smackx.muc.MultiUserChat;
-import org.jivesoftware.smackx.packet.VCard;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -681,7 +678,9 @@ public class InviteContactsToRoster  extends Activity{
 				try {
 					muc.sendMessage(newMessage);
 
-				} catch (XMPPException e) {
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} catch (SmackException.NotConnectedException e) {
 					e.printStackTrace();
 				}
 
