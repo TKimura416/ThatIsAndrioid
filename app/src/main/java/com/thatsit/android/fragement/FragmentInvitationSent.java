@@ -11,7 +11,6 @@ import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smackx.vcardtemp.VCardManager;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
-import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
@@ -292,13 +291,13 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
 						});
 
 						try {
-							if(Roster.getInstanceFor(MainService.mService.connection).contains(JidCreate.bareFrom(entry.getKey()) )){
+							if(Roster.getInstanceFor(MainService.mService.connection).contains(entry.getKey() )){
 
                                 if(!jids.contains(entry.getKey().toLowerCase().split("@")[0])) {
 
                                     try {
                                         if (MainService.mService.connection != null && MainService.mService.connection.isAuthenticated() && MainService.mService.connection.isConnected()) {
-											VCardManager.getInstanceFor(MainService.mService.connection).loadVCard(JidCreate.entityBareFrom( entry.getKey()));
+											VCardManager.getInstanceFor(MainService.mService.connection).loadVCard(entry.getKey());
 //											card.load(MainService.mService.connection, entry.getKey());
                                         } else {
                                             Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
@@ -338,13 +337,9 @@ public class FragmentInvitationSent extends Fragment implements OnClickListener{
                             }else{
                                 Utility.stopDialog();
                             }
-						} catch (XmppStringprepException e) {
-							e.printStackTrace();
 						} catch (SmackException.NoResponseException e) {
 							e.printStackTrace();
 						} catch (SmackException.NotConnectedException e) {
-							e.printStackTrace();
-						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
 					}

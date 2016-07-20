@@ -20,7 +20,6 @@ import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smackx.iqregister.AccountManager;
 import org.jivesoftware.smackx.iqregister.packet.Registration;
-import org.jxmpp.jid.parts.Localpart;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -64,7 +63,7 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 			attributes.put("name", "");
 
 			if (accountManager.supportsAccountCreation()) {
-				accountManager.createAccount(Localpart.from(chatUserName), chatPassword,attributes);
+				accountManager.createAccount(chatUserName, chatPassword,attributes);
 				}
 			Registration reg = new Registration();
 			reg.setType(IQ.Type.set);
@@ -87,8 +86,6 @@ public class RegisterUserOnChatServerAsyncTask extends AsyncTask<Void, Void, Voi
 //			} catch (Exception e1) {
 //				e1.printStackTrace();
 //			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
 		} catch (SmackException.NoResponseException e) {
 			e.printStackTrace();
 		} catch (SmackException.NotConnectedException e) {

@@ -16,7 +16,6 @@ import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.RosterEntry;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
@@ -335,7 +334,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
     private void showPreviousChat(int minusVal) {
         try {
             ThatItApplication.getApplication().openDatabase();
-            cursor = One2OneChatDb.getAllMessagesOfParticipant(mRosterEntry.getJid());
+            cursor = One2OneChatDb.getAllMessagesOfParticipant(mRosterEntry.getUser());
             DatabaseUtils.dumpCursor(cursor);
             if (cursor.getCount() < 20) {
                 showAllValues();
@@ -452,63 +451,63 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
      * Send message to jID.
      */
     protected void sendChatMessage() {
-//		try {
-//			final String to = mRosterEntry.getUser();
-//			msg = mEdtTxtChat.getText().toString().trim();
-//			try {
-//				presence =                 Roster.getInstanceFor(MainService.mService.connection) .getPresence(to);
-//				if (!presence.getType().equals(Presence.Type.unavailable)) {
-//					messageStatus = "R";
-//
-//					new Thread(new Runnable() {
-//						@Override
-//						public void run() {
-//
-//							one2OneChatDb.updateMessagestatus(to, "R");
-//						}
-//					}).start();
-//
-//				} else {
-//					messageStatus = "D";
-//				}
-//			} catch(Exception e) {
-//				e.printStackTrace();
-//			}
-//			if(LastID==null)LastID="";
-//			if (!LastID.equals("") && !LastID.equals("0")) {
-//				int updateId = Integer.parseInt(LastID);
-//				updateId = updateId+1;
-//				LastID=""+updateId;
-//				adapter.add(new OneBubble(true, ""+updateId, msg,null, false, System
-//						.currentTimeMillis(), mConnection.getUser(),messageStatus));
-//
-//			}else{
-//				adapter.add(new OneBubble(true, ""+1, msg,null, false, System
-//						.currentTimeMillis(),mConnection.getUser(),messageStatus));
-//				LastID = "1";
-//			}
-//			mEdtTxtChat.setText("");
-//			new Thread(new Runnable() {
-//
-//				@Override
-//				public void run() {
-//					String revisedMessage = encryptionManager.encryptPayload(Utility.processSmileyCodes(msg));
-//
-//					sendMessage(to, revisedMessage, mService.mMessageListner);
-//
-//					if(TextUtils.isEmpty(chatRecipientPhoto)){
-//						byteArray = getBitmapFromImageview();
-//					}else {
-//						byteArray = chatRecipientPhoto.getBytes();
-//					}
-//					saveOwnerChat(mRosterEntry.getUser(), mRosterEntry.getName(), revisedMessage,null,byteArray,messageStatus);
-//
-//				}
-//			}).start();
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+        try {
+            final String to = mRosterEntry.getUser();
+            msg = mEdtTxtChat.getText().toString().trim();
+            try {
+                presence = Roster.getInstanceFor(MainService.mService.connection).getPresence(to);
+                if (!presence.getType().equals(Presence.Type.unavailable)) {
+                    messageStatus = "R";
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            one2OneChatDb.updateMessagestatus(to, "R");
+                        }
+                    }).start();
+
+                } else {
+                    messageStatus = "D";
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (LastID == null) LastID = "";
+            if (!LastID.equals("") && !LastID.equals("0")) {
+                int updateId = Integer.parseInt(LastID);
+                updateId = updateId + 1;
+                LastID = "" + updateId;
+                adapter.add(new OneBubble(true, "" + updateId, msg, null, false, System
+                        .currentTimeMillis(), mConnection.getUser(), messageStatus));
+
+            } else {
+                adapter.add(new OneBubble(true, "" + 1, msg, null, false, System
+                        .currentTimeMillis(), mConnection.getUser(), messageStatus));
+                LastID = "1";
+            }
+            mEdtTxtChat.setText("");
+            new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    String revisedMessage = encryptionManager.encryptPayload(Utility.processSmileyCodes(msg));
+
+                    sendMessage(to, revisedMessage, mService.mMessageListner);
+
+                    if (TextUtils.isEmpty(chatRecipientPhoto)) {
+                        byteArray = getBitmapFromImageview();
+                    } else {
+                        byteArray = chatRecipientPhoto.getBytes();
+                    }
+                    saveOwnerChat(mRosterEntry.getUser(), mRosterEntry.getName(), revisedMessage, null, byteArray, messageStatus);
+
+                }
+            }).start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -548,7 +547,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
                 sendMessageWithFile(to, revisedMsgToBeSent, mService.mMessageListner, fileName);
 
                 try {
-                    Presence presence = Roster.getInstanceFor(mConnection).getPresence(JidCreate.bareFrom(to));
+                    Presence presence = Roster.getInstanceFor(mConnection).getPresence(to);
 
                     if (!presence.getType().equals(Presence.Type.unavailable)) {
                         messageStatus = "R";
@@ -567,11 +566,11 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
                     updateId = updateId + 1;
                     LastID = "" + updateId;
                     adapter.add(new OneBubble(true, "" + updateId, msg, null, false, System
-                            .currentTimeMillis(), mConnection.getUser().asUnescapedString(), messageStatus));
+                            .currentTimeMillis(), mConnection.getUser(), messageStatus));
 
                 } else {
                     adapter.add(new OneBubble(true, "" + 1, msg, null, false, System
-                            .currentTimeMillis(), mConnection.getUser().asUnescapedString(), messageStatus));
+                            .currentTimeMillis(), mConnection.getUser(), messageStatus));
                     LastID = "1";
                 }
                 mEdtTxtChat.setText("");
@@ -607,7 +606,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
                 sendMessageWithFileViaSocket(to, revisedMsgToBeSent, mService.mMessageListner, fileName, id);
 
                 try {
-                    Presence presence = Roster.getInstanceFor(mConnection).getPresence(JidCreate.bareFrom(to));
+                    Presence presence = Roster.getInstanceFor(mConnection).getPresence(to);
 
                     if (!presence.getType().equals(Presence.Type.unavailable)) {
                         messageStatus = "R";
@@ -626,11 +625,11 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
                     updateId = updateId + 1;
                     LastID = "" + updateId;
                     adapter.add(new OneBubble(true, "" + updateId, msg, null, false, System
-                            .currentTimeMillis(), mConnection.getUser().asUnescapedString(), messageStatus));
+                            .currentTimeMillis(), mConnection.getUser(), messageStatus));
 
                 } else {
                     adapter.add(new OneBubble(true, "" + 1, msg, null, false, System
-                            .currentTimeMillis(), mConnection.getUser().asUnescapedString(), messageStatus));
+                            .currentTimeMillis(), mConnection.getUser(), messageStatus));
                     LastID = "1";
                 }
                 mEdtTxtChat.setText("");
@@ -752,7 +751,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
                             return;
                         } else {
                             try {
-                                if (Roster.getInstanceFor(mConnection).contains(mRosterEntry.getJid())) {
+                                if (Roster.getInstanceFor(mConnection).contains(mRosterEntry.getUser())) {
                                     onItemLongClickCalled = false;
                                     sendChatMessage();
                                 } else {
@@ -869,15 +868,11 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
         ChatManager chatmanager = ChatManager.getInstanceFor(mConnection);//.getChatManager();
         Chat newChat = null;
         try {
-            newChat = chatmanager.createChat(JidCreate.entityBareFrom(to), mMessageListner);
+            newChat = chatmanager.createChat(to, mMessageListner);
             Message newMessage = new Message();
             newMessage.setBody(msg);
             newChat.sendMessage(newMessage);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (SmackException.NotConnectedException e) {
-            e.printStackTrace();
-        } catch (XmppStringprepException e) {
             e.printStackTrace();
         }
     }
@@ -887,16 +882,12 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
         if (!mConnection.isConnected()) return;
         ChatManager chatmanager = ChatManager.getInstanceFor(mConnection);//.getChatManager();
         try {
-            Chat newChat = chatmanager.createChat(JidCreate.entityBareFrom(to), mMessageListner);
+            Chat newChat = chatmanager.createChat(to, mMessageListner);
             Message newMessage = new Message();
             newMessage.setBody(revisedMsgToBeSent);
             newMessage.addSubject("isFile", fileName);
             newChat.sendMessage(newMessage);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (SmackException.NotConnectedException e) {
-            e.printStackTrace();
-        } catch (XmppStringprepException e) {
             e.printStackTrace();
         }
     }
@@ -907,7 +898,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
         ChatManager chatmanager = ChatManager.getInstanceFor(mConnection);//.getChatManager();
         Chat newChat = null;
         try {
-            newChat = chatmanager.createChat(JidCreate.entityBareFrom(to), mMessageListner);
+            newChat = chatmanager.createChat(to, mMessageListner);
             Message newMessage = new Message();
             newMessage.setBody(revisedMsgToBeSent);
 
@@ -928,11 +919,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (SmackException.NotConnectedException e) {
-            e.printStackTrace();
-        } catch (XmppStringprepException e) {
             e.printStackTrace();
         }
     }
@@ -1116,7 +1103,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 
         try {
             myApplication.openDatabase();
-            Cursor cursor = One2OneChatDb.getAllMessagesOfParticipant(mRosterEntry.getJid());
+            Cursor cursor = One2OneChatDb.getAllMessagesOfParticipant(mRosterEntry.getUser());
             DatabaseUtils.dumpCursor(cursor);
 
             if (cursor.moveToFirst()) {
@@ -1736,8 +1723,6 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
             } catch (SmackException.NoResponseException e) {
                 e.printStackTrace();
             } catch (SmackException.NotConnectedException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         } catch (XMPPException e) {

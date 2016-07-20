@@ -937,8 +937,6 @@ public class FragmentBasicSetting extends SuperFragment implements OnClickListen
 				Utility.RegsiterDataFetchedOnce = false;
 				pdDialog.dismiss();
 				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
 			} catch (SmackException.NoResponseException e) {
 				e.printStackTrace();
 			} catch (SmackException.NotConnectedException e) {

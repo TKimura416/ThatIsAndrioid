@@ -11,7 +11,6 @@ import org.jivesoftware.smackx.search.ReportedData;
 import org.jivesoftware.smackx.search.UserSearchManager;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 import org.jivesoftware.smackx.xdata.Form;
-import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
@@ -339,8 +338,7 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 				if(parseException==null){
 					idExtension = jid + "@" + MainService.mService.connection.getServiceName();
 					Roster roster = Roster.getInstanceFor(MainService.mService.connection);
-					try {
-						if (!roster.contains(JidCreate.bareFrom(idExtension))) {
+						if (!roster.contains(idExtension)) {
                             try {
                                 Presence subscribe = new Presence(Presence.Type.subscribe);
                                 subscribe.setTo(idExtension);
@@ -396,9 +394,6 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
                                 }
                             });
                         }
-					} catch (XmppStringprepException e) {
-						e.printStackTrace();
-					}
 
 				}else{
 					Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.error_sendingRequest), Toast.LENGTH_SHORT).show();
@@ -446,8 +441,6 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 		} catch (SmackException.NoResponseException e) {
 			e.printStackTrace();
 		} catch (SmackException.NotConnectedException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		return false;

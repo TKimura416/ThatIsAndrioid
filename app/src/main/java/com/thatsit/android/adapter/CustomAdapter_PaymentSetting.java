@@ -23,7 +23,7 @@ public class CustomAdapter_PaymentSetting extends BaseAdapter {
 		layoutinflater = LayoutInflater.from(context);
 		this.mHistory=subscriptionHistory;
 		if(XmppManager.getInstance().getXMPPConnection()!=null && XmppManager.getInstance().getXMPPConnection().isConnected()){
-			MY_QUICK_ID= XmppManager.getInstance().getXMPPConnection().getUser().asUnescapedString();
+			MY_QUICK_ID= XmppManager.getInstance().getXMPPConnection().getUser();
 		}
 	}
 

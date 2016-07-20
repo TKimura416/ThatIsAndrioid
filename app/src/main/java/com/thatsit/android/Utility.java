@@ -19,12 +19,6 @@ import org.jivesoftware.smack.roster.packet.RosterPacket;
 import org.jivesoftware.smackx.iqregister.AccountManager;
 import org.jivesoftware.smackx.vcardtemp.VCardManager;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
-import org.jxmpp.jid.BareJid;
-import org.jxmpp.jid.EntityBareJid;
-import org.jxmpp.jid.Jid;
-import org.jxmpp.jid.impl.JidCreate;
-//import org.jivesoftware.smack.packet.RosterPacket;
-//import org.jivesoftware.smackx.packet.VCard;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -142,7 +136,7 @@ public class Utility {
 
 			ArrayList<String> getRosterHistoryList,
 			ArrayList<Integer> rosterHistoryToBeDeleted,
-			Jid rosterWhoseHistoryDeleted, MainService mService) {
+			String rosterWhoseHistoryDeleted, MainService mService) {
 		try {
 			getRosterHistoryList = new ArrayList<String>();
 			rosterHistoryToBeDeleted = new ArrayList<Integer>();
@@ -211,7 +205,7 @@ public class Utility {
 
 			RosterPacket packet = new RosterPacket();
 			packet.setType(IQ.Type.set);
-			BareJid jidToRemoved= JidCreate.bareFrom(IdToBeRemoved);
+			String jidToRemoved= IdToBeRemoved;
 			RosterPacket.Item item  = new RosterPacket.Item(jidToRemoved, null);
 			item.setItemType(RosterPacket.ItemType.remove);
 			packet.addRosterItem(item);
@@ -683,7 +677,7 @@ public class Utility {
 
 		//ProviderManager.getInstance().addIQProvider("vCard", "vcard-temp:x:update", new VCardProvider());
 		try {
-            EntityBareJid entityfriend_jid=JidCreate.entityBareFrom(friend_jid);
+            String entityfriend_jid=friend_jid;
             VCardManager.getInstanceFor(MainService.mService.connection).loadVCard(entityfriend_jid);
 //			card.load(XmppManager.getInstance().getXMPPConnection(), friend_jid);
 		} catch (Exception e) {
@@ -907,8 +901,6 @@ public class Utility {
 															} catch (SmackException.NoResponseException e) {
 																e.printStackTrace();
 															} catch (SmackException.NotConnectedException e) {
-																e.printStackTrace();
-															} catch (InterruptedException e) {
 																e.printStackTrace();
 															}
 															performSignOutTask(context);

@@ -9,8 +9,6 @@ import android.util.Log;
 import com.thatsit.android.Utility;
 import com.thatsit.android.application.ThatItApplication;
 
-import org.jxmpp.jid.Jid;
-
 public class One2OneChatDb extends Database {
 
 	public One2OneChatDb(Context ctx) {
@@ -207,7 +205,7 @@ public class One2OneChatDb extends Database {
 	 */
 
 	//SELECT * FROM table ORDER BY column DESC LIMIT 1;
-	public static Cursor getAllMessagesOfParticipant(Jid jid) {
+	public static Cursor getAllMessagesOfParticipant(String jid) {
 		//String orderBy = DbOpenHelper.COLUMN_TIMESTAMP + " DESC";
 		String row = "SELECT * FROM " + TABLE_NAME + " WHERE "
 				+ DbOpenHelper.COLUMN_JID + " = '" + jid + "'"+ andUserName();

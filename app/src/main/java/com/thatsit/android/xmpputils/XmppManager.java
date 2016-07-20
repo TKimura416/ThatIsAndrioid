@@ -4,9 +4,12 @@ package com.thatsit.android.xmpputils;
 //import org.jivesoftware.smack.AndroidConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionConfiguration;
 //import org.jivesoftware.smack.Roster;
+import org.jivesoftware.smack.SASLAuthentication;
+import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 //import org.jivesoftware.smack.provider.PrivacyProvider;
 //import org.jivesoftware.smack.provider.ProviderManager;
+import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 //import org.jivesoftware.smackx.GroupChatInvitation;
@@ -35,8 +38,14 @@ import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 //import org.jivesoftware.smackx.provider.VCardProvider;
 //import org.jivesoftware.smackx.provider.XHTMLExtensionProvider;
 //import org.jivesoftware.smackx.search.UserSearch;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import com.thatsit.android.Utility;
+import com.thatsit.android.application.ThatItApplication;
+
+import java.io.IOException;
 
 
 public class XmppManager {
@@ -67,37 +76,59 @@ public class XmppManager {
 	// XMPP Connection
 	public XMPPTCPConnection getXMPPConnection() {
 		if (mConnection == null) {
-			setConnectionConfig();
-			mConnection = new XMPPTCPConnection(connConfig);
-		}
+//			setConnectionConfig();
+//			mConnection = new XMPPTCPConnection(connConfig);
+            SASLAuthentication.unBlacklistSASLMechanism("PLAIN");
+            SASLAuthentication.blacklistSASLMechanism("DIGEST-MD5");
+            mConnection = new XMPPTCPConnection(
+                    XMPPTCPConnectionConfiguration.builder()
+                            .setSecurityMode(ConnectionConfiguration.SecurityMode.disabled)
+                            .setHost(Constants.HOST) //HostName HERE
+                            .setServiceName(Constants.SERVICE) //SERVICENAME
+                            .setPort(Constants.PORT)
+                            .setDebuggerEnabled(true)
+                            .build()
+            );
+
+        }
 		return mConnection;
 	}
 
 	// XMPP Connection Config
-	private void setConnectionConfig() {
-		try {
-            XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration
-                    .builder();
-            config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
-            config.setHost(Constants.HOST);
-            config.setPort(Constants.PORT);
-            config.setDebuggerEnabled(true);
-            config.setSendPresence(true);
-
-//			connConfig.setReconnectionAllowed(true);
-//			connConfig.setRosterLoadedAtLogin(true);
-//			connConfig.setSendPresence(true);
-//			connConfig.setSASLAuthenticationEnabled(false);
-//			Roster.setDefaultSubscriptionMode(Roster.SubscriptionMode.manual);
-//			configure(ProviderManager.getInstance());
-            Log.e("XmppManager","getting Instance");
-
-        } catch (Exception e) {
-            Log.e("XmppManager","getting Instance" + e.getMessage() + e.toString());
-            Utility.stopDialog();
-			e.printStackTrace();
-		}
-	}
+//	private void setConnectionConfig() {
+//		try {
+////            SharedPreferences mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
+////            String login = mSettings.getString(ThatItApplication.ACCOUNT_USERNAME_KEY, "");
+////            String password = mSettings.getString(ThatItApplication.ACCOUNT_PASSWORD_KEY, "");
+//			SASLAuthentication.unBlacklistSASLMechanism("PLAIN");
+//			SASLAuthentication.blacklistSASLMechanism("DIGEST-MD5");
+//            XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration
+//                    .builder();
+//            config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
+//            config.setHost(Constants.HOST);
+//            config.setPort(Constants.PORT);
+//			config.setServiceName(Constants.SERVICE); //SERVICENAME
+//			config.setDebuggerEnabled(true);
+//            config.setSendPresence(true);
+////            config.setUsernameAndPassword(login,password);
+////            if (TextUtils.isEmpty(login) || TextUtils.isEmpty((password))) {
+////
+////            }
+//
+////			connConfig.setReconnectionAllowed(true);
+////			connConfig.setRosterLoadedAtLogin(true);
+////			connConfig.setSendPresence(true);
+////			connConfig.setSASLAuthenticationEnabled(false);
+////			Roster.setDefaultSubscriptionMode(Roster.SubscriptionMode.manual);
+////			configure(ProviderManager.getInstance());
+//            Log.e("XmppManager","getting Instance");
+//
+//        } catch (Exception e) {
+//            Log.e("XmppManager","getting Instance" + e.getMessage() + e.toString());
+//            Utility.stopDialog();
+//			e.printStackTrace();
+//		}
+//	}
 
 
 	

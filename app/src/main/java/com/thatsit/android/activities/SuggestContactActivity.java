@@ -45,7 +45,6 @@ import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smack.roster.RosterListener;
 import org.jivesoftware.smackx.vcardtemp.VCardManager;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
-import org.jxmpp.jid.Jid;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -68,7 +67,7 @@ public class SuggestContactActivity  extends Activity {
 	private HashMap<Integer,View> viewContainer = new HashMap<Integer, View>();
 	private Handler hand = new Handler();
 	private static final Intent SERVICE_INTENT = new Intent();
-	private Hashtable<Jid, VCard> rosterVCardsHash = new Hashtable<Jid, VCard>();
+	private Hashtable<String, VCard> rosterVCardsHash = new Hashtable<String, VCard>();
 
 	static {
 		SERVICE_INTENT.setComponent(new ComponentName(Constants.MAINSERVICE_PACKAGE,  Constants.MAINSERVICE_PACKAGE + Constants.MAINSERVICE_NAME ));
@@ -243,16 +242,14 @@ public class SuggestContactActivity  extends Activity {
 				public void run() {
 					try {
 						try {
-							VCardManager.getInstanceFor(mConnection).loadVCard(entry.getJid().asEntityBareJidIfPossible());
+							VCardManager.getInstanceFor(mConnection).loadVCard(entry.getUser());
 						} catch (SmackException.NoResponseException e) {
 							e.printStackTrace();
 						} catch (SmackException.NotConnectedException e) {
 							e.printStackTrace();
-						} catch (InterruptedException e) {
-							e.printStackTrace();
 						}
 //						card.load(mConnection, entry.getUser());
-						rosterVCardsHash.put(entry.getJid(), card);
+						rosterVCardsHash.put(entry.getUser(), card);
 					} catch (XMPPException e) {
 						e.printStackTrace();
 					}
@@ -357,17 +354,17 @@ public class SuggestContactActivity  extends Activity {
 	public final class MyRosterListnerSuggest implements RosterListener {
 
 		@Override
-		public void entriesAdded(Collection<Jid> arg0) {
+		public void entriesAdded(Collection<String> arg0) {
 			resetRoster();
 		}
 
 		@Override
-		public void entriesDeleted(Collection<Jid> arg0) {
+		public void entriesDeleted(Collection<String> arg0) {
 			resetRoster();
 		}
 
 		@Override
-		public void entriesUpdated(Collection<Jid> arg0) {
+		public void entriesUpdated(Collection<String> arg0) {
 			resetRoster();
 		}
 

@@ -1,6 +1,7 @@
 package com.thatsit.android.beans;
 
 import org.jivesoftware.smack.packet.IQ;
+import org.jivesoftware.smack.util.XmlStringBuilder;
 
 /**
  * Created by toltori on 6/4/16.
@@ -10,10 +11,9 @@ public class GcmTokenIQ extends IQ {
     private final String m_strXmlns = "urn:xmpp:apns";
     private String m_strGcmToken = "";
 
-    public GcmTokenIQ(String childElementName) {
-        super(childElementName);
+    public GcmTokenIQ(IQ iq) {
+        super(iq);
     }
-
 
     /**
      * Set GCM token to send.
@@ -23,13 +23,15 @@ public class GcmTokenIQ extends IQ {
         m_strGcmToken = p_strGcmToken;
     }
 
-//    public String getChildElementXML() {
+
+//    public XmlStringBuilder getChildElementXML() {
 //        String w_strRequest = "<query xmlns='" + m_strXmlns + "'><token>" + m_strGcmToken + "</token></query>";
-//        return w_strRequest.toString();
+//        return w_strRequest;
 //    }
 
     @Override
     protected IQChildElementXmlStringBuilder getIQChildElementBuilder(IQChildElementXmlStringBuilder xml) {
+        String w_strRequest = "<query xmlns='" + m_strXmlns + "'><token>" + m_strGcmToken + "</token></query>";
         return null;
     }
 }

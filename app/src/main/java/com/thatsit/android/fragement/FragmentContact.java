@@ -22,8 +22,6 @@ import org.jivesoftware.smack.roster.RosterGroup;
 import org.jivesoftware.smack.roster.RosterListener;
 //import org.jivesoftware.smackx.packet.*;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
-import org.jxmpp.jid.Jid;
-import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
@@ -388,7 +386,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 		if (!jid.contains("@")) {
 			jid = jid + "@" + MainService.mService.connection.getHost();
 		}
-		return Roster.getInstanceFor(MainService.mService.connection).getEntry(JidCreate.bareFrom(jid));
+		return Roster.getInstanceFor(MainService.mService.connection).getEntry(jid);
 	}
 
 	private void initialise_Listeners() {
@@ -753,17 +751,17 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	public final class MyRosterListner implements RosterListener,ParseCallbackListener{
 
 		@Override
-		public void entriesAdded(Collection<Jid> addresses) {
+		public void entriesAdded(Collection<String> addresses) {
 
 		}
 
 		@Override
-		public void entriesUpdated(Collection<Jid> addresses) {
+		public void entriesUpdated(Collection<String> addresses) {
 
 		}
 
 		@Override
-		public void entriesDeleted(Collection<Jid> addresses) {
+		public void entriesDeleted(Collection<String> addresses) {
 
 		}
 
@@ -1106,15 +1104,15 @@ public class FragmentContact extends Fragment implements OnClickListener {
 									public void run() {
 										try {
 											try {
-												Utility.removeFriendIfExists(entryToBeRemoved.getJid().asUnescapedString());
+												Utility.removeFriendIfExists(entryToBeRemoved.getUser());
 												removeContactFromRoster(entryToBeRemoved);
-												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getJid().asUnescapedString().toUpperCase());
-												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getJid().asUnescapedString().toLowerCase());
+												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getUser().toUpperCase());
+												ThatItApplication.getApplication().getSentInvites().remove(entryToBeRemoved.getUser().toLowerCase());
 												try {
 													Utility mUtility = new Utility();
 													mUtility.deleteUnsubscribedUserChatHistory(
 															getRosterHistoryList,rosterHistoryToBeDeleted,
-															entryToBeRemoved.getJid(),mService);
+															entryToBeRemoved.getUser(),mService);
 												} catch (Exception e) {
 													e.printStackTrace();
 												}
@@ -1212,8 +1210,6 @@ public class FragmentContact extends Fragment implements OnClickListener {
 			} catch (SmackException.NoResponseException e) {
 				e.printStackTrace();
 			} catch (SmackException.NotConnectedException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		} catch (XMPPException e) {
@@ -1699,7 +1695,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 														Utility mUtility = new Utility();
 														mUtility.deleteUnsubscribedUserChatHistory(
 																getRosterHistoryList,rosterHistoryToBeDeleted,
-																entry.getJid(),mService);
+																entry.getUser(),mService);
 													} catch (Exception e) {
 														e.printStackTrace();
 													}

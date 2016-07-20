@@ -6,9 +6,6 @@ import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.RosterEntry;
-import org.jxmpp.jid.Jid;
-import org.jxmpp.jid.impl.JidCreate;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -77,7 +74,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     private String personFirstName;
     private String personLastname;
     private Handler handler;
-    private final ArrayList<Jid> jids = new ArrayList<>();
+    private final ArrayList<String> jids = new ArrayList<>();
     private final ArrayList<String> listcardname = new ArrayList<>();
     private final ArrayList<String> listcardlastname = new ArrayList<>();
     private final ArrayList<String> listcardprofilepic = new ArrayList<>();
@@ -85,7 +82,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     private final ArrayList<String> timeList = new ArrayList<>();
     private final ArrayList<String> userTypeList = new ArrayList<>();
     private ContactActivity hostActivity;
-    private ArrayList<Jid> filteredArrayList = new ArrayList<>();
+    private ArrayList<String> filteredArrayList = new ArrayList<>();
     private ArrayList<String> filteredFirstName = new ArrayList<>();
     private ArrayList<String> filteredLastName = new ArrayList<>();
     private ArrayList<String> filteredProfilePic = new ArrayList<>();
@@ -100,8 +97,9 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     public FragmentChatHistoryScreen() {
     }
 
+
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         try {
             super.onAttach(activity);
             hostActivity = (ContactActivity) activity;
@@ -215,7 +213,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                     String message = messages.toString();
                     String userType = cursor.getString(cursor.getColumnIndex(DbOpenHelper.COLUMN_OWNER_OR_PARTICIPANT));
                     String time = cursor.getString(cursor.getColumnIndex(DbOpenHelper.COLUMN_TIMESTAMP));
-                    jids.add(JidCreate.bareFrom(jid));
+                    jids.add(jid);
                     messageList.add(message);
                     timeList.add(time);
                     userTypeList.add(userType);
@@ -224,7 +222,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
             cursor.close();
 
             for (int i = 0; i < jids.size(); i++) {
-                Cursor cursor_entry = One2OneChatDb.getRosterEntry(jids.get(i).asUnescapedString());
+                Cursor cursor_entry = One2OneChatDb.getRosterEntry(jids.get(i));
                 cursor_entry.moveToFirst();
 
                 if (cursor_entry.getCount() > 0) {
@@ -300,7 +298,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                     else {
                         // mEdt_SearchChatHistory.setText("");
                         rosterEntry = MainService.mService.getRosterEntryFromJID(( jids.get(position)  ) );
-                        entryWithoutHost = jids.get(position).asUnescapedString();
+                        entryWithoutHost = jids.get(position);
                         personFirstName = listcardname.get(position);
                         entryWithoutHost = entryWithoutHost.replace("@190.97.163.145", "");
                         personLastname = listcardlastname.get(position);
@@ -350,7 +348,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
     class ChatUsersAdapter extends BaseAdapter implements Filterable{
 
         private final LayoutInflater inflater;
-        private ArrayList<Jid> jids = new ArrayList<>();
+        private ArrayList<String> jids = new ArrayList<>();
         private ArrayList<String> listcardname = new ArrayList<>();
         private ArrayList<String> listcardprofilepic = new ArrayList<>();
         private ArrayList<String> messageList = new ArrayList<>();
@@ -358,7 +356,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
         private ArrayList<String> userTypeList = new ArrayList<>();
 
 
-        public ChatUsersAdapter(ArrayList<Jid> jids,	ArrayList<String> listcardname,
+        public ChatUsersAdapter(ArrayList<String> jids,	ArrayList<String> listcardname,
                                 ArrayList<String> listcardprofilepic,ArrayList<String> messageList,
                                 ArrayList<String> timeList,ArrayList<String> userTypeList){
 
@@ -378,7 +376,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
 
         @Override
         public String getItem(int position) {
-            return jids.get(position).asUnescapedString();
+            return jids.get(position);
         }
 
         @Override
@@ -405,7 +403,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                 }
 
                 holder.name.setText(listcardname.get(position));
-                holder.myQuickID.setText(jids.get(position).asUnescapedString());
+                holder.myQuickID.setText(jids.get(position));
 
                 String revisedMessage = processSmileyCodes(messageList.get(position));
                 holder.lastMsg.setText(encryptionManager.decryptPayload(revisedMessage));
@@ -485,7 +483,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
 
                 @Override
                 protected void publishResults(CharSequence contraint, FilterResults results) {
-                    filteredArrayList = (ArrayList<Jid>) results.values;
+                    filteredArrayList = (ArrayList<String>) results.values;
                     if (results.count > 0) {
 
                         if(filteredArrayList.size()>0){
@@ -619,7 +617,7 @@ public class FragmentChatHistoryScreen extends SuperFragment{
                                                         Utility mUtility = new Utility();
                                                         mUtility.deleteUnsubscribedUserChatHistory(
                                                                 getRosterHistoryList,rosterHistoryToBeDeleted,
-                                                                rosterEntry.getJid(),MainService.mService);
+                                                                rosterEntry.getUser(),MainService.mService);
                                                     } catch (Exception e) {
                                                         e.printStackTrace();
                                                     }
@@ -650,8 +648,6 @@ public class FragmentChatHistoryScreen extends SuperFragment{
         try {
             Roster.getInstanceFor(MainService.mService.connection).removeEntry(entryToBeRemoved);
         } catch (XMPPException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (SmackException.NotLoggedInException e) {
             e.printStackTrace();

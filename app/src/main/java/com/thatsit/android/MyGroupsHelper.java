@@ -114,8 +114,6 @@ public class MyGroupsHelper {
 														} catch (XMPPException e1) {
 															e1.printStackTrace();
 															Utility.showMessage("Error while creating group.");
-														} catch (InterruptedException e) {
-															e.printStackTrace();
 														} catch (IOException e) {
 															e.printStackTrace();
 														} catch (SmackException e) {
@@ -319,8 +317,6 @@ public class MyGroupsHelper {
 					try {
 						chatGrpInstance.leave();
 					} catch (SmackException.NotConnectedException e) {
-						e.printStackTrace();
-					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				else{
