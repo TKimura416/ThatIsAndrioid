@@ -182,7 +182,8 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 	protected void onStop() {
 		try {
 			super.onStop();
-			unregisterReceiver(connectionBroadcastReceiver);
+			if(connectionBroadcastReceiver!=null)
+			    unregisterReceiver(connectionBroadcastReceiver);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

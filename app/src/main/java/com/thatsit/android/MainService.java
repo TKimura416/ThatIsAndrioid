@@ -54,6 +54,7 @@ import org.jivesoftware.smackx.muc.DiscussionHistory;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 import org.jivesoftware.smackx.muc.MultiUserChatManager;
 import org.jivesoftware.smackx.muc.packet.GroupChatInvitation;
+import org.jivesoftware.smackx.ping.PingFailedListener;
 import org.jivesoftware.smackx.ping.PingManager;
 import org.jivesoftware.smackx.ping.android.ServerPingWithAlarmManager;
 import org.jivesoftware.smackx.xdata.Form;
@@ -86,6 +87,7 @@ import android.support.v4.app.NotificationCompat;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.myquickapp.receivers.NetworkChangeReceiver;
 import com.thatsit.android.activities.ContactActivity;
@@ -125,7 +127,7 @@ import com.seasia.myquick.model.AppSinglton;
  * Friend request receive or denied listeners
  */
 @SuppressLint("NewApi")
-public class MainService extends Service {
+public class MainService extends Service implements PingFailedListener {
 
     private final String TAG = getClass().getSimpleName();
     public static final int CONNECT_TIME_OUT = 80000;
@@ -556,6 +558,12 @@ public class MainService extends Service {
         }
     }
 
+    @Override
+    public void pingFailed() {
+            Toast.makeText(MainService.this, "Ping Failed", Toast.LENGTH_SHORT).show();
+            connectAsync();
+    }
+
     /**
      * Common muc packet listener for group chat
      */
@@ -830,8 +838,6 @@ public class MainService extends Service {
         try {
             xmppConnectionManager = XmppManager.getInstance();
             connection = xmppConnectionManager.getXMPPConnection();
-            connection.setPacketReplyTimeout(CONNECT_TIME_OUT);
-
             Log.e(TAG, "connection Created");
         } catch (Exception e) {
             Log.e(TAG, "create connection ex" + e.toString());
@@ -846,9 +852,9 @@ public class MainService extends Service {
             @Override
             public void run() {
                 try {
-                    if (Utility.reloginCalled) {
-                        Thread.sleep(4000);
-                    }
+//                    if (Utility.reloginCalled) {
+//                        Thread.sleep(4000);
+//                    }
                     connect();
                     Log.e(TAG, "Connecting asynch");
 
@@ -867,18 +873,33 @@ public class MainService extends Service {
     private synchronized void connect() throws Exception {
         if (connection == null) {
             createConnection();
+            Log.e(TAG,"Creating Connection");
         }
         if (connection.isConnected()) {
             login();
+            Log.e(TAG,"Already Connected making login");
+
         } else {
             try {
                 connection.addConnectionListener(new ConnecionListenerAdapter());
-                connection.connect();
+                connection.setPacketReplyTimeout(CONNECT_TIME_OUT);
+
                 PingManager.getInstanceFor(connection).setPingInterval(10);
                 ServerPingWithAlarmManager.getInstanceFor(connection).setEnabled(true);
+
+                connection.setUseStreamManagement(true);
+                connection.setUseStreamManagementResumption(true);
+                connection.setReplyToUnknownIq(true);
+
                 ReconnectionManager reconnectionManager = ReconnectionManager.getInstanceFor(connection);
+                reconnectionManager.setReconnectionPolicy(ReconnectionManager.ReconnectionPolicy.FIXED_DELAY);
+                reconnectionManager.setFixedDelay(10);
                 reconnectionManager.setEnabledPerDefault(true);
                 reconnectionManager.enableAutomaticReconnection();
+                connection.connect();
+                Log.e(TAG,"Now Connected");
+
+
                 try {
                     if (connection.isConnected()) {
                         login();
@@ -907,7 +928,7 @@ public class MainService extends Service {
      */
     private void login() throws Exception {
 
-        try {
+//        try {
             mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
             String login = mSettings.getString(ThatItApplication.ACCOUNT_USERNAME_KEY, "");
             String password = mSettings.getString(ThatItApplication.ACCOUNT_PASSWORD_KEY, "");
@@ -948,140 +969,141 @@ public class MainService extends Service {
                 Utility.stopDialog();
             }
 
-            if (connection.isConnected() && connection.isAuthenticated()) {
-
-                ThatItApplication.getApplication().setConnected(true);
-                setPersence(Type.available);
-                sendSignInBroadCast();
-                changeStatusAndPriority(Status.CONTACT_STATUS_AVAILABLE, "");
-
-                // Send Presence Packets
-                StanzaFilter filter = new StanzaFilter() {
-                    @Override
-                    public boolean accept(Stanza stanza) {
-                        if (stanza instanceof Presence) {
-                            Presence pres = (Presence) stanza;
-                            if (pres.getType() == Presence.Type.subscribe)
-                                return true;
-                        }
-                        return false;
-                    }
-                };
-                StanzaFilter filter_unsubscribed = new StanzaFilter() {
-                    @Override
-                    public boolean accept(Stanza stanza) {
-                        if (stanza instanceof Presence) {
-                            Presence pres = (Presence) stanza;
-                            if (pres.getType() == Presence.Type.unsubscribed)
-                                return true;
-                        }
-                        return false;
-                    }
-                };
-
-
-                connection.addAsyncStanzaListener(mSubscribePacketListener, filter);
-                connection.addAsyncStanzaListener(mUnSubscribePacketListener, filter_unsubscribed);
-
-                //Add Incoming Chat Listener on Connection
-                setIncomingChatListner();
-
-                //Add Incoming File Listener on Connection
-                setFileTransferListener();
-
-                filter = new StanzaTypeFilter(PingExtension.class);
-                connection.addAsyncStanzaListener(mPingListener, filter);
-
-
-                Utility.connectionClosedCalled = false;
-
-                connection.addAsyncStanzaListener(new StanzaListener() {
-                    @Override
-                    public void processPacket(Stanza packet) throws SmackException.NotConnectedException {
-                        if (!Utility.reloginCalled) {
-                            Message message = (Message) packet;
-                            if (message.getBody() != null) {
-
-                                String fromName = XmppStringUtils.parseBareJid(message.getFrom());
-//                                String fromName = StringUtils.parseBareAddress(message.getFrom());
-                                mMessagePacketListener = this;
-                            }
-                        }
-                    }
-                }, filter);
-
-
-                joinToGroups();
-                networkChangeReceiver = new NetworkChangeReceiver();
-                IntentFilter networkChangeReceiverFilter = new IntentFilter();
-                networkChangeReceiverFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-                registerReceiver(networkChangeReceiver, networkChangeReceiverFilter);
-                //setTimer();
-            } else {
-                Utility.showMessage("No Response from Server");
-            }
-
-        } catch (Exception e) {
-            if (e instanceof ErrnoException) {
-                Utility.stopDialog();
-            }
-            if (connection != null && connection.isConnected()) {
-                connection.disconnect();
-                try {
-                    Utility.stopDialog();
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            }
-        }
+//            if (connection.isConnected() && connection.isAuthenticated()) {
+//
+//                ThatItApplication.getApplication().setConnected(true);
+//                setPersence(Type.available);
+//                sendSignInBroadCast();
+//                changeStatusAndPriority(Status.CONTACT_STATUS_AVAILABLE, "");
+//
+//                // Send Presence Packets
+//                StanzaFilter filter = new StanzaFilter() {
+//                    @Override
+//                    public boolean accept(Stanza stanza) {
+//                        if (stanza instanceof Presence) {
+//                            Presence pres = (Presence) stanza;
+//                            if (pres.getType() == Presence.Type.subscribe)
+//                                return true;
+//                        }
+//                        return false;
+//                    }
+//                };
+//                StanzaFilter filter_unsubscribed = new StanzaFilter() {
+//                    @Override
+//                    public boolean accept(Stanza stanza) {
+//                        if (stanza instanceof Presence) {
+//                            Presence pres = (Presence) stanza;
+//                            if (pres.getType() == Presence.Type.unsubscribed)
+//                                return true;
+//                        }
+//                        return false;
+//                    }
+//                };
+//
+//
+//                connection.addAsyncStanzaListener(mSubscribePacketListener, filter);
+//                connection.addAsyncStanzaListener(mUnSubscribePacketListener, filter_unsubscribed);
+//
+//                //Add Incoming Chat Listener on Connection
+//                setIncomingChatListner();
+//
+//                //Add Incoming File Listener on Connection
+//                setFileTransferListener();
+//
+//                filter = new StanzaTypeFilter(PingExtension.class);
+//                connection.addAsyncStanzaListener(mPingListener, filter);
+//
+//
+//                Utility.connectionClosedCalled = false;
+//
+//                connection.addAsyncStanzaListener(new StanzaListener() {
+//                    @Override
+//                    public void processPacket(Stanza packet) throws SmackException.NotConnectedException {
+//                        if (!Utility.reloginCalled) {
+//                            Message message = (Message) packet;
+//                            if (message.getBody() != null) {
+//
+//                                String fromName = XmppStringUtils.parseBareJid(message.getFrom());
+////                                String fromName = StringUtils.parseBareAddress(message.getFrom());
+//                                mMessagePacketListener = this;
+//                            }
+//                        }
+//                    }
+//                }, filter);
+//
+//
+//                joinToGroups();
+//                networkChangeReceiver = new NetworkChangeReceiver();
+//                IntentFilter networkChangeReceiverFilter = new IntentFilter();
+//                networkChangeReceiverFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+//                registerReceiver(networkChangeReceiver, networkChangeReceiverFilter);
+//                //setTimer();
+//            } else {
+//                Utility.showMessage("No Response from Server");
+//            }
+//
+//        } catch (Exception e) {
+//            if (e instanceof ErrnoException) {
+//                Utility.stopDialog();
+//            }
+//            if (connection != null && connection.isConnected()) {
+//                connection.disconnect();
+//                try {
+//                    Utility.stopDialog();
+//                } catch (Exception e1) {
+//                    e1.printStackTrace();
+//                }
+//            }
+//        }
     }
 
-    public void stopTimer() {
-        if (mTimer != null) {
-            mTimer.cancel();
-            mTimer = null;
-        }
-    }
+//    public void stopTimer() {
+//        if (mTimer != null) {
+//            mTimer.cancel();
+//            mTimer = null;
+//        }
+//    }
 
-    /**
-     * Timer to update user presence
-     */
-    public void setTimer() {
-
-        try {
-            if (mTimer != null) {
-                mTimer.cancel();
-            }
-            mTimer = new Timer();
-            mTimer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    try {
-                        if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
-                            if (!connection.isConnected() || !connection.isAuthenticated()) {
-                                try {
-                                    createConnection();
-                                    connectAsync();
-                                    performBackgroundTimerTask();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            } else {
-                                performBackgroundTimerTask();
-                            }
-                            if (Utility.googleServicesUnavailable) {
-                                checkExpiryStatus("checkExpiryStatus");
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, 5000, 5000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    /**
+//     * Timer to update user presence
+//     */
+//    public void setTimer() {
+//
+//        try {
+//            if (mTimer != null) {
+//                mTimer.cancel();
+//            }
+//            mTimer = new Timer();
+//            mTimer.schedule(new TimerTask() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
+//                            if (!connection.isConnected() || !connection.isAuthenticated()) {
+//                                try {
+////                                    createConnection();
+//                                    connectAsync();
+//                                    Log.e(TAG,"Connecting from Timer");
+//                                    performBackgroundTimerTask();
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            } else {
+//                                performBackgroundTimerTask();
+//                            }
+//                            if (Utility.googleServicesUnavailable) {
+//                                checkExpiryStatus("checkExpiryStatus");
+//                            }
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }, 5000, 5000);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     /**
      * Send presence packets in the background
@@ -1116,7 +1138,7 @@ public class MainService extends Service {
                 }
             }
             try {
-//                joinToGroups();
+                joinToGroups();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -1196,7 +1218,7 @@ public class MainService extends Service {
             } else {
                 pres.setMode(Status.getPresenceModeFromStatus(mPreviousMode));
             }
-            connection.sendPacket(pres);
+            connection.sendStanza(pres);
 
             updateNotification(Status.getStatusFromPresence(pres), m, SIGNIN);
         } catch (Exception e) {

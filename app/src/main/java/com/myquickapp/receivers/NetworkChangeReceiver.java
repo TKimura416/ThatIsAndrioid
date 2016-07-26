@@ -19,7 +19,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver{
         if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())
                 && MainService.mService != null) {
             try {
-                MainService.mService.setTimer();
+//                MainService.mService.setTimer();
                 Log.e(TAG,"Network recieved");
             } catch (Exception e) {
                 e.printStackTrace();
@@ -29,7 +29,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver{
                 && MainService.mService != null){
             try {
                 Log.e(TAG,"Network disconnected recieved");
-                MainService.mService.stopTimer();
+//                MainService.mService.stopTimer();
                 // Display black screen on no network
                 Utility.allowAuthenticationDialog = true;
                 Utility.noNetwork = true;

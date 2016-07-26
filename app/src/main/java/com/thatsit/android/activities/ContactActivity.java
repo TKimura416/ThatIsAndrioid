@@ -88,6 +88,7 @@ import com.thatsit.android.xmpputils.XmppManager;
 import org.apache.commons.net.io.Util;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.packet.IQ;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 
 /**
  * This is the main container on which fragments are implemented.
@@ -246,7 +247,7 @@ public class ContactActivity extends ActionBarActivity implements OnClickListene
 	private void registerGcmTokenToOpenfire(String p_strGcmToken) {
 		try {
 			XmppManager w_xmppManager = XmppManager.getInstance();
-			XMPPConnection w_xmppConnection = w_xmppManager.getXMPPConnection();
+			XMPPTCPConnection w_xmppConnection = w_xmppManager.getXMPPConnection();
 			GcmTokenIQ w_iq = new GcmTokenIQ(p_strGcmToken);
 			w_iq.setTo(Constants.HOST);
 			w_iq.setType(IQ.Type.set);
