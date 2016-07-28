@@ -102,7 +102,7 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
+	public void onAttach(Context activity) {
 		super.onAttach(activity);
 		hostActivity = (ContactActivity) activity;
 	}
@@ -344,7 +344,7 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
                                 subscribe.setTo(idExtension);
                                 subscribe.setFrom(MainService.mService.connection.getUser());
                                 subscribe.setStatus(Messages);
-                                MainService.mService.connection.sendPacket(subscribe);
+                                MainService.mService.connection.sendStanza(subscribe);
                                 ThatItApplication.getApplication().getSentInvites().put(idExtension.toUpperCase(), true);
                                 handler.post(new Runnable() {
 
@@ -426,9 +426,9 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 		Form answerForm = searchForm.createAnswerForm();
 		answerForm.setAnswer("Username", true);
 		answerForm.setAnswer("search", jidToAdd);
-//		ReportedData data = search.getSearchResults(answerForm, "search." + MainService.mService.connection.getXMPPServiceDomain());
-		ReportedData data = null;
-			data = search.getSearchResults(answerForm, MainService.mService.connection.getServiceName());
+		ReportedData data = search.getSearchResults(answerForm, "search." + MainService.mService.connection.getServiceName());
+//		ReportedData data = null;
+// data = search.getSearchResults(answerForm, MainService.mService.connection.getServiceName());
 
 		if (data.getRows() != null ) {
 //			Iterator<Row> it = data.getRows();

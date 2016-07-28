@@ -21,6 +21,7 @@ import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smack.roster.RosterGroup;
 import org.jivesoftware.smack.roster.RosterListener;
 //import org.jivesoftware.smackx.packet.*;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 import org.jxmpp.stringprep.XmppStringprepException;
 
@@ -114,7 +115,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	private static final Intent SERVICE_INTENT = new Intent();
 	private String psedoName, profiledescription, RetriveVal_Chat_pass,Chatpassword;
 	private MainService mService;
-	private XMPPConnection mConnection;
+	private XMPPTCPConnection mConnection;
 	private XmppManager mXmppManager;
 	private ThatItApplication myApplication;
 	private final MyRosterListner myRosterListner = new MyRosterListner();
@@ -170,7 +171,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
+	public void onAttach(Context activity) {
 		super.onAttach(activity);
 		hostActivity = (ContactActivity) activity;
 	}
@@ -286,7 +287,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 	}
 
 	private void joinAndSetGroupAdapter() {
-		//setGroupAdapter();
+		setGroupAdapter();
 		MainService.mService.joinToGroups();
 	}
 
@@ -398,7 +399,8 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				try {
 
 					//	if(mEdt_Search.getText().toString().trim().toCharArray().length != 0)
-					usersAdapter = new UsersAdapter(arg0.toString(),jids,hostActivity,MainService.mService.connection,
+
+					usersAdapter = new UsersAdapter(arg0.toString(),jids,hostActivity,mConnection,
 							listcardname,listcardlastname,listcardprofilepic);
 					mlistView_Contacts.setAdapter(usersAdapter);
 
@@ -466,7 +468,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 						Utility.showMessage(getResources().getString(R.string.Network_Availability));
 					}
 
-					else if(!mConnection.isConnected() && !mConnection.isAuthenticated()){
+					else if(!MainService.connection.isConnected() && !MainService.connection.isAuthenticated()){
 						Utility.showMessage("Please wait while connection is restored");
 					}
 					else {
@@ -1309,8 +1311,8 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					Utility.showMessage(getResources().getString(R.string.Network_Availability));
 					break;
 				}
-				if(MainService.mService.connection.isConnected()
-						&& MainService.mService.connection.isAuthenticated()
+				if(mConnection.isConnected()
+						&& mConnection.isAuthenticated()
 						&& NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
 					try {
 						progressDialog = new ProgressDialog(getActivity());
@@ -1328,7 +1330,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					if(!NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())){
 						Utility.showMessage(getResources().getString(R.string.Network_Availability));
 					}
-					else if(!(MainService.mService.connection.isConnected()|| MainService.mService.connection.isAuthenticated())){
+					else if(!(mConnection.isConnected()|| mConnection.isAuthenticated())){
 						MainService.mService.connectAsync();
 						Utility.showMessage("Please wait while connection is restored");
 					}
@@ -1374,7 +1376,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 						try {
 							if (NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
 
-								if (!MainService.mService.connection.isConnected() || !MainService.mService.connection.isAuthenticated()) {
+								if (!mConnection.isConnected() || !mConnection.isAuthenticated()) {
 
 									Utility.showMessage("Please wait while connection is restored");
 									dialogOpen = false;
@@ -1596,14 +1598,14 @@ public class FragmentContact extends Fragment implements OnClickListener {
 			@Override
 			public void onFinish() {
 				ProgressBarStatus("Stop");
-				if (!(mConnection.isConnected() || mConnection.isAuthenticated())) {
+				if (!(MainService.connection.isConnected() || MainService.connection.isAuthenticated())) {
 					ProgressBarStatus("Start");
-					Utility.showMessage("Reconnecting to server...");
+//					Utility.showMessage("Reconnecting to server...");
 					showConnectionErrorAlert();
 					//There must be an error reconnection
 				} else {
 					ProgressBarStatus("Stop");
-					Roster roster = Roster.getInstanceFor(mConnection);
+					Roster roster = Roster.getInstanceFor(MainService.connection);
 					roster.addRosterListener(myRosterListner);
 					setUserAdapter();
 				}

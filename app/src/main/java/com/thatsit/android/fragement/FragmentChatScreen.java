@@ -214,7 +214,7 @@ public class FragmentChatScreen extends Fragment implements OnClickListener {
 
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         hostActivity = (ContactActivity) activity;
     }

@@ -959,35 +959,35 @@ public class Utility {
 	/**
 	 * Timer to update user presence
 	 */
-	public static void startLoginTimer(final Context context,final int value) {
-
-		try {
-			Log.d("LOGIN_TIMER_STARTED", "LOGIN_TIMER_STARTED");
-			if(mTimer != null){
-				mTimer.cancel();
-			}
-			mTimer= new Timer();
-			mTimer.schedule(new TimerTask() {
-				@Override
-				public void run() {
-					Log.e("","TIMER STOPPED");
-					if(LoginStarted == true){
-						Utility.stopDialog();
-						mTimer.cancel();
-						mTimer = null;
-
-						if(value == 1){
-							//settings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
-							//settings.edit().clear().commit();
-						}
-						openAlert(context,"InternetUnstable","Your internet connection seems to be unstable");
-					}
-				}
-			},50000,50000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void startLoginTimer(final Context context,final int value) {
+//
+//		try {
+//			Log.d("LOGIN_TIMER_STARTED", "LOGIN_TIMER_STARTED");
+//			if(mTimer != null){
+//				mTimer.cancel();
+//			}
+//			mTimer= new Timer();
+//			mTimer.schedule(new TimerTask() {
+//				@Override
+//				public void run() {
+//					Log.e("","TIMER STOPPED");
+//					if(LoginStarted == true){
+//						Utility.stopDialog();
+//						mTimer.cancel();
+//						mTimer = null;
+//
+//						if(value == 1){
+//							//settings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
+//							//settings.edit().clear().commit();
+//						}
+//						openAlert(context,"InternetUnstable","Your internet connection seems to be unstable");
+//					}
+//				}
+//			},50000,50000);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	public static void setDeviceTypeAndSecureFlag(Activity activity){
 		activity.getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);

@@ -31,6 +31,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -94,7 +95,7 @@ import org.jivesoftware.smack.tcp.XMPPTCPConnection;
  * This is the main container on which fragments are implemented.
  * It is opened once user gets signed in and gets connected to openfire.
  */
-public class ContactActivity extends ActionBarActivity implements OnClickListener{
+public class ContactActivity extends AppCompatActivity implements OnClickListener{
 	final String TAG = getClass().getSimpleName();
 	public static ImageButton mBtn_Contact,mBtn_Chat,mBtn_Invite,mBtn_Account;
 	private FragmentManager mFragmentManager;

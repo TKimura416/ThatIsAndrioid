@@ -11,6 +11,7 @@ import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Mode;
 import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.RosterEntry;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jxmpp.stringprep.XmppStringprepException;
 
 import android.annotation.SuppressLint;
@@ -40,14 +41,14 @@ public class UsersAdapter extends BaseAdapter {
     private final ArrayList<String> jids;
     private HashMap<Integer, View> viewContainer = new HashMap<>();
     private final Activity activity;
-    private final XMPPConnection mConnection;
+    private final XMPPTCPConnection mConnection;
     private ArrayList<String> listcardname = new ArrayList<>();
     private ArrayList<String> listcardlastname = new ArrayList<>();
     private ArrayList<String> listcardprofilepic = new ArrayList<>();
     private final LayoutInflater inflater;
 
     public UsersAdapter(ArrayList<String> jids, Activity activity,
-                        XMPPConnection mConnection, ArrayList<String> listcardname,
+                        XMPPTCPConnection mConnection, ArrayList<String> listcardname,
                         ArrayList<String> listcardlastname, ArrayList<String> listcardprofilepic) {
 
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -61,7 +62,7 @@ public class UsersAdapter extends BaseAdapter {
     }
 
     public UsersAdapter(String filter, ArrayList<String> jids, Activity activity,
-                        XMPPConnection mConnection, ArrayList<String> listcardname,
+                        XMPPTCPConnection mConnection, ArrayList<String> listcardname,
                         ArrayList<String> listcardlastname, ArrayList<String> listcardprofilepic) {
 
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

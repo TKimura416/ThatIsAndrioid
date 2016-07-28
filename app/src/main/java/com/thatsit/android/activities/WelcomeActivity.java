@@ -105,7 +105,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 			Utility.setDeviceTypeAndSecureFlag(WelcomeActivity.this);
 			imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			userVisited = true;
-			initialiseXmppConnection();
+//			initialiseXmppConnection();
 			initialiseSharedPreferences();
 			initialise_Variables();
 			registerReceivers();
@@ -453,7 +453,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 							dismissProgressBar = true;
 							try {
 								Utility.LoginStarted = true;
-								Utility.startLoginTimer(WelcomeActivity.this, 1);
+//								Utility.startLoginTimer(WelcomeActivity.this, 1);
 								connectXMPPService();
 							} catch (Exception e) {
 								e.printStackTrace();

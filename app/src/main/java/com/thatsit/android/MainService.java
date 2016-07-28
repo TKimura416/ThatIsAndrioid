@@ -7,14 +7,18 @@ import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.PacketCollector;
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.ReconnectionManager;
+import org.jivesoftware.smack.SASLAuthentication;
 import org.jivesoftware.smack.SmackConfiguration;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.StanzaListener;
@@ -39,9 +43,11 @@ import org.jivesoftware.smack.packet.Presence.Type;
 import org.jivesoftware.smack.packet.Stanza;
 import org.jivesoftware.smack.provider.ProviderManager;
 import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smack.roster.RosterEntries;
 import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smack.roster.RosterGroup;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
+import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 import org.jivesoftware.smack.util.StringUtils;
 import org.jivesoftware.smackx.bytestreams.socks5.provider.BytestreamsProvider;
 import org.jivesoftware.smackx.disco.provider.DiscoverInfoProvider;
@@ -75,7 +81,9 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Binder;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -167,7 +175,7 @@ public class MainService extends Service implements PingFailedListener {
     private final int FOREGROUND_NOTIFICATION_ID = 0;
 
     // XMPP
-    public XMPPTCPConnection connection;
+    public static XMPPTCPConnection connection;
     private XmppManager xmppConnectionManager;
     public static MainService mService;
 
@@ -235,11 +243,15 @@ public class MainService extends Service implements PingFailedListener {
             setForegroundServiceNotification();
             ThatItApplication.getApplication().openDatabase();
             createConnectAsync();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         boolean_serviceCreatedOnce = true;
+        showConnectionErrorAlert();
+
         return START_STICKY;
+
     }
 
 
@@ -477,12 +489,11 @@ public class MainService extends Service implements PingFailedListener {
                 public void run() {
 
                     System.out.println("" + MainService.this.getClass().getCanonicalName() + "   :" + " joinand create");
-                    xmppConnectionManager = XmppManager.getInstance();
+//                    xmppConnectionManager = XmppManager.getInstance();
 
-                  MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(connection);
+                    MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(connection);
 
-                    MultiUserChat muChat = manager.getMultiUserChat(connection.getUser().split("@")[0] + "__" + groupName + "@conference." + Constants.HOST);
-
+                    MultiUserChat muc = manager.getMultiUserChat(connection.getUser().split("@")[0] + "__" + groupName + "@conference." + Constants.HOST);
 
 
                     try {
@@ -500,28 +511,32 @@ public class MainService extends Service implements PingFailedListener {
 
                     String room_name = null;
 
-//                    try {
-//                        muc.join(connection.getUser().split("@")[0], "", history, SmackConfiguration.getPacketReplyTimeout());
-//                        room_name = muc.getRoom().split("@conference")[0].replace("%2b", " ");
+                    try {
+                        muc.join(connection.getUser().split("@")[0], "", history, SmackConfiguration.getDefaultPacketReplyTimeout());
+                        room_name = muc.getRoom().split("@conference")[0].replace("%2b", " ");
 
-//                    } catch (XMPPException e) {
-//                        Utility.stopDialog();
-//                        e.printStackTrace();
-//                    }
-//
-//                    if (!group_name.contains(room_name) && room_name != null) {
-//                        group_name.add(room_name);
-//                        MUCPacketListener mucListener = new MUCPacketListener(connection.getUser().split("@")[0] + "__" + groupName);
-//                        muc.addMessageListener(mucListener);
-//                        if (room_name != null) {
-//                            onGroupAddedJoined(room_name, muc, mucListener);
-//                        }
-//                        ThatItApplication.getApplication().setCurrentMUCRefernece(muc);
-//                        ThatItApplication.getApplication().setCurrentRosterGroupReference(connection.getRoster().getGroup(connection.getUser().split("@")[0] + "__" + groupName));
-//                        setConfig(muc, connection);
-//                        listener.onGroupCreateJoin();
-//                        triggerFragmentRefresh("Refresh_Group_Adapter");
-//                    }
+                    } catch (XMPPException e) {
+                        Utility.stopDialog();
+                        e.printStackTrace();
+                    } catch (SmackException.NotConnectedException e) {
+                        e.printStackTrace();
+                    } catch (SmackException.NoResponseException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (!group_name.contains(room_name) && room_name != null) {
+                        group_name.add(room_name);
+                        MUCPacketListener mucListener = new MUCPacketListener(connection.getUser().split("@")[0] + "__" + groupName);
+                        muc.addMessageListener(mucListener);
+                        if (room_name != null) {
+                            onGroupAddedJoined(room_name, muc, mucListener);
+                        }
+                        ThatItApplication.getApplication().setCurrentMUCRefernece(muc);
+                        ThatItApplication.getApplication().setCurrentRosterGroupReference(Roster.getInstanceFor(connection).getGroup(connection.getUser().split("@")[0] + "__" + groupName));
+                        setConfig(muc, connection);
+                        listener.onGroupCreateJoin();
+                        triggerFragmentRefresh("Refresh_Group_Adapter");
+                    }
                 }
             }).start();
         }
@@ -560,8 +575,8 @@ public class MainService extends Service implements PingFailedListener {
 
     @Override
     public void pingFailed() {
-            Toast.makeText(MainService.this, "Ping Failed", Toast.LENGTH_SHORT).show();
-            connectAsync();
+        Toast.makeText(MainService.this, "Ping Failed", Toast.LENGTH_SHORT).show();
+        connectAsync();
     }
 
     /**
@@ -820,7 +835,8 @@ public class MainService extends Service implements PingFailedListener {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        createConnection();
+                        initConnection();
+//                        createConnection();
                         Log.e(TAG, "createConnectAsync");
 
                     }
@@ -846,6 +862,130 @@ public class MainService extends Service implements PingFailedListener {
         }
     }
 
+    private void initConnection() {
+        Log.e(TAG, "initConnection()");
+        xmppConnectionManager = XmppManager.getInstance();
+        connection = xmppConnectionManager.getXMPPConnection();
+        mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
+        String login = mSettings.getString(ThatItApplication.ACCOUNT_USERNAME_KEY, "");
+        String password = mSettings.getString(ThatItApplication.ACCOUNT_PASSWORD_KEY, "");
+        try {
+            connection.setPacketReplyTimeout(CONNECT_TIME_OUT);
+            connection.addConnectionListener(new ConnecionListenerAdapter());
+            connection.connect();
+            connection.login(login, password);
+
+        } catch (SmackException | IOException | XMPPException e) {
+            Log.e(TAG, "Something went wrong while connecting ,make sure the credentials are right and try again");
+            Log.e("SMACK_ERROR", "Connect and Login: " + e.toString());
+            e.printStackTrace();
+            stopSelf();
+
+        }
+
+        PingManager.getInstanceFor(connection).setPingInterval(5);
+        ServerPingWithAlarmManager.getInstanceFor(connection).setEnabled(true);
+        ReconnectionManager reconnectionManager = ReconnectionManager.getInstanceFor(connection);
+        reconnectionManager.setEnabledPerDefault(true);
+        reconnectionManager.enableAutomaticReconnection();
+        xmppConnectionManager.setXMPPConnection(connection);
+
+        if (connection.isConnected() && connection.isAuthenticated()) {
+
+            ThatItApplication.getApplication().setConnected(true);
+            setPersence(Type.available);
+            sendSignInBroadCast();
+            changeStatusAndPriority(Status.CONTACT_STATUS_AVAILABLE, "");
+            performBackgroundTimerTask();
+
+            // Send Presence Packets
+            StanzaFilter filter = new StanzaFilter() {
+                @Override
+                public boolean accept(Stanza stanza) {
+                    if (stanza instanceof Presence) {
+                        Presence pres = (Presence) stanza;
+                        if (pres.getType() == Presence.Type.subscribe)
+                            return true;
+                    }
+                    return false;
+                }
+            };
+            StanzaFilter filter_unsubscribed = new StanzaFilter() {
+                @Override
+                public boolean accept(Stanza stanza) {
+                    if (stanza instanceof Presence) {
+                        Presence pres = (Presence) stanza;
+                        if (pres.getType() == Presence.Type.unsubscribed)
+                            return true;
+                    }
+                    return false;
+                }
+            };
+
+
+            connection.addAsyncStanzaListener(mSubscribePacketListener, filter);
+            connection.addAsyncStanzaListener(mUnSubscribePacketListener, filter_unsubscribed);
+
+            //Add Incoming Chat Listener on Connection
+            setIncomingChatListner();
+
+            //Add Incoming File Listener on Connection
+            setFileTransferListener();
+
+            filter = new StanzaTypeFilter(PingExtension.class);
+            connection.addAsyncStanzaListener(mPingListener, filter);
+
+
+            Utility.connectionClosedCalled = false;
+
+            connection.addAsyncStanzaListener(new StanzaListener() {
+                @Override
+                public void processPacket(Stanza packet) throws SmackException.NotConnectedException {
+                    if (!Utility.reloginCalled) {
+                        Message message = (Message) packet;
+                        if (message.getBody() != null) {
+
+                            String fromName = XmppStringUtils.parseBareJid(message.getFrom());
+//                                String fromName = StringUtils.parseBareAddress(message.getFrom());
+                            mMessagePacketListener = this;
+                        }
+                    }
+                }
+            }, filter);
+
+
+            joinToGroups();
+            networkChangeReceiver = new NetworkChangeReceiver();
+            IntentFilter networkChangeReceiverFilter = new IntentFilter();
+            networkChangeReceiverFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            registerReceiver(networkChangeReceiver, networkChangeReceiverFilter);
+        }
+
+    }
+
+    private void showConnectionErrorAlert() {
+
+        new CountDownTimer(10000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                //this will be done every 1000 milliseconds ( 1 seconds )
+            }
+
+            @Override
+            public void onFinish() {
+                if (!(connection.isConnected() || connection.isAuthenticated())) {
+                    Log.e(TAG, "Not Connected");
+                    Utility.showMessage("Reconnecting to server...");
+                    showConnectionErrorAlert();
+                    //There must be an error reconnection
+                } else {
+                    Log.e(TAG, "StillConnected");
+                    Utility.showMessage("Connected to server...");
+                }
+            }
+        }.start();
+    }
+
     public synchronized void connectAsync() {
 
         Thread t = new Thread(new Runnable() {
@@ -855,7 +995,8 @@ public class MainService extends Service implements PingFailedListener {
 //                    if (Utility.reloginCalled) {
 //                        Thread.sleep(4000);
 //                    }
-                    connect();
+//                    connect();
+                    createConnectAsync();
                     Log.e(TAG, "Connecting asynch");
 
                 } catch (Exception e) {
@@ -867,108 +1008,131 @@ public class MainService extends Service implements PingFailedListener {
 
     }
 
-    /**
-     * Connect to Xmpp server (openfir)
-     */
-    private synchronized void connect() throws Exception {
-        if (connection == null) {
-            createConnection();
-            Log.e(TAG,"Creating Connection");
-        }
-        if (connection.isConnected()) {
-            login();
-            Log.e(TAG,"Already Connected making login");
-
-        } else {
-            try {
-                connection.addConnectionListener(new ConnecionListenerAdapter());
-                connection.setPacketReplyTimeout(CONNECT_TIME_OUT);
-
-                PingManager.getInstanceFor(connection).setPingInterval(10);
-                ServerPingWithAlarmManager.getInstanceFor(connection).setEnabled(true);
-
-                connection.setUseStreamManagement(true);
-                connection.setUseStreamManagementResumption(true);
-                connection.setReplyToUnknownIq(true);
-
-                ReconnectionManager reconnectionManager = ReconnectionManager.getInstanceFor(connection);
-                reconnectionManager.setReconnectionPolicy(ReconnectionManager.ReconnectionPolicy.FIXED_DELAY);
-                reconnectionManager.setFixedDelay(10);
-                reconnectionManager.setEnabledPerDefault(true);
-                reconnectionManager.enableAutomaticReconnection();
-                connection.connect();
-                Log.e(TAG,"Now Connected");
-
-
-                try {
-                    if (connection.isConnected()) {
-                        login();
-                    } else {
-                        sendConnectionErrorWhileSignInBroadcast();
-                        sendConnectionErrorBroadcast();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } catch (Exception e) {
-                Log.e("Connection",e.toString());
-                e.printStackTrace();
-                Utility.stopDialog();
-                sendConnectionErrorWhileSignInBroadcast();
-                sendConnectionErrorBroadcast();
-                Utils.isLoginTaskRunning = false;
-            }
-        }
-    }
-
-    /**
-     * Login to xmpp server
-     * Username - jID
-     * Password  - get from edittext
-     */
-    private void login() throws Exception {
-
+//    /**
+//     * Connect to Xmpp server (openfir)
+//     */
+//    private synchronized void connect() throws Exception {
+//        if (connection == null) {
+//            createConnection();
+//            Log.e(TAG,"Creating Connection");
+//        }
+//        if (connection.isConnected()) {
+//            login();
+//            Log.e(TAG,"Already Connected making login");
+//
+//        } else {
+//            try {
+//                connection.addConnectionListener(new ConnecionListenerAdapter());
+//                connection.setPacketReplyTimeout(CONNECT_TIME_OUT);
+//
+//                PingManager.getInstanceFor(connection).setPingInterval(10);
+//                ServerPingWithAlarmManager.getInstanceFor(connection).setEnabled(true);
+//
+//                connection.setUseStreamManagement(true);
+//                connection.setUseStreamManagementResumption(true);
+//                connection.setReplyToUnknownIq(true);
+//
+//                ReconnectionManager reconnectionManager = ReconnectionManager.getInstanceFor(connection);
+//                reconnectionManager.setReconnectionPolicy(ReconnectionManager.ReconnectionPolicy.FIXED_DELAY);
+//                reconnectionManager.setFixedDelay(10);
+//                reconnectionManager.setEnabledPerDefault(true);
+//                reconnectionManager.enableAutomaticReconnection();
+//                connection.connect();
+//
+//
+//                Log.e(TAG,"Now Connected");
+//
+//
+//                try {
+//                    if (connection.isConnected()) {
+////                        login();
+//                        mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
+//                        String login = mSettings.getString(ThatItApplication.ACCOUNT_USERNAME_KEY, "");
+//                        String password = mSettings.getString(ThatItApplication.ACCOUNT_PASSWORD_KEY, "");
+//                        //String identifier = getDeviceID();
+//                        if (!TextUtils.isEmpty(login) && !TextUtils.isEmpty((password))) {
+//                            try {
+//                                if (!connection.isAuthenticated()) {
+//                                    connection.login(login, password);
+//                                }
+//                            } catch (IllegalStateException e) {
+//                                Utility.loginCalledOnce = false;
+//                            } catch (Exception e) {
+//
+//                            }
+//                        }
+//                        if (connection.isConnected() && connection.isAuthenticated()) {
+//                            ThatItApplication.getApplication().setConnected(true);
+//                            setPersence(Type.available);
+//                            sendSignInBroadCast();
+//                            changeStatusAndPriority(Status.CONTACT_STATUS_AVAILABLE, "");
+//                        }
+//                    } else {
+//                        sendConnectionErrorWhileSignInBroadcast();
+//                        sendConnectionErrorBroadcast();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            } catch (Exception e) {
+//                Log.e("Connection",e.toString());
+//                e.printStackTrace();
+//                Utility.stopDialog();
+//                sendConnectionErrorWhileSignInBroadcast();
+//                sendConnectionErrorBroadcast();
+//                Utils.isLoginTaskRunning = false;
+//            }
+//        }
+//    }
+//
+//    /**
+//     * Login to xmpp server
+//     * Username - jID
+//     * Password  - get from edittext
+//     */
+//    private void login() throws Exception {
+//
 //        try {
-            mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
-            String login = mSettings.getString(ThatItApplication.ACCOUNT_USERNAME_KEY, "");
-            String password = mSettings.getString(ThatItApplication.ACCOUNT_PASSWORD_KEY, "");
-            //String identifier = getDeviceID();
-            if (!TextUtils.isEmpty(login) && !TextUtils.isEmpty((password))) {
-                try {
-                    if (!connection.isAuthenticated()) {
-                        connection.login(login, password);
-                    }
-                } catch (IllegalStateException e) {
-                    Utility.loginCalledOnce = false;
-                } catch (Exception e) {
-                    if (e.getMessage().equalsIgnoreCase("not-authorized(401)")) {
-                        Utility.stopDialog();
-                        Utility.showMessage("That's It ID does not exists");
-                        clearCredential();
-                        if (Utility.mTimer != null) {
-                            Utility.mTimer.cancel();
-                            Utility.mTimer = null;
-                        }
-                        return;
-                    } else if (e.getMessage().toString().contains("No response")
-                            && NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
-                        //android.os.Process.killProcess(android.os.Process.myPid());
-                    }
-                    sendConnectionErrorWhileSignInBroadcast();
-                    sendConnectionErrorBroadcast();
-                    Utility.stopDialog();
-                    Utility.loginCalledOnce = false;
-                    Utils.isLoginTaskRunning = false;
-                    boolean_serviceCreatedOnce = false;
-                    e.printStackTrace();
-                    return;
-                }
-            } else if (!TextUtils.isEmpty(Utility.getUserName()) && !TextUtils.isEmpty((Utility.getPassword()))) {
-                connection.login(login, password);
-            } else {
-                Utility.stopDialog();
-            }
-
+//            mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
+//            String login = mSettings.getString(ThatItApplication.ACCOUNT_USERNAME_KEY, "");
+//            String password = mSettings.getString(ThatItApplication.ACCOUNT_PASSWORD_KEY, "");
+//            //String identifier = getDeviceID();
+//            if (!TextUtils.isEmpty(login) && !TextUtils.isEmpty((password))) {
+//                try {
+//                    if (!connection.isAuthenticated()) {
+//                        connection.login(login, password);
+//                    }
+//                } catch (IllegalStateException e) {
+//                    Utility.loginCalledOnce = false;
+//                } catch (Exception e) {
+//                    if (e.getMessage().equalsIgnoreCase("not-authorized(401)")) {
+//                        Utility.stopDialog();
+//                        Utility.showMessage("That's It ID does not exists");
+//                        clearCredential();
+//                        if (Utility.mTimer != null) {
+//                            Utility.mTimer.cancel();
+//                            Utility.mTimer = null;
+//                        }
+//                        return;
+//                    } else if (e.getMessage().toString().contains("No response")
+//                            && NetworkAvailabilityReceiver.isInternetAvailable(ThatItApplication.getApplication())) {
+//                        //android.os.Process.killProcess(android.os.Process.myPid());
+//                    }
+//                    sendConnectionErrorWhileSignInBroadcast();
+//                    sendConnectionErrorBroadcast();
+//                    Utility.stopDialog();
+//                    Utility.loginCalledOnce = false;
+//                    Utils.isLoginTaskRunning = false;
+//                    boolean_serviceCreatedOnce = false;
+//                    e.printStackTrace();
+//                    return;
+//                }
+//            } else if (!TextUtils.isEmpty(Utility.getUserName()) && !TextUtils.isEmpty((Utility.getPassword()))) {
+//                connection.login(login, password);
+//            } else {
+//                Utility.stopDialog();
+//            }
+//
 //            if (connection.isConnected() && connection.isAuthenticated()) {
 //
 //                ThatItApplication.getApplication().setConnected(true);
@@ -1037,11 +1201,10 @@ public class MainService extends Service implements PingFailedListener {
 //                IntentFilter networkChangeReceiverFilter = new IntentFilter();
 //                networkChangeReceiverFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
 //                registerReceiver(networkChangeReceiver, networkChangeReceiverFilter);
-//                //setTimer();
+////                //setTimer();
 //            } else {
 //                Utility.showMessage("No Response from Server");
 //            }
-//
 //        } catch (Exception e) {
 //            if (e instanceof ErrnoException) {
 //                Utility.stopDialog();
@@ -1055,7 +1218,7 @@ public class MainService extends Service implements PingFailedListener {
 //                }
 //            }
 //        }
-    }
+//    }
 
 //    public void stopTimer() {
 //        if (mTimer != null) {
@@ -1238,7 +1401,7 @@ public class MainService extends Service implements PingFailedListener {
             } else {
                 presence.setStatus("Hi...");
             }
-            connection.sendPacket(presence);
+            connection.sendStanza(presence);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1250,7 +1413,7 @@ public class MainService extends Service implements PingFailedListener {
 
     private void updateNotification(int status, String text, String action) {
         try {
-            Notification mStatusNotification = null;
+            Notification mStatusNotification = new Notification();
             mStatusNotification.defaults = Notification.DEFAULT_LIGHTS;
             mStatusNotification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
         } catch (Exception e) {
@@ -1291,39 +1454,39 @@ public class MainService extends Service implements PingFailedListener {
     public class ConnecionListenerAdapter implements ConnectionListener {
 
         public ConnecionListenerAdapter() {
-            Log.e("Connection","Initiated");
+            Log.e("Connection", "Initiated");
 
         }
 
 
         @Override
         public void reconnectingIn(int seconds) {
-            Log.e("Connection","Reconnecting in " + seconds + " seconds.");
+            Log.e("Connection", "Reconnecting in " + seconds + " seconds.");
         }
 
 
         @Override
         public void connected(XMPPConnection connection) {
-            Log.e("Connection","Is Now Connected");
+            Log.e("Connection", "Is Now Connected");
 
         }
 
         @Override
         public void authenticated(XMPPConnection connection, boolean resumed) {
-            Log.e("Connection","Is Now Authenticated.");
+            Log.e("Connection", "Is Now Authenticated.");
 
         }
 
         @Override
         public void connectionClosed() {
-            Log.e(TAG,"XMPP connection was closed.");
+            Log.e(TAG, "XMPP connection was closed.");
             performTaskOnConnectionClosed();
         }
 
         @Override
         public void connectionClosedOnError(Exception exception) {
             try {
-                Log.e(TAG,"Connection to XMPP server was lost."+exception);
+                Log.e(TAG, "Connection to XMPP server was lost." + exception);
 
                 performTaskOnConnectionClosedOnError();
             } catch (Exception e) {
@@ -1333,7 +1496,7 @@ public class MainService extends Service implements PingFailedListener {
 
 
         public void connectionFailed(String errorMsg) {
-            Log.i("","XMPP connection was closed.");
+            Log.i("", "XMPP connection was closed.");
 
             myApplication.setConnected(false);
             Utility.stopDialog();
@@ -1343,14 +1506,14 @@ public class MainService extends Service implements PingFailedListener {
         @Override
         public void reconnectionFailed(Exception arg0) {
 
-            Log.e("Connection","Failed to reconnect to the XMPP server." + arg0.toString());
+            Log.e("Connection", "Failed to reconnect to the XMPP server." + arg0.toString());
 
             myApplication.setConnected(false);
         }
 
         @Override
         public void reconnectionSuccessful() {
-            Log.e(TAG,"Successfully reconnected to the XMPP server.");
+            Log.e(TAG, "Successfully reconnected to the XMPP server.");
             myApplication.setConnected(true);
             if (mService == null) {
                 startService(new Intent(getApplicationContext(), MainService.class));
@@ -1431,7 +1594,6 @@ public class MainService extends Service implements PingFailedListener {
 
         public SubscribePacketListener() {
         }
-
 
 
         @Override
@@ -1627,7 +1789,7 @@ public class MainService extends Service implements PingFailedListener {
                     Collection<RosterEntry> rasterEntried = Roster.getInstanceFor(connection).getEntries();
 
                     for (RosterEntry currentRosterEntry : rasterEntried) {
-                        if (currentRosterEntry.getUser().compareTo( packet.getFrom()) ==0) {
+                        if (currentRosterEntry.getUser().compareTo(packet.getFrom()) == 0) {
 
                             try {
                                 try {
@@ -1889,7 +2051,7 @@ public class MainService extends Service implements PingFailedListener {
                 } else if (message.getBody().equalsIgnoreCase("Send IP")) {
                     if (!connection.isConnected()) return;
                     try {
-                        from = message.getFrom() ;
+                        from = message.getFrom();
                         AppSinglton.IpAddress = message.getSubject();
                     } catch (Exception e) {
                         Log.d(TAG, "Error Delivering block");
@@ -1898,7 +2060,7 @@ public class MainService extends Service implements PingFailedListener {
                     if (!connection.isConnected()) return;
                     try {
                         if (boolean_groupCreated) {
-                            from = message.getFrom() ;
+                            from = message.getFrom();
                             showNotification("Group Added", " added you in a group.");
                             triggerFragmentRefresh("Refresh_Group_Adapter");
                             boolean_groupCreated = false;
@@ -1910,7 +2072,7 @@ public class MainService extends Service implements PingFailedListener {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            saveParticipantChat( message);
+                            saveParticipantChat(message);
                         }
                     }).start();
                     mHandler.post(new Runnable() {
@@ -1932,8 +2094,92 @@ public class MainService extends Service implements PingFailedListener {
         }
 
         @Override
-        public void processMessage(Chat chat, Message message) {
+        public void processMessage(Chat chat, final Message message) {
+            Log.e("Message",message.getBody());
+            //message_read
+            if (message.getSubject("isFile") != null) {
+                message.getSubject("isFile");
+            }
 
+            String messageFrom1 = message.getFrom();
+
+            if (messageFrom1.endsWith("/Smack")) {
+                messageFrom1 = messageFrom1.substring(0, messageFrom1.lastIndexOf("/Smack"));
+            }
+
+            final String messageFrom = messageFrom1;
+
+            Collection<ExtensionElement> extensions = message.getExtensions();
+            for (ExtensionElement iterable_element : extensions) {
+                if (iterable_element instanceof GroupChatInvitation) {
+
+                    boolean_groupCreated = true;
+                    GroupChatInvitation invitation = (GroupChatInvitation) iterable_element;
+                    String roomName = invitation.getRoomAddress();
+                    subscribeToGroupInvitation(roomName, message.getFrom().toString());
+
+                    if (boolean_istTimeLoad) {
+                        ThatItApplication.getApplication().getIncomingGroupPings().add(roomName.substring(0, roomName.lastIndexOf("@")));
+                    }
+                }
+            }
+            try {
+                Utility.fragmentContact.setGroupAdapter();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+
+            if (message.getBody() != null) {
+
+                // IP required for socket file transfer
+                if (message.getBody().equalsIgnoreCase("What is your ip")) {
+                    if (!connection.isConnected()) return;
+                    senderID = message.getFrom();
+                    msg = "What is your ip";
+                    sendReverseIP();
+                } else if (message.getBody().equalsIgnoreCase("Send IP")) {
+                    if (!connection.isConnected()) return;
+                    try {
+                        from = message.getFrom();
+                        AppSinglton.IpAddress = message.getSubject();
+                    } catch (Exception e) {
+                        Log.d(TAG, "Error Delivering block");
+                    }
+                } else if (message.getBody().equalsIgnoreCase("Group Invitation")) {
+                    if (!connection.isConnected()) return;
+                    try {
+                        if (boolean_groupCreated) {
+                            from = message.getFrom();
+                            showNotification("Group Added", " added you in a group.");
+                            triggerFragmentRefresh("Refresh_Group_Adapter");
+                            boolean_groupCreated = false;
+                        }
+                    } catch (Exception e) {
+                        Log.d(TAG, "Error Delivering block");
+                    }
+                } else {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            saveParticipantChat(message);
+                        }
+                    }).start();
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (Utility.fragChatHistoryOpened) {
+                                    Utility.fragmentChatHistoryScreen.prepareChatRosterData();
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            sendChatBroadast(message);
+                            checkForAppOpened(messageFrom);
+                        }
+                    });
+                }
+            }
         }
     }
 
@@ -1953,7 +2199,7 @@ public class MainService extends Service implements PingFailedListener {
 
         if (!connection.isConnected()) return;
         ChatManager chatmanager = ChatManager.getInstanceFor(connection);
-        Chat newChat = chatmanager.createChat(senderID , mMessageListner);
+        Chat newChat = chatmanager.createChat(senderID, mMessageListner);
         try {
             Message newMessage = new Message();
             newMessage.setBody("Send IP");
@@ -1968,7 +2214,7 @@ public class MainService extends Service implements PingFailedListener {
     private void sendReverseIP() {
         try {
             if (connection.isConnected()) {
-                sendMessage(senderID , msg, mMessageListner);
+                sendMessage(senderID, msg, mMessageListner);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1981,7 +2227,7 @@ public class MainService extends Service implements PingFailedListener {
     private void saveParticipantChat(final Message message) {
         try {
             RosterEntry rosterEntry = getRosterEntryFromJID(message.getFrom());
-            String jid = rosterEntry.getUser() ;
+            String jid = rosterEntry.getUser();
             name = rosterEntry.getName();
             String msg = message.getBody();
 
@@ -2030,7 +2276,7 @@ public class MainService extends Service implements PingFailedListener {
      */
     public RosterEntry getRosterEntryFromJID(String jid) {
         Roster roster = Roster.getInstanceFor(connection);
-        if (roster.getEntries().contains (jid)) {
+        if (roster.contains(jid)) {
             return roster.getEntry(jid);
         }
         return null;
@@ -2116,14 +2362,14 @@ public class MainService extends Service implements PingFailedListener {
         }
     }
 
-    public XMPPConnection getConnection() {
-
-        if (connection != null && connection.isConnected()) {
-            return connection;
-        } else {
-            return null;
-        }
-    }
+//    public XMPPConnection getConnection() {
+//
+//        if (connection != null && connection.isConnected()) {
+//            return connection;
+//        } else {
+//            return null;
+//        }
+//    }
 
 
     /**

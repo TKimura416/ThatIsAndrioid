@@ -125,7 +125,7 @@ public class PaymentConfirmationActivity extends Activity implements OnClickList
 
 					Utility.startDialog(PaymentConfirmationActivity.this);
 					Utility.LoginStarted = true;
-					Utility.startLoginTimer(PaymentConfirmationActivity.this,2);
+//					Utility.startLoginTimer(PaymentConfirmationActivity.this,2);
 					connectXMPPService();	
 				} else {
 					Toast.makeText(PaymentConfirmationActivity.this,getResources().getString(R.string.Network_Availability), Toast.LENGTH_SHORT).show();

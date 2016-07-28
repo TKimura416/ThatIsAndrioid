@@ -150,7 +150,7 @@ public class SplashActivity extends Activity {
 
 							if(statusID.equalsIgnoreCase(sharedStatusID)){
 								Utility.LoginStarted = true;
-								Utility.startLoginTimer(SplashActivity.this,1);
+//								Utility.startLoginTimer(SplashActivity.this,1);
 								startService(new Intent(SplashActivity.this, MainService.class));
 								Utility.allowAuthenticationDialog = true;
 							}else{
@@ -161,7 +161,7 @@ public class SplashActivity extends Activity {
 						else{
 							// allow user to login
 							Utility.LoginStarted = true;
-							Utility.startLoginTimer(SplashActivity.this,1);
+//							Utility.startLoginTimer(SplashActivity.this,1);
 							startService(new Intent(SplashActivity.this, MainService.class));
 							Utility.allowAuthenticationDialog = true;
 						}

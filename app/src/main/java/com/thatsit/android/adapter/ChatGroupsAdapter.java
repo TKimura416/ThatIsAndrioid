@@ -107,7 +107,7 @@ public class ChatGroupsAdapter extends BaseAdapter{
 			public void onClick(View v) {
 				try{
 //					muChat =new MultiUserChat(XmppManager.getInstance().getXMPPConnection(),currentRosterGroup.getName()+"@conference."+Constants.HOST, MultiUserChatManager.getInstanceFor(XmppManager.getInstance().getXMPPConnection()));
-					MyGroupsHelper.selectChatGroupOption(muChat, XmppManager.getInstance().getXMPPConnection(), parentReference);
+//					MyGroupsHelper.selectChatGroupOption(muChat, XmppManager.getInstance().getXMPPConnection(), parentReference);
 				}catch(Exception e){
 					Toast.makeText(parentReference, "Could not retreive room options", Toast.LENGTH_LONG).show();
 				}

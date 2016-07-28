@@ -75,7 +75,7 @@ public class MyGroupsHelper {
 								if(MainService.mService.connection.isConnected()
 										&& MainService.mService.connection.isAuthenticated()){
 
-									//startCreateGroupDialog();
+//									startCreateGroupDialog();
 									FragmentContact.imgVwAddNewGroup.setEnabled(true);
 									InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 									imm.hideSoftInputFromWindow(edtGroupName.getWindowToken(), 0);
