@@ -249,11 +249,11 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 		try {
 			XmppManager w_xmppManager = XmppManager.getInstance();
 			XMPPTCPConnection w_xmppConnection = w_xmppManager.getXMPPConnection();
-			GcmTokenIQ w_iq = new GcmTokenIQ(p_strGcmToken);
+			GcmTokenIQ w_iq = new GcmTokenIQ("query",p_strGcmToken);
 			w_iq.setTo(Constants.HOST);
 			w_iq.setType(IQ.Type.set);
 			w_iq.setStanzaId("apns68057d6a");
-			w_iq.setGcmToken(p_strGcmToken);
+//			w_iq.setGcmToken(p_strGcmToken);
 			w_xmppConnection.sendStanza(w_iq);
 		} catch (Exception e) {
 			e.printStackTrace();

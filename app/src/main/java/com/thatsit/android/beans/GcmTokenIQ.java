@@ -8,34 +8,17 @@ import org.jivesoftware.smack.util.XmlStringBuilder;
  * Customized IQ class to send GCM token to the openfire server.
  */
 public class GcmTokenIQ extends IQ {
-    private final String m_strXmlns = "urn:xmpp:apns";
     private String m_strGcmToken = "";
 
-    public GcmTokenIQ(String m_strGcmToken) {
-        super("urn:xmpp:apns");
-        m_strGcmToken=m_strGcmToken;
+    public GcmTokenIQ(String childElementName, String childElementNamespace) {
+        super(childElementName, "urn:xmpp:apns");
+        m_strGcmToken=childElementNamespace;
     }
-
-    /**
-     * Set GCM token to send.
-     * @param p_strGcmToken Token string
-     */
-    public void setGcmToken(String p_strGcmToken) {
-        m_strGcmToken = p_strGcmToken;
-    }
-
-
-//    public XmlStringBuilder getChildElementXML() {
-//        String w_strRequest = "<query xmlns='" + m_strXmlns + "'><token>" + m_strGcmToken + "</token></query>";
-//        return w_strRequest;
-//    }
 
     @Override
     protected IQChildElementXmlStringBuilder getIQChildElementBuilder(IQChildElementXmlStringBuilder xml) {
         xml.rightAngleBracket();
-        xml.element("w_strRequest", "<query xmlns='" + m_strXmlns + "'><token>" + m_strGcmToken + "</token></query>");
+        xml.element("token",m_strGcmToken);
         return xml;
-//        String w_strRequest = "<query xmlns='" + m_strXmlns + "'><token>" + m_strGcmToken + "</token></query>";
-//        return null;
     }
 }
