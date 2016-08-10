@@ -1,22 +1,20 @@
 package com.thatsit.android.activities;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
-
+import com.myquickapp.receivers.NetworkAvailabilityReceiver;
 import com.seasia.myquick.model.ValidateUserLoginStatus;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
-import com.myquickapp.receivers.NetworkAvailabilityReceiver;
+import com.thatsit.android.Utils;
+import com.thatsit.android.beans.LogFile;
 import com.thatsit.android.interfaces.ValidateUserLoginInterface;
 
 public class SplashActivity extends Activity {
@@ -24,17 +22,44 @@ public class SplashActivity extends Activity {
 	private SharedPreferences mSharedPreferences;
 	private String text;
 	public static boolean userVisited = false;
-	private static boolean retryClicked = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.splash_activity);
-		
+
 		Utility.setDeviceTypeAndSecureFlag(SplashActivity.this);
 		clearUtilityBooleans();
-		executeTask();
+		if(Build.VERSION.SDK_INT>22){
+			checkPermissions();
+		}else {
+			executeTask();
+		}
+	}
+
+	/**
+	 * Check Permissions for marshmallow
+	 */
+	private void checkPermissions() {
+		if(Utils.isStoragePermissionRequired(SplashActivity.this)){
+			Utils.requestStoragePermission(SplashActivity.this,1000);
+		}else{
+			executeTask();
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+		if(requestCode == 1000){
+			if(Utils.verifyPermissions(grantResults)){
+				executeTask();
+			}else{
+				Utils.requestStoragePermission(SplashActivity.this,1000);
+			}
+		}
 	}
 
 	/**
@@ -56,20 +81,12 @@ public class SplashActivity extends Activity {
 	private void executeTask() {
 
 		if(!NetworkAvailabilityReceiver.isInternetAvailable(SplashActivity.this) && Utility.getUserName().length()>0){
-			AlertDialog.Builder builder = new Builder(SplashActivity.this);
-			builder.setTitle("That's It");
-			builder.setMessage(getResources().getString(R.string.Network_Availability));
-			builder.setPositiveButton("Retry", new OnClickListener() {
 
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					retryClicked = true;
-					dialog.dismiss();
-					executeTask();
-				}
-			});
-			builder.setCancelable(false);
-			builder.show();
+			Utility.allowAuthenticationDialog = true;
+			Utility.noNetwork = true;
+			Intent mIntent = new Intent(SplashActivity.this, BlurredActivity.class);
+			mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(mIntent);
 		}
 		else{
 			if(Utility.getUserName().length()>0 && MainService.mService==null){
@@ -81,7 +98,6 @@ public class SplashActivity extends Activity {
 				startActivity(new Intent(SplashActivity.this, ContactActivity.class));
 				finish();
 				Utility.allowAuthenticationDialog = true;
-
 			}
 			else{
 				mSharedPreferences = getSharedPreferences("mypre", 0);
@@ -145,15 +161,13 @@ public class SplashActivity extends Activity {
 
 							String statusID = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getStatusId();
 
-							SharedPreferences mSharedPreferences = getSharedPreferences("statusID", MODE_PRIVATE);
-							String sharedStatusID = mSharedPreferences.getString("statusID", "");
-
-							if(statusID.equalsIgnoreCase(sharedStatusID)){
+							if(LogFile.logExists(statusID) == true){
 								Utility.LoginStarted = true;
-//								Utility.startLoginTimer(SplashActivity.this,1);
+								Utility.startLoginTimer(SplashActivity.this,1);
 								startService(new Intent(SplashActivity.this, MainService.class));
 								Utility.allowAuthenticationDialog = true;
-							}else{
+							}
+							else{
 								Utility.stopDialog();
 								Utility.openAlertSplash(SplashActivity.this, "AlreadyLoggedIn", "User already logged in some other device. Please login with different account.");
 							}
@@ -161,7 +175,7 @@ public class SplashActivity extends Activity {
 						else{
 							// allow user to login
 							Utility.LoginStarted = true;
-//							Utility.startLoginTimer(SplashActivity.this,1);
+							Utility.startLoginTimer(SplashActivity.this,1);
 							startService(new Intent(SplashActivity.this, MainService.class));
 							Utility.allowAuthenticationDialog = true;
 						}

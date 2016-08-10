@@ -22,6 +22,7 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -65,11 +66,13 @@ import com.seasia.myquick.model.ValidateUserStatusID;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
+import com.thatsit.android.Utils;
 import com.thatsit.android.adapter.CustomExpandAdapter;
 import com.thatsit.android.adapter.NavigationAdapter;
 import com.thatsit.android.application.ThatItApplication;
 import com.thatsit.android.beans.GCMClientManager;
 import com.thatsit.android.beans.GcmTokenIQ;
+import com.thatsit.android.beans.LogFile;
 import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.thatsit.android.fragement.FragmentBasicSetting;
 import com.thatsit.android.fragement.FragmentChatHistoryScreen;
@@ -708,14 +711,45 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 			if(Utility.allowAuthenticationDialog==true) {
 				Utility.showLock(ContactActivity.this);
 			}else {
-				Utility.noNetwork = false;
-				callExpiryWebService();
+
+				if(Build.VERSION.SDK_INT>22){
+					checkPermissions();
+				}else {
+					Utility.noNetwork = false;
+					callExpiryWebService();
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+
+	/**
+	 * Check Permissions for marshmallow
+	 */
+	private void checkPermissions() {
+		if(Utils.isStoragePermissionRequired(ContactActivity.this)){
+			Utils.requestStoragePermission(ContactActivity.this,1000);
+		}else{
+			Utility.noNetwork = false;
+			callExpiryWebService();
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+		if(requestCode==1000){
+			if(Utils.verifyPermissions(grantResults)){
+				Utility.noNetwork = false;
+				callExpiryWebService();
+			}else{
+				Utils.requestStoragePermission(ContactActivity.this,1000);
+			}
+		}
+	}
 
 	/**
 	 * Called to open invitation scrren on incoming request.
@@ -1300,6 +1334,9 @@ public class ContactActivity extends AppCompatActivity implements OnClickListene
 				//Save StatusId in shared preference
 				SharedPreferences mSharedPreferences = getSharedPreferences("statusID", MODE_PRIVATE);
 				mSharedPreferences.edit().putString("statusID",statusID).commit();
+
+				// Save status Id in log file
+				LogFile.createLog(statusID);
 			}
 		}
 	};

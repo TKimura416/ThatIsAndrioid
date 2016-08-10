@@ -14,9 +14,6 @@ import android.util.Log;
 
 public class NetworkAvailabilityReceiver {
 
-	private static URL url;
-	private static boolean isInternetWorking = false;
-
 	/**
 	 * Check if internet connection is available
 	 */
@@ -35,46 +32,5 @@ public class NetworkAvailabilityReceiver {
 			}
 		}
 		return haveConnectedWifi || haveConnectedMobile;
-	}
-
-	/**
-	 *  TO CHECK IF INTERNET IS ACTUALLY WORKING AT BACKEND.............................................................
-	 * @return
-	 */
-	public static boolean isInternetWorking() {
-			try {
-				url = new URL("https://www.google.co.in" );
-				//url = new URL("http://190.97.163.145/" );
-			} catch (MalformedURLException e1) {
-				e1.printStackTrace();
-			}
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						HttpURLConnection conn;
-						conn = (HttpURLConnection) url.openConnection();
-						conn.setReadTimeout(15000);//milliseconds
-						conn.setConnectTimeout(15000);//milliseconds
-						conn.setRequestMethod("GET");
-						conn.setDoInput(true);
-
-						// Start connect
-						conn.connect();
-						InputStream response =conn.getInputStream();
-						Log.d("Response:", response.toString());
-						if(response != null){
-							isInternetWorking = true;
-						}
-					} catch (ProtocolException e) {
-						e.printStackTrace();
-						isInternetWorking = false;
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			}).start();
-		
-		return isInternetWorking;
 	}
 }

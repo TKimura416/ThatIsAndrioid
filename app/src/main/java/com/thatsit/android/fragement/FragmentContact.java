@@ -442,7 +442,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 						Utility.showMessage(getResources().getString(R.string.Network_Availability));
 					}
 					else if(!MainService.mService.connection.isConnected() && !MainService.mService.connection.isAuthenticated()){
-						Utility.showMessage("Please wait while connection is restored");
+					//	Utility.showMessage("Please wait while connection is restored");
 					}
 					else {
 						itemLongClickPressed = true;
@@ -469,7 +469,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					}
 
 					else if(!MainService.connection.isConnected() && !MainService.connection.isAuthenticated()){
-						Utility.showMessage("Please wait while connection is restored");
+						//Utility.showMessage("Please wait while connection is restored");
 					}
 					else {
 						if(!dialogOpen){
@@ -804,7 +804,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				});
 
 			}else{
-				Utility.showMessage("Please wait while connection is restored");
+				//Utility.showMessage("Please wait while connection is restored");
 			}
 		} else {
 			Utility.showMessage(getResources().getString(R.string.Network_Availability));
@@ -1332,7 +1332,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 					}
 					else if(!(mConnection.isConnected()|| mConnection.isAuthenticated())){
 						MainService.mService.connectAsync();
-						Utility.showMessage("Please wait while connection is restored");
+						//Utility.showMessage("Please wait while connection is restored");
 					}
 				}
 				break;
@@ -1378,7 +1378,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 
 								if (!mConnection.isConnected() || !mConnection.isAuthenticated()) {
 
-									Utility.showMessage("Please wait while connection is restored");
+									//Utility.showMessage("Please wait while connection is restored");
 									dialogOpen = false;
 									dialogChatPassword.dismiss();
 									groupPressed = false;

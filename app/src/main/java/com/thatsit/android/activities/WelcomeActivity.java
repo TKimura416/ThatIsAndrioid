@@ -26,6 +26,7 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.hardware.SensorManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -49,7 +50,9 @@ import com.seasia.myquick.model.ValidateUserLoginStatus;
 import com.thatsit.android.MainService;
 import com.thatsit.android.R;
 import com.thatsit.android.Utility;
+import com.thatsit.android.Utils;
 import com.thatsit.android.application.ThatItApplication;
+import com.thatsit.android.beans.LogFile;
 import com.thatsit.android.db.DbOpenHelper;
 import com.thatsit.android.encryption.helper.EncryptionManager;
 import com.thatsit.android.interfaces.OrientationListener;
@@ -308,7 +311,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 		}
 	}
 
-	private void skipLoginScreenIfAlreadyConnected() {
+	private void   skipLoginScreenIfAlreadyConnected() {
 		try {
 			myApplication = ThatItApplication.getApplication();
 			if (myApplication != null) {
@@ -526,7 +529,12 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 								Utility.startDialog(WelcomeActivity.this);
 
 								//	new GetDataAsync().execute();
-								Utility.UserLoginStatus(WelcomeActivity.this, EmailId, "","","", mValidateUserLoginInterface);
+
+								if(Build.VERSION.SDK_INT>22){
+									checkPermissions();
+								}else {
+									executeTask();
+								}
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -555,6 +563,35 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 			}
 		}
 		signIndialog.show();
+	}
+
+	private void executeTask() {
+		Utility.UserLoginStatus(WelcomeActivity.this, EmailId, "","","", mValidateUserLoginInterface);
+	}
+
+
+	/**
+	 * Check Permissions for marshmallow
+	 */
+	private void checkPermissions() {
+		if(Utils.isStoragePermissionRequired(WelcomeActivity.this)){
+			Utils.requestStoragePermission(WelcomeActivity.this,1000);
+		}else{
+			executeTask();
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+		if(requestCode==1000){
+			if(Utils.verifyPermissions(grantResults)){
+				executeTask();
+			}else{
+				Utils.requestStoragePermission(WelcomeActivity.this,1000);
+			}
+		}
 	}
 
 	/**
@@ -587,20 +624,17 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 				if(mValidateUserLoginStatus != null){
 
 					String UserLoginStatus = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getUserLoginStatus();
+					String statusID = "";
 					if(UserLoginStatus != null){
 						if(UserLoginStatus.equalsIgnoreCase("True")){
-							// Check if status id is equal to one present in shared preference
+							// Check if status id is equal to one present in log file
 							// If both values are equal, perform login
 							// else show already login alert
-
-							String statusID = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getStatusId();
-
-							SharedPreferences mSharedPreferences = getSharedPreferences("statusID", MODE_PRIVATE);
-							String sharedStatusID = mSharedPreferences.getString("statusID", "");
-
-							if(statusID.equalsIgnoreCase(sharedStatusID)){
+							statusID = mValidateUserLoginStatus.getValidateUserLoginStatusResult().getStatusId();
+							if(LogFile.logExists(statusID) == true){
 								new GetDataAsync().execute();
-							}else{
+							}
+							else{
 								Utility.stopDialog();
 								Utility.openAlert(WelcomeActivity.this,"AlreadyLoggedIn", "User already logged in some other device.");
 								Utility.unlockScreenRotation(WelcomeActivity.this);
@@ -608,6 +642,7 @@ public class WelcomeActivity extends FragmentActivity implements OnClickListener
 						}
 						else{
 							// allow user to login
+							LogFile.deleteLog(statusID);
 							new GetDataAsync().execute();
 						}
 					}else{

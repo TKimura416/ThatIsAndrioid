@@ -10,13 +10,17 @@ import java.net.SocketException;
 import java.util.Collections;
 import java.util.List;
 import org.apache.http.conn.util.InetAddressUtils;
+
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.IBinder;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import com.thatsit.android.application.ThatItApplication;
 import com.myquick.socket.ClientChatThread;
@@ -27,6 +31,7 @@ import com.seasia.myquick.model.AppSinglton;
 import com.seasia.myquick.model.AuthenticateUserServiceTemplate;
 
 public class Utils{
+	protected static final String[] PERMISSION_STORAGE = {android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
 	/**
 	 *  File transferred via socket.
@@ -223,4 +228,38 @@ public class Utils{
 		return Utility.fragmentContact==null;
 	}
 
+	/**
+	 * is storage read/write permissions required
+	 * @param activity
+	 * @return
+	 */
+	public static boolean isStoragePermissionRequired(Activity activity) {
+		if (ActivityCompat.checkSelfPermission(activity, PERMISSION_STORAGE[0]) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(activity, PERMISSION_STORAGE[1]) != PackageManager.PERMISSION_GRANTED)
+			return true;
+		return false;
+	}
+
+	/**
+	 * request storage permission
+	 * @param activity
+	 * @param requestCode
+	 */
+	public static void requestStoragePermission(Activity activity,int requestCode) {
+		ActivityCompat.requestPermissions(activity, PERMISSION_STORAGE, requestCode);;
+	}
+
+	/**
+	 * verify state of permissions
+	 * @param grantResults
+	 * @return
+	 */
+	public static boolean verifyPermissions(int[] grantResults) {
+		if (grantResults.length < 1)
+			return false;
+		for (int result : grantResults) {
+			if (result != PackageManager.PERMISSION_GRANTED)
+				return false;
+		}
+		return true;
+	}
 }
