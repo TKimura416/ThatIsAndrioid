@@ -422,7 +422,7 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 		try {
 
 		UserSearchManager search = new UserSearchManager(MainService.mService.connection);
-		Form searchForm = search.getSearchForm( MainService.mService.connection.getServiceName());
+		Form searchForm = search.getSearchForm("search." + MainService.mService.connection.getServiceName());
 		Form answerForm = searchForm.createAnswerForm();
 		answerForm.setAnswer("Username", true);
 		answerForm.setAnswer("search", jidToAdd);
