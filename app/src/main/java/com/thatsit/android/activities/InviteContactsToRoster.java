@@ -215,11 +215,11 @@ public class InviteContactsToRoster extends Activity {
      */
     private RosterEntry getEntryUsingJid(String jid) {
 
-//		jid = jid.toLowerCase();
-//
-//		if(!jid.contains("@")){
-//			jid = jid +"@" + mConnection.getHost();
-//		}
+		jid = jid.toLowerCase();
+
+		if(!jid.contains("@")){
+			jid = jid +"@" + mConnection.getHost();
+		}
 
         return Roster.getInstanceFor(mConnection).getEntry(jid);
     }

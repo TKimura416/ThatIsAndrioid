@@ -553,10 +553,17 @@ public class MainService extends Service implements PingFailedListener {
         try {
             Form form = multiUserChat.getConfigurationForm();
             Form submitForm = form.createAnswerForm();
-            for (Iterator<FormField> fields = (Iterator<FormField>) submitForm.getFields();
-                 fields.hasNext(); ) {
-                FormField field = fields.next();
-//                if (!FormField.TYPE_HIDDEN.equals(field.getType()) && field.getVariable() != null) {
+//            for (List<FormField> fields = submitForm.getFields();
+//                 fields.hasNext(); ) {
+//                FormField field = fields.next();
+////                if (!FormField.TYPE_HIDDEN.equals(field.getType()) && field.getVariable() != null) {
+//                if (!FormField.FORM_TYPE.equals(field.getType()) && field.getVariable() != null) {
+//                    submitForm.setDefaultAnswer(field.getVariable());
+//                }
+//            }
+            List<FormField> fields=submitForm.getFields();
+            for(int i=0;i<fields.size();i++){
+                FormField field=fields.get(i);
                 if (!FormField.FORM_TYPE.equals(field.getType()) && field.getVariable() != null) {
                     submitForm.setDefaultAnswer(field.getVariable());
                 }

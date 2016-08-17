@@ -9,6 +9,7 @@ import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smackx.search.ReportedData;
 import org.jivesoftware.smackx.search.UserSearchManager;
+import org.jivesoftware.smackx.vcardtemp.VCardManager;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 import org.jivesoftware.smackx.xdata.Form;
 import org.jxmpp.stringprep.XmppStringprepException;
@@ -322,9 +323,12 @@ public class FragmentInvitationScreen extends Fragment implements OnClickListene
 
 		try {
 			VCard me = new VCard();
+			VCardManager vCardManager=VCardManager.getInstanceFor(MainService.mService.connection);
+			me=vCardManager.loadVCard(jid);
+			vCardManager.saveVCard(me);
 			//ProviderManager.getInstance().addIQProvider("vCard", "vcard-temp",new VCardProvider());
 			me.load(MainService.mService.connection);
-			me.save(MainService.mService.connection);
+//			me.save(MainService.mService.connection);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

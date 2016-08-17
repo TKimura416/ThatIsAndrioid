@@ -11,6 +11,7 @@ import java.util.Objects;
 //import org.jivesoftware.smack.RosterEntry;
 //import org.jivesoftware.smack.RosterGroup;
 //import org.jivesoftware.smack.RosterListener;
+import org.jivesoftware.smack.SmackConfiguration;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
@@ -189,7 +190,7 @@ public class FragmentContact extends Fragment implements OnClickListener {
 			((ContactActivity)getActivity()).iconStateChanger(true, false, false,false);
 			encryptionManager = new EncryptionManager();
 			mSettings = PreferenceManager.getDefaultSharedPreferences(ThatItApplication.getApplication());
-			//SmackConfiguration.setPacketReplyTimeout(60000);
+			SmackConfiguration.setDefaultPacketReplyTimeout(60000);
 			Utility.fragPaymentSettingsOpen = false;
 			Utility.fragChatIsOpen = false;
 			Utility.disAllowSubscription = true;
@@ -618,16 +619,20 @@ public class FragmentContact extends Fragment implements OnClickListener {
 				//card = new VCard();
 				One2OneChatDb oneToOne = new One2OneChatDb(ThatItApplication.getApplication());
 				for (int i = 0; i < rosterEntries.size(); i++) {
-//					try {
+					try {
 						card = null;
 						card = new VCard();
-//						if(mConnection.isConnected() && mConnection.isAuthenticated()) {
-//							card.load(MainService.mService.connection, rosterEntries.get(i).getUser());
-//						}
-//						} catch (XMPPException e) {
-//						e.printStackTrace();
-//					}
-					try {
+						if(mConnection.isConnected() && mConnection.isAuthenticated()) {
+							card.load(MainService.mService.connection, rosterEntries.get(i).getUser());
+						}
+						} catch (XMPPException e) {
+						e.printStackTrace();
+					} catch (SmackException.NotConnectedException e) {
+                        e.printStackTrace();
+                    } catch (SmackException.NoResponseException e) {
+                        e.printStackTrace();
+                    }
+                    try {
 						String jId = rosterEntries.get(i).getUser().split("@")[0];
 						String firstname;
 						String lastname = "";
